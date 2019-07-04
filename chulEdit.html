@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./static/css/comm.css">
+	<link rel="stylesheet" type="text/css" href="./static/css/total.css">
+	<script type="text/javascript" src="./static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="./static/js/show.js"></script>
+    <script type="text/javascript" src="./static/js/comm.js"></script>
+	<style type="text/css">
+		.siled .cont div.e_int .complaint input{
+			width: 256px
+		}
+		.siled .cont div.radio div{
+			margin-left: 60px
+		}
+	</style>
+</head>
+<body>
+    <!--start 头部-->
+	<div class="top">
+		<div class="title"><img src="./static/images/logo.png" alt=""></div>
+		<ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+		</ul>
+	</div>
+    <!--end 头部-->
+	<div class="content">
+        <!--start 测导航-->
+		<div class="nav">
+			<p>我的导航</p>
+			<ul>
+				<li onclick="window.location.href = 'index.html'">
+					<i class="nav_home"></i>
+					<span>首页</span>
+				</li>
+                <li class="active" onclick="window.location.href = 'import-idx.html';">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html';">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+				<li onclick="window.location.href = 'analysis.html'">
+					<i class="nav_static"></i>
+					<span>统计分析</span>
+				</li>
+				<li onclick="window.location.href = 'params.html';">
+					<i class="nav_manage"></i>
+					<span>系统管理</span>
+				</li>
+			</ul>
+		</div>
+        <!--end 测导航-->
+		<div class="siled">
+			<div class="path">EMOS工单 / 工单</div>
+			<div class="subtitle">
+				<span>生成工单信息修改</span>
+				<div class="chul">待处理</div>
+			</div>
+			<div class="module">
+				<div class="title">
+					<span>生成工单信息</span>
+					<i class="show"></i>
+				</div>
+				<div class="cont edit" style="display: block;">
+					<div class="e_int">
+						<strong>投诉时间：</strong>
+						<div class="complaint">
+							<input id="time1" readonly type="text">
+						</div>
+						<p class="tip">投诉时间确定说明：如果投诉描述中出现具体时间，则将其确定为投诉时间，否则将客服受理时间确定为投诉时间</p>
+					</div>
+					<div class="e_int">
+						<strong>投诉地点：</strong>
+						<input class="e_input" type="text">
+						<p class="tip">请从投诉描述中查找</p>
+					</div>
+					<div class="e_int">
+						<strong>数据时间：</strong>
+						<div class="complaint">
+							<input id="time2" class="e_start" type="text" readonly>
+						</div>
+						<b>至</b> 
+						<div class="complaint">
+							<input id="time3" class="e_end" type="text" readonly>
+						</div>
+						<p class="tip">数据时间确定说明：若投诉时间是投诉描述中故障的具体发生时间，则数据时间为从投诉时间往前推2个小时；若投诉时间是投诉描述中故障的模糊发生时间，则数据时间为投诉当天；若投诉时间是客服受理时间，则数据时间为从投诉时间往前推24个小时</p>
+					</div>
+					<div class="radio">
+						<strong>投诉类别：</strong>
+						<div>
+    						<span>有信号无法在线游戏</span>
+    						<span>有信号全部网站、游戏、视频、APP等软件上网慢、卡顿</span>
+    						<span>上网时出现断线</span>
+    						<span>区域信号弱</span>
+    						<span>有信号不能上网</span>
+                            <span>无4G信号或者信号弱</span>
+                            <span>区域无信号</span>
+                            <span>有信号视频观看慢、卡</span>
+                            <span>有信号在线聊天慢</span>
+                            <span>网速慢</span>
+                            <span>有信号无法在线聊天</span>
+                            <span>区域信号不好</span>
+                            <span>有信号在线游戏卡顿</span>
+                            <span>有信号网页浏览慢</span>
+                            <span>出现全部网站、游戏、视频、APP等软件断线</span>
+                            <span>有信号无法观看视频</span>
+                            <span>有信号下载速率慢</span>
+                            <span>网速慢或网页无法打开</span>
+                            <span>有信号无法下载</span>
+                            <span>有信号无法浏览网页</span>
+                        </div>
+					</div>
+					<div class="radio">
+						<strong>业务类别：</strong>
+						<span>即时通信</span>
+						<span>游览</span>
+						<span>下载</span>
+						<span>游戏</span>
+						<span>视频</span>
+					</div>
+					<div class="e_int">
+						<strong>业务名称：</strong>
+						<input type="text">
+					</div>
+				</div>
+			</div>
+			<div class="module" id="siled">
+				<div class="title">
+					<span>原始工单信息</span>
+					<i></i>
+				</div>
+				<div class="cont">
+					<p>
+						<strong>客服受理时间：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉电话：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>所在地市：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉类型：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉描述：</strong>
+						<span></span>
+					</p>
+				</div>
+			</div>
+
+			<div class="start">
+				<button>取消</button>
+				<button>确定</button>
+			</div>
+		</div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+	</div>
+    <!--start 加载中-->
+	<div class="maskPop"></div>
+	<div class="modifyPop">
+		<div class="spinner">
+		  	<div class="spinner-container container1">
+			    <div class="circle1"></div>
+			    <div class="circle2"></div>
+			    <div class="circle3"></div>
+			    <div class="circle4"></div>
+		  	</div>
+		  	<div class="spinner-container container2">
+			    <div class="circle1"></div>
+			    <div class="circle2"></div>
+			    <div class="circle3"></div>
+			    <div class="circle4"></div>
+		  	</div>
+		  	<div class="spinner-container container3">
+			    <div class="circle1"></div>
+			    <div class="circle2"></div>
+			    <div class="circle3"></div>
+			    <div class="circle4"></div>
+		  	</div>
+		</div>
+		<!--<img style="display: none;" src="./static/images/success.png">-->
+	</div>
+    <!--end 加载中-->
+	<script type="text/javascript" src="./static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/laydate.js"></script>
+	<script type="text/javascript">
+		$(function(){
+            radioImitate(); //模拟单选框
+			//日期时间范围
+            laydate.render({
+              elem: '#time1'
+              ,type: 'datetime'
+            }); 
+            laydate.render({
+              elem: '#time2'
+              ,type: 'datetime'
+            }); 
+            laydate.render({
+              elem: '#time3'
+              ,type: 'datetime'
+            }); 
+            window.fiel_number = localStorage.getItem('fiel_number');//工单编号
+			var file_msg_his = JSON.parse(localStorage.getItem('file_msg'));//待处理原始工单信息数据
+			if(file_msg_his){ //待处理原始工单信息数据展示
+				$('.module').eq(1).find('.cont span').eq(0).text(file_msg_his.accept_time);
+				$('.module').eq(1).find('.cont span').eq(1).text(file_msg_his.complain_cell);
+				$('.module').eq(1).find('.cont span').eq(2).text(file_msg_his.occ_city);
+				$('.module').eq(1).find('.cont span').eq(3).text(file_msg_his.complain_type);
+				$('.module').eq(1).find('.cont span').eq(4).text(file_msg_his.error_discribe);
+			}
+			var workList = JSON.parse(localStorage.getItem('workList')); //待处理修改数据
+			if(workList){ //初始化待处理数据展示
+				//投诉时间
+				if(workList.error_time){
+					$('.module').eq(0).find('.complaint').eq(0).find('input').val(workList.error_time);
+				}
+				//数据时间
+				if(workList.data_time_first){
+					$('.module').eq(0).find('.complaint').eq(1).find('input').val(workList.data_time_first);
+				}
+				if(workList.data_time_end){
+					$('.module').eq(0).find('.complaint').eq(2).find('input').val(workList.data_time_end);
+				}
+				//投诉地点
+				if(workList.error_address){
+					$('.module').eq(0).find('.cont > div').eq(1).find('input').val(workList.error_address)
+				}
+				//业务名称
+				if(workList.business_name){
+					$('.module').eq(0).find('.cont > div').eq(5).find('input').val(workList.business_name)
+				}
+				//投诉类别
+				if(workList.complain_name){
+					$('.module').eq(0).find('.radio').eq(0).find('span').each(function(){
+						if($(this).text() == workList.complain_name){
+							$(this).addClass('active')
+						}
+					})
+				}
+				//业务类别
+				if(workList.type){
+					$('.module').eq(0).find('.radio').eq(1).find('span').each(function(){
+						if($(this).text() == workList.type){
+							$(this).addClass('active')
+						}
+					})
+				}
+			}
+			//返回
+			$('.start button').eq(0).on('click',function(){
+				localStorage.removeItem('workList');
+				localStorage.removeItem('file_msg');
+            	localStorage.setItem('fiel_number',window.fiel_number);
+				window.location.href = 'chulState.html';
+			})
+			//确认修改
+			$('.start button').eq(1).on('click',function(){
+
+				localStorage.removeItem('workList');
+				localStorage.removeItem('file_msg');
+				localStorage.setItem('fiel_number',window.fiel_number);
+				window.location.href = 'chulState.html'
+			})
+		})
+	</script>
+</body>
+</html>

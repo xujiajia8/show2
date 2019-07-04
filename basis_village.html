@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./static/css/comm.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/total.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/basis.css">
+    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/show.js"></script>
+    <script type="text/javascript" src="./static/js/comm.js"></script>
+    <style type="text/css">
+        /*折线图下钻页面特有css  -start-*/
+        #target {
+            width: 90%;
+            height: 400px;
+            margin: 0 auto
+        }
+        .start{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        /*折线图下钻页面特有css  -end-*/
+    </style>
+</head>
+
+<body>
+    <!--start 头部-->
+    <div class="top">
+        <div class="title"><img src="./static/images/logo.png" alt=""></div>
+        <ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+        </ul>
+    </div>
+    <!--end 头部-->
+    <div class="content">
+        <!--start 测导航-->
+        <div class="nav">
+            <p>我的导航</p>
+            <ul>
+                <li onclick="window.location.href = 'index.html'">
+                    <i class="nav_home"></i>
+                    <span>首页</span>
+                </li>
+                <li class="active" onclick="window.location.href = 'import-idx.html';">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html';">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+                <li onclick="window.location.href = 'analysis.html'">
+                    <i class="nav_static"></i>
+                    <span>统计分析</span>
+                </li>
+                <li onclick="window.location.href = 'params.html';">
+                    <i class="nav_manage"></i>
+                    <span>系统管理</span>
+                </li>
+            </ul>
+        </div>
+        <!--end 测导航-->
+        <div class="siled">
+            <div class="path">EMOS工单 / 工单 / 定界依据 / 小区整体指标详情</div>
+            <div class="start">
+                <button>返回</button>
+            </div>
+            <div class="subtitle">
+                <span>小区整体指标详情</span>
+            </div>
+            <div class="module">
+                <div class="title">
+                    <span>--整体指标</span>
+                    <i class="show"></i>
+                </div>
+                <div class="cont" style="display:block">
+                    <div id="target"></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./static/js/echarts.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            window.fiel_number = localStorage.getItem('fiel_number'); //工单编号
+            var basis_two_id = localStorage.getItem('basis_two_id'); //下钻点id
+            var basis_two_time = localStorage.getItem('basis_two_time'); //下钻点time
+            var basis_user_name = localStorage.getItem('basis_two_name'); //下钻点坐在的tab名称
+            window.basis_two_type = localStorage.getItem('basis_two_type'); //下钻点type类型
+            window.basis_two_text = localStorage.getItem('basis_two_text'); //下钻点类型对应名称展示
+            //下钻点tab名称对应请求参数
+            var baisi_two_name = {
+                'TCP一二次握手时延': 'tcp_12_time',
+                'TCP一二次握手成功率': 'tcp_12_per',
+                'TCP二三次握手时延': 'tcp_23_time',
+                'TCP二三次握手成功率': 'tcp_23_per',
+                'TCP重传率': 'tcp_re_per',
+                'HTTP响应成功率': 'http_per',
+                'HTTP响应时延': 'http_time',
+                'HTTP500KB以上大包下载速率': 'http_spe',
+                '附着成功率': 'scu',
+                'TAU成功率': 'tau_scu',
+                'X2切换成功率': 'x2_scu',
+                'Service Request 业务请求成功率': 'xr_scu',
+                '弱覆盖':'mr_cr',
+                '重叠覆盖':'mr_ocr',
+                '过覆盖':'mr_nocr'
+            }
+            //下钻点tab名称对应数值单位
+            var unit = {
+                'TCP一二次握手时延':'单位/ms',
+                'TCP一二次握手成功率':'百分比/%',
+                'TCP二三次握手时延':'单位/ms',
+                'TCP二三次握手成功率':'百分比/%',
+                'TCP重传率':'百分比/%',
+                'HTTP响应成功率':'百分比/%',
+                'HTTP响应时延':'单位/ms',
+                'HTTP500KB以上大包下载速率':'单位/Mbps',
+                '附着成功率':'百分比/%',
+                'TAU成功率':'百分比/%',
+                'X2切换成功率':'百分比/%',
+                'Service Request 业务请求成功率':'百分比/%',
+                '弱覆盖':'百分比/%',
+                '重叠覆盖':'百分比/%',
+                '过覆盖':'百分比/%'
+            };
+            if (window.fiel_number.indexOf('JSL') != -1) { //录入
+                if(window.basis_two_type == 'cell' || window.basis_two_type == 'user'){
+                    $('.siled .path').html('录入型工单 / 工单 / 定界依据 / 小区整体指标详情');
+                }else if(window.basis_two_type == 'sgw'){
+                    $('.siled .path').html('录入型工单 / 工单 / 定界依据 / SGW-IP整体指标详情');
+                }else if(window.basis_two_type == 'mme'){
+                    $('.siled .path').html('录入型工单 / 工单 / 定界依据 / MME-IP整体指标详情');
+                }
+            } else {
+                if(window.basis_two_type == 'cell' || window.basis_two_type == 'user'){
+                    $('.siled .path').html('EMOS工单 / 工单 / 定界依据 / 小区整体指标详情');
+                }else if(window.basis_two_type == 'sgw'){
+                    $('.siled .path').html('EMOS工单 / 工单 / 定界依据 / SGW-IP整体指标详情');
+                }else if(window.basis_two_type == 'mme'){
+                    $('.siled .path').html('EMOS工单 / 工单 / 定界依据 / MME-IP整体指标详情');
+                }
+            };
+            //下钻点类型对应名称展示
+            $('.siled .module .title span').html(basis_two_text + '<em style="padding-left:20px;font-size:16px;color:rgba(0,0,0,.65)">'+basis_two_time+'</em>');
+            if(window.basis_two_type == 'cell' || window.basis_two_type == 'user'){
+                $('.siled .subtitle span').html('小区整体指标');
+            }else if(window.basis_two_type == 'sgw'){
+                $('.siled .subtitle span').html('SGW-IP整体指标');
+            }else if(window.basis_two_type == 'mme'){
+                $('.siled .subtitle span').html('MME-IP整体指标');
+            }
+            //下钻点对应折线图请求-渲染页面
+            var respone = {"start_time":1558863918000,"threshold":300,"data":[{"x":1558864200000,"y":48.6740999112},{"x":1558864440000,"y":49.6186717426},{"x":1558864800000,"y":51.2406249461},{"x":1558865040000,"y":52.8229030721},{"x":1558865400000,"y":52.5275101046},{"x":1558865640000,"y":54.0763636393},{"x":1558866000000,"y":52.0953202286},{"x":1558866240000,"y":52.9392594662},{"x":1558866600000,"y":52.6870326292},{"x":1558866840000,"y":49.7667913431},{"x":1558867200000,"y":54.6068081063},{"x":1558867440000,"y":51.5668614266},{"x":1558867800000,"y":53.7361544457},{"x":1558868040000,"y":52.8544248328},{"x":1558868400000,"y":54.8453706433},{"x":1558868640000,"y":67.6161066544},{"x":1558869000000,"y":63.7854779217},{"x":1558869240000,"y":63.7750566982},{"x":1558869600000,"y":55.5748773933},{"x":1558869840000,"y":52.7835528801},{"x":1558870200000,"y":56.0818981252},{"x":1558870440000,"y":55.2708541133},{"x":1558870800000,"y":53.8776174948},{"x":1558871040000,"y":52.839935681},{"x":1558871400000,"y":52.7176418697},{"x":1558871640000,"y":54.5224947899},{"x":1558872000000,"y":61.1797272394},{"x":1558872240000,"y":55.6640124674},{"x":1558872600000,"y":55.5290253816},{"x":1558872840000,"y":58.555467272},{"x":1558873200000,"y":57.6796952654},{"x":1558873440000,"y":57.1197272458},{"x":1558873800000,"y":56.886115943},{"x":1558874040000,"y":55.321106663},{"x":1558874400000,"y":56.7125870449},{"x":1558874640000,"y":57.4815264045},{"x":1558875000000,"y":58.0875874464},{"x":1558875240000,"y":58.0423673438},{"x":1558875600000,"y":58.7676979919},{"x":1558875840000,"y":58.9335354002},{"x":1558876200000,"y":57.104737208},{"x":1558876440000,"y":57.9239518203},{"x":1558876800000,"y":56.8045769617},{"x":1558877040000,"y":57.7708645947},{"x":1558877400000,"y":57.0193941569},{"x":1558877640000,"y":55.1073321457},{"x":1558878000000,"y":55.6608430841},{"x":1558878240000,"y":56.1842277385},{"x":1558878600000,"y":54.5383830277},{"x":1558878840000,"y":53.2992319488},{"x":1558879200000,"y":57.8343089443},{"x":1558879440000,"y":53.5003425956},{"x":1558879800000,"y":51.9845409146},{"x":1558880040000,"y":53.5286825186},{"x":1558880400000,"y":52.8172216087},{"x":1558880640000,"y":51.1663345466},{"x":1558881000000,"y":50.9516306729},{"x":1558881240000,"y":52.2673266271},{"x":1558881600000,"y":52.0446008901},{"x":1558881840000,"y":52.2362504424},{"x":1558882200000,"y":51.6068760545},{"x":1558882440000,"y":54.4370155402},{"x":1558882800000,"y":50.4546573783},{"x":1558883040000,"y":52.5343730443},{"x":1558883400000,"y":54.0016912266},{"x":1558883640000,"y":52.3875889719},{"x":1558884000000,"y":50.7554327404},{"x":1558884240000,"y":54.714186499},{"x":1558884600000,"y":51.3479895947},{"x":1558884840000,"y":53.0947022792},{"x":1558885200000,"y":51.7615142048},{"x":1558885440000,"y":51.4875719573},{"x":1558885800000,"y":49.7112432268},{"x":1558886040000,"y":49.3199309518},{"x":1558886400000,"y":53.896057034},{"x":1558886640000,"y":46.5644869164},{"x":1558887000000,"y":48.5738170072},{"x":1558887240000,"y":49.2902303983},{"x":1558887600000,"y":49.2079062276},{"x":1558887840000,"y":49.7087464079},{"x":1558888200000,"y":47.3980395491},{"x":1558888440000,"y":50.0429688146},{"x":1558888800000,"y":49.6647700028},{"x":1558889040000,"y":50.0650370852},{"x":1558889400000,"y":48.055096475},{"x":1558889640000,"y":47.1944654736},{"x":1558890000000,"y":46.8088927052},{"x":1558890240000,"y":45.9895479958},{"x":1558890600000,"y":46.1601257414},{"x":1558890840000,"y":45.4262983401},{"x":1558891200000,"y":43.9685793707},{"x":1558891440000,"y":44.204611121},{"x":1558891800000,"y":43.4833996513},{"x":1558892040000,"y":44.8920286366},{"x":1558892400000,"y":43.9409538111},{"x":1558892640000,"y":42.5414900838},{"x":1558893000000,"y":43.0103895028},{"x":1558893240000,"y":41.7802596113},{"x":1558893600000,"y":43.3986571853},{"x":1558893840000,"y":42.7282309122},{"x":1558894200000,"y":41.7761355487},{"x":1558894440000,"y":42.2862351432},{"x":1558894800000,"y":40.111359127},{"x":1558895040000,"y":38.8832210277},{"x":1558895400000,"y":40.0973906052},{"x":1558895640000,"y":40.4013557173},{"x":1558896000000,"y":43.5342415634},{"x":1558896240000,"y":40.0652860374},{"x":1558896600000,"y":40.3618009461},{"x":1558896840000,"y":39.9274324283},{"x":1558897200000,"y":52.205958222},{"x":1558897440000,"y":55.128489404},{"x":1558897800000,"y":41.1947921075},{"x":1558898040000,"y":41.4271931361},{"x":1558898400000,"y":39.4589509847},{"x":1558898640000,"y":39.6882994461},{"x":1558899000000,"y":39.4974554506},{"x":1558899240000,"y":41.4319498635},{"x":1558899600000,"y":41.4826952381},{"x":1558899840000,"y":38.9776461264},{"x":1558900200000,"y":38.568400372},{"x":1558900440000,"y":43.0731388287},{"x":1558900800000,"y":41.0475411659},{"x":1558901040000,"y":40.4917289964},{"x":1558901400000,"y":41.6289606515},{"x":1558901640000,"y":38.6148097963},{"x":1558902000000,"y":41.1971885174},{"x":1558902240000,"y":48.5396211242},{"x":1558902600000,"y":39.6433906361},{"x":1558902840000,"y":39.8959780272},{"x":1558903200000,"y":40.2358427249},{"x":1558903440000,"y":39.4164621629},{"x":1558903800000,"y":40.286706266},{"x":1558904040000,"y":40.240635591},{"x":1558904400000,"y":40.1383103116},{"x":1558904640000,"y":38.8747217372},{"x":1558905000000,"y":39.2671347646},{"x":1558905240000,"y":38.4371932424},{"x":1558905600000,"y":38.8229142738},{"x":1558905840000,"y":40.1060772307},{"x":1558906200000,"y":36.6098469822},{"x":1558906440000,"y":37.0454869186},{"x":1558906800000,"y":37.4403436528},{"x":1558907040000,"y":37.5283498598},{"x":1558907400000,"y":37.3280420333},{"x":1558907640000,"y":36.8676478821},{"x":1558908000000,"y":44.8593963987},{"x":1558908240000,"y":38.0234572165},{"x":1558908600000,"y":51.6080726993},{"x":1558908840000,"y":49.1436906006},{"x":1558909200000,"y":37.4043331339},{"x":1558909440000,"y":37.7687111221},{"x":1558909800000,"y":43.5416295123},{"x":1558910040000,"y":41.5911715757},{"x":1558910400000,"y":44.575220761},{"x":1558910640000,"y":41.3231718277},{"x":1558911000000,"y":43.4675820726},{"x":1558911240000,"y":39.6431640909},{"x":1558911600000,"y":50.7728156168},{"x":1558911840000,"y":40.8562572252},{"x":1558912200000,"y":41.6517924335},{"x":1558912440000,"y":42.5328765028},{"x":1558912800000,"y":42.464548472},{"x":1558913040000,"y":44.6784310616},{"x":1558913400000,"y":43.8810055369},{"x":1558913640000,"y":42.6925431621},{"x":1558914000000,"y":43.4844390204},{"x":1558914240000,"y":45.099981966},{"x":1558914600000,"y":46.0142056362},{"x":1558914840000,"y":49.2707082534},{"x":1558915200000,"y":50.1279371689},{"x":1558915440000,"y":60.7989846909},{"x":1558915800000,"y":69.2881254088},{"x":1558916040000,"y":60.1619683106},{"x":1558916400000,"y":50.1206440456},{"x":1558916640000,"y":51.0497859853},{"x":1558917000000,"y":50.7895052568},{"x":1558917240000,"y":54.5331897921},{"x":1558917600000,"y":49.4229243117},{"x":1558917840000,"y":52.2023494788},{"x":1558918200000,"y":51.5828956305},{"x":1558918440000,"y":49.1081465782},{"x":1558918800000,"y":48.3534211486},{"x":1558919040000,"y":48.3633440468},{"x":1558919400000,"y":49.3093415221},{"x":1558919640000,"y":47.764075909},{"x":1558920000000,"y":48.5333853874},{"x":1558920240000,"y":50.0014937852},{"x":1558920600000,"y":51.0768654983},{"x":1558920840000,"y":53.3540277643},{"x":1558921200000,"y":50.635402939},{"x":1558921440000,"y":49.8556715355},{"x":1558921800000,"y":49.8687929382},{"x":1558922040000,"y":52.8524770226},{"x":1558922400000,"y":53.6642076173},{"x":1558922640000,"y":54.4602166001},{"x":1558923000000,"y":52.0822733822},{"x":1558923240000,"y":53.7242132679},{"x":1558923600000,"y":50.3458173695},{"x":1558923840000,"y":48.543413104},{"x":1558924200000,"y":49.089866013},{"x":1558924440000,"y":52.0309934633},{"x":1558924800000,"y":51.6981607654},{"x":1558925040000,"y":51.0624255357},{"x":1558925400000,"y":53.8743847373},{"x":1558925640000,"y":53.8927519407},{"x":1558926000000,"y":53.6460168479},{"x":1558926240000,"y":52.217534909},{"x":1558926600000,"y":51.9586344628},{"x":1558926840000,"y":51.4588450657},{"x":1558927200000,"y":52.0901782156},{"x":1558927440000,"y":50.7601938036},{"x":1558927800000,"y":49.4242451015},{"x":1558928040000,"y":52.2082683144},{"x":1558928400000,"y":52.9014256879},{"x":1558928640000,"y":53.5346269011},{"x":1558929000000,"y":54.9564226612},{"x":1558929240000,"y":52.8764444283},{"x":1558929600000,"y":56.6064075546},{"x":1558929840000,"y":55.8125720576},{"x":1558930200000,"y":55.4084288502},{"x":1558930440000,"y":56.2980140519},{"x":1558930800000,"y":52.3847895299},{"x":1558931040000,"y":53.1066268234},{"x":1558931400000,"y":53.8202818505},{"x":1558931640000,"y":52.1733237766},{"x":1558932000000,"y":52.1204089673},{"x":1558932240000,"y":51.6770973415},{"x":1558932600000,"y":51.1470185388},{"x":1558932840000,"y":53.0818601917},{"x":1558933200000,"y":57.0249295472},{"x":1558933440000,"y":52.3626569306},{"x":1558933800000,"y":51.9605651106},{"x":1558934040000,"y":51.6970029624},{"x":1558934400000,"y":51.6099467265},{"x":1558934640000,"y":51.3073059685},{"x":1558935000000,"y":51.3061323297},{"x":1558935240000,"y":51.2064455204},{"x":1558935600000,"y":52.4357819168},{"x":1558935840000,"y":52.0578815329},{"x":1558936200000,"y":51.2791484876},{"x":1558936440000,"y":49.5365068385},{"x":1558936800000,"y":52.6133303229},{"x":1558937040000,"y":53.5136303621},{"x":1558937400000,"y":50.9740698788},{"x":1558937640000,"y":53.7369085444},{"x":1558938000000,"y":52.1826408177},{"x":1558938240000,"y":51.7072376154},{"x":1558938600000,"y":52.0713759606},{"x":1558938840000,"y":52.0024231129},{"x":1558939200000,"y":52.4796699412},{"x":1558939440000,"y":52.7005294585},{"x":1558939800000,"y":53.1888762251},{"x":1558940040000,"y":54.441452992},{"x":1558940400000,"y":51.6878910487},{"x":1558940640000,"y":52.6115195572},{"x":1558941000000,"y":54.5279861706},{"x":1558941240000,"y":54.6417920919},{"x":1558941600000,"y":52.6768299708},{"x":1558941840000,"y":52.6376385341},{"x":1558942200000,"y":53.9484963857},{"x":1558942440000,"y":57.5814516481},{"x":1558942800000,"y":56.8773383128},{"x":1558943040000,"y":54.1447033256},{"x":1558943400000,"y":52.8748330225},{"x":1558943640000,"y":52.4236314205},{"x":1558944000000,"y":51.6218418799},{"x":1558944240000,"y":52.2063870373},{"x":1558944600000,"y":54.9867676859},{"x":1558944840000,"y":53.596241386},{"x":1558945200000,"y":53.480910629},{"x":1558945440000,"y":51.5653710836},{"x":1558945800000,"y":52.2715182888},{"x":1558946040000,"y":51.1071882767},{"x":1558946400000,"y":53.8863106902},{"x":1558946640000,"y":53.7018619693},{"x":1558947000000,"y":51.7910469209},{"x":1558947240000,"y":52.1527818958},{"x":1558947600000,"y":54.3948185072},{"x":1558947840000,"y":56.1261909186},{"x":1558948200000,"y":55.4612935702},{"x":1558948440000,"y":53.8880515515},{"x":1558948800000,"y":57.9971401535},{"x":1558949040000,"y":51.8295399108},{"x":1558949400000,"y":52.149102175},{"x":1558949640000,"y":54.1465348095},{"x":1558950000000,"y":53.4656617499},{"x":1558950240000,"y":53.4092419978}]};
+            var xDate = [],
+                yDate = [],
+                dottedY = [],
+                zDate = [],
+                minAx = [], //折线图 y坐标轴最大最小值
+                dy;
+            for (var i = 0; i < respone.data.length; i++) {
+                var time = new Date(respone.data[i].x);
+                var xt = (time.getMonth() + 1) + '-' + time.getDate() + ' ' + time.getHours() + ':' + time.getMinutes();
+                if(basis_user_name == 'TCP一二次握手成功率' || basis_user_name == 'TCP二三次握手成功率' || basis_user_name == 'TCP重传率' || basis_user_name == 'HTTP响应成功率' || basis_user_name == '附着成功率' || basis_user_name == 'TAU成功率' || basis_user_name == 'X2切换成功率' || basis_user_name == 'Service Request 业务请求成功率'){
+                    if(respone.data[i].y != '-'){
+                        respone.data[i].y = (respone.data[i].y * 100).toFixed(2);
+                    }
+                    if(i == 0){
+                        respone.threshold = (respone.threshold * 100).toFixed(2);
+                    }
+                    dy = respone.data[i].y;
+                    if (dy == '-') {
+                        var pre,nex;
+                        if(i == 0){
+                            pre = 0;
+                            for(var n=1;(i + n) < respone.data.length;n++){
+                                if(respone.data[i + n].y != '-'){
+                                    nex = Number(respone.data[i + n].y * 100).toFixed(2);
+                                    break;
+                                }
+                            }
+                        }else if(i == respone.data.length-1){
+                            for(var m=1;(i - m) >= 0;m++){
+                                if(respone.data[i - m].y != '-'){
+                                    pre = Number(respone.data[i - m].y);
+                                    break;
+                                }
+                            }
+                            nex = 0
+                        }else{
+                            for(var m=1;(i - m) >= 0;m++){
+                                if(respone.data[i - m].y != '-'){
+                                    pre = Number(respone.data[i - m].y);
+                                    break;
+                                }
+                            }
+                            for(var n=1;(i + n) < respone.data.length ;n++){
+                                if(respone.data[i + n].y != '-'){
+                                    nex = Number(respone.data[i + n].y * 100).toFixed(2);
+                                    break;
+                                }
+                            }
+                        }
+                        dy = ( pre + Number(nex) ) / 2;
+                    }
+                }else{
+                    if(respone.data[i].y != '-'){
+                        respone.data[i].y = (respone.data[i].y).toFixed(2);
+                    }
+                    if(i == 0){
+                        respone.threshold = Number(respone.threshold).toFixed(2);
+                    }
+                    dy = respone.data[i].y;
+                    if (dy == '-') {
+                        var pre,nex;
+                        if(i == 0){
+                            pre = 0;
+                            for(var n=1;(i + n) < respone.data.length;n++){
+                                if(respone.data[i + n].y != '-'){
+                                    nex = Number(respone.data[i + n].y);
+                                    break;
+                                }
+                            }
+                        }else if(i == respone.data.length-1){
+                            for(var m=1;(i - m) >= 0;m++){
+                                if(respone.data[i - m].y != '-'){
+                                    pre = Number(respone.data[i - m].y);
+                                    break;
+                                }
+                            }
+                            nex = 0
+                        }else{
+                            for(var m=1;(i - m) >= 0;m++){
+                                if(respone.data[i - m].y != '-'){
+                                    pre = Number(respone.data[i - m].y);
+                                    break;
+                                }
+                            }
+                            for(var n=1;(i + n) < respone.data.length ;n++){
+                                if(respone.data[i + n].y != '-'){
+                                    nex = Number(respone.data[i + n].y);
+                                    break;
+                                }
+                            }
+                        }
+                        dy = ( pre + nex ) / 2;
+                    }
+                }
+
+                if(i == 0){
+                    minAx = [respone.threshold,respone.threshold];
+                }
+                //设置y值最大最小值
+                if(respone.data[i].y != '-' && Number(respone.data[i].y) < Number(minAx[0]) ){
+                    minAx[0] = respone.data[i].y
+                }
+                if(respone.data[i].y != '-' && Number(respone.data[i].y) > Number(minAx[1])){
+                    minAx[1] = respone.data[i].y
+                }
+
+                xDate.push(time);
+                yDate.push(respone.data[i].y);
+                dottedY.push(dy);
+                zDate.push(respone.threshold);
+            }
+            if((minAx[1] - respone.threshold) > (respone.threshold - minAx[0])){
+                if((minAx[1] - respone.threshold) > (respone.threshold - 0)){
+                    minAx[0] = 0;
+                }else{
+                    minAx[0] = (respone.threshold - (minAx[1] - respone.threshold)).toFixed(2);
+                }
+            }else{
+                minAx[1] = (respone.threshold - minAx[0]) + Number(respone.threshold);
+                minAx[1] = minAx[1].toFixed(2);
+            }
+            if (basis_user_name == 'TCP一二次握手时延' || basis_user_name == 'TCP二三次握手时延' || basis_user_name == 'TCP重传率' || basis_user_name == 'HTTP响应时延') {
+                lineChart(xDate, yDate, dottedY, zDate, basis_user_name, '#5E9DD6', 'red',unit[basis_user_name],minAx)
+            } else {
+                lineChart(xDate, yDate, dottedY, zDate, basis_user_name, 'red', '#5E9DD6',unit[basis_user_name],minAx)
+            }
+        })
+        $('.start button').click(function() {
+            localStorage.setItem('fiel_number',window.fiel_number);
+            window.location.href = 'basis.html';
+        })
+        
+        function lineChart(xA, yA, dY, thd, xName, eColor, sColor ,unitY ,ymx) { //折线图展示
+            var lte_val,xA1=[],threshold;
+            threshold = thd[0];
+            if(threshold.split('.')[1] == '00'){
+                threshold = threshold.split('.')[0]
+            };
+            if(unitY == '百分比/%'){
+                threshold = threshold + '%'
+            }else{
+                threshold = threshold + 'ms'
+            };
+            if (eColor == 'red') {
+                lte_val = [{
+                    gte: 0,
+                    lt: thd[0],
+                    color: eColor
+                }];
+            } else {
+                lte_val = [{
+                    gte: 0,
+                    lte: thd[0],
+                    color: eColor
+                }]
+            };
+            var s_val = null;
+            var e_val = null;
+            var miny = ymx[0];  // y轴最小值
+            var maxy = ymx[1];  // y轴最大值
+            s_val = dateFormat(xA[0].getHours()) + ':' + dateFormat(xA[0].getMinutes())
+            for(var i=0;i<xA.length;i++){
+                xA1.push(dateFormat(xA[i].getHours()) + ':' + dateFormat(xA[i].getMinutes()));
+                if(i == 19){
+                    e_val = dateFormat(xA[i].getHours()) + ':' + dateFormat(xA[i].getMinutes())
+                }
+            }
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('target'));
+            // 指定图表的配置项和数据
+            var option = {
+                grid: {
+                    show: true,
+                    bottom: 90,
+                    left: '10%',
+                    right: '10%',
+                    borderWidth:0
+                },
+                legend: {
+                    type: 'plain',
+                    show: true,
+                    top: 10,
+                    right:'10%',
+                    selectedMode: false,
+                    itemWidth:14,
+                    itemHeight:14,
+                    textStyle:{
+                        color:'rgba(0,0,0,0.45)'
+                    },
+                    data: [{
+                        name: '异常',
+                        icon:'image://static/images/echarts_i1.png'
+                    },{
+                        name: '阈值:'+parseInt(thd[0]),
+                        icon:'image://static/images/echarts_i2.png'
+                    }, {
+                        name: xName,
+                        icon:'image://static/images/echarts_i3.png'
+                    }],
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: xA1,
+                    axisLine: {     //x轴坐标轴设置
+                        lineStyle: {
+                            color: '#DEE1E3',
+                        }
+                    },
+                    axisTick: {    //x坐标轴刻度设置
+                        length: 3,
+                        lineStyle: {
+                            color: '#DEE1E3',
+                        }
+                    },
+                    axisLabel: {    //x坐标轴刻度值设置
+                        color: 'rgba(0,0,0,0.65)',
+                        fontSize: 12,
+                        //rotate: -45
+                    },
+                },
+                yAxis: {
+                    type: 'value',
+                    min:miny,
+                    max:maxy,
+                    name: unitY,
+                    nameGap :25,
+                    nameTextStyle: {
+                        color: 'rgba(0,0,0,0.65)',
+                        padding:[0, 25, 0, 0]
+                    },
+                    axisLine: {
+                        show:false,
+                    },
+                    axisTick: {
+                        show:false
+                    },
+                    axisLabel: {
+                        color: 'rgba(0,0,0,0.65)',
+                        fontSize: 12,
+                        margin:15
+                    },
+                    splitLine: {
+                        lineStyle:{
+                            type:'dashed',
+                            color:'#DEE1E3'
+                        }
+                    },
+                },
+                dataZoom: [{
+                    type: 'inside',
+                    startValue:s_val, //折线图开始数值位置
+                    endValue:e_val, //折线图结束数值位置
+                    minValueSpan: 2,    
+                    zoomOnMouseWheel:false
+                },{
+                    type: 'slider',
+                    backgroundColor:'rgba(243,244,245,0.8)',
+                    dataBackground:{
+                        lineStyle:{
+                            opacity:0
+                        },
+                        areaStyle:{
+                            color:'rgba(0,0,0,0.1)'
+                        }
+                    },
+                    fillerColor:'rgba(36,146,252,0.1489)',
+                    borderColor:'transparent',
+                    handleStyle:{
+                        color:'#2492FC',
+                        borderWidth:2
+                    },
+                    showDetail:false,
+                    xAxisIndex: [0],
+                    filterMode: 'filter',
+                }],
+                //提示框设置
+                tooltip: {
+                    trigger: 'axis',
+                    backgroundColor: '#fff',
+                    axisPointer: {
+                        lineStyle: {
+                            color: '#FF5975',
+                            width:2,
+                            opacity:0.65
+                        }
+                    },
+                    formatter: function(params, ticket, callback) {
+                        var htmlStr = '';
+                        //console.log(params[0])
+                        var txtName ; 
+                        var index = params[0].dataIndex;  //点击位置索引
+                        var company = unitY.split('/')[1]; //单位名称
+
+                        var value = params[0].data; //y轴值 
+                        if (value != '-') {
+                            if(basis_two_type == 'cell' || basis_two_type == 'user'){
+                                txtName='小区整体指标'
+                            }else if(basis_two_type == 'sgw'){
+                                txtName='SGW-IP整体指标'
+                            }else if(basis_two_type == 'mme'){
+                                txtName='MME-IP整体指标'
+                            }
+                            x_txt = dateFormat(xA[index].getFullYear()) + '-' + dateFormat((xA[index].getMonth() + 1)) + '-' + dateFormat(xA[index].getDate()) + ' ' + dateFormat(xA[index].getHours()) + ':' + dateFormat(xA[index].getMinutes());
+                            htmlStr = '<div style="padding:20px;box-shadow:0px 6px 32px -5px rgba(1,54,105,0.23);"><p style="color:rgba(0,0,0,.85);font-size:14px;margin-bottom:16px;font-weight:bold">'+txtName+'：'+value+company+'</p><span style="font-size:12px;color:rgba(0,0,0,.45)">'+x_txt+'</span></div>';
+
+                            return htmlStr;
+                        }
+                    }
+                },
+                //范围颜设置色
+                visualMap: [{
+                    show: false,
+                    dimension: 1,
+                    pieces: lte_val, //pieces的值由动态数据决定
+                    outOfRange: {
+                        color: sColor
+                    }
+                }],
+                series: [{
+                    type: 'line',
+                    name: xName,
+                    data: yA,
+                    //showSymbol: false,
+                    symbolSize:8,
+                    animation:false,
+                    itemStyle: {
+                        borderWidth: 2,
+                        color: '#5E9DD6'
+                    },
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#2492FC'
+                    }
+                },{
+                    type: 'line',
+                    name: '阈值:'+parseInt(thd[0]),
+                    data: thd,
+                    symbol: 'none',
+                    animation:false,
+                    label:{
+                        show:true,
+                        position:'left',
+                        color:'#FF5975',
+                        fontSize:12,
+                        padding:[0,10,0,0],
+                        formatter:function(params){
+                            var index = params.dataIndex;
+                            if(index == 0){
+                                return Number(params.value)
+                            }else{
+                                return '';
+                            }
+                        }
+                    },
+                    lineStyle: {
+                        width :1,
+                        type:'dashed',
+                        color: '#FF5975'
+                    },
+                    areaStyle:{
+                        color:{
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: 'rgba(255, 89, 117, 0.0995)' // 0% 处的颜色
+                            }, {
+                                offset: 1, color: 'rgba(255, 89, 117, 0)' // 100% 处的颜色
+                            }],
+                            global: false // 缺省为 false
+                        }
+                    }
+                },  {
+                    type: 'line',
+                    name: '异常',
+                    data: dY,
+                    symbol: 'none',
+                    animation:false,
+                    lineStyle: {
+                        width:1,
+                        color: '#2492FC',
+                        type: 'dashed' //'dotted'虚线 'solid'实线
+                    }
+                }]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        }
+        function lineChartZoom(xD, yD, dY, thd, xName, eColor, sColor ,unitY ,ymx,startV,endV) { //折线图展示
+            var lte_val,threshold;
+            threshold = thd[0];
+            if(threshold.split('.')[1] == '00'){
+                threshold = threshold.split('.')[0]
+            };
+            if(unitY == '百分比/%'){
+                threshold = threshold + '%'
+            }else{
+                threshold = threshold + 'ms'
+            };
+            if (eColor == 'red') {
+                lte_val = [{
+                    gte: 0,
+                    lt: thd[0],
+                    color: eColor
+                }];
+            } else {
+                lte_val = [{
+                    gte: 0,
+                    lte: thd[0],
+                    color: eColor
+                }]
+            };
+            var miny = ymx[0];  // y轴最小值
+            var maxy = ymx[1];  // y轴最大值
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('target'));
+            // 指定图表的配置项和数据
+            var option = {
+                xAxis: {
+                    type: 'category',
+                    name: '时间/min',
+                    nameLocation: 'center',
+                    nameGap: 30,
+                    boundaryGap: false,
+                    data: xD,
+                    nameTextStyle: {
+                        color: '#666'
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#dcdcdc',
+                        }
+                    },
+                    axisLabel: {
+                        color: '#666',
+                        fontSize: 10,
+                        rotate: -45
+                    },
+                    splitLine: {
+                        show: true
+                    },
+                    axisTick: {
+                        length: 0
+                    },
+                },
+                yAxis: {
+                    type: 'value',
+                    min:miny,
+                    max:maxy,
+                    name: unitY,
+                    nameTextStyle: {
+                        color: '#666'
+                    },
+                    axisPointer: {
+                        snap: true
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#dcdcdc',
+                        }
+                    },
+                    axisLabel: {
+                        color: '#666',
+                        fontSize: 10,
+                    },
+                    axisTick: {
+                        length: 0
+                    },
+                },
+                dataZoom: [{
+                    type: 'inside',
+                    xAxisIndex: [0],
+                    filterMode: 'filter',
+                    start:startV, //折线图开始百分比位置
+                    end:endV, //折线图结束百分比位置
+                    minValueSpan: 4,
+                    zoomOnMouseWheel: true,
+                    moveOnMouseMove: false,
+                    moveOnMouseWheel: false,
+                }],
+                grid: {
+                    show: true,
+                    bottom: 90,
+                    left: '10%',
+                    right: '10%'
+                },
+                legend: {
+                    type: 'plain',
+                    show: true,
+                    selectedMode: false,
+                    data: [{
+                        name: '阈值:'+threshold
+                    }, {
+                        name: xName
+                    }],
+                    top: 0,
+                    left: 'center'
+                },
+                //提示框设置
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        lineStyle: {
+                            color: '#eb4742'
+                        }
+                    },
+                    backgroundColor: '#fff',
+                    borderWidth: 1,
+                    borderColor: '#BCBCBC',
+                    textStyle: {
+                        color: '#666'
+                    },
+                    formatter: function(params, ticket, callback) {
+                        var htmlStr = '';
+                        //console.log(params[0])
+                        var txtName;  
+                        var index = params[1].dataIndex;  //点击位置索引
+                        var company = unitY.split('/')[1]; //单位名称
+
+                        var value = params[1].data; //y轴值 
+                        if (value != '-') {
+                            if(basis_two_type == 'cell' || basis_two_type == 'user'){
+                                txtName='小区整体指标'
+                            }else if(basis_two_type == 'sgw'){
+                                txtName='SGW-IP整体指标'
+                            }else if(basis_two_type == 'mme'){
+                                txtName='MME-IP整体指标'
+                            }
+                            htmlStr = '<div style="padding:5px;"><p style="color:#5E5E5E;font-size:14px;border-bottom:1px solid #797979">'+txtName+'：'+value+company+'</p><span style="font-size:12px;color:#999">'+xD[index]+'</span></div>';
+
+                            return htmlStr;
+                        }
+                    }
+                },
+                //范围颜设置色
+                visualMap: [{
+                    show: false,
+                    dimension: 1,
+                    pieces: lte_val, //pieces的值由动态数据决定
+                    outOfRange: {
+                        color: sColor
+                    }
+                }],
+                series: [{
+                    name: '阈值:'+threshold,
+                    data: thd,
+                    type: 'line',
+
+                    itemStyle: {
+                        normal: {
+                            opacity: 0
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            type: 'solid',
+                            color: '#f00'
+                        }
+                    }
+                }, {
+                    name: xName,
+                    type: 'line',
+                    smooth: false,
+                    data: yD,
+                    itemStyle: {
+                        normal: {
+                            borderWidth: 2,
+                            color: '#5E9DD6'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            type: 'solid',
+                            color: '#5E9DD6',
+                        }
+                    }
+                }, {
+                    name: xName,
+                    type: 'line',
+                    symbol: 'none',
+                    symbolSize: 0,
+                    lineStyle: {
+                        normal: {
+                            color: '#5E9DD6',
+                            type: 'dotted' //'dotted'虚线 'solid'实线
+                        }
+                    },
+                    data: dY
+                }]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        }
+    </script>
+</body>
+
+</html>

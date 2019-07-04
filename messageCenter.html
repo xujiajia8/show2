@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./static/css/comm.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/total.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/basis.css" />
+    <style>
+        .midpage span {
+            width: 32px;
+            height: 26px;
+            line-height: 26px;
+            border: 1px solid #CDCFD1;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.65);
+            text-align: center;
+            margin-right: 3px;
+        }
+        
+        .bgcActive {
+            background-color: #2492FC;
+        }
+        
+        .colorSize {
+            color: rgba(0, 0, 0, 0.45);
+        }
+        
+        .totalmessage span {
+            font-size: 17px;
+        }
+        
+        .cancel-t .totalmessage {
+            float: right;
+            margin-top: 40px;
+            margin-right: 20px;
+            font-size: 15px;
+        }
+        
+        .cancel {
+            float: left;
+            width: 45px;
+            height: 45px;
+            background-color: #F2F2F2;
+            position: relative;
+            margin-top: 15px;
+        }
+        
+        .cancel_l {
+            width: 6px;
+            height: 6px;
+            border-radius: 6px;
+            background: transparent;
+            display: inline-block;
+            margin-right: 16px;
+        }
+        
+        .bgcRed {
+            background: rgba(255, 89, 117, 1);
+        }
+        
+        .cancel::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 63px;
+            height: 1px;
+            background-color: #ccc;
+            transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        }
+        
+        .cancel::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 63px;
+            height: 1px;
+            background-color: #ccc;
+            transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+        }
+        
+        .cancel-bot {
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.9);
+            float: left;
+            margin-top: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .cancel-t {
+            overflow: hidden;
+        }
+        
+        .page1,
+        .page2 {
+            overflow: hidden;
+            font-size: 12px;
+            padding: 20px 20px 32px;
+            box-sizing: border-box;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 12px;
+        }
+        
+        .page1 .fl,
+        .page2 .fl {
+            float: left;
+        }
+        
+        .page1 div,
+        .page2 div {
+            float: right;
+        }
+        
+        .page1 div.midpage,
+        .page2 div.midpage {
+            float: none;
+            display: inline-block;
+        }
+        
+        .page1 div i,
+        .page2 div i,
+        .page1 p,
+        .page2 p {
+            display: inline-block;
+            cursor: pointer;
+            width: 0;
+            height: 0;
+            position: relative;
+        }
+        
+        .page1 .pre,
+        .page2 .pre,
+        .page1 .next,
+        .page2 .next {
+            width: 89px;
+            height: 28px;
+            line-height: 28px;
+            box-sizing: border-box;
+            border: 1px solid #e4e4e4;
+            display: inline-block;
+        }
+        
+        .page1 .pre:hover,
+        .page2 .pre:hover,
+        .page1 .next:hover,
+        .page2 .next:hover {
+            background-color: #2492FC;
+            color: #fff;
+        }
+        
+        .page1 .pre i,
+        .page2 .pre i {
+            margin-top: 0;
+            left: 0px;
+            background: url(./static/images/left.png) no-repeat center;
+        }
+        
+        .page1 .next i,
+        .page2 .next i {
+            margin-top: 0;
+            right: 0px;
+            background: url(./static/images/right.png) no-repeat center;
+        }
+        
+        .page1 .pre i,
+        .page2 .pre i,
+        .page1 .next i,
+        .page2 .next i {
+            position: absolute;
+            top: 0px;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+        }
+        
+        .page1 .pre,
+        .page2 .pre {
+            padding-left: 28px;
+        }
+        
+        .page1 .next,
+        .page2 .next {
+            padding-right: 28px;
+            text-align: right;
+        }
+        
+        .page1 div span,
+        .page2 div span {
+            display: inline-block;
+        }
+        
+        .page1 div span.t,
+        .page2 div span.t {
+            margin-right: 20px;
+        }
+        
+        .page1 .p,
+        .page2 .p {
+            margin-right: 5px;
+            outline: none;
+            display: inline-block;
+            width: 36px;
+            height: 26px;
+            line-height: 26px;
+            border: 1px solid #CDCFD1;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.65);
+        }
+        
+        .page1 span.go,
+        .page2 span.go {
+            width: 52px;
+            height: 26px;
+            line-height: 26px;
+            border: 1px solid #D7D7D7;
+            padding: 0;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.65);
+        }
+        
+        .page1 span.go:hover,
+        .page2 span.go:hover {
+            background-color: #2492FC;
+            color: #fff;
+        }
+        
+        .siled {
+            padding: 0 20px;
+            box-sizing: border-box;
+            color: #797979;
+            background-color: rgba(243, 244, 245, 1);
+        }
+        
+        .message .icon {
+            min-width: 14px;
+            text-align: center;
+            line-height: 14px;
+            display: inline-block;
+            position: absolute;
+            right: -10px;
+            top: -4px;
+            background: red;
+            color: #fff;
+            border-radius: 17px;
+            padding: 6px;
+            font-size: 16px;
+            transform: scale(.7);
+            font-family: Tahoma!important;
+            font-style: normal;
+        }
+        
+        .content-top {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .content-top li {
+            cursor: pointer;
+            float: left;
+            height: 32px;
+            line-height: 32px;
+            width: 124px;
+            text-align: center;
+            margin-bottom: 0px;
+            font-size: 14px;
+            margin-right: 16px;
+            box-sizing: border-box;
+            background-color: rgba(222, 225, 227, 1);
+            position: relative;
+            border-radius: 3px;
+        }
+        
+        .content-top li.last {
+            margin-right: 0px;
+        }
+        
+        .content-top li .icon {
+            display: inline-block;
+            position: absolute;
+            right: 200px;
+            top: 0px
+        }
+        
+        .top-active {
+            background-color: #2492FC!important;
+            color: #fff;
+        }
+        
+        .conf {
+            position: relative;
+            box-sizing: border-box;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 42px;
+            position: relative;
+            border-bottom: 1px solid #C9C9C9;
+        }
+        
+        .conf .cancel_l,
+        .conf_bot .cancel_l {
+            position: absolute;
+            top: 22px;
+            left: 20px;
+        }
+        
+        .error {
+            box-sizing: border-box;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-top: 1px solid #C9C9C9;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .error_bot {
+            background-color: #F1DCDC;
+            height: 45px;
+            line-height: 45px;
+            padding-top: 0;
+        }
+        
+        .conf_bot {
+            height: 45px;
+            line-height: 45px;
+            padding-left: 40px;
+            position: relative;
+            border-bottom: 1px solid #C9C9C9;
+        }
+        
+        .none {
+            display: none;
+        }
+        
+        .error .first {
+            font-size: 12px;
+        }
+        
+        .conf .first,
+        .conf_bot .first {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        
+        .error a {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 4px;
+            display: block;
+        }
+        
+        .conf p,
+        .conf_bot p {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.65);
+        }
+        
+        .conf p.p-text {
+            font-size: 12px;
+        }
+        
+        .block {
+            display: block!important;
+        }
+        
+        .content-bottom {
+            display: none;
+            background-color: #fff;
+            padding: 24px 20px 0;
+        }
+        
+        .content-bottom .mode {
+            padding: 3px 0 5px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        
+        .content-bottom>.mode {
+            padding: 7px 0 10px;
+        }
+        
+        .content-bottom .mode p:first-child {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2px;
+        }
+        
+        .content-bottom>.mode p:first-child {
+            margin-bottom: 6px;
+        }
+        
+        .content-bottom .mode p:last-child {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .content-bottom .mode p:last-child span:last-child {
+            float: right;
+        }
+        
+        .optimization .optimization-top {
+            margin-bottom: 10px;
+        }
+        
+        .optimization .optimization-top span {
+            font-size: 14px;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .optimization .optimization-top a {
+            font-size: 14px;
+            float: right;
+            color: #006699;
+        }
+        
+        .optimization p {
+            font-size: 14px;
+            line-height: 22px;
+            color: #333;
+        }
+        
+        .optimization {
+            padding-top: 18px;
+            box-sizing: border-box;
+        }
+        
+        .optimization-bottom .mode {
+            margin-top: 20px;
+        }
+        
+        .time_r {
+            position: absolute;
+            left: 750px;
+            top: 10px;
+        }
+        
+        .error_bot .time_r {
+            position: absolute;
+            right: 80px;
+            bottom: 20px;
+        }
+        
+        .conf_bot .time_r {
+            position: absolute;
+            right: 100px;
+            top: 0px;
+        }
+        
+        table.errortotal_top {
+            width: 100%;
+        }
+        
+        table.errortotal_top th {
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+            background-color: #F7F7F7;
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.85);
+            font-weight: 400;
+        }
+        
+        table.errortotal_top tr td:first-child {
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+        
+        table.errortotal_top tr th:first-child {
+            padding-left: 42px;
+            box-sizing: border-box;
+        }
+        
+        table.errortotal_top td {
+            height: 54px;
+            line-height: 54px;
+            border-bottom: 1px solid #DEE1E3;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.65);
+        }
+        
+        .errortotal .button {
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .statusbgc {
+            color: #2492FC!important;
+        }
+        
+        .conftotal_top .hh {
+            height: 40px;
+            line-height: 40px;
+            background-color: #F7F7F7;
+            color: rgba(0, 0, 0, 0.85);
+            font-size: 14px;
+        }
+        
+        .conftotal_top .hh span:first-child {
+            margin-left: 42px;
+        }
+        
+        .conftotal_top .hh span:last-child {
+            margin-left: 650px;
+        }
+        
+        .conftotal .button {
+            background-color: #fff;
+            color: #797979;
+            outline: none;
+            float: right;
+            margin-right: 30px;
+            margin-top: -35px;
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .conf .button {
+            margin-top: -16px;
+        }
+        
+        .open {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: url(./static/images/opp.png) no-repeat center;
+            background-size: 100%;
+            position: absolute;
+            right: 32px;
+            top: 13px;
+        }
+        
+        .error_bot .open {
+            top: 17px;
+        }
+        
+        .conf_bot .open {
+            top: 17px;
+        }
+        
+        .close {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: url(./static/images/cloo.png) no-repeat center;
+            background-size: 100%;
+            position: absolute;
+            right: 35px;
+            top: 18px;
+        }
+        
+        .error_bot .close {
+            top: 17px;
+        }
+        
+        .conf_bot .close {
+            top: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部结构开始 -->
+    <div class="top">
+        <div class="title"><img src="./static/images/logo.png" alt=""></div>
+        <ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+        </ul>
+    </div>
+    <!-- 顶部结构结束 -->
+    <div class="content new-content">
+        <!-- 左侧导航部分开始 -->
+        <div class="nav">
+            <p>我的导航</p>
+            <ul>
+                <li onclick="window.location.href = 'index.html'">
+                    <i class="nav_home"></i>
+                    <span>首页</span>
+                </li>
+                <li onclick="window.location.href = 'import-idx.html'">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html'">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+                <li class="active" onclick="window.location.href = 'analysis.html'">
+                    <i class="nav_static"></i>
+                    <span>统计分析</span>
+                </li>
+                <li onclick="window.location.href = 'params.html'">
+                    <i class="nav_manage"></i>
+                    <span>系统管理</span>
+                </li>
+            </ul>
+        </div>
+        <!-- 左侧导航部分结束 -->
+        <div class="siled">
+            <!-- 左侧导航部分开始 -->
+            <div class="cancel-t">
+                <div class="cancel-bot">消息中心</div>
+                <div class="totalmessage">
+                    <span></span>条未读
+                </div>
+            </div>
+            <ul class="content-top">
+                <li class="top-active first">定界异常消息
+                    <span class="icon"></span>
+                </li>
+                <li class="last">系统消息
+                    <span class="icon"></span>
+                </li>
+            </ul>
+            <!-- 左侧导航部分结束 -->
+            <!-- 定界异常消息开始 -->
+            <div class="content-bottom block errortotal">
+                <table class="errortotal_top" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>消息内容</th>
+                            <th>接受时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="page1">
+                    <div class="fl">
+                        <span>共</span>
+                        <span class="t"></span>条</div>
+                    <div>
+                        <p class="pre">
+                            <i></i>
+                            <span>上一页</span>
+                        </p>
+                        <div class="midpage"></div>
+                        <p class="next">
+                            <i></i>
+                            <span>下一页</span>
+                        </p>
+                        <span class="thisPge">当前页码</span>/<span class="tt">总数</span> 到第
+                        <input class="p" value="1">页
+                        <span class="go">确定</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 定界异常消息结束 -->
+            <!-- 系统阈值修改开始 -->
+            <div class="content-bottom conftotal">
+                <div class="conftotal_top">
+                    <p class="hh">
+                        <span>消息内容</span>
+                        <span>接受时间</span>
+                    </p>
+                </div>
+
+                <div class="page2">
+                    <div class="fl">
+                        <span>共</span>
+                        <span class="t"></span>条</div>
+                    <div>
+                        <p class="pre">
+                            <i></i>
+                            <span>上一页</span>
+                        </p>
+                        <div class="midpage"></div>
+                        <p class="next">
+                            <i></i>
+                            <span>下一页</span>
+                        </p>
+                        <span class="thisPge">当前页码</span>/<span class="tt">总数</span> 到第
+                        <input class="p" value="1">页
+                        <span class="go">确定</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 系统阈值修改结束 -->
+
+        </div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript " src="./static/js/jquery.min.js "></script>
+    <script src="./static/js/commoncircle.js"></script>
+    <script>
+        // 假数据
+        var data = {
+            "total_page": 1239,
+            "error": [{
+                "formNum": "JS-059-190530-701",
+                "error_time": 1559206027000.0,
+                "id": 7450,
+                "status": 1
+            }, {
+                "formNum": "JS-059-190530-689",
+                "error_time": 1559205747000.0,
+                "id": 7449,
+                "status": 1
+            }, {
+                "formNum": "JS-059-190530-672",
+                "error_time": 1559205121000.0,
+                "id": 7448,
+                "status": 1
+            }, {
+                "formNum": "JS-059-190530-655",
+                "error_time": 1559204882000.0,
+                "id": 7447,
+                "status": 1
+            }, {
+                "formNum": "JS-059-190530-628",
+                "error_time": 1559204242000.0,
+                "id": 7446,
+                "status": 0
+            }, {
+                "formNum": "JS-059-190530-571",
+                "error_time": 1559203720000.0,
+                "id": 7445,
+                "status": 0
+            }],
+            "conf_total_page": 5,
+            "conf": [{
+                "id": 64,
+                "key": "API_RETRY",
+                "value_before": "2",
+                "value_after": "1",
+                "time": 1558062308000.0,
+                "status": 1,
+                "cn_key": "\u91cd\u8bd5\u6b21\u6570"
+            }, {
+                "id": 63,
+                "key": "API_RETRY",
+                "value_before": "4",
+                "value_after": "2",
+                "time": 1557984767000.0,
+                "status": 1,
+                "cn_key": "\u91cd\u8bd5\u6b21\u6570"
+            }, {
+                "id": 62,
+                "key": "stay",
+                "value_before": "0",
+                "value_after": "1",
+                "time": 1557977578000.0,
+                "status": 0,
+                "cn_key": "\u7528\u6237\u5c0f\u533a\u505c\u7559\u65f6\u95f4"
+            }, {
+                "id": 61,
+                "key": "stay",
+                "value_before": "0",
+                "value_after": "1",
+                "time": 1557977578000.0,
+                "status": 0,
+                "cn_key": "\u7528\u6237\u5c0f\u533a\u505c\u7559\u65f6\u95f4"
+            }, {
+                "id": 60,
+                "key": "stay",
+                "value_before": "1",
+                "value_after": "0",
+                "time": 1557975247000.0,
+                "status": 0,
+                "cn_key": "\u7528\u6237\u5c0f\u533a\u505c\u7559\u65f6\u95f4"
+            }, {
+                "id": 59,
+                "key": "cell_other_user_download_rate",
+                "value_before": "0.01",
+                "value_after": "0.001",
+                "time": 1557051831000.0,
+                "status": 0,
+                "cn_key": "\u540c\u5c0f\u533a\u5176\u4ed6\u7528\u6237\u7684\u4e0b\u884c\u901f\u7387\uff08/15min\uff09"
+            }],
+            "error_count": 4,
+            "conf_count": 2,
+            "model_count": 0,
+            "total_error_count": 7434,
+            "total_conf_count": 28,
+            "count": 6
+        }
+        var errorcontent = '';
+        var confcontent = '';
+        for (var i = 0; i < data.error.length; i++) {
+            if (data.error[i].status == 0) {
+                errorcontent += "<tr><td><div class='cancel_l'></div><span>您的任务[工单" + data.error[i].formNum + "]工单定界异常，请及时处理</span></td>" + "<td><a class='button' onclick='statusMarkAjaxError(\"" + data.error[i].id + "\",\"" + data.error[i].status + "\",\"" + data.error[i].formNum + "\",this)'>已查看</a></td><td>" + timeFormat(parseInt(data.error[i].error_time)) + "</td></tr>"
+            } else {
+                errorcontent += "<tr><td><div class='cancel_l bgcRed'></div><span>您的任务[工单" + data.error[i].formNum + "]工单定界异常，请及时处理</span></td>" + "<td><a class='button statusbgc' onclick='statusMarkAjaxError(\"" + data.error[i].id + "\",\"" + data.error[i].status + "\",\"" + data.error[i].formNum + "\",this)'>立即查看</a></td><td>" + timeFormat(parseInt(data.error[i].error_time)) + "</td></tr>"
+            }
+        }
+
+        $('.errortotal_top').html(errorcontent);
+        for (var i = 0; i < data.conf.length; i++) {
+            if (data.conf[i].status == 0) {
+                confcontent += "<div class='conf none colorSize'><p class='first'>" + "阈值" + data.conf[i].key + "由" + data.conf[i].value_before + "修改为" + data.conf[i].value_after + "</p><p class='p-text'>修改时间 : <span>" + timeFormat(parseInt(data.conf[i].time)) + "</span></p><a class='button' onclick='statusMarkAjaxConf(\"" + data.conf[i].key + "\",\"" + data.conf[i].id + "\",\"" + data.conf[i].status + "\",this)'>已查看</a><div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='open'></span></div>" + "<div class='conf_bot colorSize'><p class='first'>" + data.conf[i].key + "参数更改提示<div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='close'></span></div>"
+            } else {
+                confcontent += "<div class='conf'><div class='cancel_l bgcRed'></div><p class='first'>" + "阈值" + data.conf[i].key + "由" + data.conf[i].value_before + "修改为" + data.conf[i].value_after + "</p><p class='p-text'>修改时间 : <span>" + timeFormat(parseInt(data.conf[i].time)) + "</span></p><a class='button statusbgc' onclick='statusMarkAjaxConf(\"" + data.conf[i].key + "\",\"" + data.conf[i].id + "\",\"" + data.conf[i].status + "\",this)'>立即查看</a><div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='open'></span></div>" + "<div class='conf_bot none'><div class='cancel_l bgcRed'></div><p class='first'>" + data.conf[i].key + "参数更改提示<div class='time_r'>" + timeFormat(parseInt(data.error[i].error_time)) + "</div><span class='close'></span></div>"
+            }
+        }
+
+        $('.conftotal_top').html(confcontent);
+        if (data.count == 0) {
+            $('.message .icon').hide();
+            $('.totalmessage span').text(0);
+            localStorage.setItem('totalmessageCount', data.count);
+        } else {
+            $('.message .icon b').text(data.count);
+            $('.totalmessage span').text(data.count);
+            localStorage.setItem('totalmessageCount', data.count);
+        };
+
+
+        if (data.error_count == 0) {
+            $('.content-top .first').html('定界异常消息');
+            localStorage.setItem('errCount', data.error_count);
+        } else {
+            $('.content-top .first').html('定界异常消息 (' + data.error_count + ')');
+            localStorage.setItem('errCount', data.error_count);
+        };
+        if (data.conf_count == 0) {
+            $('.content-top .last').html('系统消息');
+            localStorage.setItem('confCount', data.conf_count);
+        } else {
+            $('.content-top .last').html('系统消息 (' + data.conf_count + ')');
+            localStorage.setItem('confCount', data.conf_count);
+        };
+
+        // 假数据
+        var EmosEnterMark = localStorage.getItem('EmosEnterMark');
+        if (EmosEnterMark == '0') {
+            $('.nav li').eq(2).hide();
+            $('.top li:last-child').click(function() {
+                window.location.href = '/logout/1/';
+            })
+        } else if (EmosEnterMark == '1') {
+            $('.nav li').eq(1).hide();
+            $('.nav li').eq(4).hide();
+            $('.top li:last-child').click(function() {
+                window.location.href = '/logout/2/';
+            })
+        }
+        //点击右侧导航，该背景色变化，该下面部分内容切换。
+        $('.content-top li').each(function() {
+            var type = $(this).index();
+            if (type == 0) {
+                type = 'error';
+            } else {
+                type = 'conf';
+            }
+            $(this).click(function() {
+                $(this).addClass('top-active').siblings().removeClass('top-active');
+                $('.content-bottom').eq($(this).index()).addClass('block').siblings().removeClass('block');
+                ajaxData();
+            })
+        });
+        // 判断是否小于10后加0
+        function add0(m) {
+            return m < 10 ? '0' + m : m
+        }
+        //时间戳转化成时间格式
+        function timeFormat(timestamp) {
+            //timestamp是整数，否则要parseInt转换,不会出现少个0的情况
+            var time = new Date(timestamp);
+            var year = time.getFullYear();
+            var month = time.getMonth() + 1;
+            var date = time.getDate();
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+            return year + '-' + add0(month) + '-' + add0(date) + ' ' + add0(hours) + ':' + add0(minutes) + ':' + add0(seconds);
+        }
+        // 请求后端数据渲染页面
+        var pagetotalcount1 = 1;
+        var pagetotalcount2 = 1;
+        // 开关按钮
+        $('.conf').each(function() {
+            $(this).children('.open').click(function() {
+                $(this).parent('.conf').next().show();
+                $(this).parent('.conf').hide();
+                var pagetotalcount1 = 1;
+                var pagetotalcount2 = 1;;
+            });
+        });
+        $('.conf_bot').each(function() {
+            $(this).children('.close').click(function() {
+                $(this).parent('.conf_bot').prev().show();
+                $(this).parent('.conf_bot').hide();
+            });
+        });
+
+        function ellipsis(n, c, a) {
+            // 总页码
+            // var n = pageTotal; //13个
+            // // 当前页码
+            // var c = pageIndex;
+            var setp1 = c; //0
+            // 总页码和当前页码的差值
+            var setp2 = n - c; //后余 13
+            // 当总页码大于10时，
+            if (n > 4) {
+                a.find('.midpage span').eq(n - 2).text('...');
+                for (i = 4; i < parseInt(n - 2); i++) {
+                    a.find('.midpage span').eq(i).hide();
+                };
+                // 当前页码大于3时
+                if (c > 2) {
+                    a.find('.midpage span').eq(1).text('...');
+                    a.find('.midpage span').eq(c).text(c + Number(1));
+                    a.find('.midpage span').eq(c + 1).text(c + Number(2));
+                    a.find('.midpage span').eq(c + 1).show();
+                    a.find('.midpage span').eq(c).show();
+                    // 从第3页到当前页码隐藏
+                    for (i = 2; i < parseInt(c); i++) {
+                        a.find('.midpage span').eq(i).hide();
+                    };
+                    if (c == n - 3 || c > n - 3) {
+                        a.find('.midpage span').eq(1).show();
+                        a.find('.midpage span').eq(1).text(2);
+                        a.find('.midpage span').eq(2).hide();
+                        a.find('.midpagespan').eq(n - 1).show();
+                        a.find('.midpage span').eq(n - 2).show();
+                        a.find('.midpage span').eq(n - 3).show();
+                        a.find('.midpage span').eq(n - 4).show();
+                        a.find('.midpage span').eq(n - 4).text('...');
+                        a.find('.midpage span').eq(n - 2).text(n - 1);
+                    };
+                    if (c == 3) {
+                        a.find('.midpage span').eq(4).hide();
+                    }
+                };
+            }
+            if (c < 4) {
+                a.find('.midpage span').eq(0).show();
+                a.find('.midpage span').eq(1).show();
+                a.find('.midpage span').eq(2).show();
+                a.find('.midpage span').eq(3).show();
+                a.find('.midpage span').eq(1).text('2');
+            }
+        };
+
+        function ajaxData() {
+            $.ajax({
+                url: '/common/msg_data/',
+                type: 'post',
+                dataType: 'json',
+                success: function(data) {
+                    var errorcontent = '';
+                    var confcontent = '';
+                    for (var i = 0; i < data.error.length; i++) {
+                        if (data.error[i].status == 0) {
+                            errorcontent += "<tr><td><div class='cancel_l'></div><span>您的任务[工单" + data.error[i].formNum + "]工单定界异常，请及时处理</span></td>" + "<td><a class='button' onclick='statusMarkAjaxError(\"" + data.error[i].id + "\",\"" + data.error[i].status + "\",\"" + data.error[i].formNum + "\",this)'>已查看</a></td><td>" + timeFormat(parseInt(data.error[i].error_time)) + "</td></tr>"
+                        } else {
+                            errorcontent += "<tr><td><div class='cancel_l bgcRed'></div><span>您的任务[工单" + data.error[i].formNum + "]工单定界异常，请及时处理</span></td>" + "<td><a class='button statusbgc' onclick='statusMarkAjaxError(\"" + data.error[i].id + "\",\"" + data.error[i].status + "\",\"" + data.error[i].formNum + "\",this)'>立即查看</a></td><td>" + timeFormat(parseInt(data.error[i].error_time)) + "</td></tr>"
+                        }
+                    }
+
+                    $('.errortotal_top').html(errorcontent);
+                    for (var i = 0; i < data.conf.length; i++) {
+                        if (data.conf[i].status == 0) {
+                            confcontent += "<div class='conf none colorSize'><p class='first'>" + "阈值" + data.conf[i].key + "由" + data.conf[i].value_before + "修改为" + data.conf[i].value_after + "</p><p class='p-text'>修改时间 : <span>" + timeFormat(parseInt(data.conf[i].time)) + "</span></p><a class='button' onclick='statusMarkAjaxConf(\"" + data.conf[i].key + "\",\"" + data.conf[i].id + "\",\"" + data.conf[i].status + "\",this)'>已查看</a><div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='open'></span></div>" + "<div class='conf_bot colorSize'><p class='first'>" + data.conf[i].key + "参数更改提示<div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='close'></span></div>"
+                        } else {
+                            confcontent += "<div class='conf'><div class='cancel_l bgcRed'></div><p class='first'>" + "阈值" + data.conf[i].key + "由" + data.conf[i].value_before + "修改为" + data.conf[i].value_after + "</p><p class='p-text'>修改时间 : <span>" + timeFormat(parseInt(data.conf[i].time)) + "</span></p><a class='button statusbgc' onclick='statusMarkAjaxConf(\"" + data.conf[i].key + "\",\"" + data.conf[i].id + "\",\"" + data.conf[i].status + "\",this)'>立即查看</a><div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='open'></span></div>" + "<div class='conf_bot none'><div class='cancel_l bgcRed'></div><p class='first'>" + data.conf[i].key + "参数更改提示<div class='time_r'>" + timeFormat(parseInt(data.error[i].error_time)) + "</div><span class='close'></span></div>"
+                        }
+                    }
+
+                    $('.conftotal_top').html(confcontent);
+                    $('.conftotal_top .conf:nth-child(1)').css('border-top', '0px solid #C9C9C9');
+                    // 开关按钮
+                    $('.conf').each(function() {
+                        $(this).children('.open').click(function() {
+                            $(this).parent('.conf').next().show();
+                            $(this).parent('.conf').hide();
+                        });
+                    });
+                    $('.conf_bot').each(function() {
+                        $(this).children('.close').click(function() {
+                            $(this).parent('.conf_bot').prev().show();
+                            $(this).parent('.conf_bot').hide();
+                        });
+                    });
+
+                    pagetotalcount1 = data.total_error_count;
+
+                    var totalPage1 = Math.ceil(pagetotalcount1 / 6);
+
+                    pagetotalcount2 = data.total_conf_count;
+
+                    var totalPage2 = Math.ceil(pagetotalcount2 / 6);
+
+                    function request1(page) {
+                        var pagedata = {};
+                        pagedata.page_num = page;
+                        $.ajax({
+                            url: '/common/msg_data/',
+                            type: 'post',
+                            data: pagedata,
+                            dataType: "json",
+                            success: function(data) {
+                                var errorcontent = '';
+                                var confcontent = '';
+                                for (var i = 0; i < data.error.length; i++) {
+                                    if (data.error[i].status == 0) {
+                                        errorcontent += "<tr><td><div class='cancel_l'></div><span>您的任务[工单" + data.error[i].formNum + "]工单定界异常，请及时处理</span></td>" + "<td><a class='button' onclick='statusMarkAjaxError(\"" + data.error[i].id + "\",\"" + data.error[i].status + "\",\"" + data.error[i].formNum + "\",this)'>已查看</a></td><td>" + timeFormat(parseInt(data.error[i].error_time)) + "</td></tr>"
+                                    } else {
+                                        errorcontent += "<tr><td><div class='cancel_l bgcRed'></div><span>您的任务[工单" + data.error[i].formNum + "]工单定界异常，请及时处理</span></td>" + "<td><a class='button statusbgc' onclick='statusMarkAjaxError(\"" + data.error[i].id + "\",\"" + data.error[i].status + "\",\"" + data.error[i].formNum + "\",this)'>立即查看</a></td><td>" + timeFormat(parseInt(data.error[i].error_time)) + "</td></tr>"
+                                    }
+                                }
+
+                                $('.errortotal_top').html(errorcontent);
+                                for (var i = 0; i < data.conf.length; i++) {
+                                    if (data.conf[i].status == 0) {
+                                        confcontent += "<div class='conf none colorSize'><p class='first'>" + "阈值" + data.conf[i].key + "由" + data.conf[i].value_before + "修改为" + data.conf[i].value_after + "</p><p class='p-text'>修改时间 : <span>" + timeFormat(parseInt(data.conf[i].time)) + "</span></p><a class='button' onclick='statusMarkAjaxConf(\"" + data.conf[i].key + "\",\"" + data.conf[i].id + "\",\"" + data.conf[i].status + "\",this)'>已查看</a><div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='open'></span></div>" + "<div class='conf_bot colorSize'><p class='first'>" + data.conf[i].key + "参数更改提示<div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='close'></span></div>"
+                                    } else {
+                                        confcontent += "<div class='conf'><div class='cancel_l bgcRed'></div><p class='first'>" + "阈值" + data.conf[i].key + "由" + data.conf[i].value_before + "修改为" + data.conf[i].value_after + "</p><p class='p-text'>修改时间 : <span>" + timeFormat(parseInt(data.conf[i].time)) + "</span></p><a class='button statusbgc' onclick='statusMarkAjaxConf(\"" + data.conf[i].key + "\",\"" + data.conf[i].id + "\",\"" + data.conf[i].status + "\",this)'>立即查看</a><div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='open'></span></div>" + "<div class='conf_bot none'><div class='cancel_l bgcRed'></div><p class='first'>" + data.conf[i].key + "参数更改提示<div class='time_r'>" + timeFormat(parseInt(data.error[i].time)) + "</div><span class='close'></span></div>"
+                                    }
+                                }
+
+                                $('.conftotal_top').html(confcontent);
+                                $('.conftotal_top .conf:nth-child(1)').css('border-top', '0px solid #C9C9C9');
+                            }
+                        })
+                    };
+
+                    function request2(page) {
+                        var pagedata = {};
+                        pagedata.conf_page_num = page;
+                        $.ajax({
+                            url: '/common/msg_data/',
+                            type: 'post',
+                            data: pagedata,
+                            dataType: "json",
+                            success: function(data) {
+                                var errorcontent = '';
+                                var confcontent = '';
+                                for (var i = 0; i < data.error.length; i++) {
+                                    if (data.error[i].status == 0) {
+                                        errorcontent += "<tr><td><div class='cancel_l'></div><span>您的任务[工单" + data.error[i].formNum + "]工单定界异常，请及时处理</span></td>" + "<td><a class='button' onclick='statusMarkAjaxError(\"" + data.error[i].id + "\",\"" + data.error[i].status + "\",\"" + data.error[i].formNum + "\",this)'>已查看</a></td><td>" + timeFormat(parseInt(data.error[i].error_time)) + "</td></tr>"
+                                    } else {
+                                        errorcontent += "<tr><td><div class='cancel_l bgcRed'></div><span>您的任务[工单" + data.error[i].formNum + "]工单定界异常，请及时处理</span></td>" + "<td><a class='button statusbgc' onclick='statusMarkAjaxError(\"" + data.error[i].id + "\",\"" + data.error[i].status + "\",\"" + data.error[i].formNum + "\",this)'>立即查看</a></td><td>" + timeFormat(parseInt(data.error[i].error_time)) + "</td></tr>"
+                                    }
+                                }
+
+                                $('.errortotal_top').html(errorcontent);
+                                for (var i = 0; i < data.conf.length; i++) {
+                                    if (data.conf[i].status == 0) {
+                                        confcontent += "<div class='conf none colorSize'><p class='first'>" + "阈值" + data.conf[i].key + "由" + data.conf[i].value_before + "修改为" + data.conf[i].value_after + "</p><p class='p-text'>修改时间 : <span>" + timeFormat(parseInt(data.conf[i].time)) + "</span></p><a class='button' onclick='statusMarkAjaxConf(\"" + data.conf[i].key + "\",\"" + data.conf[i].id + "\",\"" + data.conf[i].status + "\",this)'>已查看</a><div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='open'></span></div>" + "<div class='conf_bot colorSize'><p class='first'>" + data.conf[i].key + "参数更改提示<div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='close'></span></div>"
+                                    } else {
+                                        confcontent += "<div class='conf'><div class='cancel_l bgcRed'></div><p class='first'>" + "阈值" + data.conf[i].key + "由" + data.conf[i].value_before + "修改为" + data.conf[i].value_after + "</p><p class='p-text'>修改时间 : <span>" + timeFormat(parseInt(data.conf[i].time)) + "</span></p><a class='button statusbgc' onclick='statusMarkAjaxConf(\"" + data.conf[i].key + "\",\"" + data.conf[i].id + "\",\"" + data.conf[i].status + "\",this)'>立即查看</a><div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='open'></span></div>" + "<div class='conf_bot none'><div class='cancel_l bgcRed'></div><p class='first'>" + data.conf[i].key + "参数更改提示<div class='time_r'>" + timeFormat(parseInt(data.conf[i].time)) + "</div><span class='close'></span></div>"
+                                    }
+                                }
+
+                                $('.conftotal_top').html(confcontent);
+                                $('.conftotal_top .conf:nth-child(1)').css('border-top', '0px solid #C9C9C9');
+                            }
+                        })
+                    };
+                    //page
+                    var page1 = $('.page1');
+                    var pre1 = $('.page1 .pre');
+                    var next1 = $('.page1 .next');
+                    var go1 = $('.page1 .go');
+                    var thisPge = 1;
+                    page1.find('.t').html(pagetotalcount1);
+                    page1.find('.tt').html(totalPage1);
+                    page1.find('.thisPge').html(thisPge);
+
+                    var str = '<span class="bgcActive">1</span>';
+                    for (var i = 2; i < totalPage1 + 1; i++) {
+                        str += '<span>' + i + '</span>';
+                    }
+
+                    $('.page1 div .midpage').html(str);
+
+                    ellipsis(totalPage1, thisPge, page1);
+
+
+                    $('.page1 .pre').click(function() {
+                        if (thisPge != 1) {
+                            thisPge = thisPge - 1;
+                            ellipsis(totalPage1, thisPge - 1, page1);
+                            request1(thisPge);
+                        }
+                        if (thisPge > 0 || thisPge == 0) {
+                            $('.page1 .midpage span').eq(thisPge - 1).addClass('bgcActive').siblings().removeClass('bgcActive');
+                        } else {
+                            thisPge = 0;
+                        };
+                    });
+                    $('.page1 .next').click(function() {
+                        if (thisPge != totalPage1) {
+                            thisPge = thisPge + 1;
+                            ellipsis(totalPage1, thisPge - 1, page1);
+                            request1(thisPge);
+                        } else {
+                            return false;
+                        }
+                        if (thisPge < totalPage1 || thisPge == totalPage1) {
+                            $('.page1 .midpage span').eq(thisPge - 1).addClass('bgcActive').siblings().removeClass('bgcActive');
+                        } else {
+                            thisPge = totalPage1 - 1;
+                        };
+                    });
+                    go1.click(function() {
+                        thisPge = Number(go1.prev().val());
+                        request1(thisPge);
+                        $('.page1 .midpage span').eq(thisPge - 1).addClass('bgcActive').siblings().removeClass('bgcActive');
+                    })
+
+
+                    //page2
+                    var page2 = $('.page2');
+                    var pre2 = $('.page2 .pre');
+                    var next2 = $('.page2 .next');
+                    var go2 = $('.page2 .go');
+                    var thisPge = 1;
+                    page2.find('.t').html(pagetotalcount2);
+                    page2.find('.tt').html(totalPage2);
+                    page2.find('.thisPge').html(thisPge);
+
+                    var str = '<span class="bgcActive">1</span>';
+                    for (var i = 2; i < totalPage2 + 1; i++) {
+                        str += '<span>' + i + '</span>';
+                    }
+
+                    $('.page2 div .midpage').html(str);
+
+                    ellipsis(totalPage2, thisPge, page2);
+
+
+                    $('.page2 .pre').click(function() {
+                        if (thisPge != 1) {
+                            thisPge = thisPge - 1;
+                            ellipsis(totalPage2, thisPge - 1, page2);
+                            request2(thisPge);
+                        }
+                        if (thisPge > 0 || thisPge == 0) {
+                            $('.page2 .midpage span').eq(thisPge - 1).addClass('bgcActive').siblings().removeClass('bgcActive');
+                        } else {
+                            thisPge = 0;
+                        };
+                    });
+
+                    $('.page2 .next').click(function() {
+                        if (thisPge != totalPage2) {
+                            thisPge = thisPge + 1;
+                            ellipsis(totalPage2, thisPge - 1, page2);
+                            request2(thisPge);
+                        } else {
+                            return false;
+                        }
+                        if (thisPge < totalPage2 || thisPge == totalPage2) {
+                            $('.page2 .midpage span').eq(thisPge - 1).addClass('bgcActive').siblings().removeClass('bgcActive');
+                        } else {
+                            thisPge = totalPage2 - 1;
+                            $('.page2 .midpage span').eq(thisPge - 1).addClass('bgcActive').siblings().removeClass('bgcActive');
+                        };
+                    });
+                    go2.click(function() {
+                        thisPge = Number(go2.prev().val());
+                        request2(thisPge);
+                        $('.page2 .midpage span').eq(thisPge - 1).addClass('bgcActive').siblings().removeClass('bgcActive');
+                    });
+
+
+
+                    if (data.count == 0) {
+                        $('.message .icon').hide();
+                        $('.totalmessage span').text(0);
+                        localStorage.setItem('totalmessageCount', data.count);
+                    } else {
+                        $('.message .icon b').text(data.count);
+                        $('.totalmessage span').text(data.count);
+                        localStorage.setItem('totalmessageCount', data.count);
+                    };
+
+
+                    if (data.error_count == 0) {
+                        $('.content-top .first').html('定界异常消息');
+                        localStorage.setItem('errCount', data.error_count);
+                    } else {
+                        $('.content-top .first').html('定界异常消息 (' + data.error_count + ')');
+                        localStorage.setItem('errCount', data.error_count);
+                    };
+                    if (data.conf_count == 0) {
+                        $('.content-top .last').html('系统消息');
+                        localStorage.setItem('confCount', data.conf_count);
+                    } else {
+                        $('.content-top .last').html('系统消息 (' + data.conf_count + ')');
+                        localStorage.setItem('confCount', data.conf_count);
+                    };
+                }
+            });
+        };
+        ajaxData();
+
+        function statusMarkAjaxError(a, b, c, d) {
+            $(d).parent().prev().children('.cancel_l').removeClass("bgcRed");
+            $(d).removeClass('statusbgc');
+            if ($(d).text() == '立即查看') {
+                $(d).text('已查看')
+            };
+            window.open("completeState.html");
+            $.ajax({
+                url: '/common/status_mark/',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    "form_id": a
+                },
+                success: function(data) {
+                    localStorage.setItem('fiel_number', c);
+                    if (data.cate == 401) {
+                        window.open("querState.html");
+                    } else if (data.cate == 402 || data.cate == 403) {
+                        window.open("completeState.html");
+                    } else if (data.cate == 101) {
+                        window.open("chulState.html");
+                    } else {
+                        window.open("process.html");
+                    };
+                }
+            });
+            var totalmessageCount = localStorage.getItem('totalmessageCount') - 1;
+            localStorage.setItem('totalmessageCount', totalmessageCount);
+            var errCount = localStorage.getItem('errCount') - 1;
+            localStorage.setItem('errCount', errCount);
+            if (totalmessageCount == 0 || totalmessageCount < 0) {
+                $('.message .icon').hide();
+                $('.totalmessage span').text(0);
+            } else {
+                $('.message .icon b').text(totalmessageCount);
+                $('.totalmessage span').text(totalmessageCount);
+            };
+            if (errCount == 0 || errCount < 0) {
+                $('.content-top .first').html('定界异常消息');
+            } else {
+                $('.content-top .first').html('定界异常消息 (' + errCount + ')');
+            };
+        }
+
+        function statusMarkAjaxConf(a, b, c, d) {
+            $(d).prev().prev().prev().removeClass("bgcRed");
+            $(d).parent().next('.conf_bot').children('.cancel_l').removeClass("bgcRed");
+            $(d).removeClass('statusbgc');
+            console.log(d);
+            if ($(d).text() == '立即查看') {
+                $(d).text('已查看')
+            };
+            window.open("params.html");
+            $.ajax({
+                url: '/common/status_mark/',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    "id": b
+                },
+                success: function(data) {
+                    window.open("/common/?" + "txt=" + a);
+                }
+            });
+            var totalmessageCount = localStorage.getItem('totalmessageCount') - 1;
+            localStorage.setItem('totalmessageCount', totalmessageCount);
+            var confCount = localStorage.getItem('confCount') - 1;
+            localStorage.setItem('confCount', confCount);
+            if (totalmessageCount == 0 || totalmessageCount < 0) {
+                $('.message .icon').hide();
+                $('.totalmessage span').text(0);
+            } else {
+                $('.message .icon b').text(totalmessageCount);
+                $('.totalmessage span').text(totalmessageCount);
+            };
+            if (confCount == 0 || confCount < 0) {
+                $('.content-top .last').html('系统消息');
+            } else {
+                $('.content-top .last').html('系统消息 (' + confCount + ')');
+            };
+        }
+    </script>
+</body>
+
+</html>

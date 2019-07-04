@@ -1,0 +1,13 @@
+/*.cont*/
+.siled .module .M_O{
+	overflow: hidden;
+}
+/*.cont > p标签*/
+.siled .module .cont > .P_L{
+	float: left;
+	width: 50%;
+}
+/*.cont > p标签*/
+.siled .module .cont > .M_B0{
+	margin-bottom: 0;
+}

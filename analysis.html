@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./static/css/comm.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/total.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/basis.css" />
+    <link rel="stylesheet" href="./static/css/pagination.css">
+    <link rel="stylesheet" href="./static/css/params.css">
+    <link rel="stylesheet" href="./static/css/analysis.css" />
+</head>
+
+<body>
+    <!-- 顶部结构开始 -->
+    <div class="top">
+        <div class="title"><img src="./static/images/logo.png" alt=""></div>
+        <ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+        </ul>
+    </div>
+    <!-- 顶部结构结束 -->
+    <div class="content new-content">
+        <!-- 左侧导航部分开始 -->
+        <div class="nav">
+            <p>我的导航</p>
+            <ul>
+                <li onclick="window.location.href = 'index.html'">
+                    <i class="nav_home"></i>
+                    <span>首页</span>
+                </li>
+                <li onclick="window.location.href = 'import-idx.html'">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html'">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+                <li class="active" onclick="window.location.href = 'analysis.html'">
+                    <i class="nav_static"></i>
+                    <span>统计分析</span>
+                </li>
+                <li onclick="window.location.href = 'params.html'">
+                    <i class="nav_manage"></i>
+                    <span>系统管理</span>
+                </li>
+            </ul>
+        </div>
+        <!-- 左侧导航部分结束 -->
+        <div class="siled statistics">
+            <div class="topp">
+                <div class="laydate-box laydate-box-one">
+                    <input type="text" id="laydateInput" placeholder="xxxx年xx月xx日" />
+                    <button class="loadd">下载资料表</button>
+                    <img src="./static/images/calendar1.png" alt="" class="icon data-icon" />
+                    <div class="select-date">
+                        <div class="select-date-header">
+                            <ul class="heade-ul">
+                                <li class="header-item header-item-one">
+                                    <select name="" id="yearList"></select>
+                                </li>
+                                <li class="header-item header-item-two" onselectstart="return false">
+                                    <select name="" id="monthList"></select>
+                                </li>
+                                <li class="header-item header-item-three" onselectstart="return false">
+                                    <span class="reback">回到昨天</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="select-date-body">
+                            <ul class="week-list">
+                                <li>日</li>
+                                <li>一</li>
+                                <li>二</li>
+                                <li>三</li>
+                                <li>四</li>
+                                <li>五</li>
+                                <li>六</li>
+                            </ul>
+                            <ul class="day-tabel"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="txt">
+                    <div class="biaoti curdate">
+                        <i></i>
+                        <span></span><span>工单定界情况总述</span>
+                    </div>
+                    <div class="ptot"></div>
+                </div>
+                <div class="txtMon txt">
+                    <div class="biaoti curdate">
+                        <i></i>
+                        <span></span><span>工单定界情况总述</span>
+                        <div>更多>></div>
+                    </div>
+                    <div class="ptot"></div>
+                </div>
+
+                <div class="classifyChart">
+                    <div class="biaoti">
+                        <i></i>
+                        <span>异常与超时情况</span>
+                    </div>
+                    <div class="classifyTab">
+                        <span class="activeclick">异常情况</span>
+                        <span>超时情况</span>
+                    </div>
+                    <div class="fenmiaoTab fenmiaoTab1">
+                        <span class="activeclick">分</span>
+                        <span>秒</span>
+                    </div>
+                    <div class="fenmiaoTab fenmiaoTab2" style="display:none">
+                        <span class="activeclick">分</span>
+                        <span>秒</span>
+                    </div>
+                    <div class="classifyTab1">
+                        <div id="container1">
+                        </div>
+                    </div>
+                    <div class="classifyTab2">
+                        <div id="container2">
+                        </div>
+                    </div>
+                    <div class="classifyTab3">
+                        <div id="container3">
+                        </div>
+                    </div>
+                    <div class="classifyTab4">
+                        <div id="container4">
+                        </div>
+                    </div>
+                </div>
+                <div class="biaoti">
+                    <i></i>
+                    <span>异常统计</span>
+                </div>
+                <div class="classifyTab5">
+                    <div id="container5">
+                    </div>
+                    <div id="container6">
+                    </div>
+                </div>
+                <div class="biaoti">
+                    <i></i>
+                    <span>试点区域用户统计</span>
+                </div>
+                <table class="citytable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>城市</th>
+                            <th>用户数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="biaoti">
+                    <i></i>
+                    <span>地市点击量统计</span>
+                </div>
+                <button class="loaddd">下载该表格</button>
+                <table class="cityClicktable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">序号</th>
+                            <th rowspan="2">地市</th>
+                            <th rowspan="2">累计点击量</th>
+                            <th colspan="12">月点击总量</th>
+                        </tr>
+                        <tr>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+        <!-- <div class="footer">
+                <div>
+                    <p>联系我们 | 帮助中心</p >
+                    <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p >
+                </div>
+            </div> -->
+    </div>
+    <script type="text/javascript " src="./static/js/jquery.min.js "></script>
+    <script src="./static/js/jquery.pagination.js "></script>
+    <script src="./static/js/params.js "></script>
+    <script src="./static/js/commoncircle.js"></script>
+    <script src="./static/js/echarts.min.js"></script>
+    <script src="./static/js/analysis.js"></script>
+
+</body>
+
+</html>

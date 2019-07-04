@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./static/css/comm.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/total.css">
+    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/show.js"></script>
+    <script type="text/javascript" src="./static/js/comm.js"></script>
+    <style>
+        /*待确认修改页面特有css  -start-*/
+        .siled .module .cont{
+            padding-top: 32px
+        }
+        .siled .module .cont > p{
+            position: relative;
+            line-height: 20px;
+            margin-bottom: 24px;
+        }
+        .siled .module .cont > p > strong{
+            float: none;
+            font-size: 12px;
+            color: rgba(0,0,0,.65);
+        }
+        .siled .module .cont > p.add > strong{
+            display: inline-block;
+            line-height: 32px;
+            font-size: 18px;
+            height: 100%;
+            color: rgba(0,0,0,.85);
+        }
+        .siled .module .cont > p a{
+            display: block;
+            float: right;
+            width: 56px;
+            height: 32px;
+            color: #fff;
+            line-height: 32px;
+            border-radius: 3px;
+            text-align: center;
+            background-color: #2492FC;
+        }
+        .siled .module .cont > p > textarea{
+            display: block;
+            margin-top: 8px;
+            width: 100%;
+            height: 86px;
+            border: 1px solid #CDCFD1;
+            border-radius: 3px;
+            font-size: 12px;
+            color: rgba(0,0,0,.45);
+            padding: 10px 7px;
+            outline: none;
+            resize:none;
+            box-sizing:border-box;
+            -moz-box-sizing:border-box; /* Firefox */
+            -webkit-box-sizing:border-box;
+        }
+        .siled .module .cont > p > textarea.error{
+            border: 1px solid #FF5975
+        }
+        .siled .module .cont > p > span{
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            width: auto;
+            color: rgba(0,0,0,.45);
+            font-size: 12px;
+            color: #BCBCBC
+        }
+        .siled .module .cont table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .siled .module .cont table span{
+            font-size: 12px;
+            padding-left: 20px;
+            background-image: url(./static/images/stars.png);
+            background-position: left center;
+            background-size: 17px auto;
+            background-repeat: no-repeat;
+        }
+        .siled .module .cont table i{
+            float: left;
+            width: 17px;
+            height: 16px;
+            background-image: url(./static/images/stars.png);
+            background-position: left center;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+        }
+        .siled .module .cont table b{
+            display: inline-block;
+            font-weight: normal;
+            font-size: 12px;
+            width:30px;
+            height:16px;
+            color:#FF5975;
+            border: 1px solid #FF5975;
+            border-radius: 3px;
+            background: rgba(255,89,117,0.15);
+            line-height: 16px;
+            text-align: center;
+            margin-left: 8px;
+        }
+        .siled .module .cont table button{
+            width: 24px;
+            height: 24px;
+            border: 0;
+            margin-left: 5px;
+            cursor: pointer;
+            background-color: transparent;
+            background-image: url(./static/images/city-local.png);
+            background-position: left center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+        }
+        .siled .module .cont table a{
+            display: inline-block;
+            color:rgba(36,146,252,1);
+        }
+        .siled .module .cont table a:last-child{
+            margin-left: 24px;
+        }
+        .siled .module .cont th{
+            white-space: nowrap;
+            line-height: 40px;
+            text-align: left;
+            padding: 0 10px;
+            background:#DEE1E3;
+            color: rgba(0,0,0,.85);
+        }
+        .siled .module .cont tbody tr{
+            line-height: 24px;
+            font-size: 12px;
+            color: rgba(0,0,0,.65);
+        }
+        .siled .module .cont tbody td{
+            padding: 15px 10px;
+            box-shadow:0px 1px 0px 0px rgba(222,225,227,1);
+        }
+        .siled .module .cont td:first-child,.siled .module .cont th:first-child {
+            width: 5%;
+            border-left: 0
+        }
+        .siled .module .cont td:last-child,.siled .module .cont th:last-child{
+            width: 14%;
+            border-right: 0
+        }
+        /*待确认修改页面特有css  -end-*/
+    </style>
+</head>
+<body>
+    <!--start 头部-->
+    <div class="top">
+        <div class="title"><img src="./static/images/logo.png" alt=""></div>
+        <ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+        </ul>
+    </div>
+    <!--end 头部-->
+    <div class="content">
+        <!--start 测导航-->
+        <div class="nav">
+            <p>我的导航</p>
+            <ul>
+                <li onclick="window.location.href = 'index.html'">
+                    <i class="nav_home"></i>
+                    <span>首页</span>
+                </li>
+                <li onclick="window.location.href = 'import-idx.html';">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html';">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+                <li onclick="window.location.href = 'analysis.html'">
+                    <i class="nav_static"></i>
+                    <span>统计分析</span>
+                </li>
+                <li onclick="window.location.href = 'params.html';">
+                    <i class="nav_manage"></i>
+                    <span>系统管理</span>
+                </li>
+            </ul>
+        </div>
+        <!--end 测导航-->
+        <div class="siled">
+            <div class="path">EMOS工单 / 工单 / 定界结果修改</div>
+            <div class="subtitle">
+                <span>定界结果修改</span>
+            </div>
+            <div class="module">
+                <div class="cont" style="display:block">
+                    <div class="radio">
+                        <strong>故障类别：</strong>
+                        <span>用户签约数据问题</span>
+                        <span>无用户数据</span>
+                        <span>核心网问题</span>
+                        <span>业务SP问题</span>
+                        <span>终端问题</span>
+                        <span>用户终端业务问题</span>
+                        <span>无线问题</span>
+                        <span>定界无异常</span>
+                    </div>
+                    <p class="add">
+                        <strong>故障详情</strong>
+                        <a href="javascript:;">新增</a>
+                    </p>
+                    <div class="table"></div>
+                    <p>
+                        <strong>备注</strong>
+                        <textarea name="" placeholder="请输入内容..." onfocus="this.style=''"></textarea>
+                        <span>已输入0/50字</span>
+                    </p>
+                </div>
+            </div>
+            <div class="start">
+                <button>取消</button>
+                <button>确认</button>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+    </div>
+    <!--start 加载中-->
+    <div class="maskPop"></div>
+    <div class="modifyPop">
+        <div class="spinner">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+    <!--end 加载中-->
+    <div class="delete-pop">
+        <div>
+            <img src="./static/images/delete.png" alt="">
+            <p>确认要删除故障详情吗？</p>
+            <span>删除后不可恢复</span>
+        </div>
+        <div>
+            <button>取消</button>
+            <button>确定</button>
+        </div>
+    </div>
+    <!--结果-->
+    <div class="result-pop">
+        <div class="success" style="display:block">
+            <p>删除成功<span>已为你成功删除故障详情</span></p>
+            <img src="./static/images/result_close.png" alt="">
+        </div>
+        <div class="fail">
+            <p>删除失败<span>系统异常，请稍后再试。</span></p>
+            <img src="./static/images/result_close.png" alt="">
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function() {
+            var q_comment =  localStorage.getItem('q_comment');
+            if(Boolean(q_comment)){
+                $('.module textarea').val(q_comment);
+            };
+            window.fiel_number = localStorage.getItem('fiel_number');
+            if (window.fiel_number.indexOf('JSL') != -1) { //录入
+                $('.nav li').eq(2).addClass('active');
+                $('.siled .path').html('录入型工单 / 工单 / 定界结果修改');
+            } else {
+                $('.nav li').eq(1).addClass('active');
+                $('.siled .path').html('EMOS工单 / 工单 / 定界结果修改');
+            }
+            faultFuc();
+            //文本框字数
+            $('.module textarea').on('input',function(){
+                var rec = /[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\；|\：|\:|\"|\“|\”|\‘|\’|\'|\,|\，|\《|\》|\<|\.|\。|\>|\/|\、|\？|\?]/g;
+                var txt = $(this).val();
+                txt=txt.replace(rec,""); 
+                if(txt.length > 50){
+                    $(this).addClass('error');
+                    $(this).next('span').html('已输入<em style="color:#FF5975">'+txt.length+'</em>/50字');
+                }else{
+                    $(this).removeClass('error');
+                    $(this).next('span').html('已输入<em>'+txt.length+'</em>/50字');
+                }
+            })
+            //新增
+            $('.module .add').find('a').on('click',function(){
+                var ftp = $('.module .cont .radio').find('span.active').text();
+                localStorage.removeItem('demaResult');
+                localStorage.setItem('demafaultType', ftp);
+                localStorage.setItem('fiel_number',window.fiel_number);
+                window.location.href = 'querEditChange.html'
+            })
+            //取消
+            $('.start button').eq(0).on('click',function(){
+                localStorage.setItem('fiel_number',window.fiel_number);
+                window.location.href = 'querState.html';
+            });
+            //确定结果
+            $('.start button').eq(1).on('click',function(){
+                var beizhu = $('.module textarea').val();
+                var rec = /[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\；|\：|\:|\"|\“|\”|\‘|\’|\'|\,|\，|\《|\》|\<|\.|\。|\>|\/|\、|\？|\?]/g;
+                beizhu=beizhu.replace(rec,""); 
+                if(beizhu.length > 50){
+                    return false;
+                };
+                localStorage.removeItem('demaResult');
+                localStorage.removeItem('demafaultType')
+                localStorage.setItem('fiel_number',window.fiel_number);
+                window.location.href = 'querState.html';
+                  
+            })
+
+            //删除or修改-start
+            function elemIndex(elem,lng){
+                var el = elem.prev();
+                if(el.find('td').length == lng && Boolean(el.find('td').eq(0).attr('rowspan'))){
+                    return el.index()
+                }else{
+                    return elemIndex(el,lng)
+                }
+            }
+            $('.module .cont .table').on('click',function(e){
+                var evt = e || window.event;
+                var elem = evt.target;
+                var cs = elem.className;
+                var idx = null;
+                var fType = $('.module .cont .radio').find('span.active').text();
+                if(elem.nodeName == 'A' && cs == 'delete'){ //删除
+                    $('.delete-pop').show();
+                    $('.maskPop').show();
+                    var elem1 = $(elem).parents('tr');
+                    var aTh = $(elem).parents('table').find('thead th').length;
+                    if(elem1.find('td').length < aTh){
+                        idx = elemIndex(elem1,aTh)
+                    }else{
+                        idx = elem1.index();
+                    };
+                    $('.delete-pop button').attr('index',idx);
+                }
+                if(elem.nodeName == 'A' && cs == 'change'){ //修改
+                    if(fType.indexOf('无线') != -1){
+                        lookName = $(elem).parents('tr').find('td').eq(1).text();
+                    }else if(fType.indexOf('核心网') != -1){
+                        lookName = $(elem).parents('tr').find('td').eq(2).text();
+                    }else if(fType.indexOf('SP') != -1){
+                        lookName = $(elem).parents('tr').find('td').eq(1).text();
+                    }else{
+                        lookName = '1';
+                    }
+                    var dema = {};
+                    dema[lookName] = window.faultRespone.data[lookName]
+
+                    localStorage.setItem('demaResult', JSON.stringify(dema));
+                    localStorage.setItem('demafaultType', fType);
+                    localStorage.setItem('fiel_number',window.fiel_number);
+                    window.location.href = 'querEditChange.html';
+                }
+            })
+            $('.delete-pop button').eq(0).on('click',function() {
+                $('.delete-pop').hide();
+                $('.maskPop').hide();
+            })
+            $('.delete-pop span').on('click',function() {
+                $('.delete-pop').hide();
+                $('.maskPop').hide();
+            })
+            $('.result-pop .success img').on('click',function() {
+                $('.result-pop').hide();
+                $('.result-pop .success').hide();
+            })
+            $('.result-pop .fail img').on('click',function() {
+                $('.result-pop').hide();
+                $('.result-pop .fail').hide();
+            })
+            $('.delete-pop button').eq(1).on('click',function() {
+                $('.delete-pop').hide();
+                var fType = $('.module .cont .radio').find('span.active').text();
+                var idx = $(this).attr('index');
+                var rowspan = $('.module').find('tbody tr').eq(idx).find('td').eq(0).attr('rowspan');
+                var lookName;
+                if(fType.indexOf('无线') != -1){
+                    lookName = $('.module').find('tbody tr').eq(idx).find('td').eq(1).text();
+                }else if(fType.indexOf('核心网') != -1){
+                    lookName = $('.module').find('tbody tr').eq(idx).find('td').eq(2).text();
+                }else if(fType.indexOf('SP') != -1){
+                    lookName = $('.module').find('tbody tr').eq(idx).find('td').eq(1).text();
+                }else{
+                    lookName = '1';
+                }
+                if(!Boolean(rowspan)){
+                    rowspan = 1
+                };
+                for(var i=0;i<rowspan;i++){
+                    $('.module').find('tbody tr').eq(idx).remove();
+                }
+                if($('.module').find('tbody tr').length == 0){
+                    $('.module .add a').show()
+                };
+                $('.module').find('tbody tr').each(function(key){
+                    $(this).find('td').eq(0).text(key+1);
+                })
+                $('.result-pop').show();
+                $('.result-pop .success').show();
+                setTimeout(function(){
+                    $('.maskPop').hide();
+                    $('.result-pop').hide();
+                    $('.result-pop .success').hide();
+                },1000)
+            })
+            //删除or修改-end
+            //故障类别修改 
+            $('.module .cont .radio').find('span').each(function(){
+                $(this).on('click',function(){
+                    $(this).addClass('active').siblings().removeClass();
+                })
+            })
+            //故障类别-故障详情接口请求
+            function faultFuc(){
+                var respone = {"comment":"","fault_type":"无线问题","faultType_has_change":0,"is_error":0,"data":{"221509899":[{"abt":1,"ruc":0,"fac":0,"异常类型":"信令指标异常","id":428,"故障等级":1,"异常原因":"TCP23次握手成功率低"}],"无锡城区九龙仓玺园A区FDD(M)A":[{"abt":0,"ruc":0,"fac":0,"异常类型":"MR异常","id":427,"故障等级":1,"异常原因":"弱覆盖"}],"无锡君来梁溪饭店FDB":[{"abt":0,"ruc":0,"fac":0,"异常类型":"信令指标异常","id":429,"故障等级":1,"异常原因":"TCP23次握手成功率低"}],"L4WK47D_15_ison3":[{"abt":0,"ruc":0,"fac":0,"异常类型":"网优异常","id":430,"故障等级":1,"异常原因":"高干扰"}],"L4WK47D_15_ison":[{"abt":0,"ruc":0,"fac":0,"异常类型":"网优异常","id":431,"故障等级":1,"异常原因":"高干扰"}],"城区梁溪饭店L(M)_1":[{"abt":0,"ruc":0,"fac":0,"异常类型":"信令指标异常","id":432,"故障等级":1,"异常原因":"TCP23次握手成功率低"}]}};
+                if(respone.is_error == 0){
+                    //故障类别
+                    if (respone.fault_type) {
+                        $('.module .cont .radio').find('span').each(function(){
+                            if($(this).text() == respone.fault_type){
+                                $(this).addClass('active')
+                            }
+                        })
+                    }else{
+                        $('.module .cont .radio').find('span').eq(7).addClass('active')
+                        $('.module .cont .table').hide()
+                    }
+                    Demarcation(respone);
+                    window.faultRespone = respone;
+                }
+            }
+            //故障详情
+            function Demarcation(obj){
+                if(obj.data == ''){
+                    return false;
+                };
+                var f_mark = [0,0];
+                for(var i in obj.data){
+                    if(i == 1){
+                        f_mark[0] = obj.data[i].length;
+                    }
+                    f_mark[1] = f_mark[1] +1;
+                };
+                if(f_mark[1] <= 1 && f_mark[0] == 0){
+                    return false
+                };
+                var fType = obj.fault_type;
+                if(f_mark[0] != 0 && fType.indexOf('无线') == -1 && fType.indexOf('核心网') == -1 && fType.indexOf('SP') == -1){
+                    $('.module .add a').hide()
+                }else{
+                    $('.module .add a').show()
+                };
+                var number = 0;
+                var key = [];
+                var str = '<table cellspacing="0" cellpadding="0"><thead><tr><th>序号</th>';
+                if(fType.indexOf('无线') != -1){
+                    str += '<th>故障小区</th>'
+                }else if(fType.indexOf('核心网') != -1){
+                    str += '<th>设备描述</th><th>故障网元</th>'
+                }else if(fType.indexOf('SP') != -1){
+                    str += '<th>质差业务</th>'
+                }
+                str +='<th style="width:20%;">异常类型</th><th>异常原因</th>';
+                if(fType.indexOf('无线') != -1){
+                    str += '<th>故障等级（<span>越多，等级越高</span>）</th>';
+                    for(var item in obj.data){
+                        var ths = [];
+                        ths.push(obj.data[item][0]['故障等级']);
+                        ths.push(item);
+                        key.push(ths)
+                    }
+                    key.sort();
+                }
+                str += '<th>操作</th></tr></thead><tbody>';
+                if(fType.indexOf('无线') != -1){
+                    for(var i=key.length-1;i>=0;i--){
+                        for(var j=0;j<obj.data[key[i][1]].length;j++){
+                            var levelX = '',state = null;
+                            if(j == 0 && obj.data[key[i][1]].length > 1){
+                                str += '<tr><td style="padding-left:20px" rowspan="'+obj.data[key[i][1]].length+'">'+(number+1)+'</td><td rowspan="'+obj.data[key[i][1]].length+'">'+key[i][1]+'</td>'
+                            }else if(j == 0 && obj.data[key[i][1]].length <= 1){
+                                str += '<tr><td style="padding-left:20px">'+(number+1)+'</td><td>'+key[i][1]+'</td>'
+                            }else{
+                                str += '<tr>'
+                            }
+                            state = ['系统','人工'][obj.data[key[i][1]][j].abt] == '人工' ? '<b>人工</b>' : '';
+                            str += '<td style="white-space:nowrap">'+obj.data[key[i][1]][j]['异常类型']+state+'</td><td>'+obj.data[key[i][1]][j]['异常原因']+'</td>';
+
+                            for(var k = 0;k<key[i][0];k++){
+                                levelX += '<i></i>'
+                            }
+                            if(j == 0 && obj.data[key[i][1]].length > 1){
+                                str += '<td rowspan="'+obj.data[key[i][1]].length+'">'+levelX+'</td><td rowspan="'+obj.data[key[i][1]].length+'"><a class="delete" href="javascript:;">删除</a><a class="change" href="javascript:;">修改</a></td></tr>';
+                            }else if(j == 0 && obj.data[key[i][1]].length <= 1){
+                                str += '<td>'+levelX+'</td><td><a class="delete" href="javascript:;">删除</a><a class="change" href="javascript:;">修改</a></td></tr>';
+                            }else{
+                                str += '</tr>'
+                            }
+                        }
+                        number++;
+                    }
+                }else{
+                    for(var item in obj.data){
+                        if(fType.indexOf('核心网') != -1){
+                            for(var j=0;j<obj.data[item].length;j++){
+                                if(j == 0 && obj.data[item].length > 1){
+                                    str += '<tr><td style="padding-left:20px" rowspan="'+obj.data[item].length+'">'+(number+1)+'</td><td rowspan="'+obj.data[item].length+'">'+obj.data[item][0]['设备描述']+'</td><td rowspan="'+obj.data[item].length+'">'+item+'</td>';
+                                }else if(j == 0 && obj.data[item].length <= 1){
+                                    str += '<tr><td style="padding-left:20px">'+(number+1)+'</td><td>'+obj.data[item][0]['设备描述']+'</td><td>'+item+'</td>';
+                                }else{
+                                    str+= '<tr>'
+                                }
+                                str += '<td>'+obj.data[item][j]['异常类型']+'<b>'+['系统','人工'][obj.data[item][j].abt]+'</b></td><td>'+obj.data[item][j]['异常原因']+'</td><td><a class="delete" href="javascript:;">删除</a><a class="change" href="javascript:;">修改</a></td></tr>'
+                            }
+                        }else if(fType.indexOf('SP') != -1){
+                            for(var j=0;j<obj.data[item].length;j++){
+                                if(j==0 && obj.data[item].length > 1){
+                                    str += '<tr><td style="padding-left:20px" rowspan="'+obj.data[item].length+'">'+(number+1)+'</td><td rowspan="'+obj.data[item].length+'">'+item+'</td>';
+                                }else if(j==0 && obj.data[item].length <= 1){
+                                    str += '<tr><td style="padding-left:20px">'+(number+1)+'</td><td>'+item+'</td>';
+                                }else{
+                                    str+= '<tr>'
+                                }
+                                str += '<td>'+obj.data[item][j]['异常类型']+'</td><td>'+obj.data[item][j]['异常原因']+'</td><td><a class="delete" href="javascript:;">删除</a><a class="change" href="javascript:;">修改</a></td><tr>'
+                            }
+                        }else{
+                            for(var j=0;j<obj.data[item].length;j++){
+                                if(j==0 && obj.data[item].length > 1){
+                                    str += '<tr><td style="padding-left:20px" rowspan="'+obj.data[item].length+'">'+(number+1)+'</td>'
+                                }else if(j==0 && obj.data[item].length <= 1){
+                                    str += '<tr><td style="padding-left:20px">'+(number+1)+'</td>'
+                                }else{
+                                    str += '<tr>'
+                                }
+                                str += '<td>'+obj.data[item][j]['异常类型']+'<b>'+['系统','人工'][obj.data[item][j].abt]+'</b></td>'+obj.data[item][j]['异常原因']+'<td></td><td><a class="delete" href="javascript:;">删除</a><a class="change" href="javascript:;">修改</a></td></tr>'
+                            }
+                        }
+                        number++;
+                    } 
+                }
+                str += '</tbody></table>';
+                $('.module .cont > div.table table').remove();
+                $('.module .cont > div.table').append(str);
+
+                $('.maskPop').hide();
+                $('.modifyPop').hide();
+            }
+        })
+    </script>
+</body>
+
+</html>

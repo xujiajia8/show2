@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./static/css/comm.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/total.css">
+    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/show.js"></script>
+    <script type="text/javascript" src="./static/js/comm.js"></script>
+    <style>
+        /*待确认修改页面特有css  -start-*/
+        .siled .module .cont{
+            padding-top: 32px
+        }
+        .siled .module .cont > p,.abnormal > div p{
+            width: 100%;
+            line-height: 30px;
+            font-size: 14px;
+            color: #797979;
+        }
+        .siled .module .cont > p > strong,.abnormal > div p > strong{
+            font-weight: normal;
+        }
+        .siled .module .cont strong em,.abnormal > div p > strong em{
+            color: #FF0000;
+            padding-right: 5px;
+        }
+        .siled .module .abnormal > div select{
+            height: 28px;
+            width: 224px;
+            border: 1px solid #CDCFD1;
+            border-radius: 3px;
+            color: rgba(0,0,0,.65);
+            color: #797979
+        }
+        .abnormal > div p > strong{
+            font-size: 12px;
+        }
+        .abnormal > div p:first-child{
+            margin-bottom: 10px;
+        }
+        .abnormal > div p:last-child{
+            padding-left: 5em;
+            position: relative;
+            box-sizing:border-box;
+            -moz-box-sizing:border-box; /* Firefox */
+            -webkit-box-sizing:border-box;
+        }
+        .abnormal > div p:last-child strong{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .abnormal > div p:last-child span{
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 5px
+        }
+        .abnormal > div p:last-child span em,.abnormal > div p:first-child b{
+            display: inline-block;
+            font-style: normal;
+            width: 22px;
+            height: 32px;
+            color: transparent;
+            background: url(./static/images/close.png) no-repeat center;
+            background-size: 16px
+        }
+        .abnormal > div p:last-child > em{
+            color: transparent;
+            display: inline-block;
+            height: 32px;
+            width: 22px;
+            background: url(./static/images/plus.png) no-repeat center;
+            background-size: 100%
+        }
+        .abnormal > button{
+            border: 1px solid #CDCFD1;
+            border-radius: 3px;
+            font-size: 12px;
+            width: 100px;
+            height: 30px;
+            cursor: pointer;
+            outline: none;
+            color: rgba(0,0,0,.65);
+            background-color: #fff
+        }
+        /*待确认修改页面特有css  -end-*/
+    </style>
+</head>
+<body>
+    <!--start 头部-->
+    <div class="top">
+        <div class="title"><img src="./static/images/logo.png" alt=""></div>
+        <ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+        </ul>
+    </div>
+    <!--end 头部-->
+    <div class="content">
+        <!--start 测导航-->
+        <div class="nav">
+            <p>我的导航</p>
+            <ul>
+                <li onclick="window.location.href = 'index.html'">
+                    <i class="nav_home"></i>
+                    <span>首页</span>
+                </li>
+                <li onclick="window.location.href = 'import-idx.html';">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html';">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+                <li onclick="window.location.href = 'analysis.html'">
+                    <i class="nav_static"></i>
+                    <span>统计分析</span>
+                </li>
+                <li onclick="window.location.href = 'params.html';">
+                    <i class="nav_manage"></i>
+                    <span>系统管理</span>
+                </li>
+            </ul>
+        </div>
+        <!--end 测导航-->
+        <div class="siled">
+            <div class="path">EMOS工单 / 工单 / 新增故障详情</div>
+            <div class="subtitle">
+                <span>新增故障详情</span>
+            </div>
+            <div class="module">
+                <div class="cont" style="display:block">
+                    <div class="radio">
+                        <strong><em>*</em>故障原因：</strong>
+                        <span>用户签约数据问题</span>
+                        <span>无用户数据</span>
+                        <span>核心网问题</span>
+                        <span>业务SP问题</span>
+                    </div>
+                    <div class="e_int">
+                        <strong><em>*</em>设备描述：</strong>
+                        <div class="select choice">
+                            <p>-请选择-</p>
+                            <ul>
+                                <li>cell_id</li>
+                                <li>sgw_ip</li>
+                                <li>mme_ip</li>
+                                <li>sp_ip</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="e_int">
+                        <strong><em>*</em>故障时间：</strong>
+                        <div><input type="text"></div>
+                    </div>
+                    <div class="e_int">
+                        <strong><em>*</em>质差业务：</strong>
+                        <div><input type="text"></div>
+                    </div>
+                    <div class="e_int">
+                        <strong><em>*</em>故障网元：</strong>
+                        <input type="text">
+                    </div>
+                    <div class="e_int">
+                        <strong><em>*</em>故障小区：</strong>
+                        <input type="text">
+                    </div>
+
+                    <div class="abnormal">
+                        <button>新增异常类型</button>  
+                    </div>
+                </div>
+            </div>
+
+            <div class="start">
+                <button>取消</button>
+                <button class="disabled">确认</button>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+    </div>
+    <!--start 加载中-->
+    <div class="maskPop"></div>
+    <div class="modifyPop">
+        <div class="spinner">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+    <!--end 加载中-->
+    <script type="text/javascript">
+        $(function() {
+            selectImitate(); //模拟下拉框事件
+            var time = null;
+            window.fiel_number = localStorage.getItem('fiel_number');
+            if (window.fiel_number.indexOf('JSL') != -1) { //录入
+                $('.nav li').eq(2).addClass('active');
+                $('.siled .path').html('录入型工单 / 工单 / 新增故障详情');
+            } else {
+                $('.nav li').eq(1).addClass('active');
+                $('.siled .path').html('EMOS工单 / 工单 / 新增故障详情');
+            }
+            moduleShowHide(); //展开收起
+            var fault_type = localStorage.getItem('demafaultType') || ''; //故障类别变量
+            var demaResult = JSON.parse(localStorage.getItem('demaResult')); //待确认修改数据变量
+            //异常类型字符串
+            var oDivStr = '<div><p><strong><em>*</em>异常类型：</strong><b>&nbsp;</b><select data-id="" style="width:150px"><option value="-请选择-">-请选择-</option><option value="信令指标异常">信令指标异常</option><option value="网优异常">网优异常</option><option value="发生告警">发生告警</option><option value="MR异常">MR异常</option><option value="业务状态异常">业务状态异常</option></select></p><p><strong><em>*</em>异常原因：</strong><span><em>&nbsp;</em><select style="width:150px"><option value="-请选择-">-请选择-</option><option value="TCP1/2步握手成功率低">TCP1/2步握手成功率低</option><option value="TCP1/2步握手时延长">TCP1/2步握手时延长</option><option value="HTTP响应时延长">HTTP响应时延长</option><option value="HTTP响应成功率低">HTTP响应成功率低</option><option value="乒乓切换">乒乓切换</option><option value="乒乓TAU">乒乓TAU</option><option value="频繁附着Attach">频繁附着Attach</option><option value="频繁切换（X2、S1）">频繁切换（X2、S1）</option><option value="频繁TAU">频繁TAU</option><option value="控制面附着成功率低">控制面附着成功率低</option><option value="控制面TAU成功率低">控制面TAU成功率低</option><option value="控制面X2切换成功率低">控制面X2切换成功率低</option><option value="控制面Service Request业务请">控制面Service Request业务请</option><option value="求成功率低">求成功率低</option><option value="TCP重传率高">TCP重传率高</option><option value="TCP23次握手成功率低">TCP23次握手成功率低</option><option value="TCP23次握手时延长">TCP23次握手时延长</option><option value="HTTP下行速率低">HTTP下行速率低</option><option value="用户已停机">用户已停机</option><option value="用户未签约4G GPRS">用户未签约4G GPRS</option><option value="CMNET,CMWAP APN未签约">CMNET,CMWAP APN未签约</option><option value="用户未开户">用户未开户</option><option value="用户被限速">用户被限速</option></select></span><em>&nbsp;</em></p></div>';
+            //异常类型内容项
+            var abm_type = ['-请选择-','信令指标异常','网优异常','发生告警','MR异常','业务状态异常'];
+            //异常原因内容项
+            var reason = ['-请选择-','TCP1/2步握手成功率低','TCP1/2步握手时延长','HTTP响应时延长','HTTP响应成功率低','乒乓切换','乒乓TAU','频繁附着Attach','频繁切换（X2、S1）','频繁TAU','控制面附着成功率低','控制面TAU成功率低','控制面X2切换成功率低','控制面Service Request业务请','求成功率低','TCP重传率高','TCP23次握手成功率低','TCP23次握手时延长','HTTP下行速率低','用户已停机','用户未签约4G GPRS','CMNET,CMWAP APN未签约','用户未开户','用户被限速'];
+            //初始化展示内容
+            if(fault_type.indexOf('无线') != -1){
+                $('.module .cont > div').eq(0).hide();
+                $('.module .cont > div').eq(1).hide();
+                $('.module .cont > div').eq(2).hide();
+                $('.module .cont > div').eq(3).hide();
+                $('.module .cont > div').eq(4).hide();
+            }else if(fault_type.indexOf('核心网') != -1){
+                $('.module .cont > div').eq(0).hide();
+                $('.module .cont > div').eq(2).hide();
+                $('.module .cont > div').eq(3).hide();
+                $('.module .cont > div').eq(5).hide();
+            }else if(fault_type.indexOf('SP') != -1){
+                $('.module .cont > div').eq(0).hide();
+                $('.module .cont > div').eq(1).hide();
+                $('.module .cont > div').eq(2).hide();
+                $('.module .cont > div').eq(4).hide();
+                $('.module .cont > div').eq(5).hide();
+            }else{
+                $('.module .cont > div').eq(0).hide();
+                $('.module .cont > div').eq(1).hide();
+                $('.module .cont > div').eq(2).hide();
+                $('.module .cont > div').eq(3).hide();
+                $('.module .cont > div').eq(4).hide();
+                $('.module .cont > div').eq(5).hide();
+            }
+
+            //初始化数据渲染
+            if (demaResult) {
+                $('.siled .subtitle span').text('修改故障详情')
+                if(fault_type.indexOf('无线') != -1){
+                    for(var item in demaResult){
+                        $('.module .cont > div').eq(5).find('input').val(item);
+                        //$('.module .cont p').eq(1).find('input').val(demaResult[item][0]['故障等级']);
+                        var abm = demaResult[item];
+                        abmReason(abm);
+                    }
+                }else if(fault_type.indexOf('核心网') != -1){
+                    for(var item in demaResult){
+                        $('.module .cont > div').eq(4).find('input').val(item);
+                        $('.module .cont > div').eq(1).find('.select p').text(demaResult[item][0]['设备描述']);
+                        $('.module .cont > div').eq(1).find('.select li').each(function(){
+                            if($(this).text() == demaResult[item][0]['设备描述']){
+                                $(this).addClass('active')
+                            }
+                        })
+                        var abm = demaResult[item];
+                        abmReason(abm);
+                    }
+                }else if(fault_type.indexOf('SP') != -1){
+                    for(var item in demaResult){
+                        $('.module .cont > div').eq(3).find('input').val(item);
+                        var abm = demaResult[item];
+                        abmReason(abm);
+                    }
+                }else{
+                    for(var item in demaResult){
+                        var abm = demaResult[item];
+                        abmReason(abm);
+                    }
+                }
+            }else{
+                demaResult = {
+                    '':''
+                };
+                var elem = $('.abnormal > button');
+                $(oDivStr).insertBefore(elem);
+            }
+            //确定结果
+            $('.start button').eq(1).on('click',function(){
+                
+                localStorage.removeItem('demaResult');
+                localStorage.removeItem('demafaultType')
+                localStorage.setItem('fiel_number',window.fiel_number);
+                window.location.href = 'querEdit.html';
+            })
+            //返回
+            $('.start button').eq(0).on('click',function(){
+                localStorage.setItem('fiel_number',window.fiel_number);
+                localStorage.removeItem('demafaultType');
+                localStorage.removeItem('demaResult');
+                window.location.href = 'querEdit.html';
+            });
+            //新增异常类型
+            $('.abnormal > button').on('click',function(){
+                $(oDivStr).insertBefore($(this));
+            })
+            //删除异常类型
+            $('.abnormal').on('click',function(e){
+                var evt = e || window.event;
+                var elem = evt.target;
+                if(elem.nodeName == 'B'){
+                    $(elem).parent().parent().remove();
+                }
+            })
+            //新增异常原因
+            $('.abnormal').on('click',function(e){
+                var evt = e || window.event;
+                var elem = evt.target;
+                if(elem.nodeName == 'EM' && elem.parentNode.nodeName == 'P'){
+                    var str = '<span><em>x</em><select style="width:150px"><option value="-请选择-">-请选择-</option><option value="TCP1/2步握手成功率低">TCP1/2步握手成功率低</option><option value="TCP1/2步握手时延长">TCP1/2步握手时延长</option><option value="HTTP响应时延长">HTTP响应时延长</option><option value="HTTP响应成功率低">HTTP响应成功率低</option><option value="乒乓切换">乒乓切换</option><option value="乒乓TAU">乒乓TAU</option><option value="频繁附着Attach">频繁附着Attach</option><option value="频繁切换（X2、S1）">频繁切换（X2、S1）</option><option value="频繁TAU">频繁TAU</option><option value="控制面附着成功率低">控制面附着成功率低</option><option value="控制面TAU成功率低">控制面TAU成功率低</option><option value="控制面X2切换成功率低">控制面X2切换成功率低</option><option value="控制面Service Request业务请">控制面Service Request业务请</option><option value="求成功率低">求成功率低</option><option value="TCP重传率高">TCP重传率高</option><option value="TCP23次握手成功率低">TCP23次握手成功率低</option><option value="TCP23次握手时延长">TCP23次握手时延长</option><option value="HTTP下行速率低">HTTP下行速率低</option><option value="用户已停机">用户已停机</option><option value="用户未签约4G GPRS">用户未签约4G GPRS</option><option value="CMNET,CMWAP APN未签约">CMNET,CMWAP APN未签约</option><option value="用户未开户">用户未开户</option><option value="用户被限速">用户被限速</option></select></span>';
+                    $(str).insertBefore($(elem))
+                }
+            })
+            //删除异常原因
+            $('.abnormal').on('click',function(e){
+                var evt = e || window.event;
+                var elem = evt.target;
+                if(elem.nodeName == 'EM' && elem.parentNode.nodeName == 'SPAN'){
+                    $(elem).parent().remove();
+                }
+            })
+            //设备描述
+            $('.module .cont p').eq(1).find('select').on('change',function(){
+                $('.module .cont p').eq(2).find('input').val('')
+            })
+            //初始化异常类型异常原因
+            function abmReason(obj){
+                //异常类型异常原因
+                for(var i=0;i<obj.length;i++){
+                    var abm_str = '<div><p><strong>异常类型<em>*</em></strong><b>&nbsp;</b><select data-id="'+obj[i]['id']+'" style="width:150px">';
+                    var type_val = obj[i]['异常类型'];
+                    var type_boolean = false;
+                    for(var j=0;j<abm_type.length;j++){
+                        if(type_val == abm_type[j]){
+                            type_boolean = true;
+                            //$('.abnormal > div').eq(i).find('p').eq(0).find('select').append('<option selected="selected" value="'+abm_type[j]+'">'+abm_type[j]+'</option>');
+                            abm_str += '<option selected="selected" value="'+abm_type[j]+'">'+abm_type[j]+'</option>';
+                        }else{
+                            //$('.abnormal > div').eq(i).find('p').eq(0).find('select').append('<option value="'+abm_type[j]+'">'+abm_type[j]+'</option>')
+                            abm_str +='<option value="'+abm_type[j]+'">'+abm_type[j]+'</option>';
+                        }
+                    }
+                    if(!type_boolean){
+                        //$('.abnormal > div').eq(i).find('p').eq(0).find('select').append('<option selected="selected" value="'+type_val+'">'+type_val+'</option>')
+                        abm_str += '<option selected="selected" value="'+type_val+'">'+type_val+'</option>'
+                    }
+                    abm_str += '</select></p><p><strong>异常原因<em>*</em></strong>'
+                    var reason_val = obj[i]['异常原因'];
+                    var reason_boolean = false;
+                    if(reason_val.indexOf(',') != -1){
+                        reason_val = reason_val.split(',')
+                    }else{
+                        reason_val = [reason_val]
+                    }
+                    var reason_str = '';
+                    for(var j=0;j<reason_val.length;j++){
+                        reason_str += '<span><em>x</em><select style="width:150px">';
+                        for(var k=0;k<reason.length;k++){
+                            if(reason[k] == reason_val[j]){
+                                reason_boolean = true;
+                                reason_str += '<option selected="selected" value="'+reason[k]+'">'+reason[k]+'</option>'
+                            }else{
+                                reason_str += '<option value="'+reason[k]+'">'+reason[k]+'</option>'
+                            }
+                        }
+                        if(!reason_boolean){
+                            reason_str += '<option selected="selected" value="'+reason_val[j]+'">'+reason_val[j]+'</option>'
+                        }
+                        reason_str +='</select></span>'
+                    }
+                    abm_str = abm_str + reason_str + '<em>+</em></p></div>';
+                    var elem = $('.abnormal > button');
+                    $(abm_str).insertBefore(elem);
+                }
+            }
+            //读取异常类型异常原因
+            function readReason(name,val){
+                var arry = [];
+                var temporary = {};
+                var aDiv = $('.abnormal > div');
+                for(var i=0;i<aDiv.length;i++){
+                    temporary = {};
+                    if(name != ''){
+                        temporary[name] = val;
+                    }
+                    temporary['id'] = aDiv.eq(i).find('p').eq(0).find('select').attr('data-id');
+                    if(aDiv.eq(i).find('p').eq(0).find('select').val() == '-请选择-'){
+                        temporary['异常类型'] = ''
+                    }else{
+                        temporary['异常类型'] = aDiv.eq(i).find('p').eq(0).find('select').val();
+                    }
+                    
+                    var reason_sele = aDiv.eq(i).find('p').eq(1).find('select');
+                    var rStr = '';
+                    for(var j=0;j<reason_sele.length;j++){
+                        if(reason_sele.eq(j).val() == '-请选择-'){
+                            continue;
+                        }
+                        rStr += reason_sele.eq(j).val()+',';
+                    }
+                    rStr = rStr.substring(rStr,rStr.length-1);
+                    temporary['异常原因'] = rStr;
+
+                    arry.push(temporary)
+                }
+                return arry;
+            }
+            clearInterval(time);
+            time = setInterval(function(){
+                mustFill()
+            },1000);
+            //检测必填项是否填完
+            function mustFill(){
+                var bool = true;
+                var cont = $('.module .cont');
+                //质差业务
+                if(cont.find('>div').eq(3).css('display') != 'none'){
+                    if(cont.find('>div').eq(3).find('input').val() == ''){
+                        bool = false;
+                    }
+                };
+                //设备描述
+                if(cont.find('>div').eq(1).css('display') != 'none'){
+                    if(cont.find('>div').eq(1).find('p').text() == '-请选择-'){
+                        bool = false;
+                    }
+                };
+                //故障网元
+                if(cont.find('>div').eq(4).css('display') != 'none'){
+                    if(cont.find('>div').eq(4).find('input').val() == ''){
+                        bool = false;
+                    }
+                };
+                //故障小区
+                if(cont.find('>div').eq(5).css('display') != 'none'){
+                    if(cont.find('>div').eq(5).find('input').val() == ''){
+                        bool = false;
+                    }
+                };
+                //异常类型
+                var oDiv = cont.find('.abnormal > div');
+                for(var i=0;i < oDiv.length;i++){
+                    var oSelect = oDiv.eq(i).find('select');
+                    for(var j=0;j<oSelect.length;j++){
+                        if(oSelect.eq(j).val() == '-请选择-'){
+                            bool = false;
+                            break;
+                        }
+                    }
+                }
+                if(bool){
+                    $('.start button').eq(1).removeClass('disabled')
+                }else{
+                    $('.start button').eq(1).addClass('disabled')
+                }
+            }
+        })
+    </script>
+    <script>
+            
+    </script>
+</body>
+
+</html>

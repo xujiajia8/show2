@@ -1,0 +1,433 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.classifyTab5 .p {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+}
+
+table thead {
+    background-color: #DEE1E3;
+}
+
+table.citytable tr,
+table.cityClicktable tr {
+    height: 30px;
+    line-height: 30px;
+}
+
+table.citytable,
+table.cityClicktable {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 70%;
+    margin-left: 15%;
+}
+
+table.citytable td,
+table.citytable th,
+table.cityClicktable td,
+table.cityClicktable th {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: center;
+}
+
+.none {
+    display: none!important;
+}
+
+.classifyTab span {
+    width: 49.4%;
+    height: 30px;
+    line-height: 30px;
+    background-color: #ccc;
+    display: inline-block;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.classifyTab span:hover {
+    background-color: #888;
+    color: #fff;
+}
+
+.classifyChart .fenmiaoTab1,
+.classifyChart .fenmiaoTab2 {
+    margin-top: 30px;
+    margin-left: 80%;
+}
+
+.fenmiaoTab1 span,
+.fenmiaoTab2 span {
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #ccc;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fenmiaoTab1 span:hover,
+.fenmiaoTab2 span:hover {
+    background-color: #888;
+    color: #fff;
+}
+
+.activeclick {
+    background-color: #888!important;
+    color: #fff!important;
+}
+
+.statistics {
+    position: relative;
+    padding: 10px 30px;
+}
+
+.select-date {
+    font-family: "sta cartman"
+}
+
+.classifyChart #container1,
+.classifyChart #container2,
+.classifyChart #container3,
+.classifyChart #container4 {
+    width: 100%;
+    height: 500px;
+}
+
+.classifyTab5 {
+    position: relative;
+}
+
+#container5 {
+    width: 90%;
+    height: 410px;
+    margin-left: 80px;
+    z-index: 10;
+    margin-bottom: 30px;
+}
+
+#container6 {
+    position: absolute;
+    left: 230px;
+    top: 50px;
+    width: 400px;
+    height: 200px;
+    display: none;
+}
+
+.classifyTab2,
+.classifyTab3,
+.classifyTab4 {
+    display: none;
+}
+
+.classifyChart span:first-child {
+    margin-right: 8px;
+}
+
+.classifyChart div {
+    margin: 0 auto;
+}
+
+.classifyChart {
+    margin-top: 50px;
+}
+
+.statistics .biaoti {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.biaoti i {
+    float: left;
+    display: inline-block;
+    width: 6px;
+    height: 32px;
+    margin-right: 20px;
+    background-color: #A99494;
+}
+
+.biaoti span {
+    height: 32px;
+    line-height: 32px;
+    font-size: 16px;
+    float: left;
+    color: black;
+    font-weight: 700;
+}
+
+.curdate span {
+    font-weight: 700;
+}
+
+.txt {
+    font-size: 15px;
+    line-height: 25px;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    right: 45%;
+    top: 30px;
+}
+
+.txtMon .biaoti div {
+    display: inline-block;
+    font-size: 12px;
+    float: right;
+    cursor: pointer;
+}
+
+.txtMon {
+    position: absolute;
+    right: 10%;
+    top: 30px;
+}
+
+button.loadd {
+    width: 109px;
+    height: 34px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    position: absolute;
+    top: 40px;
+    left: 189px;
+    display: block;
+    outline: none;
+}
+
+button.loaddd {
+    width: 90px;
+    height: 30px;
+    float: right;
+    background-color: #2492fc;
+    color: #fff;
+    border: 1px solid #2492fc;
+    outline: none;
+    border-radius: 3px;
+    margin-right: 30px;
+}
+
+#btn {
+    width: 109px;
+    height: 34px;
+    background-color: red;
+    border: 1px solid #aaa;
+    display: block;
+    outline: none;
+}
+
+li {
+    list-style: none;
+}
+
+.siled .topp {
+    margin-top: 30px;
+}
+
+.laydate-box.laydate-box-one .icon {
+    position: absolute;
+    top: 46px;
+    left: 154px;
+    height: 25px;
+    width: 25px;
+    background: #fff;
+}
+
+.laydate-box #laydateInput {
+    outline: none;
+    display: block;
+    height: 30px;
+    width: 150px;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.laydate-box .select-date {
+    left: 100px;
+    top: 77px;
+    width: 266px;
+    height: 301px;
+    border: 1px solid #58abff;
+}
+
+.laydate-box .select-date-header {
+    height: 48px;
+    border-bottom: 1px solid #58abff;
+}
+
+.laydate-box .heade-ul {
+    height: 49px;
+}
+
+.laydate-box .header-item {
+    height: 28px;
+    float: left;
+    margin-top: 9px;
+}
+
+.laydate-box .header-item select {
+    height: 28px;
+}
+
+.laydate-box .header-item-one select {
+    width: 68px;
+    margin-left: 10px;
+    height: 30px;
+    outline: none;
+}
+
+.laydate-box .header-item-one {
+    height: 30px;
+}
+
+.laydate-box .header-item-two i {
+    display: block;
+    float: left;
+    height: 28px;
+    width: 28px;
+    line-height: 28px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.laydate-box .header-item-two i {
+    display: block;
+    float: left;
+    height: 28px;
+    width: 28px;
+    line-height: 28px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.laydate-box .header-item-two {
+    border: 1px solid #ccc;
+    margin-left: 10px;
+}
+
+.laydate-box .header-item-two select {
+    float: left;
+    border: none;
+    outline: none;
+}
+
+.laydate-box .header-item-two i:nth-child(1) {
+    border-right: 1px solid #ccc;
+}
+
+.laydate-box .header-item-two i:nth-child(3) {
+    border-left: 1px solid #ccc;
+}
+
+.laydate-box.laydate-box-two .header-item-three,
+.laydate-box.laydate-box-three .header-item-three {
+    margin-left: 30px;
+    width: 73px;
+}
+
+.laydate-box .header-item-three {
+    width: 73px;
+}
+
+.laydate-box .header-item-three span {
+    display: block;
+    height: 100%;
+    border: 1px solid #d8d8d8;
+    background: #f9f9f9;
+    line-height: 28px;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.laydate-box .header-item-three span:hover {
+    border-color: #388bff;
+}
+
+.laydate-box .header-item-three span.active {
+    border-color: #388bff;
+}
+
+.laydate-box .week-list {
+    height: 35px;
+    width: 100%;
+    border-bottom: 1px solid #c8cacc;
+}
+
+.laydate-box .week-list li {
+    float: left;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 15px;
+    margin: 0 1px;
+    /*font-weight: bold;*/
+}
+
+.laydate-box .week-list li:nth-child(7) {
+    color: #e02d2d
+}
+
+.laydate-box .week-list li:nth-child(1) {
+    color: #e02d2d
+}
+
+.laydate-box .tabel-line {
+    height: 35px;
+    border-bottom: 1px solid #c8cacc;
+}
+
+.laydate-box .tabel-ul {
+    height: 35px;
+}
+
+.laydate-box .tabel-li {
+    height: 31px;
+    width: 31px;
+    text-align: center;
+    line-height: 31px;
+    float: left;
+    border: 2px solid #fff;
+    margin: 0 1px;
+}
+
+.laydate-box .tabel-li.preDays {
+    color: #bfbfbf;
+}
+
+.laydate-box .tabel-li.nextDay {
+    color: #bfbfbf;
+}
+
+.laydate-box .tabel-li:hover {
+    border-color: #ffbb00;
+}
+
+.laydate-box .tabel-li.showClick {
+    border-color: #ffbb00;
+}
+
+.laydate-box .tabel-li.active {
+    background: #ffbb00;
+    color: #fff !important;
+    border-color: #ffbb00;
+}
+
+.laydate-box .tabel-li.weekColor {
+    color: #e02d2d;
+}

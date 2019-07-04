@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./static/css/comm.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/total.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/specil.css">
+    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/show.js"></script>
+    <script type="text/javascript" src="./static/js/comm.js"></script>
+    <style type="text/css">
+        /*待确认页面特有css  -start-*/
+        .BMap_shadow{
+            display: none;
+        }
+        .anchorBL{
+            display: none;
+        }
+        .siled .module .cont > div {
+            overflow: visible;
+        }
+        .siled .module .cont.result div.tab-type{
+            overflow: hidden;
+            padding-top: 25px;
+            padding-bottom: 30px;
+            font-size: 0;
+            color: rgba(0,0,0,.65);
+            text-align: center;
+            position: relative;
+        }
+        .siled .module .cont.result div.tab-type .hr{
+            position: absolute;
+            left: 0;
+            right: 0;
+            border-bottom: 1px solid #ececec;
+            top: 38px
+        }
+        .siled .module .cont.result div.tab-type .txt{
+            display: flex;
+            display: -webkit-flex;
+            justify-content:space-between;
+            -webkit-justify-content:space-between;
+        }
+        .siled .module .cont.result div.tab-type span{
+            width: auto;
+            padding-top: 38px;
+            font-size: 14px;
+            line-height: normal;
+            cursor: pointer;
+            position: relative;
+        }
+        .siled .module .cont.result div.tab-type span:first-child::after{
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background-color: #fff;
+        }
+        .siled .module .cont.result div.tab-type span:last-child::after{
+            content: '';
+            position: absolute;
+            top: 12px;
+            right: 0;
+            width: 50%;
+            height: 4px;
+            background-color: #fff;
+        }
+        .siled .module .cont.result div.tab-type span::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            margin: 0 auto;
+            width: 28px;
+            height: 28px;
+            background-color: #fff;
+            background-size: 100%;
+            background-image: url(./static/images/check_yes.png);
+            background-repeat: no-repeat;
+        }
+        .siled .module .cont.result div.tab-type span.error::before{
+            background-image: url(./static/images/check_error.png);
+        }
+        .siled .module .cont.result div.tab-type span.checked::before{
+            background-image: url(./static/images/checked_yes.png);
+        }
+        .siled .module .cont.result div.tab-type span.checkedError::before{
+            background-image: url(./static/images/checked_error.png);
+        }
+        .siled .module .cont.result div.neirong > div > p{
+            font-size: 14px;
+            color:rgba(0,0,0,.65);
+        }
+        .siled .module .cont .map{
+            height:514px;
+            margin:0 -20px 0;
+            padding-top: 19px;
+            clear: both;
+            position: relative;
+        }
+        .siled .module .cont.result .map div#allmap{
+            width: 100%;
+            height: 100%;
+            background: #ccc
+        }
+        .siled .module .cont.result .map div.location{
+            position: absolute;
+            bottom:0;
+            left: 0;
+            width: 60px;
+        }
+        .siled .module .cont.result .map div.location span{
+            display: block;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            background-size: 100%;
+        }
+        .siled .module .cont.result .map div.location span:nth-child(1){
+            background-image: url(./static/images/map_location.png);
+        }
+        .siled .module .cont.result .map div.location span:nth-child(2){
+            background-image: url(./static/images/map_enlarge.png);
+        }
+        .siled .module .cont.result .map div.location span:nth-child(3){
+            background-image: url(./static/images/map_narrow.png);
+        }
+        .siled .module .cont.result .legan{
+            float: right;
+            text-align: right;
+        }
+        .siled .module .cont.result .legan span{
+            font-size: 12px;
+            line-height: 18px;
+            padding-left: 23px;
+            margin-left: 38px;
+            position: relative;
+            background-size: 14px auto;
+            background-repeat: no-repeat;
+            background-position: left center;
+        }
+        .siled .module .cont.result .legan span:first-child{
+            margin-left: 0;
+        }
+        .siled .module .cont.result em{
+            float: none;
+        }
+        .siled .module .cont .normal-tables {
+            margin-top:20px
+        }
+        .siled .module .cont.result .normal-tables > div{
+            position: relative;
+            font-size: 14px;
+        }
+        .siled .module .cont .normal-tables .top1{
+            color: #FF5975;
+            margin: 30px 0 14px;
+            line-height: 32px;
+        }
+        .siled .module .cont .normal-tables .top2 > p{
+            margin: 0 16px
+        }
+        .siled .module .cont.result .normal-tables > div > span {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 54px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #CDCFD1;
+            border-radius: 3px;
+            text-align: center;
+            cursor: pointer;
+            color: rgba(0,0,0,.65);
+        }
+        .siled .module .cont.result .normal-tables > div p{
+            margin-bottom: 0;
+        }
+        .siled .module .cont.result .normal-tables > div p span{
+            width: auto;
+            float: none;
+            display: block;
+            margin: 0 6em 0 8em;
+            text-align: left;
+            line-height: normal;
+        }
+        .siled .module .cont.result table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .siled .module .cont.result table span{
+            font-size: 12px;
+            padding-left: 20px;
+            background-image: url(./static/images/stars.png);
+            background-position: left center;
+            background-size: 17px auto;
+            background-repeat: no-repeat;
+        }
+        .siled .module .cont.result table i{
+            float: left;
+            width: 17px;
+            height: 16px;
+            background-image: url(./static/images/stars.png);
+            background-position: left center;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+        }
+        .siled .module .cont.result table b{
+            display: inline-block;
+            font-weight: normal;
+            font-size: 12px;
+            width:30px;
+            height:16px;
+            color:#FF5975;
+            border: 1px solid #FF5975;
+            border-radius: 3px;
+            background: rgba(255,89,117,0.15);
+            line-height: 16px;
+            text-align: center;
+            margin-left: 8px;
+        }
+        .siled .module .cont.result table button{
+            width: 24px;
+            height: 24px;
+            border: 0;
+            margin-left: 5px;
+            cursor: pointer;
+            background-color: transparent;
+            background-image: url(./static/images/city-local.png);
+            background-position: left center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+        }
+        .siled .module .cont.result th{
+            white-space: nowrap;
+            line-height: 40px;
+            text-align: left;
+            padding: 0 10px;
+            background:#DEE1E3;
+            color: rgba(0,0,0,.85);
+        }
+        .siled .module .cont.result tbody tr{
+            line-height: 24px;
+            font-size: 12px;
+            color: rgba(0,0,0,.65);
+        }
+        .siled .module .cont.result tbody td{
+            padding: 15px 10px;
+            box-shadow:0px 1px 0px 0px rgba(222,225,227,1);
+        }
+        .siled .module .cont.result td:first-child,.siled .module .cont.result th:first-child {
+            width: 5%;
+            border-left: 0
+        }
+        .siled .module .cont.result td:last-child,.siled .module .cont.result th:last-child{
+            width: 14%;
+            border-right: 0
+        }
+        .siled .module .cont div.beizhu{
+            height:54px;
+            line-height: 54px;
+            padding: 0 28px;
+            box-shadow:0px 1px 0px 0px rgba(222,225,227,1);
+        }
+        .siled .module .cont div.beizhu > span{
+            float: left;
+            font-size: 12px;
+            color: rgba(0,0,0,.65);
+        }
+        .siled .module .cont div.beizhu > p{
+            color: #948686
+        }
+        /*待确认页面特有css  -end-*/
+    </style>
+</head>
+<body>
+    <!--start 头部-->
+    <div class="top">
+        <div class="title"><img src="./static/images/logo.png" alt=""></div>
+        <ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+        </ul>
+    </div>
+    <!--end 头部-->
+    <div class="content">
+        <!--start 测导航-->
+        <div class="nav">
+            <p>我的导航</p>
+            <ul>
+                <li onclick="window.location.href = 'index.html'">
+                    <i class="nav_home"></i>
+                    <span>首页</span>
+                </li>
+                <li onclick="window.location.href = 'import-idx.html';">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html';">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+                <li onclick="window.location.href = 'analysis.html'">
+                    <i class="nav_static"></i>
+                    <span>统计分析</span>
+                </li>
+                <li onclick="window.location.href = 'params.html';">
+                    <i class="nav_manage"></i>
+                    <span>系统管理</span>
+                </li>
+            </ul>
+        </div>
+        <!--end 测导航-->
+        <div class="siled" id="siled">
+            <div class="path">EMOS工单 / 工单</div>
+            <div class="subtitle">
+                <span>工单 --</span>
+                <div class="chul">已完成</div>
+            </div>
+            <div class="module">
+                <div class="title">
+                    <span>基本信息</span>
+                    <i class="show"></i>
+                </div>
+                <div class="cont M_O" style="display: block;">
+                    <p class="P_L">
+                        <strong>工单推送时间：</strong>
+                        <span></span>
+                    </p>
+                    <p class="P_L">
+                        <strong>定界开始时间：</strong>
+                        <span></span>
+                    </p>
+                    <p class="P_L M_B0">
+                        <strong>定界结束时间：</strong>
+                        <span></span>
+                    </p>
+                    <p class="P_L M_B0">
+                        <strong>结果确认时间：</strong>
+                        <span></span>
+                    </p>
+                </div>
+            </div>
+            <div class="module">
+                <div class="title">
+                    <span>用户基础信息</span>
+                    <i class="show"></i>
+                </div>
+                <div class="cont M_O" style="display: block;">
+                    <p class="P_L M_B0">
+                        <strong>IMEI：</strong>
+                        <span></span>
+                    </p>
+                    <p class="P_L M_B0">
+                        <strong>终端信息：</strong>
+                        <span></span>
+                    </p>
+                </div>
+            </div>
+            <div class="module">
+                <div class="title">
+                    <span>定界结果</span>
+                    <button>查看定界依据</button>
+                    <i class="show"></i>
+                </div>
+                <div class="cont result" style="display:block">
+                    <div class="tab-type">
+                        <div class="hr"></div>
+                        <div class="txt">
+                            <span>用户签约数据问题</span>
+                            <span>无用户数据</span>
+                            <span>核心网问题</span>
+                            <span>业务SP问题</span>
+                            <span>终端问题</span>
+                            <span>用户终端业务问题</span>
+                            <span>无线问题</span>
+                            <span>定界无异常</span>
+                        </div>
+                    </div>
+                    <div class="empty" style="text-align:center;line-height:5em;display:none;color:#f22">根据定界流程，未定界出相应问题！</div>
+                    <div class="neirong">
+                        <div>
+                            <div class="legan">
+                                <span style="background-image:url(./static/images/center.png);cursor: pointer;">投诉点</span>
+                                <span style="background-image:url(./static/images/map-error.png)">投诉区域质差小区</span>
+                                <span style="background-image:url(./static/images/map-normal.png)">投诉区域正常小区</span>
+                                <span style="background-image:url(./static/images/circle-error.png)">非投诉区域质差小区</span>
+                                <span style="background-image:url(./static/images/circle-normal.png)">非投诉区域正常小区</span>
+                            </div>
+                            <p style="float:left"><strong>用户经过小区详情：</strong></p>
+                            <div class="map">
+                                <div id="allmap"></div>
+                                <div class="location">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="normal-tables">
+                            <div class="no-abnormal">根据定界依据，用户无异常！</div>
+                            <div class="no-speed">限速状态为空</div>
+                            <div class="top1">
+                                <p>
+                                    <strong>故障类别：</strong>
+                                    <span style="display:inline-block;margin:0">无线</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="normal-tables" style="margin-top:22.5px">
+                            <div class="top2"></div>
+                        </div>
+                        <div class="beizhu">
+                            <span>备注：</span>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="module">
+                <div class="title">
+                    <span>录入信息</span>
+                    <i></i>
+                </div>
+                <div class="cont">
+                    <p>
+                        <strong>投诉电话：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>投诉时间：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>数据时间：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>投诉地市：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>投诉地点：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>投诉描述：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>投诉类别：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>业务类别：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>业务名称：</strong>
+                        <span></span>
+                    </p>
+                </div>
+            </div>
+            <div class="module">
+                <div class="title">
+                    <span>生成工单信息</span>
+                    <i></i>
+                </div>
+                <div class="cont">
+                    <p>
+                        <strong>投诉时间：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>投诉地点：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>业务名称：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>数据时间：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>投诉类别：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>业务类别：</strong>
+                        <span></span>
+                    </p>
+                </div>
+            </div>
+            <div class="module">
+                <div class="title">
+                    <span>原始工单信息</span>
+                    <i></i>
+                </div>
+                <div class="cont">
+                    <p>
+                        <strong>客服受理时间：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>投诉电话：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>所在地市：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>投诉类型：</strong>
+                        <span></span>
+                    </p>
+                    <p>
+                        <strong>投诉描述：</strong>
+                        <span></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./static/js/mapFun.js"></script>
+    <script type="text/javascript" src="./static/js/map_load.js"></script>
+    <script type="text/javascript" src="mapJson.js"></script>
+    <script type="text/javascript">
+
+        function Demarcation(obj){ //定界结果故障详情表格渲染方法
+            if(obj.data == ''){
+                return false;
+            };
+            var f_mark = [0,0];
+            for(var i in obj.data){
+                f_mark[0] = obj.data[i].length;
+                f_mark[1] = f_mark[1] +1;
+            };
+            if(f_mark[1] <= 1 && f_mark[0] == 0){
+                return false
+            };
+            var number = 0;
+            var key = [];
+            var fType = obj.fault_type;
+            var str = '<table cellspacing="0" cellpadding="0"><thead><tr><th>序号</th>';
+            if(fType.indexOf('无线') != -1){
+                str += '<th style="padding-left:30px">故障小区</th>'
+            }else if(fType.indexOf('核心网') != -1){
+                str += '<th>设备描述</th><th>故障网元</th>'
+            }else if(fType.indexOf('SP') != -1){
+                str += '<th>质差业务</th>'
+            }
+            str +='<th style="width:20%;">异常类型</th><th>异常原因</th>';
+            if(fType.indexOf('无线') != -1){
+                str += '<th>故障等级（<span>越多，等级越高</span>）</th>';
+                for(var item in obj.data){
+                    var ths = [];
+                    ths.push(obj.data[item][0]['故障等级']);
+                    ths.push(item);
+                    key.push(ths)
+                }
+                key.sort();
+            }
+            str += '</tr></thead><tbody>';
+            if(fType.indexOf('无线') != -1){
+                for(var i=key.length-1;i>=0;i--){
+                    for(var j=0;j<obj.data[key[i][1]].length;j++){
+                        var levelX = '',state = null;
+                        if(j == 0 && obj.data[key[i][1]].length > 1){
+                            str += '<tr><td style="padding-left:20px" rowspan="'+obj.data[key[i][1]].length+'">'+(number+1)+'</td><td rowspan="'+obj.data[key[i][1]].length+'">'+key[i][1]+'<button></button></td>'
+                        }else if(j == 0 && obj.data[key[i][1]].length <= 1){
+                            str += '<tr><td style="padding-left:20px">'+(number+1)+'</td><td>'+key[i][1]+'<button></button></td>'
+                        }else{
+                            str += '<tr>'
+                        }
+                        state = ['系统','人工'][obj.data[key[i][1]][j].abt] == '人工' ? '<b>人工</b>' : '';
+                        str += '<td style="white-space:nowrap">'+obj.data[key[i][1]][j]['异常类型']+state+'</td><td>'+obj.data[key[i][1]][j]['异常原因']+'</td>';
+
+                        for(var k = 0;k<key[i][0];k++){
+                            levelX += '<i></i>'
+                        }
+                        if(j == 0 && obj.data[key[i][1]].length > 1){
+                            str += '<td rowspan="'+obj.data[key[i][1]].length+'">'+levelX+'</td></tr>';
+                        }else if(j == 0 && obj.data[key[i][1]].length <= 1){
+                            str += '<td>'+levelX+'</td></tr>';
+                        }else{
+                            str += '</tr>'
+                        }
+                    }
+                    number++;
+                }
+            }else{
+                for(var item in obj.data){
+                    if(fType.indexOf('核心网') != -1){
+                        
+                        for(var j=0;j<obj.data[item].length;j++){
+                            if(j == 0 && obj.data[item].length > 1){
+                                str += '<tr><td style="padding-left:20px" rowspan="'+obj.data[item].length+'">'+(number+1)+'</td><td rowspan="'+obj.data[item].length+'">'+obj.data[item][0]['设备描述']+'</td><td rowspan="'+obj.data[item].length+'">'+item+'</td>';
+                            }else if(j == 0 && obj.data[item].length <= 1){
+                                str += '<tr><td style="padding-left:20px">'+(number+1)+'</td><td>'+obj.data[item][0]['设备描述']+'</td><td>'+item+'</td>';
+                            }else{
+                                str+= '<tr>'
+                            }
+                            str += '<td>'+obj.data[item][j]['异常类型']+'<b>'+['系统','人工'][obj.data[item][j].abt]+'</b></td><td>'+obj.data[item][j]['异常原因']+'</td></tr>'
+
+                        }
+                    }else if(fType.indexOf('SP') != -1){
+                        for(var j=0;j<obj.data[item].length;j++){
+                            if(j==0 && obj.data[item].length > 1){
+                                str += '<tr><td style="padding-left:20px" rowspan="'+obj.data[item].length+'">'+(number+1)+'</td><td rowspan="'+obj.data[item].length+'">'+item+'</td>';
+                            }else if(j==0 && obj.data[item].length <= 1){
+                                str += '<tr><td style="padding-left:20px">'+(number+1)+'</td><td>'+item+'</td>';
+                            }else{
+                                str+= '<tr>'
+                            }
+                            str += '<td>'+obj.data[item][j]['异常类型']+'</td><td>'+obj.data[item][j]['异常原因']+'</td><tr>'
+                        }
+                    }else{
+                        
+                        for(var j=0;j<obj.data[item].length;j++){
+                            if(j==0 && obj.data[item].length > 1){
+                                str += '<tr><td style="padding-left:20px" rowspan="'+obj.data[item].length+'">'+(number+1)+'</td>'
+                            }else if(j==0 && obj.data[item].length <= 1){
+                                str += '<tr><td style="padding-left:20px">'+(number+1)+'</td>'
+                            }else{
+                                str += '<tr>'
+                            }
+                            str += '<td>'+obj.data[item][j]['异常类型']+'<b>'+['系统','人工'][obj.data[item][j].abt]+'</b></td><td>'+obj.data[item][j]['异常原因']+'</td></tr>'
+                        }
+                    }
+                    number++;
+                } 
+            }
+            str += '</tbody></table>';
+            $('.module').find('.normal-tables .top2 table').remove();
+            $('.module').find('.normal-tables .top2').append(str);
+        }
+        $(function() {
+            window.fiel_number = localStorage.getItem('fiel_number'); //工单编号
+            $('.subtitle').find('span').text('工单编号 ' + window.fiel_number);
+            localStorage.removeItem('basis_xAxisIdx');  //清除存储-定界依据页面折线图点的索引
+            localStorage.removeItem('process_success'); //清除存储-定界依据页面tab切换可操作的tab终点
+            localStorage.removeItem('demafaultType'); //清除存储-待确认故障类型
+            localStorage.removeItem('demaResult'); //清除存储-待确认修改数据
+
+            if (window.fiel_number.indexOf('JSL') != -1) { //录入
+                $('.nav li').eq(2).addClass('active');
+                $('.module').eq(4).hide();
+                $('.module').eq(5).hide();
+                $('.siled .path').html('录入型工单 / 工单');
+                $('.module').eq(0).find('strong').eq(0).text('客服受理时间：');
+            } else {
+                $('.nav li').eq(1).addClass('active');
+                $('.module').eq(3).hide();
+                $('.siled .path').html('EMOS工单 / 工单');
+            };
+            //查看定界依据
+            $('.module').find('.title button').on('click', function() {
+                localStorage.setItem('basis_url_back', 'completeState.html');
+                localStorage.setItem('fiel_number',window.fiel_number);
+                localStorage.removeItem('basis');
+                localStorage.removeItem('basis_two_name');
+                localStorage.removeItem('basis_two_txt');
+                localStorage.removeItem('basis_two_id');
+                window.location.href = 'basis.html';
+            })
+            //初始化请求接口-数据渲染
+            
+            var respone = {"no_spe_msg":0,"list_id":"JS-059-190528-43","result_msg":{},"base_msg":{"push_time":1559038776000,"start_time":1559040268000,"end_time":1559040456000,"sure_time":""},"list_msg":{"file_msg":{"error_time":1558951236000,"error_address":"苏州市昆山市圣美精密工业黄浦江厂-西门","business_name":"","data_time_first":1558944036000,"data_time_end":1558951236000,"complain_name":"区域信号弱","type":""},"original_msg":{"occ_city":"苏州","complain_cell":"18361922412","complain_type":"移动业务->网络质量->手机上网（4G）->全局流转->功能使用->区域信号弱->全局流转","error_discribe":"客户反映2019-05-27 18:00:36，在地点（苏州市昆山市圣美精密工业黄浦江厂-西门(121.015916,31.453018)），出现（没有网络）投诉现象，已持续（长期时间），历史使用情况（5月24日出现过这个情况），周围用户情况是否正常（是），用户使用网络：4G，是否同意进行测试：是，客户终端型号为：OPPOR9m（VOLTE终端），4G功能是否开通：是。","accept_time":1558951383000}},"all_time":47,"faultType_has_change":true,"comment":"","imei":"86305503057075","imei_name":"欧珀(OPPO R9m)","cate_success":206};
+            respone.base_msg.push_time = timeChange(respone.base_msg.push_time);
+            respone.base_msg.start_time = timeChange(respone.base_msg.start_time);
+            respone.base_msg.end_time = timeChange(respone.base_msg.end_time);
+            respone.base_msg.sure_time = timeChange(respone.base_msg.sure_time);
+            respone.faultTime = timeChange(respone.faultTime);
+
+            //基本信息
+            if (respone.base_msg.push_time) {
+                $('.module').eq(0).find('.cont span').eq(0).text(respone.base_msg.push_time);
+            }
+            if (respone.base_msg.start_time) {
+                $('.module').eq(0).find('.cont span').eq(1).text(respone.base_msg.start_time);
+            }
+            if (respone.base_msg.end_time) {
+                $('.module').eq(0).find('.cont span').eq(2).text(respone.base_msg.end_time);
+            }
+            if (respone.base_msg.sure_time) {
+                $('.module').eq(0).find('.cont span').eq(3).text(respone.base_msg.sure_time);
+            }
+            //用户基础信息
+            if(respone.imei){
+                $('.module').eq(1).find('.cont span').eq(0).text(respone.imei)
+            };
+            if(respone.imei_name){
+                $('.module').eq(1).find('.cont span').eq(1).text(respone.imei_name)
+            }
+            if (window.fiel_number.indexOf('JSL') != -1) {
+                //录入信息
+                if (respone.list_msg.msisdn) {
+                    $('.module').eq(3).find('.cont span').eq(0).text(respone.list_msg.msisdn)
+                }
+                if (respone.list_msg.occtime) {
+                    $('.module').eq(3).find('.cont span').eq(1).text(timeChange(respone.list_msg.occtime))
+                }
+                if (respone.list_msg.data_time1 && respone.list_msg.data_time2) {
+                    $('.module').eq(3).find('.cont span').eq(2).text(timeChange(respone.list_msg.data_time1) + '-' + timeChange(respone.list_msg.data_time2));
+                }
+                if (respone.list_msg.occcity) {
+                    $('.module').eq(3).find('.cont span').eq(3).text(respone.list_msg.occcity)
+                }
+                if (respone.list_msg.occsite) {
+                    $('.module').eq(3).find('.cont span').eq(4).text(respone.list_msg.occsite)
+                }
+                if (respone.list_msg.dis) {
+                    $('.module').eq(3).find('.cont span').eq(5).text(respone.list_msg.dis)
+                }
+                if (respone.list_msg.prostype) {
+                    $('.module').eq(3).find('.cont span').eq(6).text(respone.list_msg.prostype)
+                }
+                if (respone.list_msg.servtype) {
+                    $('.module').eq(3).find('.cont span').eq(7).text(respone.list_msg.servtype)
+                }
+                if (respone.list_msg.servname) {
+                    $('.module').eq(3).find('.cont span').eq(8).text(respone.list_msg.servname)
+                }
+            } else {
+                respone.list_msg.file_msg.error_time = timeChange(respone.list_msg.file_msg.error_time);
+                respone.list_msg.file_msg.data_time_first = timeChange(respone.list_msg.file_msg.data_time_first);
+                respone.list_msg.file_msg.data_time_end = timeChange(respone.list_msg.file_msg.data_time_end);
+                respone.list_msg.original_msg.accept_time = timeChange(respone.list_msg.original_msg.accept_time);
+                //生成工单信息
+                if (respone.list_msg.file_msg.error_time) {
+                    $('.module').eq(4).find('.cont span').eq(0).text(respone.list_msg.file_msg.error_time);
+                }
+                if (respone.list_msg.file_msg.error_address) {
+                    $('.module').eq(4).find('.cont span').eq(1).text(respone.list_msg.file_msg.error_address);
+                }
+                if (respone.list_msg.file_msg.business_name) {
+                    $('.module').eq(4).find('.cont span').eq(2).text(respone.list_msg.file_msg.business_name);
+                }
+                if (respone.list_msg.file_msg.data_time_first && respone.list_msg.file_msg.data_time_end) {
+                    $('.module').eq(4).find('.cont span').eq(3).text(respone.list_msg.file_msg.data_time_first + '-' + respone.list_msg.file_msg.data_time_end);
+                }
+                if (respone.list_msg.file_msg.complain_name) {
+                    $('.module').eq(4).find('.cont span').eq(4).text(respone.list_msg.file_msg.complain_name);
+                }
+                if (respone.list_msg.file_msg.type) {
+                    $('.module').eq(4).find('.cont span').eq(5).text(respone.list_msg.file_msg.type);
+                }
+
+                //原始工单信息
+                if (respone.list_msg.original_msg.accept_time) {
+                    $('.module').eq(5).find('.cont span').eq(0).text(respone.list_msg.original_msg.accept_time);
+                }
+                if (respone.list_msg.original_msg.complain_cell) {
+                    $('.module').eq(5).find('.cont span').eq(1).text(respone.list_msg.original_msg.complain_cell);
+                }
+                if (respone.list_msg.original_msg.occ_city) {
+                    $('.module').eq(5).find('.cont span').eq(2).text(respone.list_msg.original_msg.occ_city);
+                }
+                if (respone.list_msg.original_msg.complain_type) {
+                    $('.module').eq(5).find('.cont span').eq(3).text(respone.list_msg.original_msg.complain_type);
+                }
+                if (respone.list_msg.original_msg.error_discribe) {
+                    $('.module').eq(5).find('.cont span').eq(4).text(respone.list_msg.original_msg.error_discribe);
+                }
+            } 
+            //备注
+            if (respone.comment) {
+                $('.module').eq(2).find('.beizhu p').text(respone.comment);
+            }
+            //定界结果
+            if(respone.no_spe_msg == 1 ){
+                //限速状态没值展示
+                $('.module .no-speed').show();
+            };
+            
+            //存储定界依据页面tab切换可操作的tab终点
+            var now_stateTxt = {
+                '201': '鉴权',
+                '202': '拉取数据',
+                '203': '业务状态定界',
+                '204': '无线异常定界',
+                '205': '性能指标定界',
+                '206': '用户数据定界'
+            }
+            var process_success = now_stateTxt[respone.cate_success];
+            //tabChange('.tab', '.tab-cont', process_success);
+            localStorage.setItem('process_success', process_success);
+
+            //地图接口请求
+            if(respone1.tude_msg == ''){
+                mapBd('','','')
+            }else{
+                var mapDate = mapDateHandle(respone1.data);
+                if(respone1.data == ''){
+                    $('.neirong > div').eq(0).hide();
+                    return false
+                };
+                var xyA = [];
+                if(respone1.circle != ''){
+                    for(var i in respone1.circle){
+                        xyA[0] = i.split(',')[0].replace(/\s+/g, "");
+                        xyA[1] = i.split(',')[1].replace(/\s+/g, "");
+                    }
+                }else{
+                    if(mapDate.abnormal.length > 0){
+                        xyA[0] = mapDate.abnormal[0][0];
+                        xyA[1] = mapDate.abnormal[0][1];
+                    }else{
+                        xyA[0] = mapDate.data_all[0][0];
+                        xyA[1] = mapDate.data_all[0][1];
+                    }
+                } 
+                if(xyA.length == 0){
+                    xyA = '';
+                }
+                mapBd(xyA,respone1.data,respone1.circle,mapDate.data_all,mapDate.abnormal);
+                //点击异常详情表格匹配地图
+                $('.module').eq(2).find('.normal-tables .top2').on('click',function(e){
+                    var evt = e || window.event;
+                    var elem = evt.target;
+                    var xqA = [];
+                    var fty = $('.module').eq(2).find('.cont .top1').find('span').text();
+                    if(fty.indexOf('无线') != -1 && $(elem).parents('tbody').length > 0){
+                        if(elem.nodeName == 'BUTTON'){
+                            var xq = $(elem).parent().text();
+                            var bl = false;
+                            for(var i = 0;i<mapDate.abnormal.length;i++){
+                                for(var j=0;j < mapDate.abnormal[i][2].length;j++){
+                                    if(mapDate.abnormal[i][2][j] == xq){
+                                        xqA[0] = mapDate.abnormal[i][0];
+                                        xqA[1] = mapDate.abnormal[i][1];
+                                        bl = true;
+                                        break;
+                                    }
+                                }
+                                if(bl){
+                                    break;
+                                }    
+                            }
+                            if(xqA.length > 0){
+                                if(xqA[0] != xyA[0] || xqA[1] != xyA[1]){
+                                    mapCityClick(xqA,mapDate.abnormal);
+                                    $(window).scrollTop($('.neirong').offset().top);
+                                    xyA[0] = xqA[0];
+                                    xyA[1] = xqA[1];
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            //故障类别-故障详情接口请求
+            if(respone2.is_error == 0){
+                //故障类别
+                if (respone2.fault_type) {
+                    $('.module .cont.result').find('.top1 p span').text(respone2.fault_type);
+                    window.faultType = respone2.fault_type;
+                }
+                Demarcation(respone2);
+            }else{
+                $('.module .empty').show();
+                $('.module .neirong').hide();
+            }
+            $('.module .cont.result .tab-type span').each(function(){
+                var txt = $(this).text();
+                if(txt.indexOf(respone2.fault_type) != -1){
+                    $(this).addClass('checkedError');
+                }
+            });
+            $('.module .cont.result .tab-type span').on('click',function(){
+                var tss = $(this).get(0).className;
+                if(tss.indexOf('checked') != -1){
+                    return false;
+                };
+                if(tss.indexOf('error') != -1){
+                    $(this).addClass('checkedError').removeClass('error');
+                    $(this).siblings('.checked').removeClass('checked');
+                    $('.module .cont.result').find('.empty').hide();
+                    $('.module .cont.result').find('.neirong').show();
+                }else{
+                    $(this).addClass('checked');
+                    $(this).siblings('.checkedError').removeClass('checkedError').addClass('error');
+                    $(this).siblings('.checked').removeClass('checked');
+                    $('.module .cont.result').find('.empty').show();
+                    $('.module .cont.result').find('.neirong').hide();
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

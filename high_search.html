@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./static/css/comm.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/total.css">
+    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/show.js"></script>
+    <script type="text/javascript" src="./static/js/comm.js"></script>
+</head>
+<body>
+    <!--start 头部-->
+    <div class="top">
+        <div class="title"><img src="./static/images/logo.png" alt=""></div>
+		<ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+		</ul>
+    </div>
+    <!--end 头部-->
+    <div class="content">
+        <!--start 测导航-->
+        <div class="nav">
+            <p>我的导航</p>
+            <ul>
+                <li onclick="window.location.href = 'index.html'">
+                    <i class="nav_home"></i>
+                    <span>首页</span>
+                </li>
+                <li onclick="window.location.href = 'import-idx.html';">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html';">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+                <li onclick="window.location.href = 'analysis.html'">
+                    <i class="nav_./static"></i>
+                    <span>统计分析</span>
+                </li>
+                <li onclick="window.location.href = 'params.html'">
+                    <i class="nav_manage"></i>
+                    <span>系统管理</span>
+                </li>
+            </ul>
+        </div>
+        <!--end 测导航-->
+        <div class="siled">
+			<div class="path"></div>
+			<div class="subtitle">
+				<span>高级搜索</span>
+			</div>
+			<div class="h_search">
+				<div  class="title">
+					<div>
+						<strong>关键字：</strong>
+						<p><input type="text"></p>
+					</div>
+					<div class="radio">
+						<strong>工单类型：</strong>
+						<span class="active">全部</span>
+						<span>EMOS工单</span>
+						<span>录入型工单</span>
+					</div>
+				</div>
+				<div class="cont" style="display:none">
+					<div class="e_int">
+						<strong>投诉省市：</strong>
+						<div class="province choice">
+							<p></p>
+							<ul class="scrollbar mapbar"></ul>
+						</div>
+						<b>省</b>
+						<div class="city choice">
+							<p></p>
+							<ul class="scrollbar mapbar"></ul>
+						</div>
+						<b>市</b>
+					</div>
+					<div class="checkbox">
+						<strong>任务状态：</strong>
+						<span>草稿</span>
+						<span>待处理</span>
+						<span>待确认</span>
+						<span>异常态</span>
+						<span>排队中</span>
+						<span>定界中</span>
+						<span>待核验</span>
+						<span>已核验</span>
+					</div>
+					<div class="e_int">
+						<strong>投诉时间：</strong>
+						<div class="complaint">
+							<input id="time1" readonly type="text" placeholder='请选择起止时间'>
+						</div>
+					</div>
+					<div class="e_int">
+						<strong>受理时间：</strong>
+						<div class="accept">
+							<input id="time2" readonly type="text" placeholder='请选择起止时间'>
+						</div>
+					</div>
+					<div class="checkbox">
+						<strong>故障类别：</strong>
+						<span>用户签约数据问题</span>
+						<span>用户终端业务问题</span>
+						<span>无用户数据</span>
+						<span>核心网问题</span>
+						<span>业务SP问题</span>
+						<span>终端问题</span>
+						<span>无线问题</span>
+						<span>定界无异常</span>
+					</div>
+					<div class="e_int">
+						<strong>异常类型：</strong>
+						<div class="a_type choice">
+							<p></p>
+							<ul></ul>
+						</div>
+						<strong>异常原因：</strong>
+						<div class="a_reason choice">
+							<p>-请先选择异常类型-</p>
+							<ul></ul>
+						</div>
+					</div>
+					<div class="checkbox">
+						<strong>投诉类别：</strong>
+                        <div>
+    						<span>有信号无法在线游戏</span>
+    						<span>有信号全部网站、游戏、视频、APP等软件上网慢、卡顿</span>
+    						<span>上网时出现断线</span>
+    						<span>区域信号弱</span>
+    						<span>有信号不能上网</span>
+                            <span>无4G信号或者信号弱</span>
+                            <span>区域无信号</span>
+                            <span>有信号视频观看慢、卡</span>
+                            <span>有信号在线聊天慢</span>
+                            <span>网速慢</span>
+                            <span>有信号无法在线聊天</span>
+                            <span>区域信号不好</span>
+                            <span>有信号在线游戏卡顿</span>
+                            <span>有信号网页浏览慢</span>
+                            <span>出现全部网站、游戏、视频、APP等软件断线</span>
+                            <span>有信号无法观看视频</span>
+                            <span>有信号下载速率慢</span>
+                            <span>网速慢或网页无法打开</span>
+                            <span>有信号无法下载</span>
+                            <span>有信号无法浏览网页</span>
+                        </div>
+					</div>
+					<div class="checkbox">
+						<strong>业务类别：</strong>
+						<span>游览</span>
+						<span>下载</span>
+						<span>游戏</span>
+						<span>即时通信</span>
+						<span>视频</span>
+					</div>
+					<div class="button">
+						<button>搜索</button>
+						<button>重置</button>
+					</div>
+				</div>
+				<div class="h_sd">
+					<span class="">展开</span>
+				</div>
+			</div>
+			<div class="lately">
+				<div class="exact">
+					<span>搜索结果列表</span>
+				</div>
+				<div class="table">
+					<table border=0 cellspacing=0 cellpadding=0>
+						<thead>
+							<tr>
+								<th>工单编号</th>
+	                            <th>地市</th>
+								<th>状态</th>
+								<th>客服受理时间</th>
+								<th>投诉类别</th>
+								<th>故障类别</th>
+							</tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>JS-00-0000-01</td>
+                                <td>苏州</td>
+                                <td><i class="wanc"></i>已完成</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-02</td>
+                                <td>苏州</td>
+                                <td><i class="wanc"></i>已完成</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-03</td>
+                                <td>苏州</td>
+                                <td><i class="dingj"></i>定界中</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-04</td>
+                                <td>苏州</td>
+                                <td><i class="chul"></i>待处理</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-05</td>
+                                <td>苏州</td>
+                                <td><i class="yic"></i>异常态</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-06</td>
+                                <td>苏州</td>
+                                <td><i class="quer"></i>待确认</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-07</td>
+                                <td>苏州</td>
+                                <td><i class="paid"></i>排队中</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-08</td>
+                                <td>苏州</td>
+                                <td><i class="wanc"></i>已完成</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-09</td>
+                                <td>苏州</td>
+                                <td><i class="wanc"></i>已完成</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-10</td>
+                                <td>苏州</td>
+                                <td><i class="wanc"></i>已完成</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>                  
+                        </tbody>
+					</table>
+				</div>
+				<div class="page">
+					<span>共100条</span>
+					<div class="number">
+						<p class="pre">上一页</p>
+						<p class="p_number">
+							<span class="active">1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>4</span>
+							<i>···</i>
+							<span>10</span>
+						</p>
+						<p class="next">下一页</p>
+						<p class="p_now">
+							<i>1</i>/10
+						</p>
+						<p class="p_input">
+							<span>到第</span>
+							<input type="text">
+							<span>页</span>
+						</p>
+						<p class="jump">确定</p>
+					</div>
+				</div>
+				<div class="empty">
+					<img src="./static/images/h_empty.png" alt="">
+					<p>暂无搜索结果，换个条件试试吧～</p>
+				</div>
+			</div>
+        </div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./static/js/laydate.js"></script>
+    <script type="text/javascript" src="./static/js/city.js"></script>
+    <script type="text/javascript" src="./static/js/abnormal.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            selectImitate(); //模拟下拉选择框
+            radioImitate(); //模拟单选框
+            //日期时间范围
+            laydate.render({
+              elem: '#time1'
+              ,type: 'datetime'
+              ,range: true
+            }); 
+            laydate.render({
+              elem: '#time2'
+              ,type: 'datetime'
+              ,range: true
+            }); 
+            window.totalPage = 10;
+            var searchDate,f_type;  // 全局变量总页数、搜索请求变量
+            var high_type = localStorage.getItem('high_type'); //初始化工单类型
+            var high_value = localStorage.getItem('high_value'); //初始化关键字
+            if(high_type == '录入型工单'){  //初始化any_search接口参数
+                f_type = 0
+            }else{
+                f_type = 1
+            };
+            $('.h_search .title span').each(function(){
+                if($(this).text() == high_type){
+                    $(this).addClass('active').siblings().removeClass();
+                    if($(this).text() == 'EMOS工单'){
+                        $('.cont .checkbox').eq(0).find('span').eq(0).hide();
+                    }else{
+                        $('.cont .checkbox').eq(0).find('span').eq(0).show();
+                    }
+                }
+            });
+            var Jurisdiction //= {{permission}};  //权限是否显示城市搜过功能
+            if (Jurisdiction == 0) {
+                $('.cont > div').eq(0).hide();
+            }else{
+                var province = $('.province');
+                var city = $('.city');
+                province.find('ul li').remove();
+                for (var item in cityStr) { 
+                    var oLi = document.createElement('li');
+                    oLi.innerHTML = cityStr[item].name;
+                    if(cityStr[item].name == '江苏'){
+                        oLi.className = 'active'
+                    };
+                    province.find('ul').append(oLi);
+                }
+                province.find('p').text('江苏');
+                cityOption('0', city, $('.province li.active').index());//二级城市联动
+                province.find('p').bind('change',function(){
+                    var index = $('.province li.active').index()
+                    if(index == -1){
+                        city.find('ul li').remove();
+                        city.find('p').text('-请选择-');
+                        return false
+                    }
+                    var cityArea = '';
+                    if (cityStr[index].city.length <= 1) {
+                        cityOption('1', city, index)
+                    } else {
+                        cityOption('0', city, index)
+                    }
+                });
+            };
+            //初始化初始化异常类型异常原因
+            var a_type = $('.a_type');
+            var a_reason = $('.a_reason');
+            a_type.find('ul li').remove();
+            a_type.find('p').text('-请选择-')
+            a_reason.find('ul li').remove();
+            a_reason.find('p').text('-请先选择异常类型-');
+            for(var i=0;i<yicSearch.length;i++){
+                var oLi = document.createElement('li');
+                oLi.innerHTML = yicSearch[i].type;
+                a_type.find('ul').append(oLi)
+            };
+            a_type.find('p').bind('change',function(){
+                a_reason.find('ul li').remove();
+                a_reason.find('p').text('-请选择-');
+                var index = a_type.find('li.active').index();
+                if(index == -1){
+                    a_reason.find('ul li').remove();
+                    a_reason.find('p').text('-请选择-');
+                    return false;
+                };
+                for(var i=0;i<yicSearch[index].rease.length;i++){
+                    var oLi = document.createElement('li');
+                    oLi.innerHTML = yicSearch[index].rease[i];
+                    a_reason.find('ul').append(oLi)
+                }
+                a_reason.find('p').text('-请选择-');
+            });
+            //搜索项展开收起
+            $('.h_sd span').on('click',function(){
+                var elem = $('.h_search .cont');
+                if(elem.css('display') == 'none'){
+                    elem.show();
+                    $(this).text('收起');
+                    $(this).addClass('show').removeClass('hide')
+                }else{
+                    elem.hide();
+                    $(this).text('展开');
+                    $(this).addClass('hide').removeClass('show')
+                }
+            });
+            //重置
+            $('.h_search .button button').eq(1).on('click', function() {
+                //关键字-工单类型
+                $('.h_search .title input').val('');
+                $('.h_search .title .radio span').eq(0).addClass('active').siblings().removeClass();
+                //投诉省市
+                if (Jurisdiction != 0) {
+                    $('.h_search .province p').text('江苏');
+                    $('.h_search .province ul li').each(function(){
+                        if($(this).text() == '江苏'){
+                            $(this).addClass('active').siblings().removeClass();
+                        }
+                    });
+                    cityOption('0', city, $('.h_search .province li.active').index());
+                }
+                //任务状态-故障类别-投诉类别-业务类别
+                $('.h_search .checkbox').each(function(){
+                    $(this).find('span.active').removeClass();
+                })
+                //投诉时间
+                $('.h_search .complaint input').val('');
+                //受理时间
+                $('.h_search .accept input').val('');
+                //异常类型-异常原因
+                $('.a_type p').text('-请选择-');
+                $('.a_type li.active').removeClass();
+                $('.a_reason p').text('-请先选择异常类型-');
+                $('.a_reason ul').html('');
+            })
+            //page
+            var pre = $('.page .pre');
+            var next = $('.page .next');
+            var jump = $('.page .jump');
+            $('.page .p_input input').on('input',function(){
+                var txt = $(this).val();
+                if(txt < 1){
+                    //$(this).val('1')
+                }
+                if(txt > totalPage){
+                    $(this).val(totalPage)
+                }
+            });
+            localStorage.setItem('highSearchDatePage','1');
+            pre.on('click',function(){
+                var prePage,f_type;
+                var thisPge = Number($('.page .p_now i').text());
+                if(thisPge - 1 < 1){
+                    return false
+                }
+                if(thisPge <=1 ){
+                    return false;
+                }else{
+                    prePage = thisPge-1;
+                    pageShow(prePage)
+                }
+            })
+            next.on('click',function(){
+                var prePage,f_type;
+                var thisPge = Number($('.page .p_now i').text());
+                if(thisPge + 1 > totalPage){
+                    return false
+                }
+                if(thisPge >= totalPage ){
+                    return false;
+                }else{
+                    prePage = thisPge+1;
+                    pageShow(prePage)
+                };
+            })
+            jump.on('click',function(){
+                var prePage,jumpTxt;
+                var thisPge = Number($('.page .p_now i').text());
+                jumpTxt = $('.page .p_input input').val();
+                if(jumpTxt = '' || jumpTxt == thisPge){
+                    return false;
+                };
+                prePage = jumpTxt;
+                pageShow(prePage);
+            })
+            $('.page .p_input input').on('keydown',function(event){
+                var prePage,jumpTxt;
+                if(event.keyCode == 13){
+                    var thisPge = Number($('.page .p_now i').text());
+                    jumpTxt = $('.page .p_input input').val();
+                    if(jumpTxt = '' || jumpTxt == thisPge || jumpTxt < 1){
+                        return false;
+                    };
+                    prePage = jumpTxt;
+                    pageShow(prePage);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

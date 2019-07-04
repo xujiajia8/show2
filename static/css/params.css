@@ -1,0 +1,1523 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: rgba(243, 244, 245, 1);
+}
+
+.siled .bDivTotalRight_old .module {
+    position: static;
+}
+
+.addsucpop i {
+    font-style: normal;
+}
+
+.bDivTotal-two p {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.9);
+    margin-left: 55%;
+}
+
+.midpage {
+    display: inline-block;
+    margin-top: -2px;
+}
+
+.midpage span {
+    width: 32px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid #CDCFD1;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+    text-align: center;
+    margin-right: 3px;
+}
+
+.midpage span:hover {
+    background-color: #2492FC;
+}
+
+.bDivTotalRight_old table input[name='addContent'],
+.bDivTotalRight_add table input[name='addContent'] {
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 13px;
+    height: 17px;
+    position: relative;
+}
+
+.bDivTotalRight_old table input[name='addContent']:after,
+.bDivTotalRight_add table input[name='addContent']:after {
+    position: absolute;
+    width: 8px;
+    height: 15px;
+    top: 0;
+    content: " ";
+    color: #fff;
+    display: inline-block;
+    visibility: visible;
+    padding: 0 3px;
+    border-radius: 3px;
+}
+
+.bDivTotalRight_old table input[name='addContent']:checked:after,
+.bDivTotalRight_add table input[name='addContent']:checked:after {
+    content: "✓";
+    font-size: 12px;
+    background-color: #2492FC;
+}
+
+.page1,
+.page2 {
+    margin: 20px 0 0;
+    overflow: hidden;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.page1 .fl,
+.page2 .fl {
+    float: left;
+}
+
+.page1>div,
+.page2>div {
+    float: right;
+}
+
+.page1 div i,
+.page2 div i,
+.page1 p,
+.page2 p {
+    display: inline-block;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    position: relative;
+}
+
+.page1 .pre,
+.page2 .pre,
+.page1 .next,
+.page2 .next {
+    width: 89px;
+    height: 28px;
+    line-height: 28px;
+    box-sizing: border-box;
+    border: 1px solid #e4e4e4;
+    display: inline-block;
+}
+
+.page1 .pre,
+.page2 .pre {
+    padding-left: 28px;
+}
+
+.page1 .next,
+.page2 .next {
+    padding-right: 28px;
+    text-align: right;
+}
+
+.page1 .pre i,
+.page2 .pre i,
+.page1 .next i,
+.page2 .next i {
+    position: absolute;
+    top: 0px;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background-size: 100%;
+}
+
+.page1 .pre i,
+.page2 .pre i {
+    margin-top: 0;
+    left: 0px;
+    background: url(../images/left.png) no-repeat center;
+}
+
+.page1 .next i,
+.page2 .next i {
+    margin-top: 0;
+    right: 0px;
+    background: url(../images/right.png) no-repeat center;
+}
+
+.page1 .pre:hover,
+.page2 .pre:hover,
+.page1 .next:hover,
+.page2 .next:hover {
+    background-color: #2492FC;
+    color: #fff;
+}
+
+.page1 div span,
+.page2 div span {
+    display: inline-block;
+}
+
+.page1 div span.tt,
+.page2 div span.tt {
+    margin-right: 20px;
+}
+
+.page1 .p,
+.page2 .p {
+    margin-right: 5px;
+    outline: none;
+    display: inline-block;
+    width: 36px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid #CDCFD1;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.65);
+    padding-left: 0;
+}
+
+.page1 span.go,
+.page2 span.go {
+    width: 52px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid #D7D7D7;
+    padding: 0;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.page1 span.go:hover,
+.page2 span.go:hover {
+    background-color: #2492FC;
+    color: #fff;
+}
+
+.bDivTotalRight_old {
+    background-color: #fff;
+    padding: 28px 20px 30px 20px;
+    box-sizing: border-box;
+}
+
+.bDivTotalRight_old .delbtn {
+    display: inline-block;
+    text-align: center;
+    width: 56px;
+    height: 32px;
+    line-height: 32px;
+    outline: none;
+    font-size: 12px;
+    border: 1px solid #CDCFD1;
+    color: rgba(0, 0, 0, 0.65);
+    border-radius: 3px;
+}
+
+.bDivTotalRight_old .page1 .fl span:nth-child(3) {
+    margin-left: 8px;
+}
+
+.bDivTotalRight_old .delclobtn {
+    display: inline-block;
+    text-align: center;
+    width: 56px;
+    height: 32px;
+    line-height: 32px;
+    color: rgba(0, 0, 0, 0.65);
+    outline: none;
+    font-size: 12px;
+    border: 1px solid rgba(205, 207, 209, 1);
+    border-radius: 3px;
+}
+
+.nullval {
+    font-size: 20px;
+    margin-left: 50%;
+    height: 150px;
+    line-height: 150px;
+}
+
+.bDivTotalRight_add .nullval p {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.delsucpop,
+.sucpop,
+.errpop,
+.delerrpop,
+.addsucpop,
+.adderrpop,
+.uploadsucpop,
+.uploaderrpop {
+    width: 614px;
+    height: 80px;
+    z-index: 100;
+    position: relative;
+    background-color: #fff;
+}
+
+.sucpop,
+.addsucpop,
+.delsucpop,
+.uploadsucpop {
+    background: rgba(233, 251, 249, 1);
+    border-radius: 3px;
+    border: 1px solid rgba(43, 209, 197, 1);
+}
+
+.sucpop p,
+.errpop p,
+.adderrpop p,
+.addsucpop p,
+.delsucpop p,
+.delerrpop p,
+.uploadsucpop p,
+.uploaderrpop p {
+    position: absolute;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+    bottom: 16px;
+    left: 70px;
+}
+
+.sucpop span,
+.errpop span,
+.adderrpop span,
+.addsucpop span,
+.delsucpop span,
+.delerrpop span,
+.addsucpop span,
+.uploadsucpop span,
+.uploaderrpop span {
+    position: absolute;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
+    top: 16px;
+    left: 70px;
+    font-weight: 500;
+}
+
+.errpop,
+.delerrpop,
+.adderrpop,
+.delerrpop,
+.uploaderrpop {
+    background: rgba(255, 238, 241, 1);
+    border-radius: 3px;
+    border: 1px solid rgba(255, 89, 133, 0.65)
+}
+
+.delerr,
+.delsuc,
+.suc,
+.err {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+    margin-left: 24px;
+    margin-top: 11px;
+}
+
+.suc,
+.delsuc {
+    background: url(../images/suc.png) no-repeat center;
+    background-size: 80%;
+}
+
+.err,
+.delerr {
+    background: url(../images/err.png) no-repeat center;
+    background-size: 80%;
+}
+
+.errpop .clo,
+.sucpop .clo,
+.delsucpop .clo,
+.delerrpop .clo,
+.adderrpop .clo,
+.addsucpop .clo,
+.uploadsucpop .clo,
+.uploaderrpop .clo {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: inline-block;
+    background: url(../images/clo.png) no-repeat center;
+    background-size: 100%;
+}
+
+.none {
+    display: none!important;
+}
+
+.exit {
+    background: url(../images/exit.png) no-repeat left;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background-size: 100%;
+}
+
+.bDivTotal-one {
+    position: relative;
+}
+
+.siled .bDivTotal.bDivTotal-two {
+    padding: 20% 2% 20%;
+}
+
+.bDivTotalRight .con {
+    height: 32px;
+}
+
+.bDivTotalRight .con span {
+    font-size: 18px;
+    float: left;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.cancel {
+    float: left;
+    width: 45px;
+    height: 45px;
+    background-color: #F2F2F2;
+    position: relative;
+    margin-top: 23px;
+}
+
+.cancel::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 63px;
+    height: 1px;
+    background-color: #ccc;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
+.cancel::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 63px;
+    height: 1px;
+    background-color: #ccc;
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+}
+
+.cancel-bot {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.9);
+    float: left;
+    margin-top: 20px;
+    font-family: PingFangSC-Regular;
+}
+
+.cancel-t {
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+button,
+.button {
+    cursor: pointer;
+}
+
+#container .prev {
+    cursor: pointer;
+}
+
+#spanContainer .next {
+    cursor: pointer;
+}
+
+.siled {
+    position: static;
+}
+
+.paddingBgc {
+    background-color: #006699;
+}
+
+.popupOverContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(100, 100, 100, 0.8);
+    z-index: 50;
+    display: none;
+}
+
+.popupOver {
+    display: block!important;
+}
+
+.active-pop {
+    display: block!important;
+}
+
+.active-border {
+    background-color: #2492FC!important;
+    color: #fff!important;
+}
+
+.active {
+    display: block!important;
+}
+
+.active-font {
+    color: #006699!important;
+    border-bottom: 2px solid #006699!important;
+}
+
+.statistical1 {
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    z-index: 999;
+    width: 150px;
+    height: 150px
+}
+
+.no-data {
+    font-size: 18px;
+    margin-top: 75px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.siled .cont div {
+    overflow: visible;
+}
+
+.siled .bDivTotal .cont .inp-part {
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+}
+
+.siled .cont .inp-part input {
+    width: 558px;
+    height: 28px;
+    float: left;
+    margin-left: 127px;
+    margin-right: 89px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.siled .inp-text {
+    font-size: 12px;
+    color: #666;
+    float: left;
+    width: 200px;
+    height: 32px;
+    line-height: 32px;
+    text-align: left;
+}
+
+.siled .modelUpdate .inp-text {
+    width: 90px;
+}
+
+.siled .cont {
+    overflow: hidden;
+    display: none;
+    width: 100%;
+    padding: 0 2% 0 2%;
+    box-sizing: border-box;
+}
+
+.siled .cont:nth-child(3) .inp-part input {
+    overflow: hidden;
+    margin-left: 30px;
+    display: none;
+    margin-left: 210px;
+}
+
+.contTal {
+    background-color: #fff;
+    padding: 20px 0 32px 0;
+}
+
+.siled .cont:nth-child(1) {
+    display: block;
+}
+
+.siled .bTab span {
+    cursor: pointer;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    width: 162px;
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #F2F2F2;
+    border-radius: 3px;
+    margin-left: 8px;
+    margin-right: 8px;
+    color: rgba(0, 0, 0, 0.65);
+    background-color: #DEE1E3;
+}
+
+.siled .bTab span:nth-child(4) {
+    margin-right: 0px;
+}
+
+.siled .bTab span:last-child {
+    margin-right: 0px;
+}
+
+.siled .bTab span.active {
+    border-bottom: none;
+    background-color: transparent;
+}
+
+.siled .bTab {
+    text-align: left;
+    margin: 0px;
+    color: #333;
+    overflow: hidden;
+    min-width: 1120px;
+    margin-bottom: 20px;
+}
+
+.siled .cont .subtitle2 {
+    position: absolute;
+    height: 32px;
+}
+
+.siled .subtitle2 input {
+    outline: none;
+    box-sizing: border-box;
+    padding: 0 8px 0;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 1);
+    width: 231px;
+    height: 32px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 3px;
+    border: 1px solid rgba(222, 225, 227, 1);
+    float: right;
+    margin-right: 2%;
+}
+
+.siled .subtitle2 i {
+    background-size: 100%;
+    width: 31px;
+    height: 31px;
+    line-height: 31px;
+    position: absolute;
+    right: 4%;
+    cursor: pointer;
+    margin-right: 0px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.bDivTotalRight .subtitle3 {
+    position: relative;
+    float: right;
+}
+
+.bDivTotalRight .subtitle3 i {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    position: absolute;
+    right: 4px;
+    cursor: pointer;
+    text-align: center;
+    top: 0;
+}
+
+.bDivTotalRight .subtitle3 i img {
+    width: 16px;
+    height: 16px;
+}
+
+.cliuploadpop {
+    width: 23px;
+    height: 23px;
+}
+
+.ti {
+    font-size: 18px;
+    margin-bottom: 24px;
+    margin-top: 32px;
+}
+
+.tii {
+    margin-top: 0px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.siled .modelUpdate {
+    margin: 30px 12% 10px;
+}
+
+.modelUpdate .inp {
+    padding: 20px 20px 0;
+    box-sizing: border-box;
+}
+
+.siled .modelUpdate .inp-part {
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.inp-part-title {
+    font-size: 12px;
+    color: #333;
+    position: relative;
+    width: 880px;
+    height: 42px;
+    line-height: 42px;
+    background-color: RGB(233, 246, 253);
+}
+
+.siled .module .inp-part-title span {
+    position: absolute;
+    width: 20em;
+    height: 42px;
+    line-height: 42px;
+    font-size: 13px;
+}
+
+.inp-part-title span:nth-child(1) {
+    left: 24px;
+}
+
+.inp-part-title span:nth-child(2) {
+    left: 394px;
+}
+
+.inp-part-title span:nth-child(3) {
+    left: 793px;
+}
+
+.modelUpdate .inp-part input:nth-child(2) {
+    height: 28px;
+    width: 593px;
+    margin-right: 50px;
+}
+
+.modelUpdate .inp-part input:nth-child(3) {
+    height: 30px;
+    width: 94px;
+    background-color: #006699;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    margin-bottom: 2px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tabImport {
+    width: 94.5%;
+    font-size: 18px;
+    color: #333;
+    margin-left: 30px;
+    overflow: hidden;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.tabImport span {
+    width: 85px;
+    height: 62px;
+    line-height: 62px;
+    display: block;
+    float: left;
+    cursor: pointer;
+}
+
+.tabImport span:nth-child(1),
+.tabImport span:nth-child(2) {
+    margin-right: 20px;
+}
+
+.siled .bDivTotal .bDiv:nth-child(1) {
+    display: block;
+}
+
+.siled .bDivTotal {
+    display: none;
+    padding: 0 2% 0;
+}
+
+.bDivTotal:nth-child(1) {
+    position: relative;
+    padding: 0 2% 0;
+}
+
+.edipopup,
+.uploadpup {
+    z-index: 100;
+    background-color: #fff;
+    width: 432px;
+    height: 262px;
+    font-size: 19px;
+    padding: 32px 31px 32px 35px;
+    box-sizing: border-box;
+    display: none;
+    position: relative;
+}
+
+.uploadpup {
+    height: 258px;
+    padding: 32px 0px 32px 35px;
+}
+
+.uploadpup input {
+    width: 303px;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid rgba(205, 207, 209, 1);
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.45);
+    margin-top: 24px;
+    margin-bottom: 16px;
+    padding-left: 6px;
+    box-sizing: border-box;
+}
+
+.uploadpup input::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 12px;
+}
+
+.uploadpup .p {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.liulan {
+    outline: none;
+    background-color: #fff;
+    width: 55px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid rgba(205, 207, 209, 1);
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+    margin-top: 24px;
+    margin-bottom: 16px;
+    margin-left: 7px;
+}
+
+.uploadForm #file1 {
+    width: 55px;
+    height: 32px;
+    line-height: 32px;
+    position: absolute;
+    top: 51px;
+    left: 345px;
+    z-index: 9;
+}
+
+.uploadForm {
+    overflow: hidden;
+}
+
+.uploadForm input,
+.uploadForm button {
+    float: left;
+}
+
+.edipopup .clo {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../images/clo.png) no-repeat center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-size: 100%;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    width: 25px;
+    height: 25px;
+    background: url(../images/close.png) no-repeat center;
+    background-size: 100%;
+}
+
+.delpopup {
+    z-index: 51;
+    background-color: #fff;
+    width: 383px;
+    height: 150px;
+    padding: 32px 0 24px 68px;
+    box-sizing: border-box;
+    text-align: center;
+    display: none;
+    position: relative;
+}
+
+.delpopup .delerr {
+    position: absolute;
+    left: 15px;
+    top: 21px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background: url(../images/delerr.png) no-repeat center;
+    background-size: 100%;
+}
+
+.bDivTotalRight_add {
+    position: relative;
+    width: 100%;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+    background-color: #fff;
+    padding: 32px 20px;
+    box-sizing: border-box;
+}
+
+.bDivTotalRight_add .con {
+    margin-left: 0px;
+}
+
+.bDivTotalRight_add .topp {
+    overflow: hidden;
+}
+
+.bDivTotalRight_add div.p2 {
+    margin: 24px 0 32px 0;
+}
+
+.bDivTotalRight_add select {
+    width: 100px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #CDCFD1;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: rgba(0, 0, 0, 0.45);
+    padding-left: 8px;
+    box-sizing: border-box;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: url("../images/cloo.png") no-repeat right 6px center;
+    background-size: 16%;
+}
+
+.bDivTotalRight_add .En {
+    width: 231px;
+    height: 28px;
+    line-height: 28px;
+    position: absolute;
+    left: 80px;
+    top: 90px;
+    background-size: 6.5%;
+}
+
+#EnInput {
+    width: 200px;
+    height: 26px;
+    line-height: 26px;
+    outline: none;
+    z-index: 10;
+    position: absolute;
+    left: 86px;
+    top: 91px;
+    border: 0px solid #CDCFD1;
+}
+
+.bDivTotalRight_add .Chin {
+    width: 231px;
+    height: 28px;
+    line-height: 28px;
+    position: absolute;
+    left: 405px;
+    top: 90px;
+    background-size: 7%;
+}
+
+#ChinInput {
+    width: 200px;
+    height: 26px;
+    line-height: 26px;
+    outline: none;
+    z-index: 10;
+    position: absolute;
+    left: 412px;
+    top: 91px;
+    border: 0px solid #CDCFD1;
+}
+
+.bDivTotalRight_add .Eni {
+    width: 60px;
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+}
+
+.bDivTotalRight_add .Chini {
+    position: absolute;
+    left: 350px;
+    top: 92px;
+}
+
+.bDivTotalRight_add .teli {
+    position: absolute;
+    left: 680px;
+    top: 92px;
+}
+
+.bDivTotalRight_add input.tel {
+    width: 231px;
+    height: 28px;
+    border: 1px solid #ccc;
+    position: absolute;
+    left: 740px;
+    top: 90px;
+}
+
+.bDivTotalRight_add select option {
+    text-align: center;
+}
+
+.bDivTotalRight_add .province {
+    width: 100px;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.bDivTotalRight_add input {
+    border: 1px solid #CDCFD1;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.45);
+    padding-left: 8px;
+    box-sizing: border-box;
+}
+
+.bDivTotalRight_add .con {
+    margin-top: 48px;
+}
+
+.bDivTotalRight_add.popup .topp input {
+    text-align: center;
+    float: left;
+    width: 114px!important;
+    height: 24px!important;
+    line-height: 24px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: #333;
+    margin: 0px 10px 0px 0px;
+}
+
+.bDivTotalRight_add i {
+    font-size: 12px;
+    color: #333;
+    font-style: normal;
+    margin-top: 3px;
+}
+
+.bDivTotalRight_add>.ser {
+    float: left;
+    width: 24px;
+    height: 24px;
+    background: url(../images/search2.jpg) no-repeat center;
+    background-size: 120%;
+    background-color: #006699;
+    margin-top: 0;
+    cursor: pointer;
+}
+
+.bDivTotalRight_add .ser {
+    float: left;
+    display: inline-block;
+    width: 56px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #2492FC;
+    margin-top: 0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 12px;
+    margin-right: 23px;
+    border-radius: 3px;
+}
+
+.bDivTotalRight_add button.null {
+    float: left;
+    width: 56px;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #CDCFD1;
+    color: rgba(0, 0, 0, 0.65);
+    background-color: #fff;
+    margin-right: 12px;
+    outline: none;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.delpopup p {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.delpopup p span {
+    color: #006699;
+}
+
+.delpopup .del {
+    color: #fffefe;
+    background-color: #006699;
+    border: 1px solid #006699;
+    font-size: 19px;
+}
+
+.delpopup .delclo {
+    border: 1px solid #006699;
+    margin-left: 46px;
+    background-color: transparent!important;
+    color: #333!important;
+    font-size: 19px;
+}
+
+.bDivTotalRight_add .btn {
+    margin-top: 10px;
+}
+
+.bDivTotalRight_add .btn button {
+    width: 85px;
+    height: 43px;
+    line-height: 43px;
+}
+
+.bDivTotalRight_add .clo {
+    width: 56px;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #d7d7d7;
+    color: #fff;
+    position: absolute;
+    top: -65px;
+    right: 0px;
+    box-sizing: border-box;
+    background-color: #2492FC;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.bDivTotalRight_add .btn button {
+    width: 56px;
+    height: 32px;
+    line-height: 32px;
+    color: #fff;
+    outline: none;
+    font-size: 12px;
+    background-color: #2492FC;
+    border: 1px solid #2492FC;
+    border-radius: 3px;
+}
+
+.bDivTotalRight_add table {
+    width: 100%;
+    margin-top: 27px;
+}
+
+.tabnone {
+    display: none;
+}
+
+.bDivTotalRight_add table tr {
+    height: 30px;
+    line-height: 30px;
+}
+
+.bDivTotalRight_add table th {
+    background-color: #F7F7F7;
+    height: 40px;
+    line-height: 40px;
+}
+
+.popup p {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.edipopup input {
+    width: 366px;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid rgba(205, 207, 209, 1);
+    display: block;
+    outline: none;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.popup button.canc {
+    width: 56px;
+    height: 32px;
+    line-height: 32px;
+    right: 95px;
+    text-align: center;
+    outline: none;
+    position: absolute;
+    bottom: 32px;
+    font-size: 12px;
+    border: 1px solid #CDCFD1;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.delpopup button.canc {
+    right: 95px;
+}
+
+.popup button.sure {
+    width: 56px;
+    height: 32px;
+    line-height: 32px;
+    outline: none;
+    font-size: 12px;
+    color: #fff;
+    right: 32px;
+    background-color: #FF5975;
+    border: 1px solid #FF5975;
+    outline: none;
+    position: absolute;
+    bottom: 32px;
+    text-align: center;
+}
+
+.popup.edipopup button.canc,
+.popup.uploadpup button.canc {
+    background: transparent;
+}
+
+.edipopup button.sure,
+.uploadpup button.sure {
+    background-color: #2492FC;
+    border: 0px solid #2492FC;
+}
+
+#container {
+    height: 50px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-left: 10%;
+}
+
+#spanContainer {
+    width: 52%;
+    height: 50px;
+    overflow: hidden;
+    float: left;
+}
+
+#container span,
+#container i {
+    float: left;
+    width: 32px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #CDCFD1;
+    color: rgba(0, 0, 0, 0.65);
+    margin-right: 3px;
+    font-style: normal;
+    font-size: 12px;
+}
+
+#container span:hover,
+#container i:hover {
+    background-color: #2492FC;
+    ;
+}
+
+.bgcActive {
+    background-color: #2492FC;
+}
+
+p.name {
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    color: #666;
+    font-weight: 700;
+}
+
+.modelUpdate .inp {
+    font-size: 12px;
+    color: #333;
+    width: 880px;
+    border: 1px solid #e8e8e8;
+}
+
+.siled .cont:nth-child(4) .inp-part input {
+    margin-left: 30px;
+    margin-right: 40px;
+}
+
+.siled .cont:nth-child(5) .inp-part input {
+    margin-left: 33px;
+    margin-right: 40px;
+}
+
+.siled .cont:nth-child(6) .inp-part input {
+    margin-left: 110px;
+    margin-right: 40px;
+}
+
+.siled .cont:nth-child(7) .inp-part input {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.siled .cont:nth-child(8) .inp-part input {
+    margin-left: 90px;
+    margin-right: 40px;
+}
+
+.siled .subtitle3 input {
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    width: 230px;
+    height: 32px;
+    border: 1px solid #d7d7d7;
+    border-right: 0px solid #d7d7d7;
+    padding: 0 0 0 8px;
+    font-size: 12px;
+}
+
+.siled .subtitle3 input::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.bDivTotalRight .sell {
+    float: right;
+}
+
+.bDivTotalRight .sell select {
+    padding-left: 15px;
+    outline: none;
+    width: 150px;
+    height: 32px;
+    color: rgba(0, 0, 0, 0.45);
+    border-radius: 3px;
+    border: 1px solid rgba(222, 225, 227, 1);
+    font-size: 12px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: url("../images/cloo.png") no-repeat right 6px center;
+    background-size: 11%;
+}
+
+.bDivTotalRight option {
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+.bDivTotalRight .addbtn {
+    position: absolute;
+    top: 15px;
+    right: 2%;
+    line-height: 40px;
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 14px;
+    width: 100px;
+    height: 40px;
+    background: rgba(36, 146, 252, 1);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.bDivTotalRight .addbtn span {
+    float: left;
+    margin-left: 10px;
+}
+
+.bDivTotalRight .sel {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.bDivTotalRight .module {
+    margin: 20px 0 0px;
+}
+
+.bDivTotalRight table tr td {
+    height: 54px;
+    line-height: 54px;
+    text-align: center;
+    border-bottom: 1px solid #DEE1E3;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.siled .bDivTotalRight .module table tr th {
+    background: #F7F7F7;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
+    padding-left: 0;
+    text-align: center;
+}
+
+.siled .bDivTotalRight .module table tr td {
+    padding: 0;
+    height: 54px;
+    line-height: 54px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.bDivTotalRight .button {
+    float: left;
+    width: 44px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    color: #006699;
+    border: 1px solid #ccc;
+}
+
+.bDivTotalRight table .button {
+    margin-right: 10px;
+}
+
+.bDivTotalRight table .button:first-child {
+    margin-left: 33%;
+}
+
+.bDivTotalRight {
+    font-size: 13px;
+    position: relative;
+}
+
+.bDivTotal .inp table {
+    border-collapse: collapse;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+    width: 100%;
+}
+
+.bDivTotal .inp table td {
+    border-top: 1px solid #DEE1E3;
+    height: 53px;
+    line-height: 17px;
+    text-align: left;
+}
+
+.bDivTotal .inp table tr:last-child {
+    border-bottom: 1px solid #DEE1E3;
+}
+
+.bDivTotal .inp table th {
+    border-top: 0px solid #DEE1E3;
+}
+
+.bDivTotal .inp table tr.dotted td:first-child {
+    border-top: 1px dotted #DEE1E3;
+    padding-left: 0px;
+    padding-right: 0;
+}
+
+.bDivTotal .inp table tr.dotted td {
+    border-top: 1px dotted #DEE1E3;
+}
+
+.bDivTotal .inp table tr.dottted td:first-child {
+    padding-left: 0px;
+}
+
+.bDivTotal .inp table tr td:first-child,
+.bDivTotal .inp table tr th:first-child {
+    padding-left: 28px;
+    padding-right: 30px;
+    box-sizing: border-box;
+}
+
+.rgb45 {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.bDivTotal .inp table th {
+    background-color: #DEE1E3;
+    color: rgba(0, 0, 0, 0.85);
+    height: 40px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.load {
+    background: url(../images/load.png) no-repeat left;
+    width: 32px;
+    height: 32px;
+    background-size: 80%;
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+
+.see {
+    background: url(../images/see.png) no-repeat left;
+    width: 32px;
+    height: 32px;
+    background-size: 80%;
+    display: inline-block;
+    float: right;
+    margin-right: 18px;
+}
+
+.edipopup .txt {
+    font-size: 12px;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.btnImportOK {
+    background: url(../images/upload.png) no-repeat left;
+    width: 32px;
+    height: 32px;
+    background-size: 70%;
+    display: inline-block;
+    outline: none;
+    border: 0px solid #fff;
+}

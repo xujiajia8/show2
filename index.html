@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./static/css/comm.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/total.css">
+    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/show.js"></script>
+    <script type="text/javascript" src="./static/js/comm.js"></script>
+    <style type="text/css">
+        .footer{
+            margin-top: 56px;
+        }
+    </style>
+</head>
+<body>
+    <!--start 头部-->
+    <div class="top">
+        <div class="title"><img src="./static/images/logo.png" alt=""></div>
+        <ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+        </ul>
+    </div>
+    <!--end 头部-->
+    <div class="content">
+        <!--start 测导航-->
+        <div class="nav">
+            <p>我的导航</p>
+            <ul>
+                <li class="active">
+                    <i class="nav_home"></i>
+                    <span>首页</span>
+                </li>
+                <li onclick="window.location.href = 'import-idx.html';">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html';">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+                <li onclick="window.location.href = 'analysis.html'">
+                    <i class="nav_static"></i>
+                    <span>统计分析</span>
+                </li>
+                <li onclick="window.location.href = 'params.html'">
+                    <i class="nav_manage"></i>
+                    <span class="hide">系统管理</span>
+                </li>
+            </ul>
+        </div>
+        <!--end 测导航-->
+        <div class="siled" id="siled">
+            <div class="message" style="display:block">
+                <div class="text">
+                    <span>任务进度提示：工单JS-00-0001定界异常，请及时处理</span>
+                    <a href="javascript:;">立即处理</a>
+                </div>
+                <i></i>
+            </div>
+            <h2>我的首页</h2>
+            <div class="platform">
+                <ul>
+                    <li>
+                        <p>平台累计工单</p>
+                        <strong>5000</strong>
+                    </li>
+                    <li>
+                        <p>平台月处理工单</p>
+                        <strong>1000</strong>
+                    </li>
+                    <li>
+                        <p>平台定界准确率</p>
+                        <strong>80%</strong>
+                    </li>
+                </ul>
+            </div>
+            <div class="myself">
+                <div>
+                    <div class="term">
+                        <img src="./static/images/total_deal.png">
+                        <strong>累计处理</strong>
+                    </div>
+                    <div class="date">
+                        <ul>
+                            <li>
+                                <p>全部</p>
+                                <span>5000</span>
+                            </li>
+                            <li>
+                                <p>EMOS</p>
+                                <span>4800</span>
+                            </li>
+                            <li>
+                                <p>录入</p>
+                                <span>200</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="term">
+                        <img src="./static/images/month_deal.png">
+                        <strong>月处理</strong>
+                    </div>
+                    <div class="date">
+                        <ul>
+                            <li>
+                                <p>全部</p>
+                                <span>1000</span>
+                            </li>
+                            <li>
+                                <p>EMOS</p>
+                                <span>960</span>
+                            </li>
+                            <li>
+                                <p>录入</p>
+                                <span>40</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="term">
+                        <img src="./static/images/wait_deal.png">
+                        <strong>待操作</strong>
+                    </div>
+                    <div class="date">
+                        <ul>
+                            <li>
+                                <p>全部</p>
+                                <span>500</span>
+                            </li>
+                            <li style="cursor:pointer;" onclick="window.location.href = 'import-idx.html'">
+                                <p>EMOS</p>
+                                <span>496</span>
+                            </li>
+                            <li style="cursor:pointer;" onclick="window.location.href = 'enter-idx.html'">
+                                <p>录入</p>
+                                <span>4</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="term">
+                        <img src="./static/images/wait_confirm.png">
+                        <strong>待确认</strong>
+                    </div>
+                    <div class="date">
+                        <ul>
+                            <li>
+                                <p>全部</p>
+                                <span>1000</span>
+                            </li>
+                            <li style="cursor:pointer;" onclick="window.location.href = 'import-idx.html'">
+                                <p>EMOS</p>
+                                <span>900</span>
+                            </li>
+                            <li style="cursor:pointer;" onclick="window.location.href = 'enter-idx.html'">
+                                <p>录入</p>
+                                <span>100</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="import">
+                <strong>EMOS概览</strong>
+                <div class="type">
+                    <span class="active">日推工单</span>
+                    <span>待处理</span>
+                    <span>待确认</span>
+                </div>
+                <div class="clear"></div>
+                <div class="graph" id="graph"></div>
+                <div class="time">
+                    <span class="active">近三月</span>
+                    <i></i>
+                    <span>近一月</span>
+                    <i></i>
+                    <span>近一周</span>
+                </div>
+            </div>
+            <div class="lately">
+                <strong>最近任务</strong>
+                <a href="javascript:;" onclick="window.location.href='import-idx.html'">更多</a>
+                <div class="table">
+                    <table border=0 cellspacing=0 cellpadding=0>
+                        <thead>
+                            <tr>
+                                <th>工单编号</th>
+                                <th>地市</th>
+                                <th>状态</th>
+                                <th>客服受理时间</th>
+                                <th>投诉类别</th>
+                                <th>故障类别</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>JS-00-0000-01</td>
+                                <td>苏州</td>
+                                <td><i class="wanc"></i>已完成</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-01</td>
+                                <td>苏州</td>
+                                <td><i class="quer"></i>待确认</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-01</td>
+                                <td>苏州</td>
+                                <td><i class="chul"></i>待处理</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-01</td>
+                                <td>苏州</td>
+                                <td><i class="yic"></i>异常态</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-01</td>
+                                <td>苏州</td>
+                                <td><i class="paid"></i>排队中</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                    
+            </div>
+            <div class="dynamic">
+                <strong>最新动态</strong>
+                <a href="javascript:;">更多</a>
+                <ul class="clearfix">
+                    <li>
+                        <p><a href="#">参数更改</a><i>New</i></p><span>2019-06-03 10:00:00</span>
+                    </li>
+                    <li>
+                        <p><a href="#">参数更改</a><i>New</i></p><span>2019-06-03 10:00:00</span>
+                    </li>
+                    <li>
+                        <p><a href="#">参数更改</a><i>New</i></p><span>2019-06-03 10:00:00</span>
+                    </li>
+                    <li>
+                        <p><a href="#">参数更改</a><i>New</i></p><span>2019-06-03 10:00:00</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./static/js/echarts.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            lately(document.querySelector('.lately').querySelector('tbody'));
+            localStorage.removeItem('process_type'); //清除存储的工单类型
+            localStorage.removeItem('fiel_number'); //清除存储的工单编号
+            var liList = $('.type span');//nav.querySelectorAll('span');
+            var sList = $('.time span');//time.querySelectorAll('span');
+            var my_pic = [{"now_time":1548691200000,"all":0,"to_be_treated":5237,"to_be_confirmed":1673},{"now_time":1548777600000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1548864000000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1548950400000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1549036800000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1549123200000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1549209600000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1549296000000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1549382400000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1549468800000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1549555200000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1549641600000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1549728000000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1549814400000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1549900800000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1549987200000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1550073600000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1550160000000,"all":140,"to_be_treated":5781,"to_be_confirmed":1837},{"now_time":1550246400000,"all":0,"to_be_treated":5781,"to_be_confirmed":1837},{"now_time":1550332800000,"all":0,"to_be_treated":5781,"to_be_confirmed":1837},{"now_time":1550419200000,"all":23,"to_be_treated":5750,"to_be_confirmed":1853},{"now_time":1550505600000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1550592000000,"all":372,"to_be_treated":5812,"to_be_confirmed":1897},{"now_time":1550678400000,"all":328,"to_be_treated":5812,"to_be_confirmed":1897},{"now_time":1550764800000,"all":419,"to_be_treated":5812,"to_be_confirmed":1897},{"now_time":1550851200000,"all":332,"to_be_treated":5812,"to_be_confirmed":1897},{"now_time":1550937600000,"all":300,"to_be_treated":5812,"to_be_confirmed":1897},{"now_time":1551024000000,"all":311,"to_be_treated":5812,"to_be_confirmed":1897},{"now_time":1551110400000,"all":409,"to_be_treated":5812,"to_be_confirmed":1897},{"now_time":1551196800000,"all":369,"to_be_treated":5812,"to_be_confirmed":1897},{"now_time":1551283200000,"all":274,"to_be_treated":5812,"to_be_confirmed":1897},{"now_time":1551369600000,"all":441,"to_be_treated":5811,"to_be_confirmed":1897},{"now_time":1551456000000,"all":398,"to_be_treated":5859,"to_be_confirmed":1897},{"now_time":1551542400000,"all":325,"to_be_treated":5859,"to_be_confirmed":1897},{"now_time":1551628800000,"all":389,"to_be_treated":5861,"to_be_confirmed":1897},{"now_time":1551715200000,"all":450,"to_be_treated":5859,"to_be_confirmed":1897},{"now_time":1551801600000,"all":514,"to_be_treated":5859,"to_be_confirmed":1897},{"now_time":1551888000000,"all":428,"to_be_treated":5860,"to_be_confirmed":1897},{"now_time":1551974400000,"all":416,"to_be_treated":5860,"to_be_confirmed":1897},{"now_time":1552060800000,"all":366,"to_be_treated":5860,"to_be_confirmed":1897},{"now_time":1552147200000,"all":375,"to_be_treated":5860,"to_be_confirmed":1897},{"now_time":1552233600000,"all":186,"to_be_treated":5852,"to_be_confirmed":1897},{"now_time":1552320000000,"all":514,"to_be_treated":5852,"to_be_confirmed":1897},{"now_time":1552406400000,"all":428,"to_be_treated":5852,"to_be_confirmed":1897},{"now_time":1552492800000,"all":442,"to_be_treated":5852,"to_be_confirmed":1897},{"now_time":1552579200000,"all":484,"to_be_treated":5852,"to_be_confirmed":1897},{"now_time":1552665600000,"all":577,"to_be_treated":5852,"to_be_confirmed":1897},{"now_time":1552752000000,"all":466,"to_be_treated":5852,"to_be_confirmed":1897},{"now_time":1552838400000,"all":644,"to_be_treated":5848,"to_be_confirmed":1897},{"now_time":1552924800000,"all":541,"to_be_treated":5848,"to_be_confirmed":1897},{"now_time":1553011200000,"all":652,"to_be_treated":5848,"to_be_confirmed":1897},{"now_time":1553097600000,"all":545,"to_be_treated":5848,"to_be_confirmed":1897},{"now_time":1553184000000,"all":553,"to_be_treated":5840,"to_be_confirmed":1897},{"now_time":1553270400000,"all":594,"to_be_treated":5837,"to_be_confirmed":1897},{"now_time":1553356800000,"all":426,"to_be_treated":5837,"to_be_confirmed":1897},{"now_time":1553443200000,"all":393,"to_be_treated":5837,"to_be_confirmed":1897},{"now_time":1553529600000,"all":344,"to_be_treated":5840,"to_be_confirmed":1897},{"now_time":1553616000000,"all":483,"to_be_treated":5840,"to_be_confirmed":1897},{"now_time":1553702400000,"all":456,"to_be_treated":5839,"to_be_confirmed":0},{"now_time":1553788800000,"all":399,"to_be_treated":5839,"to_be_confirmed":0},{"now_time":1553875200000,"all":425,"to_be_treated":5839,"to_be_confirmed":0},{"now_time":1553961600000,"all":371,"to_be_treated":5839,"to_be_confirmed":0},{"now_time":1554048000000,"all":273,"to_be_treated":5883,"to_be_confirmed":0},{"now_time":1554134400000,"all":42,"to_be_treated":5833,"to_be_confirmed":0},{"now_time":1554220800000,"all":463,"to_be_treated":5833,"to_be_confirmed":0},{"now_time":1554307200000,"all":446,"to_be_treated":5832,"to_be_confirmed":0},{"now_time":1554393600000,"all":439,"to_be_treated":5832,"to_be_confirmed":0},{"now_time":1554480000000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1554566400000,"all":0,"to_be_treated":0,"to_be_confirmed":0},{"now_time":1554652800000,"all":666,"to_be_treated":6175,"to_be_confirmed":0},{"now_time":1554739200000,"all":594,"to_be_treated":6175,"to_be_confirmed":0},{"now_time":1554825600000,"all":417,"to_be_treated":6230,"to_be_confirmed":0},{"now_time":1554912000000,"all":625,"to_be_treated":6230,"to_be_confirmed":0},{"now_time":1554998400000,"all":510,"to_be_treated":6231,"to_be_confirmed":0},{"now_time":1555084800000,"all":703,"to_be_treated":6231,"to_be_confirmed":0},{"now_time":1555171200000,"all":596,"to_be_treated":6231,"to_be_confirmed":0},{"now_time":1555257600000,"all":663,"to_be_treated":6231,"to_be_confirmed":0},{"now_time":1555344000000,"all":537,"to_be_treated":6231,"to_be_confirmed":0},{"now_time":1555430400000,"all":413,"to_be_treated":6231,"to_be_confirmed":5},{"now_time":1555516800000,"all":600,"to_be_treated":6231,"to_be_confirmed":5},{"now_time":1555603200000,"all":631,"to_be_treated":6220,"to_be_confirmed":5},{"now_time":1555689600000,"all":602,"to_be_treated":6220,"to_be_confirmed":5},{"now_time":1555776000000,"all":602,"to_be_treated":6220,"to_be_confirmed":5},{"now_time":1555862400000,"all":512,"to_be_treated":6218,"to_be_confirmed":5},{"now_time":1555948800000,"all":565,"to_be_treated":6218,"to_be_confirmed":5},{"now_time":1556035200000,"all":682,"to_be_treated":410,"to_be_confirmed":5},{"now_time":1556121600000,"all":569,"to_be_treated":410,"to_be_confirmed":5},{"now_time":1556208000000,"all":559,"to_be_treated":410,"to_be_confirmed":5},{"now_time":1556294400000,"all":491,"to_be_treated":386,"to_be_confirmed":5},{"now_time":1556380800000,"all":334,"to_be_treated":386,"to_be_confirmed":5},{"now_time":1556467200000,"all":518,"to_be_treated":386,"to_be_confirmed":5},{"now_time":1556553600000,"all":218,"to_be_treated":386,"to_be_confirmed":5},{"now_time":1556640000000,"all":0,"to_be_treated":386,"to_be_confirmed":5},{"now_time":1556726400000,"all":0,"to_be_treated":386,"to_be_confirmed":5},{"now_time":1556812800000,"all":0,"to_be_treated":386,"to_be_confirmed":5},{"now_time":1556899200000,"all":419,"to_be_treated":386,"to_be_confirmed":5},{"now_time":1556985600000,"all":917,"to_be_treated":386,"to_be_confirmed":5},{"now_time":1557072000000,"all":679,"to_be_treated":386,"to_be_confirmed":5},{"now_time":1557158400000,"all":722,"to_be_treated":386,"to_be_confirmed":5},{"now_time":1557244800000,"all":561,"to_be_treated":386,"to_be_confirmed":5}]
+            //导入概览-初始化折线图（全部三个月）
+            var pd = picDataTime('日推工单', '近三月', my_pic);
+            graph(pd.yd, pd.xd);
+            liList.each(function(){
+                $(this).on('click',function(){
+                    $(this).addClass('active').siblings().removeClass();
+                    var transmit = $(this).text();
+                    var timeTxt = $('.time span.active').text();
+                    var pT = picDataTime(transmit, timeTxt, my_pic);
+                    graph(pT.yd, pT.xd);
+                })
+            })
+            sList.each(function(){
+                $(this).on('click',function(){
+                    $(this).addClass('active').siblings().removeClass();
+                    var timeTxt = $(this).text();
+                    var transmit = $('.type span.active').text();
+                    var pT = picDataTime(transmit, timeTxt, my_pic);
+                    graph(pT.yd, pT.xd);
+                })
+            })
+
+            $('.siled .message a').click(function() {
+                localStorage.setItem('process_type', '异常态');
+                localStorage.setItem('fiel_number', 'js-00-0000-01');
+                window.open('process.html')
+            })
+            $('.siled .message i').click(function(){
+                $('.siled .message').hide();
+            })
+            //最新动态
+            $('.dynamic').on('click',function(e){
+                var evt = e||window.event;
+                var elem = evt.target;
+                if(elem.nodeName == 'A'){
+                    localStorage.setItem('msg_center_mark',1);
+                    window.location.href = 'messageCenter.html'
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

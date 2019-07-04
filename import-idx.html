@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./static/css/comm.css">
+	<link rel="stylesheet" type="text/css" href="./static/css/total.css">
+	<script type="text/javascript" src="./static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="./static/js/show.js"></script>
+    <script type="text/javascript" src="./static/js/comm.js"></script>
+</head>
+<body>
+    <!--start 头部-->
+	<div class="top">
+		<div class="title"><img src="./static/images/logo.png" alt=""></div>
+		<ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+		</ul>
+	</div>
+    <!--end 头部-->
+	<div class="content">
+        <!--start 测导航-->
+		<div class="nav">
+			<p>我的导航</p>
+			<ul>
+				<li onclick="window.location.href = 'index.html'">
+					<i class="nav_home"></i>
+					<span>首页</span>
+				</li>
+				<li class="active">
+					<i class="nav_import"></i>
+					<span>EMOS工单</span>
+				</li>
+                <li onclick="window.location.href = 'enter-idx.html'">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+				<li onclick="window.location.href = 'analysis.html'">
+					<i class="nav_static"></i>
+					<span>统计分析</span>
+				</li>
+				<li onclick="window.location.href = 'params.html';">
+					<i class="nav_manage"></i>
+					<span>系统管理</span>
+				</li>
+			</ul>
+		</div>
+        <!--end 测导航-->
+		<div class="siled">
+			<div class="title">EMOS工单</div>
+			<div class="type" id="type">
+				<span class="active">全部 1000</span>
+				<span>待操作 100</span>
+				<span>进行中 5</span>
+				<span>已完成 895</span>
+			</div>
+			<div class="lately">
+				<div class="exact">
+					<span>全部工单列表</span>
+					<div class="search">
+						<p class="high">
+							<input type="text" placeholder='请输入工单编号等关键字'>
+							<i></i>
+						</p>
+						<div class="choice">
+							<p>全部状态</p>
+							<ul style="">
+								<li>
+									<i class="dingj"></i>
+									定界中
+								</li>
+								<li>
+									<i class="hey"></i>
+									已完成
+								</li>
+								<li>
+									<i class="chul"></i>
+									待处理
+								</li>
+								<li>
+									<i class="yic"></i>
+									异常态
+								</li>
+								<li>
+									<i class="quer"></i>
+									待确认
+								</li>
+								<li>
+									<i class="paid"></i>
+									排队中
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="table">
+					<table border=0 cellspacing=0 cellpadding=0>
+						<thead>
+							<tr>
+								<th>工单编号</th>
+	                            <th>地市</th>
+								<th>状态</th>
+								<th>客服受理时间</th>
+								<th>投诉类别</th>
+								<th>故障类别</th>
+							</tr>
+						</thead>
+						<tbody>
+                            <tr>
+                                <td>JS-00-0000-01</td>
+                                <td>苏州</td>
+                                <td><i class="wanc"></i>已完成</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>无线问题</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-02</td>
+                                <td>苏州</td>
+                                <td><i class="wanc"></i>已完成</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>无线问题</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-03</td>
+                                <td>苏州</td>
+                                <td><i class="dingj"></i>定界中</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>终端问题</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-04</td>
+                                <td>苏州</td>
+                                <td><i class="chul"></i>待处理</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>终端问题</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-05</td>
+                                <td>苏州</td>
+                                <td><i class="yic"></i>异常态</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-06</td>
+                                <td>苏州</td>
+                                <td><i class="quer"></i>待确认</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-07</td>
+                                <td>苏州</td>
+                                <td><i class="paid"></i>排队中</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-08</td>
+                                <td>苏州</td>
+                                <td><i class="wanc"></i>已完成</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-09</td>
+                                <td>苏州</td>
+                                <td><i class="wanc"></i>已完成</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+                            <tr>
+                                <td>JS-00-0000-10</td>
+                                <td>苏州</td>
+                                <td><i class="wanc"></i>已完成</td>
+                                <td>2019-06-03 10:00:00</td>
+                                <td>区域信号弱</td>
+                                <td>定界无异常</td>
+                            </tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="page">
+					<span>共1000条</span>
+					<div class="number">
+						<p class="pre">上一页</p>
+						<p class="p_number">
+							<span class="active">1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>4</span>
+							<i>···</i>
+							<span>100</span>
+						</p>
+						<p class="next">下一页</p>
+						<p class="p_now">
+							<i>1</i>/100
+						</p>
+						<p class="p_input">
+							<span>到第</span>
+							<input type="text">
+							<span>页</span>
+						</p>
+						<p class="jump">确定</p>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			
+            lately(document.querySelector('.lately').querySelector('tbody'));
+			selectImitate(); //模拟下拉选择框
+			window.totalPage = 100; //全局变量记录 工单列表总页数
+			var highI = $('.search .high i');
+			var highInput = $('.search .high input');
+			var exact = $('.exact .choice');
+			
+			//大类查找
+			var liList = $('.type span');
+			$('.type span').on('click',function(){
+				$(this).addClass('active').siblings().removeClass();
+				exact.find('p').text('全部状态');
+				exact.find('li.active').removeClass();
+				highInput.val('');
+			})
+			//监听下拉框值的变化-状态查找
+			$('.choice p').bind('change',function(){
+				console.log($(this).text());
+				highInput.val('');
+				$('.type span.active').removeClass();
+			})
+			//输入框搜索
+			highI.on('click',function(){
+				var value = highInput.val();
+				localStorage.setItem('high_value',value);
+				localStorage.setItem('high_type','EMOS工单');
+                localStorage.removeItem('highSearchDate');
+                window.open('high_search.html');
+			})
+			highInput.on('keydown',function(event){
+				if(event.keyCode == "13"){
+					var value = highInput.val();
+					localStorage.setItem('high_value',value);
+					localStorage.setItem('high_type','EMOS工单');
+                	localStorage.removeItem('highSearchDate');
+                	window.open('high_search.html');
+				}
+			})
+
+			//page
+			var pre = $('.page .pre');
+			var next = $('.page .next');
+			var jump = $('.page .jump');
+			$('.page .p_input input').on('input',function(){
+				var txt = $(this).val();
+				if(txt < 1){
+					//$(this).val('1')
+				}
+				if(txt > totalPage){
+					$(this).val(totalPage)
+				}
+			});
+			localStorage.setItem('workListPage','1');
+			pre.on('click',function(){
+				var list,date,prePage;
+				var thisPge = Number($('.page .p_now i').text());
+				if(thisPge - 1 < 1){
+					return false
+				}
+				if(thisPge <=1 ){
+					return false;
+				}else{
+					prePage = thisPge-1;
+					pageShow(prePage)
+				}
+			})
+			next.on('click',function(){
+				var list,date,prePage;
+				var thisPge = Number($('.page .p_now i').text());
+				if(thisPge + 1 > totalPage){
+					return false
+				}
+				if(thisPge >= totalPage ){
+					return false;
+				}else{
+					prePage = thisPge+1;
+					pageShow(prePage)
+				};
+			})
+			jump.on('click',function(){
+				var list,date,prePage,jumpTxt;
+				var thisPge = Number($('.page .p_now i').text());
+				jumpTxt = $('.page .p_input input').val();
+				if(jumpTxt == '' || jumpTxt == thisPge || jumpTxt < 1){
+					return false;
+				};
+				prePage = jumpTxt;
+				pageShow(prePage)
+			})
+			$('.page .p_input input').on('keydown',function(event){
+				var list,date,prePage,jumpTxt;
+                if(event.keyCode == 13){
+					var thisPge = Number($('.page .p_now i').text());
+					jumpTxt = $('.page .p_input input').val();
+					if(jumpTxt == '' || jumpTxt == thisPge || jumpTxt < 1){
+						return false;
+					};
+					prePage = jumpTxt;
+					pageShow(prePage)
+				}
+			})
+		})
+			
+	</script>
+</body>
+</html>

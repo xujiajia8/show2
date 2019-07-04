@@ -1,0 +1,280 @@
+﻿html,body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;} 
+body{background:#fff;color:#333;font-size:12px; font-family:'PingFangSC-Regular', 'sans-serif','微软雅黑',"SimSun","宋体","Arial Narrow";} 
+ 
+ul,ol{list-style-type:none;} 
+select,input,img,select{vertical-align:middle;} 
+select,input,img,select,button,textarea{margin: 0;padding: 0; font-family:'微软雅黑',"SimSun","宋体","Arial Narrow";outline: none;}
+a{text-decoration:none;} 
+em{font-style: normal;}
+html,body{
+	background-color: #F3F4F5;
+	height: 100%;
+}
+input::-webkit-input-placeholder {
+    /* placeholder颜色  */
+    color: rgba(0,0,0,.35);
+}
+input::-moz-input-placeholder{
+    /* placeholder颜色  */
+    color: rgba(0,0,0,.35);
+}
+input:-moz-input-placeholder{
+    /* placeholder颜色  */
+    color: rgba(0,0,0,.35);
+}
+input:-ms-input-placeholder{
+    /* placeholder颜色  */
+    color: rgba(0,0,0,.35);
+}
+.mask-pop{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.4);
+}
+.clear{
+	float: none;
+	display: table;
+	visibility: hidden;
+	clear: both;
+}
+.clearfix::after{
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: ".";
+	clear: both;
+	height: 0;
+}
+.scrollbar::-webkit-scrollbar{/*滚动条整体部分，其中的属性有width,height,background,border等（就和一个块级元素一样）（位置1）*/  
+    width:6px;  
+    height:auto;  
+    border-radius: 3px;
+    background: #F3F4F5
+}  
+.scrollbar::-webkit-scrollbar-thumb{/*滚动条里面可以拖动的那部分（位置5）*/  
+	background:#2492FC;  
+	border-radius:3px;  
+} 
+.scrollbar.mapbar::-webkit-scrollbar-thumb{/*滚动条里面可以拖动的那部分（位置5）*/  
+	background:#D9D9D9;  
+	border-radius:3px;  
+}   
+
+.top{
+	width: 100%;
+	min-width: 840px;
+	height: 64px;
+	line-height: 64px;
+	font-size: 16px;
+	color: rgba(255,255,255,.65);
+	background: #1D61A8;
+	position: relative;
+}
+.top .title{
+	float: left;
+}
+.top .title img{
+	display: block;
+	height: 49px;
+	margin: 7.5px 0 0 9px;
+}
+.top ul{
+	float: right;
+	overflow: hidden;
+	height: 100%;
+}
+.top ul li{
+	float: left;
+	width: 60px;
+	height: 100%;
+	position: relative;
+	cursor: pointer;
+}
+.top ul i{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	width: 24px;
+	height: 24px;
+}
+.top ul span{
+	position: absolute;
+	top: 19px;
+	right: 14px;
+	z-index: 99;
+	width: 14px;
+	height: 14px;
+	font-size: 0;
+	text-align: center;
+	line-height: 14px;
+	border-radius: 50%;
+	background-color: #FF5985;
+}
+.top ul span b{
+	display: inline-block;
+	font-weight: normal;
+	font-size: 12px;
+	color: #fff;
+	-webkit-transform: scale(0.833);
+	-ms-transform: scale(0.833);
+	-o-transform: scale(0.833);
+	transform: scale(0.833);
+}
+.top ul i.help{
+	background: url(../images/help.png) no-repeat center;
+	background-size: 100% auto
+}
+.top ul i.help_active{
+	background: url(../images/help_active.png) no-repeat center;
+	background-size: 100% auto
+}
+.top ul i.message{
+	background: url(../images/message.png) no-repeat;
+	background-size: 100% auto
+}
+.top ul i.message_active{
+	background: url(../images/message_active.png) no-repeat;
+	background-size: 100% auto
+}
+.top ul i.user{
+	background: url(../images/user.png) no-repeat center;
+	background-size: 100% auto
+}
+.top ul i.user_active{
+	background: url(../images/user_active.png) no-repeat center;
+	background-size: 100% auto
+}
+.top ul i.icon_close{
+	background: url(../images/icon_close.png) no-repeat center;
+	background-size: 100% auto
+}
+.top ul i.icon_close_active{
+	background: url(../images/icon_close_active.png) no-repeat center;
+	background-size: 100% auto
+}
+.top ul p{
+	display: none;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+}
+.content{
+	position: relative;
+	min-width: 1200px;
+	min-height: -ms-calc(100vh - 60px);
+	min-height: -moz-calc(100vh - 60px);
+	min-height: -webkit-calc(100vh - 60px);
+	/*padding-bottom: 108px*/
+}
+.nav{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 128px;
+	background: #1D61A8;
+}
+.nav p{
+	display: none;
+}
+.nav li{
+	padding-top: 22px;
+	height: 66px;
+	font-size: 14px;
+	color: rgba(255,255,255,.5);
+	cursor:pointer;
+	text-align: center;
+	position: relative;
+}
+.nav li.active{
+	color: #fff
+}
+.nav li div{
+	position: absolute;
+	top: 83px;
+	left: 0;
+	width: 100%;
+	background: rgba(255,255,255,.14);
+	padding: 14px 0;
+}
+.nav li div a{
+	color: rgba(255,255,255,.4);
+	display: block;
+	font-size: 12px;
+	padding: 10px 0;
+}
+.nav li div a:last-child{
+	margin-bottom: 0;
+}
+.nav li div a.active{
+	color: #fff
+}
+.nav i{
+	display: block;
+	width: 18px;
+	height: 18px;
+	margin: 0 auto 6px;
+}
+.nav li i.nav_home{
+	background: url(../images/nav_home.png) no-repeat;
+	background-size: 100% 100%;
+}
+.nav li.active i.nav_home{
+	background: url(../images/nav_home_active.png) no-repeat;
+	background-size: 100% 100%;
+}
+.nav li i.nav_import{
+	background: url(../images/nav_import.png) no-repeat;
+	background-size: 100% 100%;
+}
+.nav li.active i.nav_import{
+	background: url(../images/nav_import_active.png) no-repeat;
+	background-size: 100% 100%;
+}
+.nav li i.nav_input{
+	background: url(../images/nav_input.png) no-repeat;
+	background-size: 100% 100%;
+}
+.nav li.active i.nav_input{
+	background: url(../images/nav_input_active.png) no-repeat;
+	background-size: 100% 100%;
+}
+.nav li i.nav_manage{
+	background: url(../images/nav_manage.png) no-repeat;
+	background-size: 100% 100%;
+}
+.nav li.active i.nav_manage{
+	background: url(../images/nav_manage_active.png) no-repeat;
+	background-size: 100% 100%;
+}
+.nav li i.nav_static{
+	background: url(../images/nav_static.png) no-repeat;
+	background-size: 100% 100%;
+}
+.nav li.active i.nav_static{
+	background: url(../images/nav_static_active.png) no-repeat;
+	background-size: 100% 100%;
+}
+.siled{
+	position: relative;
+	margin-left: 128px;
+}
+.footer{
+    margin-top: 56px;
+	padding-bottom:32px;
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+	color: rgba(0,0,0,.1525);
+}
+.footer p:first-child{
+	margin-bottom: 6px
+}

@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./static/css/comm.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/total.css" />
+    <style>
+        .basic_mesg {
+            width: 100%;
+            margin-top: 20px;
+            padding: 20px 0 32px 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+        
+        .mesg span {
+            color: rgba(0, 0, 0, 0.65);
+        }
+        
+        .basic_bot {
+            overflow: hidden;
+            line-height: 25px;
+            font-size: 12px;
+            box-sizing: border-box;
+            width: 100%;
+            margin-top: 24px;
+            color: rgba(0, 0, 0, 0.45);
+        }
+        
+        .basic_bot p:first-child {
+            margin-left: 11px;
+        }
+        
+        .account_mesg {
+            font-size: 14px;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px 0 32px 20px;
+            box-sizing: border-box;
+        }
+        
+        .account_mesg span.btn {
+            color: #2492FC;
+            margin-right: 720px;
+            float: right;
+        }
+        
+        .account_bot {
+            box-sizing: border-box;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.45);
+        }
+        
+        .account_bot p {
+            margin-bottom: 16px;
+        }
+        
+        .account_bot i {
+            font-style: normal;
+        }
+        
+        .account_bot p:nth-child(1) {
+            overflow: hidden;
+        }
+        
+        .basic_top,
+        .account_top {
+            font-size: 18px;
+            width: 100%;
+            box-sizing: border-box;
+            color: rgba(0, 0, 0, 0.85);
+        }
+        
+        .basic_top .open,
+        .account_top .open {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #A99494;
+            float: right;
+            margin-right: 25px;
+            margin-top: 17px;
+        }
+        
+        .basic_top .close,
+        .account_top .close {
+            display: none;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #A99494;
+            float: right;
+            margin-right: 25px;
+            margin-top: 17px;
+        }
+        
+        .siled {
+            padding: 20px 20px 32px 20px;
+            box-sizing: border-box;
+            background: rgba(243, 244, 245, 1);
+        }
+        
+        .cancel {
+            float: left;
+            width: 45px;
+            height: 45px;
+            background-color: #F2F2F2;
+            position: relative;
+            margin-top: 23px;
+        }
+        
+        .cancel::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 63px;
+            height: 1px;
+            background-color: #ccc;
+            transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        }
+        
+        .cancel::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 63px;
+            height: 1px;
+            background-color: #ccc;
+            transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+        }
+        
+        .cancel-bot {
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.9);
+            float: left;
+        }
+        
+        .cancel-t {
+            overflow: hidden;
+        }
+        
+        button:hover {
+            cursor: pointer;
+        }
+        
+        .personal {
+            height: 450px;
+            padding-top: 50px;
+        }
+        
+        .personal-top {
+            width: 900px;
+            height: 76px;
+            line-height: 76px;
+            background-color: #006699;
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            font-size: 24px;
+        }
+        
+        .personal-bottom {
+            width: 900px;
+            height: 374px;
+            background-color: #fff;
+            margin: 0 auto;
+            padding: 48px 80px 0;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        
+        .personal-bottom p {
+            margin-bottom: 52px;
+        }
+        
+        .personal-bottom p:nth-child(3) {
+            margin-bottom: 0px;
+        }
+        
+        .personal-bottom p span {
+            color: #666;
+        }
+        
+        .personal-bottom p i {
+            font-style: normal;
+            color: #333;
+            margin-left: 24px;
+        }
+        
+        .personal-bottom textarea {
+            width: 370px;
+            size: 370px;
+            height: 44px;
+            line-height: 20px;
+            padding: 0;
+            box-sizing: border-box;
+            vertical-align: top;
+            border: 1px solid #fff;
+            outline: none;
+            resize: none;
+            color: #333;
+            margin-left: 18px;
+        }
+        
+        textarea::-webkit-input-placeholder {
+            color: #888;
+        }
+        
+        .personal-bottom p:nth-child(3) {
+            overflow: hidden;
+        }
+        
+        .personal-bottom p:nth-child(3) button {
+            float: right;
+            height: 38px;
+            width: 110px;
+            background-color: #006699;
+            outline: none;
+            border: 1px solid #006699;
+            color: #fff;
+            border-radius: 6px;
+        }
+        
+        .popup {
+            overflow: hidden;
+            position: relative;
+            z-index: 20;
+            width: 432px;
+            height: 334px;
+            background-color: #fff;
+            display: none;
+            padding: 48px 32px 0px;
+            box-sizing: border-box;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 12px;
+        }
+        
+        .popup input::-webkit-input-placeholder {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.25);
+            text-align: right;
+            padding-right: 8px;
+            box-sizing: border-box;
+        }
+        
+        .popup input:-moz-placeholder {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.25);
+            text-align: right;
+            padding-right: 8px;
+            box-sizing: border-box;
+        }
+        
+        .popup input::-moz-placeholder {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.25);
+            text-align: right;
+            padding-right: 8px;
+            box-sizing: border-box;
+        }
+        
+        .popup .tit {
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 12px;
+            font-style: normal;
+            float: right;
+            margin-right: 8px;
+            margin-top: 7px;
+        }
+        
+        .popup h3 {
+            font-size: 14px;
+            color: #333;
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+        
+        .popup .fr {
+            overflow: hidden;
+        }
+        
+        .popup input {
+            float: right;
+            width: 300px;
+            height: 34px;
+            border: 1px solid #ddd;
+            padding-left: 10px;
+            outline: none;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+        
+        .popup input.middle {
+            margin-bottom: 24px;
+        }
+        
+        .popup button,
+        .emailpop button,
+        .telpop button {
+            float: right;
+            width: 56px;
+            height: 32px;
+            outline: none;
+            font-size: 12px;
+            border: 1px solid #CDCFD1;
+            color: rgba(0, 0, 0, 0.65);
+            background-color: transparent;
+        }
+        
+        .popup button:first-child,
+        .emailpop button:first-child,
+        .telpop button:first-child {
+            float: right;
+            color: #fff;
+            background-color: #2492FC;
+            border: 1px solid #2492FC;
+            margin-left: 8px;
+            border-radius: 3px;
+        }
+        
+        .emailpop button,
+        .telpop button {
+            position: absolute;
+            bottom: 32px;
+            right: 32px;
+        }
+        
+        .emailpop button:last-child,
+        .telpop button:last-child {
+            right: 100px;
+        }
+        
+        .popOverContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(100, 100, 100, 0.8);
+            z-index: 10;
+            display: none;
+        }
+        
+        .dis-block {
+            display: block!important;
+        }
+        
+        .personal-bottom p:last-child {
+            margin-left: 83px;
+            display: inline-block;
+            width: 390px;
+            height: 20px;
+            margin-top: -15px;
+            font-size: 10px;
+            color: #666;
+        }
+        
+        .popup p {
+            text-align: left;
+            font-size: 8px;
+            color: #FF5975;
+            height: 24px;
+            margin-left: 68px;
+        }
+        
+        .lineRed {
+            border: 1px solid #FF5975!important;
+        }
+        
+        .lineBlue {
+            border: 1px solid #2492FC!important;
+        }
+        
+        .popup .la {
+            text-align: center;
+        }
+        
+        .personal-bottom div {
+            margin-top: -38px;
+            margin-left: 83px;
+            width: 416px;
+            height: 40px;
+            line-height: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        #page_container input:nth-child(1),
+        #page_container input:nth-child(2) {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        
+        .disnone {
+            display: none;
+        }
+        
+        #page_container {
+            height: 34px;
+            position: relative;
+        }
+        
+        #page_container input:focus {
+            outline: none;
+        }
+        
+        .input_block {
+            position: relative;
+            display: inline-block;
+            float: right;
+            width: 300px;
+            height: 34px;
+        }
+        
+        .input_block i {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 5;
+        }
+        
+        #visible {
+            background: url(./static/images/eyeOpen.png) no-repeat center;
+            background-size: 100%;
+            background-color: transparent;
+        }
+        
+        #invisible {
+            background: url(./static/images/eyeOpen.png) no-repeat center;
+            background-size: 100%;
+            background-color: transparent;
+        }
+        
+        .none {
+            display: none;
+        }
+        
+        .sucpop,
+        .errpop {
+            width: 837px;
+            height: 72px;
+            z-index: 100;
+            position: relative;
+            background-color: #fff;
+        }
+        
+        .suc,
+        .err {
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            display: inline-block;
+            margin-left: 32px;
+            margin-top: 20px;
+        }
+        
+        .suc {
+            background: url(./static/images/suc.png) no-repeat center;
+        }
+        
+        .err {
+            background: url(./static/images/err.png) no-repeat center;
+        }
+        
+        .sucpop span {
+            position: absolute;
+            font-size: 16px;
+            color: #444;
+            top: 25px;
+            left: 80px;
+        }
+        
+        .errpop div {
+            line-height: 24px;
+            display: inline-block;
+            position: absolute;
+            font-size: 16px;
+            color: #444;
+            top: 15px;
+            left: 80px;
+        }
+        
+        .errpop div span {
+            font-size: 15px;
+            color: #888;
+        }
+        
+        .errpop .clo,
+        .sucpop .clo {
+            width: 32px;
+            height: 32px;
+            position: absolute;
+            top: 21px;
+            right: 50px;
+            display: inline-block;
+            background: url(./static/images/clo.png) no-repeat center;
+        }
+        
+        .emailpop,
+        .telpop {
+            width: 432px;
+            height: 348px;
+            background-color: #fff;
+            z-index: 100;
+            text-align: left;
+            position: relative;
+            padding: 48px 32px 0px;
+            box-sizing: border-box;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .emailpop p:first-child,
+        .telpop p:first-child {
+            font-size: 14px;
+            color: #333;
+            text-align: left;
+        }
+        
+        .emailpop p:nth-child(2),
+        .telpop p:nth-child(2) {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.45);
+            text-align: left;
+            margin: 16px 0 24px 0;
+        }
+        
+        .emailpop input,
+        .telpop input {
+            padding-left: 10px;
+            box-sizing: border-box;
+            width: 312px;
+            height: 34px;
+            outline: none;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #CDCFD1;
+        }
+        
+        .emailpop i,
+        .telpop i {
+            position: absolute;
+            left: 32px;
+            top: 138px;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.65);
+            font-style: normal;
+        }
+        
+        .emailpop select,
+        .telpop select {
+            position: absolute;
+            right: 32px;
+            top: 129px;
+            width: 312px;
+            height: 34px;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.65);
+        }
+        
+        .emailpop #phone1,
+        .telpop #phone {
+            position: absolute;
+            right: 32px;
+            top: 159px;
+        }
+        
+        .emailpop .oldtelspan,
+        .telpop .oldtelspan {
+            position: absolute;
+            left: 32px;
+            top: 184px;
+        }
+        
+        .emailpop .verifyspan,
+        .telpop .verifyspan,
+        .emailpop #code1,
+        .emailpop #get_code1,
+        .telpop #code {
+            position: absolute;
+            left: 32px;
+            top: 228px;
+            width: 96px;
+            height: 32px;
+            margin: 0;
+        }
+        
+        .emailpop #code1,
+        .telpop #code {
+            left: 90px;
+        }
+        
+        .emailpop .verifyspan,
+        .telpop .verifyspan {
+            top: 237px;
+            z-index: 99;
+            color: rgba(0, 0, 0, 0.65);
+        }
+        
+        .emailpop select,
+        .telpop select {
+            border: 1px solid #CDCFD1;
+        }
+        
+        .emailpop select option {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.45);
+        }
+        
+        .emailpop .fr {
+            height: 34px;
+        }
+        
+        .telpop {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #code::-webkit-outer-spin-button,
+        #code::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+        
+        #code[type="number"] {
+            -moz-appearance: textfield;
+        }
+        
+        .emailpop input#get_code1,
+        .telpop input#get_code {
+            padding-left: 0;
+            width: 96px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            outline: none;
+            color: rgba(0, 0, 0, 0.65);
+            border: 1px solid #CDCFD1;
+            background-color: transparent;
+            font-size: 12px;
+            position: absolute;
+            top: 228px;
+            left: 200px;
+            margin: 0;
+        }
+        
+        .telpop #code {
+            width: 96px;
+            height: 32px;
+            border: 1px solid #CDCFD1;
+            font-size: 12px;
+        }
+        
+        .popup i.clo,
+        .emailpop i.clo,
+        .telpop i.clo {
+            left: auto;
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            background: url(./static/images/clo.png) no-repeat center;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        
+        .form_tip {
+            color: #FF5975;
+            position: absolute;
+            bottom: 120px;
+            left: 90px;
+            font-size: 12px;
+        }
+        
+        .form_tip2 {
+            color: #FF5975;
+            position: absolute;
+            bottom: 70px;
+            left: 90px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sucpop none">
+        <i class="suc"></i>
+        <span> 修改成功！</span>
+        <i class="clo"></i>
+    </div>
+    <div class="errpop none">
+        <i class="err"></i>
+        <div>修改失败！
+            <br>
+            <span>失败原因：系统超时，请稍后再试</span>
+        </div>
+        <i class="clo"></i>
+    </div>
+    <!-- 阴影背景开始 -->
+    <div class="popOverContainer"></div>
+    <!-- 阴影背景结束 -->
+    <!-- 弹框开始 -->
+    <div class="popup">
+        <h3>修改密码</h3>
+        <div class="fr">
+            <div id="page_container">
+                <!--暗文密码输入框-->
+                <div class="input_block" id="psw_invisible">
+                    <input type="password" id="input_invisible" placeholder="6-12位字母或数字" />
+                    <i id="visible" onmousedown="showPsw()" class="none"></i>
+                </div>
+                <!--明文密码输入框-->
+                <div class="input_block" id="psw_visible" style="display:none;" placeholder="6-12位字母或数字">
+                    <input type="text" id="input_visible" />
+                    <i id="invisible" onmouseup="hidePsw()" class="none"></i>
+                </div>
+                <i class="tit">原始密码</i>
+            </div>
+        </div>
+        <p>原始密码错误，请重新输入</p>
+        <div class="fr">
+            <input type="text" class="middle" maxlength='6' placeholder="6-12位字母或数字">
+            <i class="tit">新密码</i>
+        </div>
+        <div class="fr">
+            <input type="text" id="newpassword" class="bot" maxlength='6'>
+            <i class="tit">确认新密码</i>
+        </div>
+        <p>两次输入密码不一样</p>
+        <p class="la">
+            <button>确定</button>
+            <button>取消</button>
+        </p>
+        <i class="clo"></i>
+    </div>
+    <div class="emailpop none">
+        <p>修改邮箱</p>
+        <p>为了保障您的账号安全，更换邮箱前先进行安全验证</p>
+        <div class="fr">
+            <i> 验证方式：</i>
+            <select name="" id="">
+            <option value="">密保邮箱</option>
+            <option value="">密保手机</option>
+        </select>
+        </div>
+        <section class="form_apply">
+            <div class="phone_number">
+                <i class="oldtelspan">原手机：</i>
+                <input type="tel" id="phone1" maxlength="11">
+            </div>
+            <div class="code_number">
+                <span class="verifyspan">验证码</span>
+                <input type="number" id="code1" maxlength="6" />
+                <input type="button" id="get_code1" value="获取验证码" />
+            </div>
+            <div class="form_tip"></div>
+            <div class="form_tip2"></div>
+            <p class="tw">
+                <button class="apply_btn">确定</button>
+                <button>取消</button>
+            </p>
+        </section>
+        <i class="clo"></i>
+    </div>
+    <div class="telpop none">
+        <p>修改手机</p>
+        <p>为了保障您的账号安全，更换邮箱前先进行安全验证</p>
+        <div class="fr">
+            <i> 验证方式：</i>
+            <select name="" id="">
+            <option value="">密保邮箱</option>
+            <option value="">密保手机</option>
+        </select>
+        </div>
+        <section class="form_apply">
+            <div class="phone_number">
+                <i class="oldtelspan">原手机：</i>
+                <input type="tel" id="phone" maxlength="11">
+            </div>
+            <div class="code_number">
+                <span class="verifyspan">验证码</span>
+                <input type="number" id="code" maxlength="6" />
+                <input type="button" id="get_code" value="获取验证码" />
+            </div>
+            <div class="form_tip"></div>
+            <div class="form_tip2"></div>
+            <p class="tw">
+                <button class="apply_btn">确定</button>
+                <button>取消</button>
+            </p>
+        </section>
+        <i class="clo"></i>
+    </div>
+    <!-- 弹框结束 -->
+    <!-- 顶部结构开始 -->
+    <div class="top">
+        <div class="title"><img src="./static/images/logo.png" alt=""></div>
+        <ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+        </ul>
+    </div>
+    <!-- 顶部结构结束 -->
+    <div class="content new-content">
+        <!-- 左侧导航部分开始 -->
+        <div class="nav">
+            <p>我的导航</p>
+            <ul>
+                <li onclick="window.location.href = 'index.html'">
+                    <i class="nav_home"></i>
+                    <span>首页</span>
+                </li>
+                <li onclick="window.location.href = 'import-idx.html';localStorage.removeItem('page_number_import');">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html';localStorage.removeItem('page_number_enter');">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+                <li onclick="window.location.href = 'params.html'">
+                    <i class="nav_manage"></i>
+                    <span>系统管理</span>
+                </li>
+                <li onclick="window.location.href = 'analysis.html'">
+                    <i class="nav_static"></i>
+                    <span>统计分析</span>
+                </li>
+            </ul>
+        </div>
+        <!-- 左侧导航部分结束 -->
+        <div class="siled">
+            <div class="cancel-t">
+                <div class="cancel-bot">个人中心</div>
+            </div>
+            <div class="mesg">
+                <div class="basic_mesg">
+                    <div class="basic_top">基本信息
+                    </div>
+                    <div class="basic_bot">
+                        <p>账户名： <span class="name">江苏</span></p>
+                        <p>账户类型： <span class="typee">管理员</span></p>
+                        <p>备注信息： <span class="note"></span></p>
+                    </div>
+                </div>
+                <div class="account_mesg">
+                    <div class="account_top">账号信息
+                    </div>
+                    <div class="account_bot">
+                        <p>
+                            <i>  登录密码：</i>
+                            <span>已设置</span>
+                            <span class="ps_btn btn">修改</span>
+                        </p>
+
+                        <p>邮箱： <span class="eamil">163@163.com</span><span class="ema_btn btn">修改</span></p>
+                        <p>手机： <span class="tel"></span><span class="tel_btn btn">修改</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript " src="./static/js/jquery.min.js "></script>
+    <script>
+        var EmosEnterMark = localStorage.getItem('EmosEnterMark');
+        if (EmosEnterMark == '0') {
+            $('.nav li').eq(2).hide();
+            $('.top li:last-child').click(function() {
+                window.location.href = '/logout/1/';
+            })
+        } else if (EmosEnterMark == '1') {
+            $('.nav li').eq(1).hide();
+            $('.nav li').eq(4).hide();
+            $('.top li:last-child').click(function() {
+                window.location.href = '/logout/2/';
+            })
+        };
+        // 点击开关
+        $('.basic_top .open').click(function() {
+            $(this).hide();
+            $('.basic_top .close').show();
+            $('.basic_bot').hide();
+        });
+        $('.basic_top .close').click(function() {
+            $(this).hide();
+            $('.basic_top .open').show();
+            $('.basic_bot').show();
+        });
+
+        $('.account_top .open').click(function() {
+            $(this).hide();
+            $('.account_top .close').show();
+            $('.account_bot').hide();
+        });
+        $('.account_top .close').click(function() {
+            $(this).hide();
+            $('.account_top .open').show();
+            $('.account_bot').show();
+        });
+        // 让弹框水平垂直居中
+        $(function() {
+            $(window).resize();
+        });
+
+        $(window).resize(function() {
+            $(".popup").css({
+                position: "fixed",
+                left: ($(window).width() - $(".popup").outerWidth()) / 2,
+                top: ($(window).height() - $(".popup").outerHeight()) / 2,
+            });
+            $(".sucpop").css({
+                position: "fixed",
+                left: ($(window).width() - $(".sucpop").outerWidth()) / 2,
+                top: ($(window).height() - $(".sucpop").outerHeight()) / 2,
+            });
+            $(".errpop").css({
+                position: "fixed",
+                left: ($(window).width() - $(".errpop").outerWidth()) / 2,
+                top: ($(window).height() - $(".errpop").outerHeight()) / 2,
+            });
+            $(".emailpop").css({
+                position: "fixed",
+                left: ($(window).width() - $(".emailpop").outerWidth()) / 2,
+                top: ($(window).height() - $(".emailpop").outerHeight()) / 2,
+            });
+            $(".telpop").css({
+                position: "fixed",
+                left: ($(window).width() - $(".telpop").outerWidth()) / 2,
+                top: ($(window).height() - $(".telpop").outerHeight()) / 2,
+            });
+        });
+        var flag, flag1;
+        // 点击密码修改按钮，弹框出现
+        $('.ps_btn').click(function() {
+            $('.popOverContainer').addClass('dis-block');
+            $('.popup').addClass('dis-block');
+            $('.popup p').eq(0).text('');
+            $('.popup p').eq(1).text('');
+            $('.popup input').val('');
+            $('#invisible').addClass('none');
+            $('#visible').addClass('none');
+            $('#newpassword').removeClass('lineRed');
+            $('#input_invisible').removeClass('lineRed');
+            $('#input_invisible').removeClass('lineBlue');
+            // 点击确定按钮，修改密码。
+            $('.popup button:first-child').click(function() {
+                if (flag1 === true) {
+                    var returndata = {};
+                    returndata['oldPassword'] = $('.popup input:first').val();
+                    returndata['newPassword'] = $('.popup .middle').val();
+                    console.log(returndata);
+                    $.ajax({
+                        url: '/common/change_password/',
+                        type: 'post',
+                        dataType: 'json',
+                        data: returndata,
+                        success: function(data) {
+                            if (data.msg == 1) {
+                                $('.popup p:first').text('原始密码错误');
+                                $('#input_invisible').addClass('lineRed');
+                                $('#input_invisible').removeClass('lineBlue');
+                            } else {
+                                $('.popup p:first').text('');
+                                $('#input_invisible').removeClass('lineRed');
+                                $('#input_invisible').addClass('lineBlue');
+                            };
+                            // if ($('.popup p').eq(0).text().length > 0) {
+                            //     flag = false;
+                            //    $('.popup button:last-child').css('background-color', '#999');
+                            // } else {
+                            //     flag = true;
+                            //     $('.popup button:last-child').css('background-color', '#564141');
+                            // };z
+                            if (flag === true && data.msg == 'OK') {
+                                $('.popup').removeClass('dis-block');
+                                $('.popOverContainer').addClass('dis-block');
+                                $('.sucpop').removeClass('none');
+                                $('.sucpop .clo').click(function() {
+                                    $('.popOverContainer').removeClass('dis-block');
+                                    $('.sucpop').addClass('none');
+                                });
+
+                                function closuc() {
+                                    $('.popOverContainer').removeClass('dis-block');
+                                    $('.sucpop').addClass('none');
+                                }
+                                setTimeout("closuc();", 3000);
+                                window.location.href = "/login/";
+                            };
+                            if (data.msg == 2) {
+                                $('.popup p').eq(1).text('密码要求至少包含字母，符号或数字中的两项且长度超过6位');
+                            } else {
+                                $('.popup p').eq(1).text('');
+                            };
+
+                        },
+                        error: function() {
+                            $('.popOverContainer').addClass('dis-block');
+                            $('.errpop').removeClass('none');
+                            $('.errpop .clo').click(function() {
+                                $('.popOverContainer').removeClass('dis-block');
+                                $('.errpop').addClass('none');
+                            });
+
+                            function cloerr() {
+                                $('.popOverContainer').removeClass('dis-block');
+                                $('.errpop').addClass('none');
+                            }
+                            setTimeout("cloerr();", 3000);
+                        }
+                    });
+                }
+                $(this).unbind();
+            });
+
+            // 点击返回按钮，返回个人中心页面
+            $('.popup button:last-child').click(function() {
+                $('.popOverContainer').removeClass('dis-block');
+                $('.popup').removeClass('dis-block');
+                $(this).unbind();
+            });
+        });
+        // 点击手机修改按钮，弹框出现
+        $('.tel_btn').click(function() {
+            $('.popOverContainer').addClass('dis-block');
+            $('.telpop').addClass('dis-block');
+            $(".telpop .form_tip").html("");  
+            $(".telpop .form_tip2").html("");
+            $('.telpop #phone').val(''); 
+        });
+        // 点击手机关闭按钮，
+        $('.telpop .clo').click(function() {
+            $('.popOverContainer').removeClass('dis-block');
+            $('.telpop').removeClass('dis-block');
+        });
+        // 点击手机取消按钮，
+        $('.telpop button:last-child').click(function() {
+            $('.popOverContainer').removeClass('dis-block');
+            $('.telpop').removeClass('dis-block');
+        });
+        // 点击邮箱修改按钮，弹框出现
+        $('.ema_btn').click(function() {
+            $('.popOverContainer').addClass('dis-block');
+            $('.emailpop').addClass('dis-block');
+            $(".emailpop .form_tip").html("");  
+            $(".emailpop .form_tip2").html(""); 
+            $('.emailpop #phone1').val('');
+        });
+        // 点击邮箱关闭按钮，
+        $('.emailpop .clo').click(function() {
+            $('.popOverContainer').removeClass('dis-block');
+            $('.emailpop').removeClass('dis-block');
+        });
+        // 点击密码关闭按钮，
+        $('.popup .clo').click(function() {
+            $('.popOverContainer').removeClass('dis-block');
+            $('.popup').removeClass('dis-block');
+        });
+        // 点击邮箱确定按钮，
+        // $('.emailpop button:first-child').click(function() {
+        //     if ($('.emailpop input').val().trim().length != 0) {
+        //         $('.popOverContainer').removeClass('dis-block');
+        //         $('.emailpop').removeClass('dis-block');
+        //         var pas = {};
+        //         pas.newPassword = $('.emailpop input').val().trim();
+        //         console.log(pas);
+        //         $('.eamil').text($('.emailpop input').val().trim());
+        //         $.ajax({
+        //             url: '',
+        //             type: 'post',
+        //             dataType: 'json',
+        //             data: pas,
+        //             success: function(data) {
+        //                 if (data.msg == OK) {
+        //                     $('.popOverContainer').addClass('dis-block');
+        //                     $('.sucpop').removeClass('none');
+        //                     $('.sucpop .clo').click(function() {
+        //                         $('.popOverContainer').removeClass('dis-block');
+        //                         $('.sucpop').addClass('none');
+
+        //                         function closuc() {
+        //                             $('.popOverContainer').removeClass('dis-block');
+        //                             $('.sucpop').addClass('none');
+        //                         };
+        //                         setTimeout("closuc();", 3000);
+        //                     })
+        //                 } else if (data.msg == 1) {
+        //                     $('.popOverContainer').addClass('dis-block');
+        //                     $('.errpop').removeClass('none');
+        //                     $('.errpop .clo').click(function() {
+        //                         $('.popOverContainer').removeClass('dis-block');
+        //                         $('.errpop').addClass('none');
+        //                     });
+
+        //                     function cloerr() {
+        //                         $('.popOverContainer').removeClass('dis-block');
+        //                         $('.errpop').addClass('none');
+        //                     }
+        //                     setTimeout("cloerr();", 3000);
+        //                 }
+
+        //             },
+        //             error: function() {}
+        //         });
+        //     }
+        // });
+        // 点击邮箱取消按钮，
+        $('.emailpop button:last-child').click(function() {
+            $('.popOverContainer').removeClass('dis-block');
+            $('.emailpop').removeClass('dis-block');
+        });
+        // 判断新密码输入是否成功，flag1做标记
+        var input3 = document.getElementById('newpassword');
+        input3.oninput = function() {
+            if ($('.popup .middle').val() == $('.popup .bot').val()) {
+                $('.popup p').eq(1).text('');
+                $('#newpassword').removeClass('lineRed');
+            } else {
+                $('.popup p').eq(1).text('两次输入密码不一样');
+                $('#newpassword').addClass('lineRed');
+            };
+            if ($('.popup p').eq(1).text().length > 0) {
+                flag1 = false;
+            } else {
+                flag1 = true;
+            }
+        };
+    </script>
+    <script type="text/javascript">
+        // 当弹框的输入内容时，眼睛出现。内容为空时，眼睛隐藏
+        var input_invisible = document.getElementById('input_invisible');
+        input_invisible.onkeyup = function() {
+            if ($('#input_invisible').val().trim().length == 0) {
+                $('#invisible').addClass('none');
+                $('#visible').addClass('none');
+            } else {
+                $('#invisible').removeClass('none');
+                $('#visible').removeClass('none');
+            }
+        };
+        // 当弹框的输入内容时，眼睛出现。内容为空时，眼睛隐藏
+        var input_visible = document.getElementById('input_visible');
+        input_visible.onkeyup = function() {
+                if ($('#input_visible').val().trim().length == 0) {
+                    $('#invisible').addClass('none');
+                    $('#visible').addClass('none');
+                } else {
+                    $('#invisible').removeClass('none');
+                    $('#visible').removeClass('none');
+                }
+            }
+            // 按下眼睛，密码显示，不按眼睛，密码隐藏
+        var visible = document.getElementById('psw_visible'); //text block
+        var invisible = document.getElementById('psw_invisible'); //password block
+        var inputVisible = document.getElementById('input_visible');
+        var inputInVisible = document.getElementById('input_invisible');
+        //隐藏text block，显示password block
+        function showPsw() {
+            var val = inputInVisible.value; //将password的值传给text
+            inputVisible.value = val;
+            invisible.style.display = "none";
+            visible.style.display = "";
+        }
+        //隐藏password，显示text  
+        function hidePsw() {
+            var val = inputVisible.value; //将text的值传给password  
+            inputInVisible.value = val;
+            invisible.style.display = "";
+            visible.style.display = "none";
+        }
+    </script>
+    <script src="./static/js/commoncircle.js"></script>
+    <!-- 修改手机号码系列 -->
+    <script>
+        $(function() {    //先声明验证码返回数据           
+            var Rcode = "";  
+            var Tcken = "";  
+            var UserCode = "";  
+            var MbStr = "";   //先给输入框聚焦引起用户重视  
+            $(".emailpop #phone1").focus();   //客户重新输入时不提示错误信息       
+            $(".emailpop input").focus(function() {    
+                $(".emailpop .form_tip").html("");  
+                $(".emailpop .form_tip2").html("");  
+            });  
+            //短信发送按钮倒计时    
+            $(".emailpop #get_code1").click(function() {  
+                var that = this;    
+                that.disabled = true;    
+                var count = 60;     
+                var token = "BE315Dxx-CFxx6-4xxx-ACAC-70D90BEAxxx";    
+                var regPhone = /^1[34578]\d{9}$/;    
+                var tel = $("#phone1").val();    
+                if (regPhone.test(tel) == false) {      
+                    $(".emailpop .form_tip").html('* 手机号码错误，请核对后重新输入');      
+                    that.disabled = false;      
+                    return false;    
+                } else {      
+                    var timer = setInterval(function() {        
+                        if (count > 1) {          
+                            count--;          
+                            that.value = count + "s后重发";        
+                        } else {          
+                            that.value = "获取验证码";          
+                            that.disabled = false;          
+                            clearInterval(timer); //清除计时器        
+                        }      
+                    }, 1000);      
+                    $.ajax({        
+                        type: "post",
+                                url: "",
+                                contentType: "application/json; charset=utf-8",
+                                data: JSON.stringify({
+                            "PhoneNumber": tel
+                        }),
+                                beforeSend: function(request) {          
+                            request.setRequestHeader("x-ol-authtoken-ssl-xxxx", token);        
+                        },
+                                dataType: 'JSON',
+                                cache: false,
+                                success: function(data) {          
+                            var jsd = eval(data);          
+                            Rcode = jsd.ReturnResult;          
+                            Tcken = jsd.Ton;          
+                            UserCode = jsd.Code;          
+                            MbStr = jsd.Mb;        
+                        }      
+                    })    
+                }  
+            });
+            //点击提交数据    
+            $(".emailpop .apply_btn").click(function() {      
+                var cd = $(".emailpop #code1").val();
+                var codedData = {};
+                codedData.cdVal = cd;  
+                console.log(cd)      
+                console.log(Rcode)     //此判断必须，如果两个都为空也符合下一步判断条件的相等，也就是说客户什么都不填也能跳转到下一步页面
+                if (cd == "") {         
+                    $(".emailpop .form_tip2").html('* 请输入短信验证码');         
+                    return false;      
+                }      
+                if (Rcode == cd) {         
+                    var tel = $(".emailpop #phone1").val();       //将得到的信息发送到跳转的页面进行下一步使用
+                           // 由于存在安全性风险，只建议在移动端使用此方式                
+                    $.ajax({
+                        url: '',
+                        type: 'post',
+                        dataType: 'json',
+                        data: codedData,
+                        success: function(data) {
+                            if (data.msg = 1) {
+                                $('.popOverContainer').addClass('dis-block');
+                                $('.sucpop').removeClass('none');
+                                $('.sucpop .clo').click(function() {
+                                    $('.popOverContainer').removeClass('dis-block');
+                                    $('.sucpop').addClass('none');
+
+                                    function closuc() {
+                                        $('.popOverContainer').removeClass('dis-block');
+                                        $('.sucpop').addClass('none');
+                                    };
+                                    setTimeout("closuc();", 3000);
+                                })
+                            } else if (data.msg = 0) {
+                                $('.popOverContainer').addClass('dis-block');
+                                $('.errpop').removeClass('none');
+                                $('.errpop .clo').click(function() {
+                                    $('.popOverContainer').removeClass('dis-block');
+                                    $('.errpop').addClass('none');
+                                });
+
+                                function cloerr() {
+                                    $('.popOverContainer').removeClass('dis-block');
+                                    $('.errpop').addClass('none');
+                                }
+                                setTimeout("cloerr();", 3000);
+                            }
+
+                        },
+                        error: function() {}
+                    });  
+                    // window.location.href = "./apply.html?l=" + tel + "&t=" + Tcken + "&c=" + UserCode + "&m=" + MbStr;      
+                } else {         
+                    $(".emailpop .form_tip2").html('* 短信验证码错误，请核对后重新输入');      
+                };  
+            })
+        });
+        $(function() {    //先声明验证码返回数据
+               
+            var Rcode = "";  
+            var Tcken = "";  
+            var UserCode = "";  
+            var MbStr = "";   //先给输入框聚焦引起用户重视
+              
+            $(".telpop #phone").focus();   //客户重新输入时不提示错误信息
+              
+            $(".telpop input").focus(function() {    
+                $(".telpop .form_tip").html("");  
+                $(".telpop .form_tip2").html("");  
+            });  
+            //短信发送按钮倒计时    
+            $(".telpop #get_code").click(function() {  
+                var that = this;    
+                that.disabled = true;    
+                var count = 60;     
+                var token = "BE315Dxx-CFxx6-4xxx-ACAC-70D90BEAxxx";    
+                var regPhone = /^1[34578]\d{9}$/;    
+                var tel = $(".telpop #phone").val();    
+                if (regPhone.test(tel) == false) {      
+                    $(".telpop .form_tip").html('* 手机号码错误，请核对后重新输入');      
+                    that.disabled = false;      
+                    return false;    
+                } else {      
+                    var timer = setInterval(function() {        
+                        if (count > 1) {          
+                            count--;          
+                            that.value = count + "s后重发";        
+                        } else {          
+                            that.value = "获取验证码";          
+                            that.disabled = false;          
+                            clearInterval(timer); //清除计时器
+                                    
+                        }      
+                    }, 1000);      
+                    $.ajax({        
+                        type: "post",
+                                url: "",
+                                contentType: "application/json; charset=utf-8",
+                                data: JSON.stringify({
+                            "PhoneNumber": tel
+                        }),
+                                beforeSend: function(request) {          
+                            request.setRequestHeader("x-ol-authtoken-ssl-xxxx", token);        
+                        },
+                                dataType: 'JSON',
+                                cache: false,
+                                success: function(data) {          
+                            var jsd = eval(data);          
+                            Rcode = jsd.ReturnResult;          
+                            Tcken = jsd.Ton;          
+                            UserCode = jsd.Code;          
+                            MbStr = jsd.Mb;        
+                        }      
+                    })    
+                }  
+            });
+
+            // 判断确定按钮颜色
+
+            //点击提交数据    
+            $(".telpop .apply_btn").click(function() {      
+                var cd = $(".telpop #code").val();
+                var codedData = {};
+                codedData.cdVal = cd;  
+                console.log(cd)      
+                console.log(Rcode)     //此判断必须，如果两个都为空也符合下一步判断条件的相等，也就是说客户什么都不填也能跳转到下一步页面
+                if (cd == "") {         
+                    $(".telpop .form_tip2").html('* 请输入短信验证码');         
+                    return false;      
+                }      
+                if (Rcode == cd) {         
+                    var tel = $(".telpop #phone").val();       //将得到的信息发送到跳转的页面进行下一步使用
+                           // 由于存在安全性风险，只建议在移动端使用此方式                
+                    $.ajax({
+                        url: '',
+                        type: 'post',
+                        dataType: 'json',
+                        data: codedData,
+                        success: function(data) {
+                            if (data.msg = 1) {
+                                $('.popOverContainer').addClass('dis-block');
+                                $('.sucpop').removeClass('none');
+                                $('.sucpop .clo').click(function() {
+                                    $('.popOverContainer').removeClass('dis-block');
+                                    $('.sucpop').addClass('none');
+
+                                    function closuc() {
+                                        $('.popOverContainer').removeClass('dis-block');
+                                        $('.sucpop').addClass('none');
+                                    };
+                                    setTimeout("closuc();", 3000);
+                                })
+                            } else if (data.msg = 0) {
+                                $('.popOverContainer').addClass('dis-block');
+                                $('.errpop').removeClass('none');
+                                $('.errpop .clo').click(function() {
+                                    $('.popOverContainer').removeClass('dis-block');
+                                    $('.errpop').addClass('none');
+                                });
+
+                                function cloerr() {
+                                    $('.popOverContainer').removeClass('dis-block');
+                                    $('.errpop').addClass('none');
+                                }
+                                setTimeout("cloerr();", 3000);
+                            }
+
+                        },
+                        error: function() {}
+                    });  
+                    // window.location.href = "./apply.html?l=" + tel + "&t=" + Tcken + "&c=" + UserCode + "&m=" + MbStr;      
+                } else {         
+                    $(".telpop .form_tip2").html('* 短信验证码错误，请核对后重新输入');      
+                };  
+            })
+        })
+    </script>
+</body>
+
+</html>

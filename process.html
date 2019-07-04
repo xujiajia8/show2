@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./static/css/comm.css">
+	<link rel="stylesheet" type="text/css" href="./static/css/total.css">
+	<script type="text/javascript" src="./static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="./static/js/show.js"></script>
+    <script type="text/javascript" src="./static/js/comm.js"></script>
+	<style type="text/css">
+        .siled .start button:first-child{
+        	background: #2492FC;
+        	border: 1px solid #2492FC;
+        	color: #fff;
+        }
+		.pro_loading{
+			display: none;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background: #fff;
+			z-index: 1000;
+			top: 0;
+			left: 0;
+		}
+		.modifyPop{
+			z-index: 1001;
+			display: block;
+		}
+        /*定界过程中页面特有css  -start-*/
+	</style>
+</head>
+<body>
+    <!--start 头部-->
+	<div class="top">
+		<div class="title"><img src="./static/images/logo.png" alt=""></div>
+		<ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+		</ul>
+	</div>
+    <!--end 头部-->
+	<div class="content">
+        <!--start 测导航-->
+		<div class="nav">
+			<p>我的导航</p>
+			<ul>
+				<li onclick="window.location.href = 'index.html'">
+					<i class="nav_home"></i>
+					<span>首页</span>
+				</li>
+                <li onclick="window.location.href = 'import-idx.html';">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html';">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+				<li onclick="window.location.href = 'analysis.html'">
+					<i class="nav_static"></i>
+					<span>统计分析</span>
+				</li>
+				<li onclick="window.location.href = 'params.html';">
+					<i class="nav_manage"></i>
+					<span>系统管理</span>
+				</li>
+			</ul>
+		</div>
+        <!--end 测导航-->
+		<div class="siled">
+			<div class="path">EMOS工单 / 工单</div>
+			<div class="subtitle">
+				<span>工单 --</span>
+				<div class="chul"><em>定界中</em><span></span></div>
+			</div>
+			<div class="module">
+				<div class="title">
+					<span>定界过程</span>
+					<i class="show"></i>
+				</div>
+				<div class="cont" style="display:block">
+					<div class="process">
+						<div class="state">
+							<div>
+								<span>1</span>
+								<strong>拉取数据</strong>
+							</div>
+							<div>
+								<span>2</span>
+								<strong>业务状态定界</strong>
+							</div>
+							<div>
+								<span>3</span>
+								<strong>无线异常定界</strong>
+							</div>
+							<div>
+								<span>4</span>
+								<strong>性能指标定界</strong>
+							</div>
+							<div>
+								<span>5</span>
+								<strong>用户数据定界</strong>
+							</div>
+						</div>
+					</div>
+					<div class="pro_abnormal">
+						<p>异常原因：接口异常</p>
+						<p>异常时间：2019-06-06 10:00:00</p>
+					</div>
+					<div class="conduct clearfix">
+						<div class="img">
+							<img src="./static/images/loading.gif" alt="">
+							<i></i>
+						</div>
+						<div>
+							<p style="min-width:200px">拉取数据中...</p>
+							<ul class="clearfix scrollbar">
+								<li class="success">xdr_lteu1_http</li>
+								<li class="success">mr_cell</li>
+								<li class="error">xdr_lteu1_s6a</li>
+								<li class="success">http_user_cell_l1_pro</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="module" style="display:none">
+				<div class="title">
+					<span>录入信息</span>
+					<i></i>
+				</div>
+				<div class="cont" style="display:block">
+					<p>
+						<strong>投诉电话：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉时间：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>数据时间：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉地市：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉地点：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉描述：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉类别：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>业务类别：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>业务名称：</strong>
+						<span></span>
+					</p>
+				</div>
+			</div>
+			<div class="module">
+				<div class="title">
+					<span>生成工单信息</span>
+					<i></i>
+				</div>
+				<div class="cont" style="display:block">
+					<p>
+						<strong>投诉时间：</strong>
+						<span>2019-05-27 18:00:36</span>
+					</p>
+					<p>
+						<strong>投诉地点：</strong>
+						<span>苏州市昆山市圣美精密工业黄浦江厂-西门</span>
+					</p>
+					<p>
+						<strong>业务名称：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>数据时间：</strong>
+						<span>2019-05-27 16:00:36至2019-05-27 18:00:36</span>
+					</p>
+					<p>
+						<strong>投诉类别：</strong>
+						<span>区域信号弱</span>
+					</p>
+					<p>
+						<strong>业务类别：</strong>
+						<span></span>
+					</p>
+				</div>
+			</div>
+			<div class="module">
+				<div class="title">
+					<span>原始工单信息</span>
+					<i></i>
+				</div>
+				<div class="cont" style="display:block">
+					<p>
+						<strong>客服受理时间：</strong>
+						<span>2019-05-27 18:03:03</span>
+					</p>
+					<p>
+						<strong>投诉电话：</strong>
+						<span>18361922412</span>
+					</p>
+					<p>
+						<strong>所在地市：</strong>
+						<span>苏州</span>
+					</p>
+					<p>
+						<strong>投诉类型：</strong>
+						<span>移动业务->网络质量->手机上网（4G）->全局流转->功能使用->区域信号弱->全局流转</span>
+					</p>
+					<p>
+						<strong>投诉描述：</strong>
+						<span>客户反映2019-05-27 18:00:36，在地点（苏州市昆山市圣美精密工业黄浦江厂-西门(121.015916,31.453018)），出现（没有网络）投诉现象，已持续（长期时间），历史使用情况（5月24日出现过这个情况），周围用户情况是否正常（是），用户使用网络：4G，是否同意进行测试：是，客户终端型号为：OPPOR9m（VOLTE终端），4G功能是否开通：是。</span>
+					</p>
+				</div>
+			</div>
+			<div class="start">
+				<button>取消定界</button>
+			</div>
+		</div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+        <!--start 加载中-->
+		<div class="pro_loading">
+			<div class="modifyPop">
+				<div class="spinner">
+				  	<div class="spinner-container container1">
+					    <div class="circle1"></div>
+					    <div class="circle2"></div>
+					    <div class="circle3"></div>
+					    <div class="circle4"></div>
+				  	</div>
+				  	<div class="spinner-container container2">
+					    <div class="circle1"></div>
+					    <div class="circle2"></div>
+					    <div class="circle3"></div>
+					    <div class="circle4"></div>
+				  	</div>
+				  	<div class="spinner-container container3">
+					    <div class="circle1"></div>
+					    <div class="circle2"></div>
+					    <div class="circle3"></div>
+					    <div class="circle4"></div>
+				  	</div>
+				</div>
+				<!--<img style="display: none;" src="./static/images/success.png">-->
+			</div>
+		</div>
+        <!--end 加载中-->
+	</div>
+	<script type="text/javascript">	
+		function timeFormat(num){ //分，秒格式转换
+			var hh = Math.floor(num/3600);
+			hh = hh < 10 ? '0'+ hh : hh;
+			var mm = num%3600;
+			mm = Math.floor(mm/60);
+			mm = mm < 10 ? '0'+ mm : mm;
+			var ss = num%60;
+			ss = ss < 10 ? '0' + ss : ss;
+			return hh+':'+mm+':'+ss
+		}
+		$(function(){
+			window.fiel_number = localStorage.getItem('fiel_number'); //工单编号
+			$('.siled .subtitle > span').text('工单 '+window.fiel_number);
+ 			if(window.fiel_number.indexOf('JSL') != -1){ //是否为录入型工单初始化页面
+ 				$('.nav li').eq(2).addClass('active');
+				$('.siled .path').html('录入型工单 / 工单');
+				$('.module').eq(0).find('.process .state').prepend('<div><span></span><strong>鉴权</strong></div>');
+				$('.module').eq(0).find('.process .state > div').each(function(){
+					var index = $(this).index();
+					$(this).find('span').text(index+1);
+				});
+				$('.module').eq(0).find('.conduct p').text('鉴权中');
+				$('.process .state > div').eq(0).addClass('active');
+				$('.module').eq(2).hide();
+				$('.module').eq(3).hide();
+ 			}else{
+ 				$('.nav li').eq(1).addClass('active');
+				$('.siled .path').html('EMOS工单 / 工单');
+				$('.module').eq(0).find('.conduct p').text('拉取数据中');
+				$('.process .state > div').eq(0).addClass('active');
+				//$('.module').eq(0).hide();
+ 			};
+			window.process = 0; // 全局变量记录是否第一次加载
+			window.processLine = 0;// 全局变量记录是否第一次加载为排队中状态
+			var now_stateTxt = {  //变量记录状态码对应状态
+				'201':'鉴权',
+				'202':'拉取数据',
+				'203':'业务状态定界',
+				'204':'无线异常定界',
+				'205':'性能指标定界',
+				'206':'用户数据定界'
+			}
+			var mine = 0; //总计时 作用时间(s)
+			var mine_modul = 0; //当前模块 计时
+			var repeat = {}; //记录 以显示的小模有哪些块
+			var error_name = [] ; //记录错误的模块名
+			var error_name_msg = []; //记录错误的模块名错误原因
+			var state_i = 0; //记录走到第几小块的第几个索引
+			var state_num ; //记录当前处于第几大块
+			var reckonTime; //计时定时器
+			var hTime;  // 加载中定时器
+			var demarTime; //请求定时器
+			var exhibition = $('.module').eq(0).find('.conduct ul');
+			var h3 = $('.module').eq(0).find('.conduct p');
+			hTime = setInterval(function(){    //定时器总用时
+				var txt = h3.text();
+				h3.text(txt+'.');
+				if(txt.split('.').length > 7){
+					h3.text(txt.split('.')[0]);
+				}
+			},500)
+			
+			if(localStorage.getItem('process_type') == '异常态'){
+				clearInterval(reckonTime);
+				clearInterval(hTime);
+				clearInterval(demarTime);
+				h3.text(h3.text().split('.')[0]);
+				$('.siled .subtitle em').text('异常态');
+				$('.siled .subtitle div').removeClass().addClass('yic');
+				$('.start button').eq(0).text('继续定界');
+				$('.module').eq(0).find('.conduct img').attr('src','./static/images/loading.png');
+				$('.process .state > div').eq(0).addClass('error').siblings().removeClass();
+				$('.pro_abnormal').show()
+			}else{
+				clearInterval(reckonTime);
+				reckonTime = setInterval(function(){ //计时
+					mine++;
+					$('.siled .subtitle div span').text(timeFormat(mine));
+				},1000);
+				if(localStorage.getItem('process_type') == '排队中'){
+					clearInterval(hTime);
+					h3.text(h3.text().split('.')[0]);
+					h3.text('任务正在排队中，等待定界');
+					$('.module').eq(0).find('.conduct ul').hide();
+					setTimeout(function(){
+						h3.text('拉取数据中');
+						hTime = setInterval(function(){    //定时器总用时
+							var txt = h3.text();
+								h3.text(txt+'.');
+								if(txt.split('.').length > 7){
+									h3.text(txt.split('.')[0]);
+								}
+						},500)
+						$('.module').eq(0).find('.conduct ul').show();
+						$('.module').eq(0).find('.conduct li.error').removeClass().addClass('success');
+						setTimeout(function(){
+							clearInterval(reckonTime);
+							clearInterval(hTime);
+							clearInterval(demarTime);
+							h3.text(h3.text().split('.')[0]);
+							$('.process .state > div').eq(4).addClass('active').siblings().removeClass();
+							$('.start button').text('查看结果');
+							$('.siled .subtitle em').html('定界完成');
+							$('.module').eq(0).find('.conduct img').attr('src','./static/images/loading.png');
+							$('.module').eq(0).find('.conduct i').show();
+						},10000)
+					},5000)
+				}
+				if(localStorage.getItem('process_type') == '定界中'){
+					$('.module').eq(0).find('.conduct li.error').removeClass().addClass('success');
+					setTimeout(function(){
+						clearInterval(reckonTime);
+						clearInterval(hTime);
+						clearInterval(demarTime);
+						h3.text(h3.text().split('.')[0]);
+						$('.process .state > div').eq(4).addClass('active').siblings().removeClass();
+						$('.start button').text('查看结果');
+						$('.siled .subtitle em').html('定界完成');
+						$('.module').eq(0).find('.conduct img').attr('src','./static/images/loading.png');
+						$('.module').eq(0).find('.conduct i').show();
+					},10000)
+				}
+			}
+				
+			//取消or继续事件
+			$('.start button').on('click',function(){
+				if($(this).text() == '查看结果'){
+					localStorage.setItem('fiel_number',window.fiel_number);
+					window.location.href = 'querState.html';
+					var mark = $(this).attr('mark');
+					if(mark == 'true'){
+						window.location.href = 'completeState.html';
+					}else if(mark == 'false'){
+						window.location.href = 'querState.html';
+					}
+				}
+				if($(this).text() == '取消定界'){
+					clearInterval(reckonTime);
+					clearInterval(hTime);
+					clearInterval(demarTime);
+					if(window.fiel_number.indexOf('JSL') != -1){
+						localStorage.removeItem('fiel_number');
+						window.location.href = 'enter-idx.html';
+					}else{
+						localStorage.setItem('fiel_number',window.fiel_number);
+						window.location.href = 'chulState.html';
+					}
+				}
+				if($(this).text() == '继续定界'){
+					$('.module').eq(0).find('.conduct li.error').removeClass().addClass('success');
+					$('.module').eq(0).find('.conduct img').attr('src','./static/images/loading.gif');
+					$('.process .state > div').eq(0).addClass('active').removeClass('error').siblings().removeClass();
+					$('.siled .subtitle em').text('定界中');
+					$('.siled .subtitle div').removeClass().addClass('chul');
+					$('.start button').eq(0).text('取消定界');
+					clearInterval(hTime);
+					hTime = setInterval(function(){    //定时器总用时
+						var txt = h3.text();
+						h3.text(txt+'.');
+						if(txt.split('.').length > 7){
+							h3.text(txt.split('.')[0]);
+						}
+					},500)
+					clearInterval(reckonTime);
+					reckonTime = setInterval(function(){ //计时
+						mine++;
+						$('.siled .subtitle div span').text(timeFormat(mine));
+					},1000);
+					setTimeout(function(){
+						clearInterval(reckonTime);
+						clearInterval(hTime);
+						clearInterval(demarTime);
+						h3.text(h3.text().split('.')[0]);
+						$('.process .state > div').eq(4).addClass('active').siblings().removeClass();
+						$('.start button').text('查看结果');
+						$('.siled .subtitle em').html('定界完成');
+						$('.module').eq(0).find('.conduct img').attr('src','./static/images/loading.png');
+						$('.module').eq(0).find('.conduct i').show();
+					},10000)
+				}
+			})
+		})
+	</script>
+</body>
+</html>

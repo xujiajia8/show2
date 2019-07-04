@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./static/css/comm.css">
+	<link rel="stylesheet" type="text/css" href="./static/css/total.css">
+	<script type="text/javascript" src="./static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="./static/js/show.js"></script>
+	<script type="text/javascript" src="./static/js/comm.js"></script>
+	<style type="text/css">
+        /*录入工单页面特有css  -start-*/
+        .siled .cont strong{
+        	width: 85px;
+        	text-align: right;
+        }
+        .siled .cont div.e_int > p.tip{
+        	padding-left: 85px;
+        }
+		.pop{
+			display: none;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform:translate(-50%,-50%);
+			-ms-transform:translate(-50%,-50%); 	/* IE 9 */
+			-moz-transform:translate(-50%,-50%); 	/* Firefox */
+			-webkit-transform:translate(-50%,-50%); /* Safari 和 Chrome */
+			-o-transform:translate(-50%,-50%); 
+			z-index: 999;
+			background:#dff4ff;
+			padding: 15px 20px;
+			border-radius: 8px;
+			font-size: 14px;
+			color: #333;
+			width: 400px;
+			z-index: 999;
+		}
+		.pop div{
+			overflow: hidden;
+		}
+		.pop div:first-child{
+			padding: 20px 0;
+			color: #0099ff;
+			width: 90%;
+			margin: 0 auto
+		}
+		.pop div:last-child{
+			padding: 26px 0 10px;
+			color: #333;
+			margin: 0 -10px
+		}
+		.pop p{
+			float: left;
+			font-weight: bold;
+			font-size: 17px;
+			line-height: 20px;
+		}
+		.pop span{
+			display: block;
+			line-height: 20px;
+			text-align: left;
+			font-size: 17px;
+			margin-left: 5em
+		}
+		.pop strong{
+			font-weight: normal;
+			display: block;
+			width: 90%;
+			font-size: 15px;
+			margin: 0 auto;
+		}
+		.pop button{
+			float: right;
+			width: 75px;
+			height: 28px;
+			color: #333;
+			font-size: 13px;
+			border-radius: 14px;
+			background: #6aa6ff;
+			border: 0;
+			margin-right: 10px
+		}
+        /*录入工单页面特有css  -end-*/
+	</style>
+</head>
+<body>
+    <!--start 头部-->
+	<div class="top">
+		<div class="title"><img src="./static/images/logo.png" alt=""></div>
+		<ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+		</ul>
+	</div>
+    <!--end 头部-->
+	<div class="content">
+        <!--start 测导航-->
+		<div class="nav">
+			<p>我的导航</p>
+			<ul>
+				<li onclick="window.location.href = 'index.html'">
+					<i class="nav_home"></i>
+					<span>首页</span>
+				</li>
+                <li onclick="window.location.href = 'import-idx.html';">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li class="active" onclick="window.location.href = 'enter-idx.html';">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+				<li onclick="window.location.href = 'analysis.html'">
+					<i class="nav_static"></i>
+					<span>统计分析</span>
+				</li>
+				<li onclick="window.location.href = 'params.html';">
+					<i class="nav_manage"></i>
+					<span>系统管理</span>
+				</li>
+			</ul>
+		</div>
+        <!--end 测导航-->
+		<div class="siled">
+            <div class="path">录入型工单 / 新建录入工单</div>
+            <div class="subtitle">
+                <span>新建录入工单</span>
+            </div>
+			
+			<div class="module">
+				<div class="title">
+					<span>工单信息</span>
+					<p>工单编号 JSL-**-****-**</p>
+					<i class="show"></i>
+				</div>
+				<div class="cont" style="display: block;">
+					<div class="e_int">
+						<strong>客服受理时间：</strong>
+						<span></span>
+					</div>
+					<div class="e_int">
+						<strong><em>*</em>投诉电话：</strong>
+						<input type="text">
+					</div>
+					<div class="e_int">
+						<strong><em>*</em>投诉时间：</strong>
+						<div class="complaint">
+							<input id="time1" type="text" readonly>
+						</div>
+					</div>
+					<div class="e_int">
+						<strong><em>*</em>数据时间：</strong>
+						<div class="accept">
+							<input id="time2" type="text" readonly>
+						</div>
+						<div class="clear"></div>
+						<p class="tip">数据时间确定说明：数据时间为从投诉时间往前推2个小时</p>
+					</div>
+					<div class="e_int">
+						<strong><em>*</em>投诉地市：</strong>
+						<div class="province choice">
+							<p></p>
+							<ul class="scrollbar mapbar"></ul>
+						</div>
+						<b>省</b>
+						<div class="city choice">
+							<p></p>
+							<ul class="scrollbar mapbar"></ul>
+						</div>
+						<b>市</b>
+					</div>
+					<div class="e_int"> 
+						<strong><em>*</em>投诉地点：</strong>
+						<div class="texta">
+							<textarea></textarea>
+							<span>已输入0/50字</span>
+						</div>
+					</div>
+					<div class="e_int">
+						<strong><em>*</em>投诉描述：</strong>
+						<div class="texta">
+							<textarea></textarea>
+							<span>已输入0/50字</span>
+						</div>
+						<p class="tip">投诉描述将作为鉴权原因发送给审批人，请认真填写</p>
+					</div>
+					<div class="radio">
+						<strong><em>*</em>投诉类别：</strong>
+						<div>
+    						<span>有信号无法在线游戏</span>
+    						<span>有信号全部网站、游戏、视频、APP等软件上网慢、卡顿</span>
+    						<span>上网时出现断线</span>
+    						<span>区域信号弱</span>
+    						<span>有信号不能上网</span>
+                            <span>无4G信号或者信号弱</span>
+                            <span>区域无信号</span>
+                            <span>有信号视频观看慢、卡</span>
+                            <span>有信号在线聊天慢</span>
+                            <span>网速慢</span>
+                            <span>有信号无法在线聊天</span>
+                            <span>区域信号不好</span>
+                            <span>有信号在线游戏卡顿</span>
+                            <span>有信号网页浏览慢</span>
+                            <span>出现全部网站、游戏、视频、APP等软件断线</span>
+                            <span>有信号无法观看视频</span>
+                            <span>有信号下载速率慢</span>
+                            <span>网速慢或网页无法打开</span>
+                            <span>有信号无法下载</span>
+                            <span>有信号无法浏览网页</span>
+                        </div>
+					</div>
+					<div class="radio">
+						<strong>业务类别：</strong>
+						<span>游览</span>
+						<span>下载</span>
+						<span>游戏</span>
+						<span>即时通信</span>
+						<span>视频</span>
+					</div>
+					<div class="e_int">
+						<strong>业务名称：</strong>
+						<input type="text" placeholder="10个字以内" />
+					</div>
+				</div>
+			</div>
+			<div class="start">
+				<button>保存</button>
+				<button>开始定界</button>
+			</div>
+		</div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+	</div>
+	<div class="maskPop"></div>
+    <!--start 确认鉴权-->
+	    <div class="delete-pop">
+	        <div>
+	            <img src="./static/images/draft.png" alt="">
+	            <p>是否将投诉描述作为鉴权描述发给直属审批人员？</p>
+	            <span>鉴权原因：不能上网</span>
+	        </div>
+	        <div>
+	            <button>取消</button>
+	            <button>确定</button>
+	        </div>
+	    </div>
+    <!--end 确认鉴权-->
+    <!--start 加载中-->
+	<div class="modifyPop">
+		<div class="spinner">
+		  	<div class="spinner-container container1">
+			    <div class="circle1"></div>
+			    <div class="circle2"></div>
+			    <div class="circle3"></div>
+			    <div class="circle4"></div>
+		  	</div>
+		  	<div class="spinner-container container2">
+			    <div class="circle1"></div>
+			    <div class="circle2"></div>
+			    <div class="circle3"></div>
+			    <div class="circle4"></div>
+		  	</div>
+		  	<div class="spinner-container container3">
+			    <div class="circle1"></div>
+			    <div class="circle2"></div>
+			    <div class="circle3"></div>
+			    <div class="circle4"></div>
+		  	</div>
+		</div>
+	</div>
+    <!--end 加载中-->
+	<script type="text/javascript" src="./static/js/laydate.js"></script>
+	<script type="text/javascript" src="./static/js/city.js"></script>
+	<script type="text/javascript">
+		$(function(){
+            selectImitate(); //模拟下拉选择框
+            radioImitate(); //模拟单选框
+            //日期时间范围
+            laydate.render({
+              elem: '#time1'
+              ,type: 'datetime'
+            }); 
+            laydate.render({
+              elem: '#time2'
+              ,type: 'datetime'
+              ,range: true
+            }); 
+            var com_time = null;
+            //投诉时间联动数据时间
+            $('.complaint').on('click',function(){
+            	var _that = $(this);
+            	var start_val = _that.find('input').val();
+            	clearInterval(com_time);
+            	com_time = setInterval(function(){
+            		var end_val = _that.find('input').val();
+            		if(start_val != end_val){
+            			var c_time = end_val;
+            			var t_date2 = new Date(c_time.replace(/-/g,'/'));
+            			t_date2.setHours(t_date2.getHours() - 2);
+            			var a_time = t_date2.getFullYear() +'-'+ (t_date2.getMonth() + 1) +'-'+ t_date2.getDate() +' '+ t_date2.getHours() +':'+ t_date2.getMinutes() +':'+ t_date2.getSeconds();
+            			$('#time2').val(a_time +' - '+c_time);
+            			clearInterval(com_time);
+            		}
+            	},500)
+            });
+            window.fiel_number = localStorage.getItem('fiel_number');//工单编号
+			var nowDate = new Date(); //本地事件变量
+			var nowTime = nowDate.getTime() / 1000; //本地时间秒数变量
+			//城市联动事件-start-
+            var province = $('.province');
+            var city = $('.city');
+			province.find('ul li').remove();
+            for (var item in cityStr) { 
+                var oLi = document.createElement('li');
+                oLi.innerHTML = cityStr[item].name;
+                if(cityStr[item].name == '江苏'){
+                    oLi.className = 'active'
+                };
+                province.find('ul').append(oLi);
+            }
+            province.find('p').text('江苏');
+            cityOption('0', city, $('.province li.active').index());//二级城市联动
+            province.find('p').bind('change',function(){
+                var index = $('.province li.active').index()
+                if(index == -1){
+                    city.find('ul li').remove();
+                    city.find('p').text('-请选择-');
+                    return false
+                }
+                var cityArea = '';
+                if (cityStr[index].city.length <= 1) {
+                    cityOption('1', city, index)
+                } else {
+                    cityOption('0', city, index)
+                }
+            });
+            //
+            $('.module .cont > div').each(function(){
+            	if($(this).find('input').length > 0){
+            		$(this).find('input').on('focus',function(){
+            			$(this).removeAttr('style')
+            		})
+            	}
+            	if($(this).find('textarea').length > 0){
+            		$(this).find('textarea').on('focus',function(){
+            			$(this).removeAttr('style')
+            		})
+            		$(this).find('textarea').on('input',function(){
+            			var rec = /[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\；|\：|\:|\"|\“|\”|\‘|\’|\'|\,|\，|\《|\》|\<|\.|\。|\>|\/|\、|\？|\?]/g;
+		                var txt = $(this).val();
+		                txt=txt.replace(rec,""); 
+		                if(txt.length > 50){
+		                    $(this).css('border','1px solid #FF5975');
+		                    $(this).next('span').html('已输入<em style="color:#FF5975">'+txt.length+'</em>/50字');
+		                }else{
+		                    $(this).removeAttr('style');
+		                    $(this).next('span').html('已输入<em>'+txt.length+'</em>/50字');
+		                }
+            		})
+            	}
+            })
+			//城市联动事件-end-
+			var module = document.querySelector('.module');
+			if(window.fiel_number){ //是否为草稿
+				var wE = JSON.parse(localStorage.getItem('workEdit_draft'));
+				module.querySelector('.title').querySelector('p').innerHTML = '工单编号 '+wE.form_num;
+				//客服受理时间
+				if(wE.recv){
+					$('.module .cont > div').eq(0).find('span').text(timeChange(wE.recv))
+				}
+				//投诉电话
+				if(wE.complaints_call){
+					$('.module .cont > div').eq(1).find('input').val(wE.complaints_call);
+				}
+				//投诉时间
+				if(wE.complaints_time){
+					$('.module .cont > div').eq(2).find('input').val(timeChange(wE.complaints_time));
+				}
+				//数据时间
+				if(Boolean(wE.data_time1) || Boolean(wE.data_time2)){
+					$('.module .cont > div').eq(3).find('input').val(timeChange(wE.data_time1)+' - '+timeChange(wE.data_time2));
+				}
+				//投诉地点
+				if(wE.complaints_place){
+					$('.module .cont > div').eq(5).find('textarea').val(wE.complaints_place);
+				}
+				//投诉描述
+				if(wE.dis){
+					$('.module .cont > div').eq(6).find('textarea').val(wE.dis);
+				}
+				//投诉类别
+				if(wE.complaints_category){
+					$('.module .cont > div').eq(7).find('span').each(function(){
+						if($(this).text() == wE.complaints_category){
+							$(this).addClass('active').siblings().removeClass('active')
+						}
+					})
+				}
+				//业务类别
+				if(wE.business_category){
+					$('.module .cont > div').eq(8).find('span').each(function(){
+						if($(this).text() == wE.business_category){
+							$(this).addClass('active').siblings().removeClass('active')
+						}
+					})
+				}
+				//业务名称
+				if(wE.business_name){
+					$('.module .cont > div').eq(9).find('input').val(wE.business_name);
+				}
+				//地市
+				if(wE.complaints_city){
+					city.find('p').text(wE.complaints_city);
+					city.find('li').each(function(){
+						if($(this).text() == wE.complaints_city){
+							$(this).addClass('active').siblings().removeClass('active')
+						}
+					})
+				}
+			}else{
+				$('.module .cont > div').eq(0).find('span').text(timeChange(nowTime * 1000))
+			}
+			//保存草稿
+			document.querySelector('.start').querySelectorAll('button')[0].onclick = function(){
+				
+				localStorage.removeItem('fiel_number');
+				window.location.href = 'enter-idx.html';
+				
+			}
+			//开始定界
+			document.querySelector('.start').querySelectorAll('button')[1].onclick = function(){
+				$('.maskPop').show();
+				//投诉电话：
+				var complaintCell = $('.module .cont > div').eq(1).find('input').val();
+				var phone = /^1(3|4|5|6|7|8|9)\d{9}$/;
+				var telephone = /^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/;
+				if(!phone.test(complaintCell) || !telephone.test(complaintCell)){
+					alert('请输入正确的电话号码');
+					$('.module .cont > div').eq(1).find('input').css('border','1px solid #FF5975');
+					$('.maskPop').hide();
+					return false;
+				}
+				//投诉时间：
+				var complaintTime = $('.module .cont > div').eq(2).find('input').val();
+				if(!complaintTime){
+					alert('请选择投诉时间');
+					$('.module .cont > div').eq(2).find('input').css('border','1px solid #FF5975');
+					$('.maskPop').hide();
+					return false;
+				}
+				//数据时间：
+				var elem1 = $('.module .cont > div').eq(3).find('input').val();
+				if(!elem1){
+					alert('请选择数据时间');
+					$('.module .cont > div').eq(3).find('input').css('border','1px solid #FF5975');
+					$('.maskPop').hide();
+					return false;
+				}
+				//投诉地市：
+				var city_val = city.find('p').text();
+				if(city_val == '-请选择-'){
+					alert('请选择城市');
+					city.find('p').css('border','1px solid #FF5975');
+					$('.maskPop').hide();
+					return false
+				}
+				//投诉地点
+				var place = $('.module .cont > div').eq(5).find('textarea').val();
+				if(!place){
+					alert('投诉地点不能为空');
+					$('.module .cont > div').eq(5).find('textarea').css('border','1px solid #FF5975');
+					$('.maskPop').hide();
+					return false
+				}
+				//投诉描述
+				var describe = $('.module .cont > div').eq(6).find('textarea').val();
+				if(!describe){
+					alert('投诉描述不能为空');
+					$('.module .cont > div').eq(6).find('textarea').css('border','1px solid #FF5975');
+					$('.maskPop').hide();
+					return false
+				}
+				//投诉类别
+				var category = $('.module .cont > div').eq(7).find('span.active');
+				if(category.length == 0){
+					alert('请选择投诉类别');
+					$('.maskPop').hide();
+					return false
+				}
+				$('.delete-pop span').text('鉴权原因：'+describe);
+				$('.delete-pop').show();
+			}
+			//确认鉴权定界
+			$('.delete-pop button').eq(0).on('click',function(){
+				$('.delete-pop').hide();
+				$('.maskPop').hide();
+			})
+			$('.delete-pop button').eq(1).on('click',function(){
+				localStorage.setItem('fiel_number',window.fiel_number)
+				localStorage.setItem('process_type','定界中');
+				window.location.href = 'process.html'
+			})
+		})
+	</script>
+</body>
+</html>

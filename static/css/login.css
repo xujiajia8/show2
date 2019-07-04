@@ -1,0 +1,330 @@
+
+.logo{
+	padding: 16px 0 0 20px;
+}
+.logo img{
+	display: block;
+	width: 106px;
+	height: 46px;
+}
+.login,.reset{
+	width: 336px;
+	margin: 101px auto 0;
+}
+.login .title,.reset .title,.register .title{
+	text-align: center;
+}
+.login .title strong,.reset .title strong{
+	font-size: 26px;
+	color: #000
+}
+.login .title span,.reset .title span{
+	display: block;
+	margin-top: 5px;
+	font-size: 14px;
+	color: rgba(0,0,0,.45)
+}
+.login .tab{
+	padding: 34px 19px 32px;
+	overflow: hidden;
+}
+.login .tab span{
+	float: left;
+	width: 120px;
+	text-align: center;
+	line-height: 34px;
+	font-size: 16px;
+	cursor: pointer;
+	color: rgba(0,0,0,.65);
+	border-bottom: 2px solid transparent;
+}
+.login .tab span:first-child{
+	margin-right: 58px
+}
+.login .tab span.active{
+	color: #2492FC;
+	border-bottom: 2px solid #2492FC;
+}
+.login p{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: rgba(0,0,0,.35);
+	border: 1px solid #CDCFD1;
+	background-color: #fff;
+	border-radius: 3px;
+	margin-bottom: 24px;
+	padding: 0 10px 0 32px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	background-size: 14px auto;
+	position: relative;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.login p.user{
+	background-image: url(../images/l_user.png);
+}
+.login p.password{	
+	background-image: url(../images/l_password.png);
+}
+.login p.phone{	
+	background-image: url(../images/l_phone.png);
+}
+.login p.code{	
+	background-image: url(../images/l_code.png);
+}
+.login p.error{
+	border: 1px solid #FF5975
+}
+.login p input{
+	float: left;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	background-color: #fff;
+	font-size: 14px;
+	color: rgba(0,0,0,.65);
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.login .form p.error:first-child::after{
+	content: '账户不存在，请重新输入';
+	position: absolute;
+	top: 40px;
+	left: 0;
+	color: #FF5975;
+	font-size: 12px;
+	line-height: normal;
+}
+.login .form p.error:nth-child(2)::after{
+	content: '密码错误，请重新输入';
+	position: absolute;
+	top: 40px;
+	left: 0;
+	color: #FF5975;
+	font-size: 12px;
+	line-height: normal;
+}
+.login .form div{
+	overflow: hidden;
+}
+.login .form span{
+	float: left;
+	font-size: 12px;
+	padding:1px 0 1px 24px;
+	color: rgba(0,0,0,.65);
+	background-image: url(../images/h_check.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 16px auto
+}
+.login .form span.active{
+	background-image: url(../images/h_checked.png);
+}
+.login .form a{
+	float: right;
+	color: #2492FC;
+	font-size: 14px;
+	margin-left: 24px;
+}
+.login .form .button,.login .phone .button,.reset button,.register button{
+	display: block;
+	width: 100%;
+	height: 40px;
+	font-size: 16px;
+	background-color: #2492FC;
+	border: 0;
+	border-radius: 3px;
+	color: #fff;
+	margin: 24px auto 0;
+	outline: none;
+}
+.login .form > div:last-child,.login .phone > div:last-child{
+	margin-top: 24px;
+	text-align: right;
+}
+.login .form > div:last-child a,.login .phone > div:last-child a{
+	color: #2492FC;
+	margin-left: 24px;
+}
+.login .phone div p{
+	float: left;
+	width: 206px;
+}
+.login .phone div span{
+	float: right;
+	width: 122px;
+	height: 40px;
+	line-height: 38px;
+	color:rgba(0,0,0,.65);
+	border: 1px solid #CDCFD1;
+	background-color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
+	text-align: center;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.login .phone div span.ing{
+	color: #2492FC
+}
+.login .phone > p.error::after{
+	content: '请输入正确的手机号';
+	position: absolute;
+	top: 40px;
+	left: 0;
+	color: #FF5975;
+	font-size: 12px;
+	line-height: normal;
+}
+.login .phone > div p.error::after{
+	content: '验证码错误';
+	position: absolute;
+	top: 40px;
+	left: 0;
+	color: #FF5975;
+	font-size: 12px;
+	line-height: normal;
+}
+.login .phone div span.time,.reset > div p span.time,.register .input p:nth-child(5) span.time{
+	cursor: not-allowed;
+	color: #2492FC
+}
+.reset .tab{
+	margin: 40px 0 24px;
+	font-size: 20px;
+	color: #333;
+	font-weight: bold;
+}
+.reset > div p,.register .input p{
+	width: 336px;
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 24px;
+	position: relative;
+}
+.reset > div p input,.register .input p input{
+	float: left;
+	width: 100%;
+	height: 100%;
+	font-size: 14px;
+	color: rgba(0,0,0,.65);
+	border: 1px solid #CDCFD1;
+	border-radius: 3px;
+	padding: 0 8px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.reset > div p.error input,.register .input p.error input{
+	border: 1px solid #FF5975;
+}
+.reset > div.change p.error:first-child::after{
+	content: '6-12位字母或数字';
+	position: absolute;
+	line-height: normal;
+	top: 40px;
+	left: 0;
+	font-size: 12px;
+	color: #FF5975;
+}
+.reset > div.change p.error:last-child::after{
+	content: '两次密码输入不一致';
+	position: absolute;
+	line-height: normal;
+	top: 40px;
+	left: 0;
+	font-size: 12px;
+	color: #FF5975;
+}
+.reset > div p span,.register .input p:nth-child(5) span{
+	float: right;
+	width: 122px;
+	height: 40px;
+	line-height: 38px;
+	text-align: center;
+	background-color: #fff;
+	border: 1px solid #CDCFD1;
+	border-radius: 3px;
+	cursor: pointer;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.reset > div.check p:last-child input{
+	width: 206px;
+	margin-right: 8px;
+}
+.reset > div.tip{
+	color: rgba(0,0,0,.65);
+	font-size: 14px;
+	margin: 16px 0 24px;
+}
+.reset > div.tip.error{
+	color: #FF5975
+}
+.register{
+	width: 336px;
+	margin: 0 auto
+}
+.register .input p:nth-child(5) input{
+	width: 206px;
+}
+.register > div:last-child{
+	margin-top: 24px;
+}
+.register > div:last-child a{
+	float: right;
+	color: #2492FC;
+	font-size: 14px;
+}
+.register .input p.error:first-child::after{
+	content: '邮箱不正确';
+	position: absolute;
+	line-height: normal;
+	top: 40px;
+	left: 0;
+	font-size: 12px;
+	color: #FF5975;
+}
+.register .input p.error:nth-child(2)::after{
+	content: '6-12位字母或数字';
+	position: absolute;
+	line-height: normal;
+	top: 40px;
+	left: 0;
+	font-size: 12px;
+	color: #FF5975;
+}
+.register .input p.error:nth-child(3)::after{
+	content: '两次密码输入不一致';
+	position: absolute;
+	line-height: normal;
+	top: 40px;
+	left: 0;
+	font-size: 12px;
+	color: #FF5975;
+}
+.register .input p.error:nth-child(4)::after{
+	content: '手机号码不正确';
+	position: absolute;
+	line-height: normal;
+	top: 40px;
+	left: 0;
+	font-size: 12px;
+	color: #FF5975;
+}
+.register .input p.error:nth-child(5)::after{
+	content: '验证码错误';
+	position: absolute;
+	line-height: normal;
+	top: 40px;
+	left: 0;
+	font-size: 12px;
+	color: #FF5975;
+}

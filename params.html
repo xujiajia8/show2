@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./static/css/comm.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/total.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/basis.css" />
+    <link rel="stylesheet" href="./static/css/pagination.css">
+    <link rel="stylesheet" href="./static/css/params.css">
+</head>
+
+<body>
+    <!-- 阴影背景开始 -->
+    <div class="popupOverContainer"></div>
+    <!-- 阴影背景结束 -->
+    <!-- 顶部结构开始 -->
+    <div class="top">
+        <div class="title"><img src="./static/images/logo.png" alt=""></div>
+        <ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+        </ul>
+    </div>
+    <!-- 顶部结构结束 -->
+    <div class="sucpop none">
+        <i class="suc"></i>
+        <span> 修改成功！</span>
+        <p>已为你成功修改配置值</p>
+        <i class="clo"></i>
+    </div>
+    <div class="delsucpop none">
+        <i class="delsuc"></i>
+        <span> 删除成功！</span>
+        <p>已为你成功删除2条信息</p>
+        <i class="clo"></i>
+    </div>
+    <div class="addsucpop none">
+        <i class="suc"></i>
+        <span> 新增成功！</span>
+        <p>已为你成功新增
+            <i></i> 条信息
+        </p>
+        <i class="clo"></i>
+    </div>
+    <div class="uploadsucpop none">
+        <i class="suc"></i>
+        <span> 上传成功！</span>
+        <i class="clo"></i>
+    </div>
+    <div class="errpop none">
+        <i class="err"></i>
+        <span> 修改失败！</span>
+        <p>失败原因：系统超时，请稍后再试</p>
+        <i class="clo"></i>
+    </div>
+    <div class="delerrpop none">
+        <i class="delerr"></i>
+        <span> 删除失败！</span>
+        <p>失败原因：系统超时，请稍后再试</p>
+        <i class="clo"></i>
+    </div>
+    <div class="adderrpop none">
+        <i class="delerr"></i>
+        <span> 新增失败！</span>
+        <p>失败原因：系统超时，请稍后再试</p>
+        <i class="clo"></i>
+    </div>
+
+    <div class="uploaderrpop none">
+        <i class="delerr"></i>
+        <span> 上传失败！</span>
+        <p>失败原因：系统超时，请稍后再试 </p>
+        <i class="clo"></i>
+    </div>
+    <!-- 编辑弹框开始 -->
+    <div class="popup edipopup">
+        <p></p>
+        <input type="text">
+        <div class="txt"></div>
+        <button class="canc">取消</button>
+        <button class="sure">确定</button>
+        <!-- <i class="clo"></i> -->
+    </div>
+    <!-- 编辑弹框结束 -->
+    <div class="content new-content">
+        <!-- 左侧导航部分开始 -->
+        <div class="nav">
+            <p>我的导航</p>
+            <ul>
+                <li onclick="window.location.href = 'index.html'">
+                    <i class="nav_home"></i>
+                    <span>首页</span>
+                </li>
+                <li onclick="window.location.href = 'import-idx.html'">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html'">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+                <li onclick="window.location.href = 'analysis.html'">
+                    <i class="nav_static"></i>
+                    <span>统计分析</span>
+                </li>
+
+                <li class="active">
+                    <i class="nav_manage"></i>
+                    <span class="hide">系统管理</span>
+                    <div>
+                        <a class="active" href="#">参数配置</a >
+                        <a href="#">模型更新</a >
+                        <a href="#">权限配置</a >
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- 左侧导航部分结束 -->
+        <div class="siled">
+            <!-- 参数配置内容开始 -->
+            <div class="bDivTotal bDivTotal-one active">
+                <div class="cancel-t">
+                    <div class="cancel-bot">参数配置</div>
+                </div>
+                <div class="bTab">
+                    <span class="active-border">系统配置</span>
+                    <span>信令指标定界阈值</span>
+                    <span>无线定界规则阈值</span>
+                    <span>整合结果阈值</span>
+                    <span>定界规则配置文件表</span>
+                </div>
+                <div class="contTal">
+                <div class="subtitle2">
+                        <input type="text" placeholder="请输入关键字">
+                        <i>
+                            <img src="./static/images/search1.png" alt="">
+                        </i>
+                    </div>
+                <div class="cont inp active"> 
+                    <div class="ti tii">生效时间配置</div>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>配置字段描述</th>
+                                <th>配置值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>配置缓存时间</td>
+                                <td id="CONF_EXPIRE"></td>
+                                <td>单位：秒，默认300秒填300</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="ti">鉴权配置</div>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>配置字段描述</th>
+                                <th>配置值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>鉴权超时时间</td>
+                                <td id="API_AUTHEN_TIMEOUT"></td>
+                                <td>单位：秒，默认360秒填360</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>鉴权请求系统名称</td>
+                                <td id="AU_SYSTEMID"></td>
+                                <td>字符类型，鉴权请求时提供的本系统名称，默认为'cmss'填cmss</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                        </tbody>
+                    </table>
+                    <div class="ti">工单解析配置</div>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>配置字段描述</th>
+                                <th>配置值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>工单描述解析时间范围
+                                    <br> 
+                                    <span class="rgb45">（工单描述中无时间）</span>                               
+                                </td>
+                                <td id="rec_window"></td>
+                                <td>单位：小时，默认24小时（1天）填24，（暂时固定，后面需要可配置）
+                                    <br>
+                                    <span class="rgb45">表示根据受理时间向前推24小时拉取数据</span>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>工单描述解析时间范围
+                                    <br> 
+                                    <span class="rgb45">（工单描述中有日期，无具体时分秒时间）</span> 
+                                </td>
+                                <td id="date_window"></td>
+                                <td>单位：小时，默认24小时（1天）填24，（暂时固定，后面需要可配置）
+                                    <br> 
+                                    <span class="rgb45">表示根据工单描述时间，拉取当日24小时数据</span> 
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>工单描述解析时间范围
+                                    <br> 
+                                    <span class="rgb45">（工单描述中有日期，有具体时分秒时间）</span> 
+                                </td>
+                                <td id="time_window"></td>
+                                <td>
+                                    单位：小时，默认2小时填2， （暂时固定，后面需要可配置）
+                                    <br> 
+                                    <span class="rgb45">表示根据工单描述投诉具体时间，向前拉取2小时数据</span> 
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ti">系统功能控制配置</div>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>配置字段描述</th>
+                                <th>配置值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>待处理状态控制</td>
+                                <td id="auto_submit"></td>
+                                <td>取值为0或1，默认为0
+                                    <br>
+                                    <span class="rgb45">0代表开启待处理状态，1代表关闭待处理状态直接开启定界</span> 
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>已完成状态控制</td>
+                                <td id="auto_commit"></td>
+                                <td>取值为0或1，默认为0
+                                    <br>
+                                    <span class="rgb45">0代表开启已完成状态，1代表关已完成状态</span> 
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>大气波导功能控制</td>
+                                <td id="DQBD"></td>
+                                <td>取值为0或1，默认为0
+                                    <br>
+                                    <span class="rgb45">1代表开启大气波导定界功能，0代表关闭大气波导定界功能</span> 
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>控制SP定界规则是否开启的开关</td>
+                                <td id="SP_switch"></td>
+                                <td>取值为0或1，默认为0，
+                                    <br> 
+                                    <span class="rgb45">例：业务侧规则要求关闭时填0，业务侧规则要求开启时填1；现在默认关闭业务侧定界规则填0</span> 
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="ti">数据接口异常操作配置</div>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>配置字段描述</th>
+                                <th>配置值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>重试次数配置</td>
+                                <td id="API_RETRY"></td>
+                                <td>单位：次，类型为整数，
+                                    <br> 用于配置数据拉取异常时系统重试次数
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>重试次数时间间隔分布</td>
+                                <td id="retry_times_interval"></td>
+                                <td>取值为0或1，默认为0
+                                    <br>
+                                    <span class="rgb45">1代表时间间隔固定，0代表时间间隔等差分布</span> 
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>固定时间间隔</td>
+                                <td id="fixed_time_interval"></td>
+                                <td>单位：s(秒)，用于配置数据拉取重试的时间间隔，
+                                    <br>
+                                    <span class="rgb45">例：每1s重试1次，填1 当时间间隔固定时，此阈值生效</span> 
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>初始时间间隔</td>
+                                <td id="initial_time_interval"></td>
+                                <td>单位：s(秒)，用于配置数据拉取重试的初始时间间隔
+                                    <br>
+                                    <span class="rgb45">当时间间隔等差分布时，此阈值生效</span> 
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>时间间隔公差</td>
+                                <td id="API_DELAY"></td>
+                                <td>单位：s(秒)，用于配置数据拉取时间分布的公差，
+                                    <br>
+                                    <span class="rgb45">例：1表示后一个时间间隔比前一个时间间隔多1s,当时间间隔等差分布时，此阈值生效</span> 
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ti">定界结果回复EMOS接口配置</div>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>配置字段描述</th>
+                                <th>配置值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>定界结果回复EMOS的接口url</td>
+                                <td id="RESPONSEURL"></td>
+                                <td>用于配置定界结果回复EMOS接口的url
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>是否在任务结束前，定界结果生成后回复定界结果</td>
+                                <td id="auto_response_before"></td>
+                                <td>取值为0或1，默认为1
+                                    <br>
+                                    <span class="rgb45">1代表在任务结束之前，定界结果产生后回复定界结果；0代表任务结束后回复定界结果</span> 
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>回复结果中包含的质差小区数量</td>
+                                <td id="auto_response_abnormal_num"></td>
+                                <td>类型为整数，单位：条，
+                                    <br> 
+                                    <span class="rgb45">用于配置回复的结果中包含质差小区的数量</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>回复结果中包含的url前缀</td>
+                                <td id="auto_response_address"></td>
+                                <td>该阈值为系统生成的url前缀，结合工单具体id生成可以链接到系统工单最新状态页面的url
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ti">回复告警接口配置（对接亚信）</div>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>配置字段描述</th>
+                                <th>配置值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>告警接口url</td>
+                                <td id="RETURNALARMURL"></td>
+                                <td>用于配置告警接口url
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>告警认证url</td>
+                                <td id="ALARMAUTHORURL"></td>
+                                <td>用于配置认证接口url
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>告警认证账号</td>
+                                <td id="ALARMAUTHORUSERNAME"></td>
+                                <td>用于配置认证接口的用户名
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>告警认证密码</td>
+                                <td id="ALARMAUTHORPASSWORD"></td>
+                                <td>用于配置认证接口的密码
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ti">回复告警接口配置（对接EMOS）</div>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>配置字段描述</th>
+                                <th>配置值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>接口url</td>
+                                <td id="RESPONSEALARMURL"></td>
+                                <td>用于配置告警接口url
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ti">数据接口url描述配置</div>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>配置字段描述</th>
+                                <th>配置值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>小区GPS接口url</td>
+                                <td id="CELLGPSURL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>用户鉴权接口url</td>
+                                <td id="AUTHENTICATIONURL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>xdr数据接口url</td>
+                                <td id="XDRURL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>告警数据接口的url</td>
+                                <td id="ALARMURL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>网优数据接口url</td>
+                                <td id="NETURL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>用户级MR数据接口url</td>
+                                <td id="MRURL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>小区级MR数据接口url</td>
+                                <td id="MRCELLURL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>S1U-用户+小区+业务大类接口url</td>
+                                <td id="S1U_USER_CELL_L1_URL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>HTTP-用户+小区+业务大类接口url</td>
+                                <td id="HTTP_USER_CELL_L1_URL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>S1U-HTTP-SGWIP接口url</td>
+                                <td id="ALL_SGWIP_URL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>S1MME-S1U-HTTP+小区接口url</td>
+                                <td id="ALL_CELL_URL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>S1U-HTTP-域名+业务小类+SP接口url</td>
+                                <td id="ALL_HOST_SP_L3_URL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>S1MME-USER+CELL接口url</td>
+                                <td id="S1MME_USER_CELL_URL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>S1MME-MMEIP接口url</td>
+                                <td id="S1MME_MMEIP_URL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>S6A-MMEIP接口url</td>
+                                <td id="S6A_MMEIP_URL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>S10S11-MMEIP接口url</td>
+                                <td id="S10S11_MMEIP_URL"></td>
+                                <td>无</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cont inp">
+                        <div class="ti tii">用户面</div>
+                    <table cellspacing="0" class="twoTable">
+                        <thead>
+                            <tr>
+                                <th>信令定界规则</th>
+                                <th>定界规则阈值字段描述</th>
+                                <th>阈值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">TCP 1/2步握手成功率低</td>
+                                <td>TCP 1/2步握手成功率（/15min）</td>
+                                <td id="tcp12_suc_rate"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:成功率为50%填0.5；低于阈值为异常判定条件；用于定界核心网、SP是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>TCP 2次握手（TCP SYN）次数（/15min）</td>
+                                <td id="tcp_syn_ack"></td>
+                                <td>类型为整数，单位：次数，
+                                    <br>
+                                    <span class="rgb45"> 例:握手次数为100次填100；超出阈值为异常判定条件；用于定界核心网、SP是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>TCP 1/2步握手时延长</td>
+                                <td>TCP 1/2步握手时延（单位：ms）（/15min）</td>
+                                <td id="tcp12_hand_delay"></td>
+                                <td>类型为整数，单位：ms(毫秒)，
+                                    <br> 
+                                    <span class="rgb45">例:时延为100ms填100，时延为1s填1000；超出阈值为异常；用于定界核心网、SP是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>HTTP响应时延长</td>
+                                <td> HTTP响应时延（单位：ms）（/15min）</td>
+                                <td id="http_res_delay"></td>
+                                <td>类型为整数，单位：ms(毫秒)，
+                                    <br>
+                                    <span class="rgb45"> 例:时延为100ms填100，时延为1s填1000；超出阈值为异常；用于定界核心网、SP是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>HTTP响应成功率低</td>
+                                <td> HTTP响应成功率（/15min）</td>
+                                <td id="http_res_suc_rate"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:成功率为50%填0.5；低于阈值为异常；用于定界核心网、SP是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="4">TCP 1/2步握手成功率低、 TCP 1/2步握手时延长、 HTTP响应时延长、 HTTP响应成功率低
+                                </td>
+                                <td> 异常业务小类数目</td>
+                                <td id="apptype_num"></td>
+                                <td>取值范围：【0，+∞】,
+                                    <br> 
+                                    <span class="rgb45">例:异常业务小类数目为5填5；高于阈值为判断终端是否异常条件；用于定界终端、SP是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户使用的异常业务小类占比</td>
+                                <td id="apptype_abnormal_ratio"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:用户使用的异常业务小类占比为50%填0.5；高于阈值为判断终端是否异常条件；用于定界终端、SP是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户对异常业务sp_ip和host的请求访问占比（/15min）</td>
+                                <td id="abnormal_spip_host_ratio"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:用户对异常业务小类的sp_ip+host访问次数相对用户访问所有业务小类sp_ip+host占比为50%填0.5；高于阈值为判断判断是否拉取SP整体数据条件；用于定界SP是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户对异常业务sp_ip和host的请求访问次数（/15min）</td>
+                                <td id="spip_host_req_num"></td>
+                                <td>取值范围：【0，+∞】,
+                                    <br> 
+                                    <span class="rgb45">例:用户访问该异常业务小类的sp_ip+host数目为5填5；高于阈值为判断是否拉取SP整体数据条件；用于定界SP是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+
+                            <tr>
+                                <td rowspan="8">TCP2/3步握手成功率低</td>
+                                <td> 定界用户的TCP2/3步握手成功率（/15min）</td>
+                                <td id="tcp23_suc_rate"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例：成功率为50%填0.5；低于阈值为异常；用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>定界用户的TCP 2次握手（TCP SYN）次数（/15min）</td>
+                                <td id="tcp_syn_ack_tcp23_suc"></td>
+                                <td>类型为大于0的整数；单位：次；
+                                    <br> 
+                                    <span class="rgb45">例：每十五分钟进行20次TCP2次握手填20；高于阈值为异常；用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>小区数（/15min）</td>
+                                <td id="cell_size_tcp23_suc"></td>
+                                <td>大于0的整数；单位：个；
+                                    <br> 
+                                    <span class="rgb45">例：用户经过10个小区填10；用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>小区其他用户TCP2/3步握手成功率（/15min）</td>
+                                <td id="cell_other_user_tcp23_suc"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例：小区其他用户TCP2/3步握手成功率为50%填0.5；低于阈值为无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户指标异常的小区比例（/15min）</td>
+                                <td id="bad_cell_ratio_success"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例：用户指标异常的小区比例为80%填0.8；用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>有问题的小区数</td>
+                                <td id="bad_cell_size_suc"></td>
+                                <td>大于0的整数；单位:个；
+                                    <br>
+                                    <span class="rgb45"> 例：有问题的小区数为2个填2；和用户指标异常的小区比例上限、用户指标异常的小区比例下限一起用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户指标异常的小区比例上限（/15min）</td>
+                                <td id="bad_cell_ratio_success_upper"></td>
+                                <td>取值范围:【0，1】,应小于用户指标异常的小区比例上限；
+                                    <br> 
+                                    <span class="rgb45">例：有问题的小区下限为30%填0.3；和有问题的小区数、用户指标异常的小区比例上限一起用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户指标异常的小区比例下限（/15min）</td>
+                                <td id="bad_cell_ratio_success_lower"></td>
+                                <td>取值范围:【0，1】,应小于用户指标异常的小区比例上限；
+                                    <br> 
+                                    <span class="rgb45">例：有问题的小区下限为30%填0.3；和有问题的小区数、用户指标异常的小区比例上限一起用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="8">TCP2/3步握手时延长</td>
+                                <td> 定界用户的TCP2/3步握手时延（/15min）</td>
+                                <td id="tcp23_delay"></td>
+                                <td>类型为大于0的整数；单位：ms（毫秒），
+                                    <br> 
+                                    <span class="rgb45">例：用户TCP2/3步握手时延为300毫秒填300；大于阈值为异常，用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>定界用户的TCP 2次握手（TCP SYN）次数（/15min）</td>
+                                <td id="tcp_syn_ack_tcp23_delay"></td>
+                                <td>类型为大于0的整数；单位：次；
+                                    <br> 
+                                    <span class="rgb45">例：每十五分钟进行20次TCP2次握手填20；高于阈值为异常；用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>小区数（/15min）</td>
+                                <td id="cell_size_tcp23_delay"></td>
+                                <td>大于0的整数；单位：个；
+                                    <br> 
+                                    <span class="rgb45">例：用户经过10个小区填10；用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>小区其他用户TCP2/3步握手时延（/15min）</td>
+                                <td id="cell_other_user_tcp23_delay"></td>
+                                <td>类型为大于0的整数；单位：ms（毫秒），
+                                    <br> 
+                                    <span class="rgb45">例：小区其他用户TCP2/3步握手时延为300毫秒填300；大于阈值为异常，用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户指标异常的小区比例（/15min）</td>
+                                <td id="bad_cell_ratio_delay"></td>
+                                <td>取值范围：【0，1】,
+                                    <br>
+                                    <span class="rgb45"> 例：用户指标异常的小区比例为80%填0.8；用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>有问题的小区数</td>
+                                <td id="bad_cell_size_delay"></td>
+                                <td>大于0的整数；单位:个；
+                                    <br> 
+                                    <span class="rgb45">例：有问题的小区数为2个填2；和用户指标异常的小区比例上限、用户指标异常的小区比例下限一起用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户指标异常的小区比例上限（/15min）</td>
+                                <td id="bad_cell_ratio_delay_upper"></td>
+                                <td>取值范围：【0，1】,应大于用户指标异常的小区比例下限，
+                                    <br>
+                                    <span class="rgb45"> 例：用户指标异常的小区比例上限为100%填1；和有问题的小区数、用户指标异常的小区比例下限一起用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户指标异常的小区比例下限（/15min）</td>
+                                <td id="bad_cell_ratio_delay_lower"></td>
+                                <td>取值范围:【0，1】,应小于用户指标异常的小区比例上限；
+                                    <br> 
+                                    <span class="rgb45">例：有问题的小区下限为30%填0.3；和有问题的小区数、用户指标异常的小区比例上限一起用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="8">TCP重传率高</td>
+                                <td> 定界用户的TCP重传率高（/15min）</td>
+                                <td id="tcp_resend"></td>
+                                <td>取值范围：【0，1】,
+                                    <br>
+                                    <span class="rgb45"> 例：重传率为50%填0.5；大于阈值为异常；用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>定界用户的TCP 2次握手（TCP SYN）次数（/15min）</td>
+                                <td id="tcp_syn_ack_resend"></td>
+                                <td>类型为大于0的整数；单位：次；
+                                    <br> 
+                                    <span class="rgb45">例：每十五分钟进行20次TCP2次握手填20；高于阈值为异常；用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>小区数（/15min）</td>
+                                <td id="cell_size_tcp_resend"></td>
+                                <td>大于0的整数；单位：个；
+                                    <br> 
+                                    <span class="rgb45">例：用户经过10个小区填10；用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>同小区其他用户的重传率（/15min）</td>
+                                <td id="cell_other_user_resend"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例：重传率为50%填0.5；大于阈值为异常；用于定界是否无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户指标异常的小区比例（/15min）</td>
+                                <td id="bad_cell_ratio_resend"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例：用户指标异常的小区比例为80%填0.8；用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>有问题的小区数</td>
+                                <td id="bad_cell_size_resend"></td>
+                                <td>大于0的整数；单位:个；
+                                    <br> 
+                                    <span class="rgb45">例：有问题的小区数为2个填2；和用户指标异常的小区比例上限、用户指标异常的小区比例下限一起用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户指标异常的小区比例上限（/15min）</td>
+                                <td id="bad_cell_ratio_resend_upper"></td>
+                                <td>取值范围：【0，1】,应大于用户指标异常的小区比例下限，
+                                    <br> 
+                                    <span class="rgb45">例：用户指标异常的小区比例上限为100%填1；和有问题的小区数、用户指标异常的小区比例下限一起用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户指标异常的小区比例下限（/15min）</td>
+                                <td id="bad_cell_ratio_resend_lower"></td>
+                                <td>取值范围:【0，1】,应小于用户指标异常的小区比例上限；
+                                    <br> 
+                                    <span class="rgb45">例：有问题的小区下限为30%填0.3；和有问题的小区数、用户指标异常的小区比例上限一起用于定界是否用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="7">HTTP下行速率低</td>
+                                <td> 用于计算HTTP下行速率的区间</td>
+                                <td id="http_download_interval"></td>
+                                <td>类型是0到5之间的数组，
+                                    <br> 
+                                    <span class="rgb45">例：计算HTTP大于500KB的下载速率填【5】,计算HTTP大于100KB小于500KB的下载速率填【4】,计算HTTP大于100KB填【4,5】</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>定界用户的HTTP下载速率（/15min）</td>
+                                <td id="http_download_rate"></td>
+                                <td>类型是大于0的数字；单位：Mbps；
+                                    <br> 
+                                    <span class="rgb45">例：1.5Mbps填1.5；低于阈值位异常；用于定界核心网异常、SP异常、用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>小区数（/15min）</td>
+                                <td id="cell_size_download"></td>
+                                <td>大于0的整数；单位：个；
+                                    <br> 
+                                    <span class="rgb45">例：用户经过10个小区填10；用于定界用户终端异常、无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>同SGW下所有用户下行速率（/15min）</td>
+                                <td id="sgw_http_download_rate"></td>
+                                <td>类型是大于0的数字；单位：Mbps；
+                                    <br>
+                                    <span class="rgb45"> 例：1.5Mbps填1.5；低于阈值位异常；用于定界是否核心网异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>同小区其他用户的下行速率（/15min）</td>
+                                <td id="cell_other_user_download_rate"></td>
+                                <td>类型是大于0的数字；单位：Mbps；
+                                    <br> 
+                                    <span class="rgb45">例：1.5Mbps填1.5；低于阈值位异常；用于定界是否无线异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>同SP下所有用户下行速率（/15min）</td>
+                                <td id="sp_http_download_rate"></td>
+                                <td>类型是大于0的数字；单位：Mbps；
+                                    <br> 
+                                    <span class="rgb45">例：1.5Mbps填1.5；低于阈值位异常；用于定界是否SP异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户指标异常的小区比例（/15min）</td>
+                                <td id="bad_cell_ratio_download"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例：有用户指标异常的小区比例为80%填0.8；用于定界用户是否终端异常、无线异常，大于等于该阈值往用户终端定界，小于往无线异常定界</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ti">控制面</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>信令定界规则</th>
+                                <th>定界规则阈值字段描述</th>
+                                <th>阈值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3">乒乓定界规则</td>
+                                <td> 用户乒乓切换次数（次/15min）</td>
+                                <td id="pingpong_switch"></td>
+                                <td>类型为整数，单位：次数，
+                                    <br> 
+                                    <span class="rgb45">例:乒乓切换次数为2次填2；超出阈值为异常；用于定界无线是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户乒乓TAU次数（次/15min）</td>
+                                <td id="pingpong_tau"></td>
+                                <td>类型为整数，单位：次数，
+                                    <br> 
+                                    <span class="rgb45">例:乒乓TAU次数为2次填2；超出阈值为异常；用于定界无线是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>乒乓切换判断时间间隔（秒）</td>
+                                <td id="pingpong_time_interval"></td>
+                                <td>取值范围：【0，60】,单位：s(秒)，
+                                    <br> 
+                                    <span class="rgb45">例:判断20秒出现三次相同小区来回切换算乒乓填20；用于判断是否有乒乓</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">附着成功率低</td>
+                                <td> Attach成功率（/15min）</td>
+                                <td id="Attach_suc_rate"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:成功率为50%填0.5；低于阈值为异常判定条件；用于定界核心网、无线、终端是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>Attach请求次数（/15min）</td>
+                                <td id="Attach_req_cnt"></td>
+                                <td>类型为整数，单位：次数，
+                                    <br>
+                                    <span class="rgb45"> 例:请求次数为10次填10；超出阈值为异常判定条件；用于定界核心网、无线、终端是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Service Request业务请求成功率低</td>
+                                <td> Service Request业务请求成功率（/15min）</td>
+                                <td id="Service_request_suc_rate"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:成功率为50%填0.5；低于阈值为异常判定条件；用于定界核心网、无线、终端是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>Service Request业务请求次数（/15min）</td>
+                                <td id="Service_request_req_cnt"></td>
+                                <td>类型为整数，单位：次数，
+                                    <br> 
+                                    <span class="rgb45">例:请求次数为10次填10；超出阈值为异常判定条件；用于定界核心网、无线、终端是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">TAU成功率低</td>
+                                <td> TAU成功率（/15min）</td>
+                                <td id="Tau_suc_rate"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:成功率为50%填0.5；低于阈值为异常判定条件；用于定界核心网、无线、终端是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>TAU成功率（/15min）</td>
+                                <td id="Tau_req_cnt"></td>
+                                <td>类型为整数，单位：次数，
+                                    <br> 
+                                    <span class="rgb45">例:请求次数为10次填10；超出阈值为异常判定条件；用于定界核心网、无线、终端是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">X2切换成功率低</td>
+                                <td> X2切换成功率（/15min）</td>
+                                <td id="Switch_suc_rate"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:成功率为50%填0.5；低于阈值为异常判定条件；用于定界核心网、无线、终端是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>X2切换请求次数（/15min）</td>
+                                <td id="Switch_req_cnt"></td>
+                                <td>类型为整数，单位：次数，
+                                    <br> 
+                                    <span class="rgb45">例:请求次数为10次填10；超出阈值为异常判定条件；用于定界核心网、无线、终端是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3">频繁次数统计</td>
+                                <td> 频繁TAU次数（/1 hour）</td>
+                                <td id="tau"></td>
+                                <td>类型为整数，单位：次数，（该规则暂时未使用）
+                                    <br> 
+                                    <span class="rgb45">例：频繁次数为20次填20；超出阈值为异常；用于定界无线是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>频繁切换次数（/1 hour）</td>
+                                <td id="switches"></td>
+                                <td>类型为整数，单位：次数，（该规则暂时未使用，未定义阈值）
+                                    <br> 
+                                    <span class="rgb45">例：频繁次数为20次填20；超出阈值为异常；用于定界无线是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>频繁ATTACH次数（/1 hour）</td>
+                                <td id="attaches"></td>
+                                <td>类型为整数，单位：次数，（该规则暂时未使用，未定义阈值）
+                                    <br>
+                                    <span class="rgb45">例：频繁次数为20次填20；超出阈值为异常；用于定界无线是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ti">整合规则</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>信令定界规则</th>
+                                <th>定界规则阈值字段描述</th>
+                                <th>阈值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">整合信令定界规则</td>
+                                <td> 时间片聚合粒度（分钟）</td>
+                                <td id="time_interval"></td>
+                                <td>类型为整数，取值范围：【0，60】,单位：min(分钟)，
+                                    <br> 
+                                    <span class="rgb45">例:时间切片为5min填5；用于信令数据定界时间切片间隔</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>相同定界结果时间片连续长度（个）</td>
+                                <td id="time_slice_len"></td>
+                                <td>类型为整数，取值范围：【0,该长度与时间片聚合粒度相乘后时长不超过1天】，单位：个，
+                                    <br> 
+                                    <span class="rgb45">例:最终结果要求相同结果连续时间片有4个填4；用于最终信令指标定界所有规则定界结果整合</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cont inp">
+                        <div class="ti tii">公用</div>
+                    <table cellspacing="0" class="threeTable">
+                        <thead>
+                            <tr>
+                                <th>定界规则</th>
+                                <th>小区覆盖类型</th>
+                                <th>定界规则阈值字段描述</th>
+                                <th>阈值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">用户所在小区是否有效</td>
+                                <td rowspan="2">无</td>
+                                <td> 用户小区停留时间粒度</td>
+                                <td id="slice_length"></td>
+                                <td>类型为整数，单位：分钟，
+                                    <br> 
+                                    <span class="rgb45">例：2分钟则填2；连续slice_length时间内用户停留在小区的时间少于stay，则认为该小区异常不影响用户体验</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>用户小区停留时间</td>
+                                <td id="stay"></td>
+                                <td>类型为整数，单位：分钟，
+                                    <br> 
+                                    <span class="rgb45">例：2分钟则填2；连续slice_length时间内用户停留在小区的时间少于stay，则认为该小区异常不影响用户体验</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>小区GPS半径</td>
+                                <td>无</td>
+                                <td>小区GPS半径</td>
+                                <td id="GPS_radius"></td>
+                                <td>取值范围：【0，+∞】,保留两位小数,单位：公里，
+                                    <br> 
+                                    <span class="rgb45">例：2公里填2；基于小区GPS半径，查找符合要求的基站信息</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ti">网优数据</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>定界规则</th>
+                                <th>小区覆盖类型</th>
+                                <th>定界规则阈值字段描述</th>
+                                <th>阈值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>高干扰</td>
+                                <td>无</td>
+                                <td>平均干扰电平_重要场景hour </td>
+                                <td id="PRB_AVG_thre"></td>
+                                <td>类型为整数，单位：dB，
+                                    <br> 
+                                    <span class="rgb45">例:平均干扰电平为-105dB填-105；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="4">E-RAB建立成功率</td>
+                                <td rowspan="2">室内</td>
+                                <td> E-RAB建立成功率</td>
+                                <td id="ERAB_NbrSucc_rate_in_thre"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:E-RAB建立成功率为50%填0.5；低于阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>E-RAB建立失败次数</td>
+                                <td id="ERAB_NbrFailEstab_in_thre"></td>
+                                <td>类型为整数，单位：次，
+                                    <br> 
+                                    <span class="rgb45">例：E-RAB建立失败次数为50次填50；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dottted">
+                                <td rowspan="2">室外</td>
+                                <td> E-RAB建立成功率</td>
+                                <td id="ERAB_NbrSucc_rate_out_thre"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:E-RAB建立成功率为50%填0.5；低于阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>E-RAB建立失败次数</td>
+                                <td id="ERAB_NbrFailEstab_out_thre"></td>
+                                <td>类型为整数，单位：次，
+                                    <br> 
+                                    <span class="rgb45">例：E-RAB建立失败次数为50次填50；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="4">RRC建立成功率</td>
+                                <td rowspan="2">室内</td>
+                                <td> RRC建立成功率</td>
+                                <td id="RRC_SuccConn_rate_in_thre"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:RRC建立成功率为50%填0.5；低于阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>RRC连接建立失败次数</td>
+                                <td id="RRC_failConnEstab_in_thre"></td>
+                                <td>类型为整数，单位：次，
+                                    <br> 
+                                    <span class="rgb45">例：RRC建立失败次数为50次填50；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dottted">
+                                <td rowspan="2">室外</td>
+                                <td> RRC建立成功率</td>
+                                <td id="RRC_SuccConn_rate_out_thre"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:RRC建立成功率为50%填0.5；低于阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+
+                            <tr class="dotted">
+                                <td>RRC连接建立失败次数</td>
+                                <td id="RRC_failConnEstab_out_thre"></td>
+                                <td>类型为整数，单位：次，
+                                    <br> 
+                                    <span class="rgb45">例：RRC建立失败次数为50次填50；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">RRC连接最大数</td>
+                                <td> 室内</td>
+                                <td>RRC连接最大数</td>
+                                <td id="RRC_ConnMax_in_thre"></td>
+                                <td>类型为整数，单位：个，
+                                    <br> 
+                                    <span class="rgb45">例：RRC连接最大数为350填350；超出阈值为异常；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>室外</td>
+                                <td>RRC连接最大数</td>
+                                <td id="RRC_ConnMax_out_thre"></td>
+                                <td>类型为整数，单位：个，
+                                    <br> 
+                                    <span class="rgb45">例：RRC连接最大数为350填350；超出阈值为异常；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="4">无线掉线率</td>
+                                <td rowspan="2">室内</td>
+                                <td> 无线掉线率</td>
+                                <td id="DROP_LV_in_thre"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例无线掉线率为10%填0.1；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>异常eNB请求释放上下文数</td>
+                                <td id="CONTEXT_AttRelEnb_ABNormal_in_thre"></td>
+                                <td>类型为整数，单位：次，
+                                    <br> 
+                                    <span class="rgb45">例：异常eNB请求释放上下文数为50次填50；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dottted">
+                                <td rowspan="2">室外</td>
+                                <td> 无线掉线率</td>
+                                <td id="DROP_LV_out_thre"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例：无线掉线率为10%填0.1；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>异常eNB请求释放上下文数</td>
+                                <td id="CONTEXT_AttRelEnb_ABNormal_out_threNormal"></td>
+                                <td>类型为整数，单位：次，
+                                    <br> 
+                                    <span class="rgb45">例：异常eNB请求释放上下文数为200次填200；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="4">寻呼拥塞率高</td>
+                                <td rowspan="2">室内</td>
+                                <td> 寻呼丢弃记录个数</td>
+                                <td id="PAG_PagDiscarded_in_thre"></td>
+                                <td>类型为整数，单位：个，
+                                    <br> 
+                                    <span class="rgb45">例：寻呼丢弃记录个数为1000次填1000；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>eNodeB寻呼拥塞率</td>
+                                <td id="CONN_LV_in_thre"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例:eNodeB寻呼拥塞率为10%填0.1；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dottted">
+                                <td rowspan="2">室外</td>
+                                <td>寻呼丢弃记录个数</td>
+                                <td id="PAG_PagDiscarded_out_thre"></td>
+                                <td>取值范围：【0，1】,
+                                    <br> 
+                                    <span class="rgb45">例无线掉线率为10%填0.1；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+
+                            <tr class="dotted">
+                                <td>eNodeB寻呼拥塞率</td>
+                                <td id="CONN_LV_out_thre"></td>
+                                <td>取值范围：【0，1】,
+                                    <br>
+                                    <span class="rgb45">例:eNodeB寻呼拥塞率为10%填0.1；超出阈值为异常判定条件；用于定界网优是否异常</span>
+                                </td>
+                                    <td><i class="exit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ti">MR数据</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>定界规则</th>
+                                <th>小区覆盖类型</th>
+                                <th>定界规则阈值字段描述</th>
+                                <th>阈值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">弱覆盖</td>
+                                <td>室内</td>
+                                <td>RSRP大于-110dbm覆盖率</td>
+                                <td id="th_MR_CR_in"></td>
+                                <td>取值范围：【0，1】,
+                                    <br>
+                                    <span class="rgb45">例：室内小区覆盖率为80%填0.8；低于该阈值为弱覆盖，用于定界无线MR指标是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>室外</td>
+                                <td>室外RSRP大于-110dbm覆盖率</td>
+                                <td id="th_MR_CR_out"></td>
+                                <td>取值范围：【0，1】,
+                                    <br>
+                                    <span class="rgb45">例：室外小区覆盖率为80%填0.8；低于该阈值为弱覆盖，用于定界无线MR指标是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">重叠覆盖</td>
+                                <td>室内</td>
+                                <td>室内重叠覆盖度</td>
+                                <td id="th_MR_OCR_in"></td>
+                                <td>取值范围：【0，1】,
+                                    <br>
+                                    <span class="rgb45">例：室内重叠覆盖度为80%填0.8；高于该阈值为重叠覆盖，用于定界无线MR指标是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>室外</td>
+                                <td>室外重叠覆盖度</td>
+                                <td id="th_MR_OCR_out"></td>
+                                <td>取值范围：【0，1】,
+                                    <br>
+                                    <span class="rgb45">例：室外重叠覆盖度为80%填0.8；高于该阈值为重叠覆盖，用于定界无线MR指标是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">过覆盖</td>
+                                <td>室内</td>
+                                <td>室内邻区过覆盖度</td>
+                                <td id="th_MR_NOCR_in"></td>
+                                <td>取值范围：【0，1】,
+                                    <br>
+                                    <span class="rgb45">例：室内邻区过覆盖度为80%填0.8；高于该阈值为邻区过覆盖，用于定界无线MR指标是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr class="dotted">
+                                <td>室外</td>
+                                <td>室外邻区过覆盖度</td>
+                                <td id="th_MR_NOCR_out"></td>
+                                <td>取值范围：【0，1】,
+                                    <br>
+                                    <span class="rgb45">例：室外邻区过覆盖度为80%填0.8；高于该阈值为邻区过覆盖，用于定界无线MR指标是否异常</span>
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>MR总采样点</td>
+                                <td>无</td>
+                                <td>MR总采样点个数</td>
+                                <td id="scr_cnt"></td>
+                                <td>取值范围：大于0的整数，高于该阈值的MR数据为有效MR数据，用于定界无线MR指标是否异常</td>
+                                <td><i class="exit"></i></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ti">告警数据</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>定界规则</th>
+                                <th>小区覆盖类型</th>
+                                <th>定界规则阈值字段描述</th>
+                                <th>阈值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>无</td>
+                                <td>告警数据前推时间</td>
+                                <td id="pasttime"></td>
+                                <td>取值范围：大于或等于0的整数，单位：分钟；用户接入该小区的时间前推pasttime分钟，用于定界该小区是否出现影响用户体验的告警信息
+                                </td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>无</td>
+                                <td>告警数据后延时间</td>
+                                <td id="aftertime"></td>
+                                <td>取值范围：大于或等于0的整数，单位：分钟；用户切出该小区的时间后推aftertime分钟，用于定界该小区是否出现影响用户体验的小区退服告警信息</td>
+                                <td><i class="exit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cont inp ">
+                        <div class="ti tii">规则结果整合</div>
+                    <table cellspacing="0" class="fourTable">
+                        <thead>
+                            <tr>
+                                <th>定界结果类别</th>
+                                <th>定界规则阈值字段描述</th>
+                                <th>阈值</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="4">无线问题</td>
+                                    <td>  小区故障等级网优投票权重</td>
+                                    <td id="net_vote"></td>
+                                    <td>取值为整数，
+                                        <br>
+                                        <span class="rgb45">例:对于小区故障等级评定，网优结果权重为2票填2；用于判定小区故障等级</span>
+                                    </td>
+                                    <td><i class="exit"></i></td>
+                                </tr>
+                                <tr class="dotted">
+                                    <td>小区故障等级告警投票权重</td>
+                                    <td id="alarm_vote"></td>
+                                    <td>取值为整数，
+                                        <br>
+                                        <span class="rgb45">例:对于小区故障等级评定，告警结果权重为2票填2；用于判定小区故障等级</span>
+                                    </td>
+                                    <td><i class="exit"></i></td>
+                                </tr>
+                                <tr class="dotted">
+                                    <td>小区故障等级MR投票权重</td>
+                                    <td id="MR_vote"></td>
+                                    <td>取值为整数，
+                                        <br>
+                                        <span class="rgb45">例:对于小区故障等级评定，MR结果权重为2票填2；用于判定小区故障等级</span>
+                                    </td>
+                                    <td><i class="exit"></i></td>
+                                </tr>
+                                <tr class="dotted">
+                                    <td>小区故障等级信令指标投票权重</td>
+                                    <td id="signaling_vote"></td>
+                                    <td>取值为整数，
+                                        <br> 
+                                        <span class="rgb45">例:对于小区故障等级评定，信令指标结果权重为2票填2；用于判定小区故障等级</span>
+                                    </td>
+                                    <td><i class="exit"></i></td>
+                                </tr>
+                            </tbody>
+                        </thead>
+                    </table>
+
+                </div>
+                <div class="cont inp last-inp ">
+                        <div class="ti tii">配置文件列表</div>
+                    <table cellspacing="0" class="fiveTable">
+                        <thead>
+                            <tr>
+                                <th>定界类型</th>
+                                <th>定界规则阈值字段描述</th>
+                                <th>配置说明</th>
+                                <th>操作</th>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="2">告警数据</td>
+                                    <td>
+                                        <span>alarmtitle.xlsx</span>
+                                        <i class="load"></i>
+                                        <i class="see"></i>
+                                    </td>
+                                    <td>告警标题与告警类型对照表，用于匹配小区是否出现影响用户体验的告警</td>
+                                    <td>
+                                        <img src="./static/images/tihuan.png" alt="" class="cliuploadpop">
+                                    </td>
+                                </tr>
+                                <tr class="dotted">
+                                    <td>
+                                        <span>alarmtitle2.xlsx</span>
+                                        <i class="load"></i>
+                                        <i class="see"></i>
+                                    </td>
+                                    <td>告警标题与告警类型对照表，用于匹配小区是否出现影响用户体验的小区退服类告警</td>
+                                    <td>
+                                        <img src="./static/images/tihuan.png" alt="" class="cliuploadpop">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td id="信令指标定界结果">信令指标定界结果</td>
+                                    <td>
+                                        <span>信令指标中英文对照表.xlsx</span>
+                                        <i class="load"></i>
+                                        <i class="see"></i>
+                                    </td>
+                                    <td>信令指标定界依据结果显示中的信令指标中英文对照表，用于显示出信令指标的中文名称，可修改其对应中文名称</td>
+                                    <td>
+                                        <img src="./static/images/tihuan.png" alt="" class="cliuploadpop">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">信令指标控制面定界规则错误码</td>
+                                    <td>
+                                        <span>A.xlsx</span>
+                                        <i class="load"></i>
+                                        <i class="see"></i>
+                                    </td>
+                                    <td>信令指标中控制面定界规则的错误码配置文件，A类错误码(EMM)，可修改错误码对应的定界问题(problem_source)和错误码描述(cause_value_describe)，以及增加错误码；用于控制面规则问题定界；目前根据实际数据情况，A类和B类错误码合并，均在该文件中</td>
+                                    <td>
+                                        <img src="./static/images/tihuan.png" alt="" class="cliuploadpop">
+                                    </td>
+                                </tr>
+                                <tr class="dotted">
+                                    <td>
+                                        <span>B.xlsx</span>
+                                        <i class="load"></i>
+                                        <i class="see"></i>
+                                    </td>
+                                    <td>（目前暂时不用）信令指标中控制面定界规则的错误码配置文件，B类错误码(ESM)，可修改错误码对应的定界问题(problem_source)和错误码描述(cause_value_describe)，以及增加错误码；用于控制面规则问题定界；目前根据实际数据情况，该文件中B类错误码已合并进A类，本文件暂时不用，留存以后可能使用</td>
+                                    <td>
+                                        <img src="./static/images/tihuan.png" alt="" class="cliuploadpop">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>无线指标定界结果</td>
+                                    <td>
+                                        <span>无线指标中英文对照表.xlsx</span>
+                                        <i class="load"></i>
+                                        <i class="see"></i>
+                                    </td>
+                                    <td>无线指标定界依据结果显示中的无线指标中英文对照表，用于显示出无线指标的中文名称，可修改其对应中文名称</td>
+                                    <td>
+                                        <img src="./static/images/tihuan.png" alt="" class="cliuploadpop">
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+            <!-- 参数配置内容结束 -->
+            <!-- 模型更新内容开始 -->
+            <div class="bDivTotal bDivTotal-two">
+                <p>努力开发中，敬请期待...</p>
+
+                <!-- <div class="module modelUpdate ">
+                    <div class="inp-part-title ">
+                        <span>名称</span>
+                        <span>编辑</span>
+                        <span>操作</span>
+                    </div>
+                    <div class="inp " style="display: block; ">
+                        <form action=" " method="post ">
+                            <div class="inp-part ">
+                                <div class="inp-text " name="ModelName ">模型一</div>
+                                <input type="text " name="ModelValue ">
+                                <input type="submit " value="提交 ">
+                            </div>
+                            <div class="inp-part ">
+                                <div class="inp-text " name="ModelName ">模型二</div>
+                                <input type="text " name="ModelValue ">
+                                <input type="submit " value="提交 ">
+                            </div>
+                            <div class="inp-part ">
+                                <div class="inp-text " name="ModelName ">模型三</div>
+                                <input type="text " name="ModelValue ">
+                                <input type="submit " value="提交 ">
+                            </div>
+                            <div class="inp-part ">
+                                <div class="inp-text " name="ModelName ">模型四</div>
+                                <input type="text " name="ModelValue ">
+                                <input type="submit " value="提交 ">
+                            </div>
+                            <div class="inp-part ">
+                                <div class="inp-text " name="ModelName ">模型五</div>
+                                <input type="text " name="ModelValue ">
+                                <input type="submit " value="提交 ">
+                            </div>
+                            <div class="inp-part ">
+                                <div class="inp-text " name="ModelName ">模型六</div>
+                                <input type="text " name="ModelValue ">
+                                <input type="submit " value="提交 ">
+                            </div>
+                            <div class="inp-part ">
+                                <div class="inp-text " name="ModelName ">模型七</div>
+                                <input type="text " name="ModelValue ">
+                                <input type="submit " value="提交 ">
+                            </div>
+                            <div class="inp-part ">
+                                <div class="inp-text " name="ModelName ">模型八</div>
+                                <input type="text " name="ModelValue ">
+                                <input type="submit " value="提交 ">
+                            </div>
+                            <div class="inp-part ">
+                                <div class="inp-text " name="ModelName ">模型九</div>
+                                <input type="text " name="ModelValue ">
+                                <input type="submit " value="提交 ">
+                            </div>
+                            <div class="inp-part ">
+                                <div class="inp-text " name="ModelName ">模型十</div>
+                                <input type="text " name="ModelValue ">
+                                <input type="submit " value="提交 ">
+                            </div>
+                        </form>
+                    </div>
+                    <div id="container">
+                        <i class="prev"><</i>
+                        <div id="spanContainer">
+                           <span class="bgcActive">1</span>
+                           <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                            <span>11</span>
+                            <span>12</span>
+                            <span>13</span>
+                            <i class="next">></i>
+                        </div>
+                    </div>
+
+                </div> -->
+            </div>
+            <!-- 模型更新内容结束 -->
+            <!-- 权限配置内容开始 -->
+            <div class="bDivTotal bDivTotalRight">
+                <div class="cancel-t">
+                    <div class="cancel-bot">权限配置</div>
+                </div>
+                <div class="bDivTotalRight_old">
+                    <div class="con">
+                        <span>人员权限列表</span>          
+                        <div class="sell">
+                            <select name=" " id=" ">
+                                <option value=" ">全部地市</option>
+                                <option value=" ">省公司</option>
+                                <option value=" ">南京</option>
+                                <option value=" ">无锡</option>
+                                <option value=" ">徐州</option>
+                                <option value=" ">常州</option>
+                                <option value=" ">苏州</option>
+                                <option value=" ">南通</option>
+                                <option value=" ">连云港</option>
+                                <option value=" ">淮安</option>
+                                <option value=" ">盐城</option>
+                                <option value=" ">扬州</option>
+                                <option value=" ">镇江</option>
+                                <option value=" ">泰州</option>
+                                <option value=" ">宿迁</option>
+                            </select>
+                        </div>
+                        <div class="subtitle3">
+                            <input type="text" placeholder="请输入关键字">
+                            <i><img src="./static/images/search1.png" alt=""></i>
+                        </div>
+                    </div>     
+                    <div class="module">
+                        <div class="addbtn">
+                            <span>+</span>
+                            <span>新增权限</span>
+                        </div>
+                        <table cellspacing="0" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>省份</th>
+                                    <th>地市</th>
+                                    <th>EMOS英文名称</th>
+                                    <th>中文名称</th>
+                                    <th>手机号</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>                     
+                        <div class="page1">                         
+                            <div class="fl">
+                                <div class="delbtn">删除</div>
+                                <div class="delclobtn">取消</div>
+                                <span>共</span>
+                                <span class="t"></span>条</div>
+                            <div>
+                                <p class="pre">
+                                    <i></i>
+                                    <span>上一页</span>                         
+                                </p>
+                                <div class="midpage"></div>
+                                <p class="next">
+                                    <i></i>
+                                    <span>下一页</span>                                       
+                                </p>
+                                <span class="thisPage">当前页码</span>/<span class="tt">总数</span>
+                                到第 
+                                <input type="text" class="p" value="1">页
+                                <span class="go">确定</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bDivTotalRight_add none">
+                    <div class="clo">返回</div>
+                    <div class="topp">
+                        <p>
+                            <i>所在省市</i>
+                            <span>:</span>
+                            <select name="" id="" class="province">
+                                <option value="">江苏</option>
+                            </select>
+                            <i>省</i>
+                            <select name=" " id="city" class="city">
+                                <option value=" " selected>请选择</option>
+                                <option value=" ">省公司</option>
+                                <option value=" ">南京</option>
+                                <option value=" ">无锡</option>
+                                <option value=" ">镇江</option>
+                                <option value=" ">苏州</option>
+                                <option value=" ">南通</option>
+                                <option value=" ">扬州</option>
+                                <option value=" ">盐城</option>
+                                <option value=" ">徐州</option>
+                                <option value=" ">淮安</option>
+                                <option value=" ">连云港</option>
+                                <option value=" ">常州</option>
+                                <option value=" ">泰州</option>
+                                <option value=" ">宿迁</option>
+                            </select>
+                            <i>市</i>        
+                        </p>
+                        <div class="p2">                       
+                            <i class="Eni">英文名称:</i>
+                            <input type="text" id="EnInput" value=" ">
+                            <select name=" " id="username" class="En" onchange="document.getElementById('EnInput').value=this.value">
+                            </select>
+                            <i class="Chini">中文名称:</i>
+                            <input type="text" id="ChinInput" value=" ">
+                            <select name=" " id="username_cn" class="Chin" onchange="document.getElementById('ChinInput').value=this.value">
+                            </select>
+                            
+                            <i class="teli">手机号码:</i>
+                            <input type="tel" class="tel">
+                        </div>
+                        <p class="ll">  
+                            <i class="ser">搜索</i>
+                            <button class="null">重置</button>
+                        </p>
+                    </div>
+                    <div class="con">
+                        <span>人员权限列表</span>
+                    </div>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th><input type='checkbox' name="addContent"></th>
+                                <th>省</th>
+                                <th>地市</th>
+                                <th>EMOS英文名称</th>
+                                <th>中文名称</th>
+                                <th>手机号</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="btn">
+                        <button>新增</button>
+                    </div>
+                    <div class="page2">
+                        <div class="fl">共<span class="t"></span>条</div>
+                        <div>
+                            <p class="pre">
+                                <i></i>
+                                <span>上一页</span>                         
+                            </p>
+                            <div class="midpage"></div>
+                            <p class="next">
+                                <i></i>
+                                <span>下一页</span>                                       
+                            </p>
+                            <span class="thisPage">当前页码</span>/<span class="tt">总数</span>
+                            到第 
+                            <input type="text" class="p" value="1">页
+                            <span class="go">确定</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+                <div>
+                    <p>联系我们 | 帮助中心</p >
+                    <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p >
+                </div>
+            </div>
+    </div>
+    <!-- 删除弹框开始 -->
+    <div class="delpopup popup">
+        <i class="delerr"></i>
+        <p>您确认删除这 <span></span>项任务吗？</p>
+        <button class="canc">取消</button>
+        <button class="sure">确定</button>
+    </div>
+    <!-- 删除弹框结束 -->
+    <!-- 上传弹框开始 -->
+    <div class="uploadpup popup">
+        <p>上传文件</p>
+        <form class="uploadForm" action="Upload" method="post" enctype="multipart/form-data">
+            <input type="text" id="updateFile" class="form-control batch-upload-text" placeholder="请选择需要替换的文件上传" />
+            <input id="file1" name="fileupload" type="file" value="" accept=".xlsx" style="opacity:0" />
+            <button class="liulan">预览</button>
+        </form>
+        <p class="p">上传附件格式为xlsx</p>
+        <button class="canc">取消</button>
+        <button class="sure">确定</button>
+    </div>
+    <!-- 上传弹框结束 -->
+    <script type="text/javascript " src="./static/js/jquery.min.js "></script>
+    <script src="./static/js/jquery.pagination.js "></script>
+    <script src="./static/js/params.js ">
+    </script>
+    <script src="./static/js/commoncircle.js"></script>
+
+</body>
+
+</html>

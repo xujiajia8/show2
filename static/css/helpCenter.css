@@ -1,0 +1,1157 @@
+    .tolProblem_top .close,
+    .hotProblem_top .close {
+        display: none;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #A99494;
+        float: right;
+        margin-right: 25px;
+        margin-top: 17px;
+    }
+    
+    .tolProblem_top .open,
+    .hotProblem_top .open {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #A99494;
+        float: right;
+        margin-right: 25px;
+        margin-top: 17px;
+    }
+    
+    .hotProblem {
+        background-color: #fff;
+        width: 100%;
+        padding: 20px 0 12px 20px;
+        box-sizing: border-box;
+    }
+    
+    .tolProblem {
+        background-color: #fff;
+        width: 100%;
+        margin-top: 20px;
+        padding: 20px 20px 32px;
+        box-sizing: border-box;
+    }
+    
+    .hotProblem_top,
+    .tolProblem_top {
+        font-size: 18px;
+        width: 100%;
+        margin-bottom: 32px;
+        box-sizing: border-box;
+        color: rgba(0, 0, 0, 0.85);
+    }
+    
+    .tolProblem_bot {
+        box-sizing: border-box;
+        width: 100%;
+    }
+    
+    .hotProblem_bot {
+        overflow: hidden;
+        font-size: 16px;
+        padding-left: 34px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    
+    .cancel {
+        float: left;
+        width: 45px;
+        height: 45px;
+        background-color: #F2F2F2;
+        position: relative;
+        margin-top: 15px;
+    }
+    
+    .cancel::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 63px;
+        height: 1px;
+        background-color: #ccc;
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    }
+    
+    .cancel::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 63px;
+        height: 1px;
+        background-color: #ccc;
+        transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    }
+    
+    .cancel-bot {
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.9);
+        float: left;
+        margin-top: 26px;
+        margin-bottom: 24px;
+    }
+    
+    .cancel-t {
+        overflow: hidden;
+    }
+    
+    .aside {
+        color: #333;
+        width: 100%;
+    }
+    
+    .circle1 {
+        display: inline-block;
+        width: 23px;
+        height: 17px;
+        line-height: 17px;
+        text-align: center;
+        background-color: #999;
+        margin-bottom: -3px;
+        margin-right: 14px;
+        color: #fff;
+    }
+    
+    .dis {
+        display: block!important;
+    }
+    
+    .goods {
+        display: none;
+        background-color: rgba(0, 0, 0, 0.65)!important;
+        width: 32px;
+        height: 32px;
+        position: fixed;
+        right: 18px;
+        bottom: 200px;
+        z-index: 10;
+        border-radius: 3px;
+    }
+    
+    .goods img {
+        width: 21px;
+        height: 25px;
+        margin-top: 4px;
+        margin-left: 5px;
+    }
+    
+    .goods:hover {
+        cursor: pointer;
+    }
+    
+    @keyframes myfirst {
+        0% {
+            transform: translate(0px, 0px);
+        }
+        50% {
+            transform: translate(0px, -10px);
+        }
+        100% {
+            transform: translate(0px, 0px);
+        }
+    }
+    
+    .siled-top ul {
+        overflow: hidden;
+        margin: 0;
+    }
+    
+    .siled-top ul li {
+        cursor: pointer;
+        float: left;
+        height: 32px;
+        line-height: 32px;
+        width: 124px;
+        text-align: center;
+        margin-bottom: 0px;
+        font-size: 14px;
+        margin-right: 16px;
+        box-sizing: border-box;
+        background: rgba(222, 225, 227, 1);
+        border-radius: 3px;
+        color: rgba(0, 0, 0, 0.65);
+    }
+    
+    .siled-top ul li.last {
+        margin-right: 0px;
+    }
+    
+    .siled {
+        overflow: hidden;
+    }
+    
+    .nav-active {
+        background-color: #2492FC!important;
+        color: #fff!important;
+    }
+    
+    .siled-t {
+        padding: 0px 30px 0px 30px;
+        box-sizing: border-box;
+        overflow: hidden;
+        background-color: rgba(243, 244, 245, 1);
+    }
+    
+    .none {
+        display: none!important;
+    }
+    
+    .system-introduction {
+        position: relative;
+    }
+    
+    .system-introduction-content {
+        text-align: center;
+    }
+    
+    .Term-interpretation {
+        position: relative;
+    }
+    
+    .ing {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        font-size: 24px;
+        color: rgba(0, 0, 0, 0.9);
+    }
+    
+    .ixwebhosting>p {
+        font-size: 24px;
+        margin-bottom: 26px;
+    }
+    
+    .ixwebhosting>p i {
+        width: 8px;
+        height: 8px;
+        border-radius: 8px;
+        display: inline-block;
+        background-color: #333;
+        margin-bottom: 4px;
+        margin-right: 2px;
+    }
+    
+    .ixwebhosting hr {
+        margin-bottom: 20px;
+        color: #e8e8e8;
+    }
+    
+    .ixwebhosting .a0 {
+        margin: 0 20px;
+        font-size: 12px;
+        box-sizing: border-box;
+        margin-bottom: 6px;
+        color: rgba(153, 153, 153, 1);
+    }
+    
+    .ixwebhosting .a1 {
+        width: 220px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
+        box-sizing: border-box;
+        margin-bottom: 0;
+        padding-left: 20px;
+        padding-right: 25px;
+    }
+    
+    .ixwebhosting .a1 i {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        display: inline-block;
+        float: right;
+    }
+    
+    .ixwebhosting .a1 i.cloo {
+        background: url(../images/cloo.png) no-repeat center;
+        background-size: 60%;
+    }
+    
+    .ixwebhosting .a1 i.opp {
+        background: url(../images/opp.png) no-repeat center;
+        background-size: 60%;
+    }
+    
+    .ixwebhosting a {
+        color: #333;
+    }
+    
+    .ixwebhosting .a1:hover,
+    .ixwebhosting .a2:hover,
+    .ixwebhosting .a3:hover,
+    .ixwebhosting .a4:hover {
+        cursor: pointer;
+        background-color: #F2F2F2;
+    }
+    
+    .ixwebhosting .a2 {
+        font-size: 12px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+    }
+    
+    .ixwebhosting .a2 a {
+        color: rgba(0, 0, 0, 0.45);
+    }
+    
+    .ixwebhosting .a3 {
+        font-size: 12px;
+        height: 18px;
+        line-height: 22px;
+    }
+    
+    .ixwebhosting .a4 {
+        font-size: 12px;
+        height: 15px;
+        line-height: 15px;
+    }
+    
+    .ixwebhosting .p2 {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+    
+    .ixwebhosting .p3 {
+        font-size: 24px;
+        margin-top: 36px;
+    }
+    
+    .ixwebhosting-content {
+        font-size: 12px;
+        line-height: 27px;
+        text-indent: 2em;
+        color: rgba(0, 0, 0, 0.65);
+    }
+    
+    .ixwebhosting .p4 {
+        font-size: 24px;
+        margin-top: 36px;
+    }
+    
+    .ixwebhosting .p5 {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    
+    .ixwebhosting .p6,
+    .ixwebhosting .p7 {
+        font-size: 14px;
+        margin-top: 16px;
+    }
+    
+    table {
+        margin-top: 30px;
+    }
+    
+    table thead {
+        background-color: #e4f0f7;
+    }
+    
+    table td,
+    table th {
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #333;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+    .FAQ {
+        margin-bottom: 50px;
+    }
+    
+    .FAQ ul {
+        margin-bottom: 58px;
+    }
+    
+    .hotProblem_bot p.first {
+        margin-bottom: 16px;
+    }
+    
+    .hotProblem_bot li {
+        cursor: pointer;
+        margin-bottom: 20px;
+        float: left;
+        list-style: none;
+        font-size: 12px;
+        color: #2492FC;
+        width: 33.3%;
+    }
+    
+    .FAQ>p {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .FAQ-content p {
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.85);
+    }
+    
+    .FAQ-content {
+        margin-bottom: 24px;
+        box-sizing: border-box;
+        color: rgba(0, 0, 0, 0.65);
+        font-size: 12px;
+        line-height: 22px;
+    }
+    
+    .FAQ-content.last {
+        border-bottom: 0px solid #ccc;
+        margin-bottom: 0px;
+    }
+    
+    .Term-interpretation ul {
+        margin-bottom: 58px;
+    }
+    
+    .Term-interpretation ul li {
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #006699;
+    }
+    
+    .Term-interpretation-content p {
+        margin-bottom: 20px;
+    }
+    
+    .Term-interpretation-content {
+        margin-bottom: 58px;
+        color: #666;
+        font-size: 16px;
+        line-height: 28px;
+    }
+    
+    .user-1 {
+        display: block;
+        width: 741px;
+        height: 231px;
+        background: url(../images/user-1.png) no-repeat center;
+        background-size: 100%;
+        margin: 5px 0 5px 30px;
+    }
+    
+    .user-2 {
+        display: block;
+        width: 741px;
+        height: 231px;
+        background: url(../images/user-2.png) no-repeat center;
+        background-size: 100%;
+        margin: 5px 0 5px 30px;
+    }
+    
+    .user-3 {
+        display: block;
+        width: 712px;
+        height: 669px;
+        background: url(../images/user-3.png) no-repeat center;
+        background-size: 100%;
+        margin: 15px 30px 10px;
+    }
+    
+    .user-4 {
+        float: left;
+        display: block;
+        width: 136px;
+        height: 273px;
+        background: url(../images/user-4.png) no-repeat center;
+        background-size: 100%;
+    }
+    
+    .user-5 {
+        display: block;
+        width: 821px;
+        height: 13.3px;
+        background: url(../images/user-5.png) no-repeat center;
+        background-size: 99%;
+        margin-bottom: 5px;
+    }
+    
+    .user-6 {
+        display: block;
+        width: 842px;
+        height: 97px;
+        background: url(../images/user-6.png) no-repeat center;
+        background-size: 94%;
+    }
+    
+    .user-7 {
+        display: block;
+        width: 843px;
+        height: 118px;
+        background: url(../images/user-7.png) no-repeat center;
+        background-size: 94%;
+    }
+    
+    .user-8 {
+        display: block;
+        width: 830px;
+        height: 311px;
+        background: url(../images/user-8.png) no-repeat center;
+        background-size: 97%;
+    }
+    
+    .user-9 {
+        display: block;
+        width: 841px;
+        height: 189px;
+        background: url(../images/user-9.png) no-repeat center;
+        background-size: 94%;
+    }
+    
+    .user-10 {
+        display: block;
+        width: 833px;
+        height: 43px;
+        background: url(../images/user-10.png) no-repeat center;
+        background-size: 96%;
+    }
+    
+    .user-11 {
+        display: block;
+        width: 712px;
+        height: 385px;
+        background: url(../images/user-11.png) no-repeat center;
+        background-size: 100%;
+        margin-left: 15px;
+    }
+    
+    .user-12 {
+        display: block;
+        width: 814px;
+        height: 320px;
+        background: url(../images/user-12.png) no-repeat center;
+        background-size: 100%;
+    }
+    
+    .user-13 {
+        display: block;
+        width: 854px;
+        height: 131px;
+        background: url(../images/user-13.png) no-repeat center;
+        background-size: 91%;
+    }
+    
+    .user-14 {
+        display: block;
+        width: 307px;
+        height: 81px;
+        background: url(../images/user-14.png) no-repeat center;
+        background-size: 100%;
+        margin-left: 200px;
+    }
+    
+    .user-15 {
+        display: block;
+        width: 794px;
+        height: 440px;
+        background: url(../images/user-15.png) no-repeat center;
+        background-size: 100%;
+    }
+    
+    .user-16 {
+        display: block;
+        width: 119px;
+        height: 28px;
+        background: url(../images/user-16.png) no-repeat center;
+        background-size: 100%;
+        margin: 10px 0 10px 350px;
+    }
+    
+    .user-17 {
+        display: block;
+        width: 829px;
+        height: 171px;
+        background: url(../images/user-17.png) no-repeat center;
+        background-size: 97%;
+        margin-bottom: 10px;
+    }
+    
+    .user-18 {
+        display: block;
+        width: 854px;
+        height: 131px;
+        background: url(../images/user-18.png) no-repeat center;
+        background-size: 91%;
+        margin-bottom: 10px;
+    }
+    
+    .user-19 {
+        display: block;
+        width: 307px;
+        height: 81px;
+        background: url(../images/user-19.png) no-repeat center;
+        background-size: 97%;
+        margin: 10px 0 10px 220px;
+    }
+    
+    .user-20 {
+        display: block;
+        width: 711px;
+        height: 415px;
+        background: url(../images/user-20.png) no-repeat center;
+        background-size: 100%;
+        margin-left: 20px;
+    }
+    
+    .user-21 {
+        display: block;
+        width: 719px;
+        height: 380px;
+        background: url(../images/user-21.png) no-repeat center;
+        background-size: 100%;
+        margin-left: 15px;
+    }
+    
+    .user-22 {
+        display: block;
+        width: 359px;
+        height: 173px;
+        background: url(../images/user-22.png) no-repeat center;
+        background-size: 100%;
+        margin: 10px 0 10px 200px;
+    }
+    
+    .user-23 {
+        display: block;
+        width: 712px;
+        height: 419px;
+        background: url(../images/user-23.png) no-repeat center;
+        background-size: 100%;
+        margin-left: 15px;
+    }
+    
+    .user-24 {
+        display: block;
+        width: 794px;
+        height: 405px;
+        background: url(../images/user-24.png) no-repeat center;
+        background-size: 100%;
+        margin: 10px 0 10px 15px;
+    }
+    
+    .user-25 {
+        display: block;
+        width: 119px;
+        height: 56px;
+        background: url(../images/user-25.png) no-repeat center;
+        background-size: 100%;
+        margin: 0px 0 10px 340px;
+    }
+    
+    .user-26 {
+        display: block;
+        width: 417px;
+        height: 163px;
+        background: url(../images/user-26.png) no-repeat center;
+        background-size: 100%;
+        margin: 0px 0 10px 200px;
+    }
+    
+    .user-27 {
+        display: block;
+        width: 835px;
+        height: 428px;
+        background: url(../images/user-27.png) no-repeat center;
+        background-size: 95%;
+    }
+    
+    .user-28 {
+        display: block;
+        width: 724px;
+        height: 345px;
+        background: url(../images/user-28.png) no-repeat center;
+        background-size: 100%;
+        margin-left: 50px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+    
+    .user-29 {
+        display: block;
+        width: 131px;
+        height: 40px;
+        background: url(../images/user-29.png) no-repeat center;
+        background-size: 100%;
+        margin-left: 300px;
+        margin-bottom: 10px;
+    }
+    
+    .user-30 {
+        display: block;
+        width: 860px;
+        height: 60px;
+        background: url(../images/user-30.png) no-repeat center;
+        background-size: 90%;
+    }
+    
+    .user-31 {
+        display: block;
+        width: 833px;
+        height: 427px;
+        background: url(../images/user-31.png) no-repeat center;
+        background-size: 96%;
+    }
+    
+    .user-32 {
+        display: block;
+        width: 844px;
+        height: 228px;
+        background: url(../images/user-32.png) no-repeat center;
+        background-size: 93%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .user-33 {
+        display: block;
+        width: 833px;
+        height: 428px;
+        background: url(../images/user-33.png) no-repeat center;
+        background-size: 96%;
+    }
+    
+    .user-34 {
+        display: block;
+        width: 727px;
+        height: 453px;
+        background: url(../images/user-34.png) no-repeat center;
+        background-size: 100%;
+    }
+    
+    .user-35 {
+        display: block;
+        width: 116px;
+        height: 30px;
+        background: url(../images/user-35.png) no-repeat center;
+        background-size: 100%;
+        margin-left: 320px;
+        margin-bottom: 10px;
+    }
+    
+    .user-36 {
+        display: block;
+        width: 834px;
+        height: 427px;
+        background: url(../images/user-36.png) no-repeat center;
+        background-size: 96%;
+    }
+    
+    .user-37 {
+        display: block;
+        width: 829px;
+        height: 973px;
+        background: url(../images/user-37.png) no-repeat center;
+        background-size: 97%;
+    }
+    
+    .user-38 {
+        display: block;
+        width: 847px;
+        height: 93px;
+        background: url(../images/user-38.png) no-repeat center;
+        background-size: 93%;
+    }
+    
+    .user-39 {
+        display: block;
+        width: 842px;
+        height: 57px;
+        background: url(../images/user-39.png) no-repeat center;
+        background-size: 94%;
+        margin-top: 5px;
+    }
+    
+    .user-40 {
+        display: block;
+        width: 678px;
+        height: 42px;
+        background: url(../images/user-40.png) no-repeat center;
+        background-size: 100%;
+    }
+    
+    .user-41 {
+        display: block;
+        width: 680px;
+        height: 92px;
+        background: url(../images/user-41.png) no-repeat center;
+        background-size: 100%;
+    }
+    
+    .user-42 {
+        display: block;
+        width: 176px;
+        height: 30px;
+        background: url(../images/user-42.png) no-repeat center;
+        background-size: 100%;
+        margin-left: 250px;
+        margin-bottom: 10px;
+    }
+    
+    .user-43 {
+        display: block;
+        width: 820px;
+        height: 276px;
+        background: url(../images/user-43.png) no-repeat center;
+        background-size: 99%;
+    }
+    
+    .user-44-45 {
+        overflow: hidden;
+    }
+    
+    .user-44 {
+        float: left;
+        display: block;
+        width: 279px;
+        height: 244px;
+        background: url(../images/user-44.png) no-repeat center;
+        background-size: 100%;
+        margin: 10px 0 10px 90px;
+    }
+    
+    .user-45 {
+        float: left;
+        display: block;
+        width: 283px;
+        height: 154px;
+        background: url(../images/user-45.png) no-repeat center;
+        background-size: 100%;
+        margin-left: 60px;
+        margin: 10px 0 0px 60px;
+    }
+    
+    .user-46 {
+        display: block;
+        width: 818px;
+        height: 260px;
+        background: url(../images/user-46.png) no-repeat center;
+        background-size: 99%;
+        margin: 10px auto;
+    }
+    
+    .user-47 {
+        display: block;
+        width: 844px;
+        height: 41px;
+        background: url(../images/user-47.png) no-repeat center;
+        background-size: 94%;
+    }
+    
+    .user-48 {
+        display: block;
+        width: 833px;
+        height: 428px;
+        background: url(../images/user-48.png) no-repeat center;
+        background-size: 96%;
+    }
+    
+    .user-49 {
+        display: block;
+        width: 518px;
+        height: 73px;
+        background: url(../images/user-49.png) no-repeat center;
+        background-size: 100%;
+        margin-left: 100px;
+    }
+    
+    .user-50 {
+        display: block;
+        width: 855px;
+        height: 238px;
+        background: url(../images/user-50.png) no-repeat center;
+        background-size: 91%;
+    }
+    
+    .user-51 {
+        display: block;
+        width: 843px;
+        height: 128px;
+        background: url(../images/user-51.png) no-repeat center;
+        background-size: 94%;
+        margin: 10px auto;
+    }
+    
+    .user-52 {
+        display: block;
+        width: 847px;
+        height: 50px;
+        background: url(../images/user-52.png) no-repeat center;
+        background-size: 93%;
+        margin: 10px auto;
+    }
+    
+    .user-53 {
+        display: block;
+        width: 845px;
+        height: 212px;
+        background: url(../images/user-53.png) no-repeat center;
+        background-size: 93%;
+        margin: 10px auto;
+    }
+    
+    .user-54 {
+        display: block;
+        width: 841px;
+        height: 261px;
+        background: url(../images/user-54.png) no-repeat center;
+        background-size: 94%;
+        margin: 0px 0 10px 0px;
+    }
+    
+    .user-55 {
+        display: block;
+        width: 842px;
+        height: 249px;
+        background: url(../images/user-55.png) no-repeat center;
+        background-size: 94%;
+        margin: 6px auto;
+    }
+    
+    .user-56 {
+        display: block;
+        width: 828px;
+        height: 357px;
+        background: url(../images/user-56.png) no-repeat center;
+        background-size: 97%;
+        margin: 10px auto;
+    }
+    
+    .user-57 {
+        display: block;
+        width: 839px;
+        height: 334px;
+        background: url(../images/user-57.png) no-repeat center;
+        background-size: 96%;
+        margin-bottom: 10px;
+        margin-left: -6px;
+    }
+    
+    .user-58 {
+        display: block;
+        width: 846px;
+        height: 216px;
+        background: url(../images/user-58.png) no-repeat center;
+        background-size: 93%;
+    }
+    
+    .user-59 {
+        display: block;
+        width: 841px;
+        height: 212px;
+        background: url(../images/user-60.png) no-repeat center;
+        background-size: 94%;
+        margin: 10px 0 10px 0px;
+    }
+    
+    .user-60 {
+        display: block;
+        width: 842px;
+        height: 269px;
+        background: url(../images/user-60.png) no-repeat center;
+        background-size: 94%;
+        margin: 10px auto;
+    }
+    
+    .user-61 {
+        display: block;
+        width: 850px;
+        height: 229px;
+        background: url(../images/user-61.png) no-repeat center;
+        background-size: 92%;
+        margin: 10px auto;
+    }
+    
+    .user-62 {
+        display: block;
+        width: 840px;
+        height: 249px;
+        background: url(../images/user-62.png) no-repeat center;
+        background-size: 94%;
+        margin: 10px auto;
+    }
+    
+    .user-63 {
+        display: block;
+        width: 143px;
+        height: 40px;
+        background: url(../images/user-63.png) no-repeat center;
+        background-size: 100%;
+        margin: 0px 0 10px 320px;
+    }
+    
+    .user-64 {
+        display: block;
+        width: 845px;
+        height: 287px;
+        background: url(../images/user-64.png) no-repeat center;
+        background-size: 93%;
+    }
+    
+    .user-65 {
+        display: block;
+        width: 843px;
+        height: 285px;
+        background: url(../images/user-65.png) no-repeat center;
+        background-size: 94%;
+        margin: 10px auto;
+    }
+    
+    .user-66 {
+        display: block;
+        width: 841px;
+        height: 284px;
+        background: url(../images/user-66.png) no-repeat center;
+        background-size: 94%;
+        margin: 10px auto;
+    }
+    
+    .user-67 {
+        display: block;
+        width: 841px;
+        height: 284px;
+        background: url(../images/user-67.png) no-repeat center;
+        background-size: 94%;
+        margin-bottom: 10px;
+    }
+    
+    .user-68 {
+        display: block;
+        width: 841px;
+        height: 275px;
+        background: url(../images/user-68.png) no-repeat center;
+        background-size: 94%;
+        margin: 10px auto;
+    }
+    
+    .user-69 {
+        display: block;
+        width: 106px;
+        height: 44px;
+        background: url(../images/user-69.png) no-repeat center;
+        background-size: 100%;
+        margin: 0px 0 10px 320px;
+    }
+    
+    .user-70 {
+        display: block;
+        width: 827px;
+        height: 657px;
+        background: url(../images/user-70.png) no-repeat center;
+        background-size: 97%;
+    }
+    
+    .ixwebhosting {
+        position: relative;
+        background-color: #fff;
+    }
+    
+    .siled-top {
+        margin-bottom: 16px;
+    }
+    
+    .nav-left {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 100%;
+        border-right: 1px solid rgba(0, 0, 0, 0.12);
+        padding: 28px 0 32px 0;
+        box-sizing: border-box;
+    }
+    
+    .text-right {
+        margin-left: 252px;
+        padding: 28px 32px 32px 0;
+        box-sizing: border-box;
+    }
+    
+    .text-right>.p1 {
+        font-size: 16px;
+        margin-bottom: 16px;
+        font-weight: 400;
+        margin-top: 10px;
+        color: rgba(0, 0, 0, 0.85);
+        margin-top: 32px;
+    }
+    
+    .text-right>.p1.xitong {
+        margin-top: 0px;
+    }
+    
+    .text-right>.p1 i {
+        width: 27px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        display: inline-block;
+        background-color: #999;
+        margin-bottom: -3px;
+        margin-right: 10px;
+        font-style: normal;
+        font-size: 15px;
+        color: #fff;
+        font-weight: 400;
+    }
+    
+    .text-right>.p2 {
+        font-size: 14px;
+        margin-bottom: 16px;
+        margin-top: 10px;
+        font-weight: 400;
+    }
+    
+    .text-right>.p3 {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-weight: 400;
+    }
+    
+    .text-right>.p0 {
+        font-size: 15px;
+        margin: 5px auto;
+    }
+    
+    .ixwebhosting-content-float .ixwebhosting-content {
+        float: right;
+        width: 500px;
+        height: 200px;
+        text-indent: 0;
+        margin-right: -50px;
+    }
+    
+    .ixwebhosting-content-float {
+        overflow: hidden;
+        padding: 30px 80px 10px;
+        box-sizing: border-box;
+    }
+    
+    .user-red {
+        width: 13px;
+        height: 5px;
+        border: 2px solid red;
+        border-radius: 0px;
+        display: inline-block;
+        margin: 0 5px 1px;
+    }
+    
+    .user-orange {
+        width: 13px;
+        height: 5px;
+        border: 2px solid orange;
+        border-radius: 0px;
+        display: inline-block;
+        margin: 0 5px 1px;
+    }

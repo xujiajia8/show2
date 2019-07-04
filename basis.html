@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./static/css/comm.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/total.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/basis.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/map.css" />
+    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/show.js"></script>
+    <script type="text/javascript" src="./static/js/comm.js"></script>
+    <style type="text/css">
+        /*定界依据页面特有css  -start-*/
+        
+        .start{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .yname-bg{
+            position: absolute;
+            display: none;
+            left: 200px;
+            background-color: #999;
+            padding: 0 .5em;
+            line-height: 2em
+        }
+        /*定界依据页面特有css  -end-*/
+    </style>
+</head>
+<body>
+    <!--start 头部-->
+    <div class="top">
+        <div class="title"><img src="./static/images/logo.png" alt=""></div>
+        <ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+        </ul>
+    </div>
+    <!--end 头部-->
+    <div class="content">
+        <!--start 测导航-->
+        <div class="nav">
+            <p>我的导航</p>
+            <ul>
+                <li onclick="window.location.href = 'index.html'">
+                    <i class="nav_home"></i>
+                    <span>首页</span>
+                </li>
+                <li class="active" onclick="window.location.href = 'import-idx.html';">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html';">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+                <li onclick="window.location.href = 'analysis.html'">
+                    <i class="nav_static"></i>
+                    <span>统计分析</span>
+                </li>
+                <li onclick="window.location.href = 'params.html'">
+                    <i class="nav_manage"></i>
+                    <span>系统管理</span>
+                </li>
+            </ul>
+        </div>
+        <!--end 测导航-->
+        <div class="siled">
+            <div class="path">EOMS工单 / 工单</div>
+            <div class="start">
+                <button>返回</button>
+            </div>
+            <div class="subtitle">
+                <span>定界依据</span>
+            </div>
+            <div class="bTab">
+                <div><span>业务状态定界</span></div>
+                <div><span>无线异常定界</span></div>
+                <div><span>性能指标定界</span></div>
+                <div><span>用户数据定界</span></div>
+            </div>
+            <div class="bDiv business">
+                <div class="module">
+                    <!--<div class="title">
+                        <span>业务状态</span>
+                        <i class="show"></i>
+                    </div>-->
+                    <div class="cont" style="display: block;">
+                        <table class="" cellspacing=0 cellpadding=0>
+                            <thead>
+                                <tr>
+                                    <th>业务信息</th>
+                                    <th>业务状态</th>
+                                    <th>异常<em>2</em>/<em>12</em>项</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>GSM漫游状态</td>
+                                    <td>国内漫游</td>
+                                    <td>正常</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="bDiv wireless">
+                <div class="module">
+                    <div class="title">
+                        <span>弱覆盖</span>
+                        <p>非弱覆盖</p>
+                        <i class="show"></i>
+                    </div>
+                    <div class="cont" style="display:block">
+                        <table cellspacing=0 cellpadding=0>
+                            <thead>
+                                <tr>
+                                    <th>弱覆盖详情</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>是否处于弱覆盖区</td>
+                                    <td>否</td>
+                                </tr>
+                                <tr style="display:none">
+                                    <td>资源ID</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr style="display:none">
+                                    <td>口径标题</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr style="display:none">
+                                    <td>口径类型</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr style="display:none">
+                                    <td>口径内容</td>
+                                    <td>--</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="title">
+                        <span>告警异常详情</span>
+                        <p>无异常</p>
+                        <i></i>
+                    </div>
+                    <div class="cont abnomal">
+                        <div class="userTab">
+                            <span class="disabled">06:00-12:00</span>
+                            <span class="disabled">12:00-18:00</span>
+                            <span class="disabled">18:00-24:00</span>
+                        </div>
+                        <div class="tables tables-one">
+                            <div class='tab-total no-data'>
+                                <img src="./static/images/h_empty.png" alt="">
+                                该时段内没有任何异常!
+                            </div>
+                        </div>
+                        <div class="tables tables-two">
+                            <div class='tab-total no-data'>
+                                <img src="./static/images/h_empty.png" alt="">
+                                该时段内没有任何异常!
+                            </div>
+                        </div>
+                        <div class="tables tables-three">
+                            <div class='tab-total no-data'>
+                                <img src="./static/images/h_empty.png" alt="">
+                                该时段内没有任何异常!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="title">
+                        <span>网优异常详情</span>
+                        <p>无异常</p>
+                        <i></i>
+                    </div>
+                    <div class="cont abnomal">
+                        <div class="userTab">
+                            <span class="disabled">06:00-12:00</span>
+                            <span class="disabled">12:00-18:00</span>
+                            <span class="disabled">18:00-24:00</span>
+                        </div>
+                        <div class="tables tables-one">
+                            <div class='tab-total no-data'>
+                                <img src="" alt="">
+                                该时段内没有任何异常!
+                            </div>
+                        </div>
+                        <div class="tables tables-two">
+                            <div class='tab-total no-data'>
+                                <img src="" alt="">
+                                该时段内没有任何异常!
+                            </div>
+                        </div>
+                        <div class="tables tables-three">
+                            <div class='tab-total no-data'>
+                                <img src="" alt="">
+                                该时段内没有任何异常!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="title">
+                        <span>MR异常详情</span>
+                        <p>无异常</p>
+                        <i></i>
+                    </div>
+                    <div class="cont abnomal">
+                        <div class="userTab">
+                            <span class="disabled">06:00-12:00</span>
+                            <span class="disabled">12:00-18:00</span>
+                            <span class="disabled">18:00-24:00</span>
+                        </div>
+                        <div class="tables tables-one">
+                            <div class='tab-total no-data'>
+                                <img src="" alt="">
+                                该时段内没有任何异常!
+                            </div>
+                        </div>
+                        <div class="tables tables-two">
+                            <div class='tab-total no-data'>
+                                <img src="" alt="">
+                                该时段内没有任何异常!
+                            </div>
+                        </div>
+                        <div class="tables tables-three">
+                            <div class='tab-total no-data'>
+                                <img src="" alt="">
+                                该时段内没有任何异常!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="title">
+                        <span>MR数据显示</span>
+                        <p></p>
+                        <i class="show"></i>
+                    </div>
+                    <div class="cont" style="display:block">
+                        <div class="userTab userTab2">
+                            <span class="active">弱覆盖</span>
+                            <span>重叠覆盖</span>
+                            <span>过覆盖</span>
+                        </div>
+                        <div class="uCharts">
+                            <div id="wireless"></div>
+                            <div class='no-chart'>
+                                <img src="./static/images/h_empty.png" alt="">
+                                此模块无数据!
+                            </div>
+                        </div>
+                        <div class="information">
+                            <div class="coordinate">
+                                <span>2018-12-12 10:15</span>
+                                <span>65%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bDiv performance">
+                <div class="module">
+                    <div class="title">
+                        <span>异常时间段</span>
+                        <p>无异常</p>
+                        <i></i>
+                    </div>
+                    <div class="cont abnomal">
+                        <div class="userTab">
+                            <span class="disabled">06:00-12:00</span>
+                            <span class="disabled">12:00-18:00</span>
+                            <span class="disabled">18:00-24:00</span>
+                        </div>
+                        <div class="tables tables-one">
+                            <div class='tab-total no-data'>
+                                <img src="" alt="">
+                                该时段内没有任何异常!
+                            </div>
+                        </div>
+                        <div class="tables tables-two">
+                            <div class='tab-total no-data'>
+                                <img src="" alt="">
+                                该时段内没有任何异常!
+                            </div>
+                        </div>
+                        <div class="tables tables-three">
+                            <div class='tab-total no-data'>
+                                <img src="" alt="">
+                                该时段内没有任何异常!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="title">
+                        <span>用户面</span>
+                        <p></p>
+                        <i class="show"></i>
+                    </div>
+                    <div class="cont" style="display: block;">
+                        <div class="userTab userTab_ec">
+                            <span class="active">TCP一二次握手时延</span>
+                            <span>TCP一二次握手成功率</span>
+                            <span>TCP二三次握手时延</span>
+                            <span>TCP二三次握手成功率</span>
+                            <span>TCP重传率</span>
+                            <span>HTTP响应成功率</span>
+                            <span>HTTP响应时延</span>
+                            <span>500KB以上大包下载速率</span>
+                        </div>
+                        <div class="uCharts">
+                            <div id="userFace"></div>
+                            <div class='no-chart'>
+                                <img src="./static/images/h_empty.png" alt="">
+                                此模块无数据!
+                            </div>
+                        </div>
+                        <div class="information">
+                            <div class="coordinate">
+                                <span>2018-12-12 10:15</span>
+                                <span>65%</span>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>SWG-IP</th>
+                                        <th style="width:22%">SWG-IP整体指标</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>182.876.277.21</td>
+                                        <td>87.99% <span class="goIn"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="title">
+                        <span>控制面</span>
+                        <p></p>
+                        <i class="show"></i>
+                    </div>
+                    <div class="cont" style="display: block;">
+                        <div class="userTab userTab_ec">
+                            <span class="active">附着成功率</span>
+                            <span>TAU成功率</span>
+                            <span>X2切换成功率</span>
+                            <span>业务请求成功率</span>
+                        </div>
+                        <div class="uCharts">
+                            <div id="controlFace"></div>
+                            <div class='no-chart'>
+                                <img src="./static/images/h_empty.png" alt="">
+                                此模块无数据!
+                            </div>
+                        </div>
+                        <div class="information">
+                            <div class="coordinate">
+                                <span>2018-12-12 10:15</span>
+                                <span>65%</span>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>小区名称</th>
+                                        <th style="width:22%">用户小区指标</th>
+                                        <th style="width:22%">小区整体指标</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>182.876.277.21</td>
+                                        <td>87.99%</td>
+                                        <td>87.99% <span class="goIn"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bDiv userData">
+                <!--控制面-->
+                <div class="module">
+                    <div class="u_Tab">
+                        <span class="active">控制面</span>
+                        <span>用户面</span>
+                    </div>
+                    <div class="cont" id="sslParent" style="display: block;position:relative">
+                        <div class="controlNood">
+                            <div class="statistical" id="ssl"></div>
+                            <div class="statistical"><em></em><div id="ssl1"></div></div>
+                            <div class='no-chart-pie'>该时段没有失败信令流程!</div>
+                        </div>
+                        <div class="userNood" style="display:none">
+                            <div>
+                                <div class="markSH" id="yhm"></div>
+                                <div class="markSH pie">
+                                    <em></em>
+                                    <div id="yhm1"></div>
+                                </div>
+                                <div class="scrollBar markSH">
+                                    <div class="move"><span></span><em>右滑可显示更多</em></div>
+                                </div>
+                                <div class='no-chart-pie'>该时段没有HTTP响应码>=400!</div>
+                            </div>
+                            <div style="margin-top:20px">
+                                <div class="markSH" id="yhs"></div>
+                                <div class="scrollBar markSH">
+                                    <div class="move"><span></span><em>右滑可显示更多</em></div>
+                                </div>
+                                <div class='no-chart-pie'>该时段没有HTTP响应时延>=500!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="title">
+                        <span>S1-MME原始表</span>
+                        <a class="downLoad" href="#" target="_blank">下载</a>
+                        <i class="show"></i>
+                    </div>
+                    <div class="cont" style="display: block;">
+                        <div class="xdr">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>起止时间</th>
+                                        <th>信令流程</th>
+                                        <th>状态</th>
+                                        <th>MMEIP</th>
+                                        <th>TAC</th>
+                                        <th>ECI</th>
+                                        <th>小区名称</th>
+                                        <th>请求原因</th>
+                                        <th>失败原因</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="time">
+                                                <p><em>起</em>2018-10-09 10:23:00</p>
+                                                <p><em>止</em>2018-10-09 10:23:00</p>
+                                            </div>
+                                        </td>
+                                        <td>X2 handover</td>
+                                        <td>失败</td>
+                                        <td>1682307332</td>
+                                        <td>25109</td>
+                                        <td>1682307332</td>
+                                        <td>南通如珠黄住院东F1-2</td>
+                                        <td>255</td>
+                                        <td>255</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <span>共850条</span>
+                            <div class="number">
+                                <p class="pre">上一页</p>
+                                <p class="p_number">
+                                    <span>1</span>
+                                    <span class="active">2</span>
+                                    <span>3</span>
+                                    <span>4</span>
+                                    <i>···</i>
+                                    <span>10</span>
+                                </p>
+                                <p class="next">下一页</p>
+                                <p class="p_now">
+                                    <i>2</i>/10
+                                </p>
+                                <p class="p_input">
+                                    <span>到第</span>
+                                    <input type="text">
+                                    <span>页</span>
+                                </p>
+                                <p class="jump">确定</p>
+                            </div>
+                        </div>
+                        <div class='no-table-xdr'>该时段没有失败信令流程!</div>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="title">
+                        <span>S1-HTTP原始表</span>
+                        <a class="downLoad" href="#" target="_blank">下载</a>
+                        <i class="show"></i>
+                    </div>
+                    <div class="cont" style="display: block;">
+                        <div style="overflow-x:auto;position:relative">  
+                            <table class="xdr">
+                                <thead>
+                                    <tr>
+                                        <th>起止时间</th>
+                                        <th>业务名称</th>
+                                        <th>域名</th>
+                                        <th>访问服务器IP</th>
+                                        <th>HTTP响应码</th>
+                                        <th>HTTP响应时延</th>
+                                        <th>小区名称</th>
+                                        <th>ECI</th>
+                                        <th>TAC</th>
+                                        <th>SGW-IP</th>
+                                        <th>URL</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div> 
+                        <div class="page">
+                            <span>共850条</span>
+                            <div class="number">
+                                <p class="pre">上一页</p>
+                                <p class="p_number">
+                                    <span>1</span>
+                                    <span class="active">2</span>
+                                    <span>3</span>
+                                    <span>4</span>
+                                    <i>···</i>
+                                    <span>10</span>
+                                </p>
+                                <p class="next">下一页</p>
+                                <p class="p_now">
+                                    <i>2</i>/10
+                                </p>
+                                <p class="p_input">
+                                    <span>到第</span>
+                                    <input type="text">
+                                    <span>页</span>
+                                </p>
+                                <p class="jump">确定</p>
+                            </div>
+                        </div>
+                        <div class='no-table-xdr'>该时段没有失败信令流程!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./static/js/echarts.min.js"></script>
+    <script type="text/javascript" src="./static/js/basis.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            window.fiel_number = 'JS-059-190528-23'//localStorage.getItem('fiel_number'); //工单编号
+            if (window.fiel_number.indexOf('JSL') != -1) { //录入
+                $('.nav li').eq(2).addClass('active');
+            } else {
+                $('.nav li').eq(1).addClass('active');
+            }
+            window.basis_url_back = localStorage.getItem('basis_url_back');  //返回url
+            window.xAxisIndex = localStorage.getItem('basis_xAxisIdx'); //折线图点的索引
+            var basis_one = 0,  //定界依据第一个模块是否第一次加载
+                basis_two = 0,  //定界依据第二个模块是否第一次加载
+                basis_three = 0,  //定界依据第三个模块是否第一次加载
+                basis_four = 0;  //定界依据第四个模块是否第一次加载
+            var basis_two_name = {  //折线图中tab请求参数
+                'TCP一二次握手时延': 'tcp_12_time',
+                'TCP一二次握手成功率': 'tcp_12_per',
+                'TCP二三次握手时延': 'tcp_23_time',
+                'TCP二三次握手成功率': 'tcp_23_per',
+                'TCP重传率': 'tcp_re_per',
+                'HTTP响应成功率': 'http_per',
+                'HTTP响应时延': 'http_time',
+                'HTTP500KB以上大包下载速率': 'http_spe',
+                '附着成功率': 'scu',
+                'TAU成功率': 'tau_scu',
+                'X2切换成功率': 'x2_scu',
+                'Service Request 业务请求成功率': 'xr_scu',
+                '弱覆盖':'mr_cr',
+                '重叠覆盖':'mr_ocr',
+                '过覆盖':'mr_nocr'
+            };
+            var performance_d1 = {"start_time":1558863918000,"threshold":300,"data":[{"x":1558864200000,"y":16.14,"data":[{"key":"sgw_1682243267","xname":"NJSAEGW07BHW","type":"sgw","value":54.1890597397}]},{"x":1558864440000,"y":13.7683986232,"data":[{"key":"sgw_1682243267","xname":"NJSAEGW07BHW","type":"sgw","value":53.6707027312}]},{"x":1558864800000,"y":13.9568106312,"data":[{"key":"sgw_1682243267","xname":"NJSAEGW07BHW","type":"sgw","value":53.5051163023}]},{"x":1558865040000,"y":22.25958014,"data":[{"key":"sgw_1682243267","xname":"NJSAEGW07BHW","type":"sgw","value":55.4601429907}]},{"x":1558865640000,"y":22.8905472637,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":54.0763636393}]},{"x":1558866240000,"y":37.5,"data":[{"key":"sgw_","xname":"","type":"sgw","value":"-"}]},{"x":1558866840000,"y":1,"data":[{"key":"sgw_","xname":"","type":"sgw","value":"-"}]},{"x":1558867740000,"y":"-","data":{}},{"x":1558868400000,"y":17.1428571429,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":54.8453706433}]},{"x":1558868640000,"y":12.3176801718,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":67.6161066544}]},{"x":1558869000000,"y":11.3506849315,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":63.7854779217}]},{"x":1558869240000,"y":11.7895299145,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":63.7750566982}]},{"x":1558869600000,"y":11.3315038419,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":55.5748773933}]},{"x":1558869840000,"y":13.1667135901,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.7835528801}]},{"x":1558870200000,"y":11.3657894737,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":56.0818981252}]},{"x":1558870440000,"y":24.0961298377,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":55.2708541133}]},{"x":1558870800000,"y":7,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":53.8776174948}]},{"x":1558871040000,"y":37.2976406534,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.839935681}]},{"x":1558871400000,"y":29,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.7176418697}]},{"x":1558871640000,"y":13.5340599455,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":54.5224947899}]},{"x":1558872000000,"y":671.0657894737,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":61.1797272394}]},{"x":1558872240000,"y":12.5,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":55.6640124674}]},{"x":1558872600000,"y":1,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":55.5290253816}]},{"x":1558872840000,"y":270.8455949137,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":58.555467272}]},{"x":1558873740000,"y":"-","data":{}},{"x":1558874040000,"y":21.7142857143,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":55.321106663}]},{"x":1558874400000,"y":24,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":56.7125870449}]},{"x":1558874640000,"y":30.7024913327,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":57.4815264045}]},{"x":1558875000000,"y":16.6594850236,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":58.0875874464}]},{"x":1558875240000,"y":11.9452736318,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":58.0423673438}]},{"x":1558875600000,"y":11.1666666667,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":58.7676979919}]},{"x":1558875840000,"y":10.900990099,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":58.9335354002}]},{"x":1558876200000,"y":102.3623978202,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":57.104737208}]},{"x":1558876440000,"y":26.5901138573,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":57.9239518203}]},{"x":1558876800000,"y":25.022589053,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":56.8045769617}]},{"x":1558877040000,"y":42.3458669054,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":57.7708645947}]},{"x":1558877400000,"y":13.8019994446,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":57.0193941569}]},{"x":1558877640000,"y":19.3392857143,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":55.1073321457}]},{"x":1558878000000,"y":15.2307692308,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":55.6608430841}]},{"x":1558878240000,"y":16.8109950023,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":56.1842277385}]},{"x":1558878600000,"y":14.9303482587,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":54.5383830277}]},{"x":1558878840000,"y":35.7241159895,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":53.2992319488}]},{"x":1558879200000,"y":17.9623059867,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":57.8343089443}]},{"x":1558879440000,"y":20.5767195767,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":53.5003425956}]},{"x":1558879800000,"y":36.8803986711,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":51.9845409146}]},{"x":1558880700000,"y":"-","data":{}},{"x":1558881900000,"y":"-","data":{}},{"x":1558890600000,"y":1,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":46.1601257414}]},{"x":1558891440000,"y":1,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":44.204611121}]},{"x":1558892340000,"y":"-","data":{}},{"x":1558893540000,"y":"-","data":{}},{"x":1558894740000,"y":"-","data":{}},{"x":1558895400000,"y":39.3084577114,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":40.0973906052}]},{"x":1558896000000,"y":7.4676616915,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":43.5342415634}]},{"x":1558896240000,"y":1,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":40.0652860374}]},{"x":1558896600000,"y":1,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":40.3618009461}]},{"x":1558897440000,"y":1,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":55.128489404}]},{"x":1558898040000,"y":39,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":41.4271931361}]},{"x":1558898400000,"y":11.25,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":39.4589509847}]},{"x":1558898640000,"y":93.5,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":39.6882994461}]},{"x":1558899540000,"y":"-","data":{}},{"x":1558900740000,"y":"-","data":{}},{"x":1558901700000,"y":"-","data":{}},{"x":1558903140000,"y":"-","data":{}},{"x":1558904340000,"y":"-","data":{}},{"x":1558905000000,"y":11,"data":[{"key":"sgw_","xname":"","type":"sgw","value":"-"}]},{"x":1558905900000,"y":"-","data":{}},{"x":1558907100000,"y":"-","data":{}},{"x":1558910040000,"y":20.7702178454,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":41.5911715757}]},{"x":1558910400000,"y":41,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":44.575220761}]},{"x":1558911000000,"y":14,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":43.4675820726}]},{"x":1558911600000,"y":23.5789473684,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":50.7728156168}]},{"x":1558911840000,"y":19.7062937063,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":40.8562572252}]},{"x":1558912200000,"y":25.136185293,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":41.6517924335}]},{"x":1558912440000,"y":20.7647058824,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":42.5328765028}]},{"x":1558912800000,"y":15.9698159327,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":42.464548472}]},{"x":1558913040000,"y":20.6539923954,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":44.6784310616}]},{"x":1558913400000,"y":26.5962301017,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":43.8810055369}]},{"x":1558913640000,"y":29.4,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":42.6925431621}]},{"x":1558914000000,"y":21.0930232558,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":43.4844390204}]},{"x":1558914240000,"y":27.7326732673,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":45.099981966}]},{"x":1558915140000,"y":"-","data":{}},{"x":1558915440000,"y":119.6794092094,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":60.7989846909}]},{"x":1558915800000,"y":70.73766396,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":69.2881254088}]},{"x":1558916040000,"y":29.1741030166,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":60.1619683106}]},{"x":1558916400000,"y":11.4379084967,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":50.1206440456}]},{"x":1558916640000,"y":10.2142857143,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":51.0497859853}]},{"x":1558917000000,"y":1,"data":[{"key":"sgw_","xname":"","type":"sgw","value":"-"}]},{"x":1558917840000,"y":218.92051987,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.2023494788}]},{"x":1558918200000,"y":22.9227998814,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":51.5828956305}]},{"x":1558918440000,"y":10.7777777778,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":49.1081465782}]},{"x":1558918800000,"y":10.4547905958,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":48.3534211486}]},{"x":1558919040000,"y":12.4135718452,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":48.3633440468}]},{"x":1558919400000,"y":135.625,"data":[{"key":"sgw_","xname":"","type":"sgw","value":"-"}]},{"x":1558919640000,"y":22.0338983051,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":47.764075909}]},{"x":1558920000000,"y":12.4141414141,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":48.5333853874}]},{"x":1558920240000,"y":13.2769450393,"data":[{"key":"sgw_","xname":"","type":"sgw","value":"-"}]},{"x":1558921140000,"y":"-","data":{}},{"x":1558921800000,"y":12.4427860697,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":49.8687929382}]},{"x":1558922400000,"y":1,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":53.6642076173}]},{"x":1558923000000,"y":59.5912746771,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.0822733822}]},{"x":1558923240000,"y":238.6068376068,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":53.7242132679}]},{"x":1558923600000,"y":142.3173652695,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":50.3458173695}]},{"x":1558923840000,"y":142.0358565737,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":48.543413104}]},{"x":1558924200000,"y":120.9667221298,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":49.089866013}]},{"x":1558924440000,"y":142.1471321696,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.0309934633}]},{"x":1558924800000,"y":124.568575233,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":51.6981607654}]},{"x":1558925040000,"y":104.4368070953,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":51.0624255357}]},{"x":1558925400000,"y":1,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":53.8743847373}]},{"x":1558925640000,"y":1,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":53.8927519407}]},{"x":1558926240000,"y":29.1965847564,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.217534909}]},{"x":1558926840000,"y":1,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":51.4588450657}]},{"x":1558927200000,"y":29.2987203692,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.0901782156}]},{"x":1558927440000,"y":31.0594059406,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":50.7601938036}]},{"x":1558927800000,"y":13,"data":[{"key":"sgw_","xname":"","type":"sgw","value":"-"}]},{"x":1558928040000,"y":19.3707865169,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.2082683144}]},{"x":1558928400000,"y":47.04,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.9014256879}]},{"x":1558928640000,"y":16.0526315789,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":53.5346269011}]},{"x":1558929000000,"y":11.4,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":54.9564226612}]},{"x":1558929240000,"y":13,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.8764444283}]},{"x":1558929600000,"y":11.4,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":56.6064075546}]},{"x":1558929840000,"y":11.1875,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":55.8125720576}]},{"x":1558930200000,"y":16,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":55.4084288502}]},{"x":1558930440000,"y":14.5555555556,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":56.2980140519}]},{"x":1558930800000,"y":13.25,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.3847895299}]},{"x":1558931040000,"y":14.5555555556,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":53.1066268234}]},{"x":1558931400000,"y":30.1598268915,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":53.8202818505}]},{"x":1558931640000,"y":11.5,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.1733237766}]},{"x":1558932000000,"y":594.0063578565,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.1204089673}]},{"x":1558932240000,"y":27.9319727891,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":51.6770973415}]},{"x":1558932600000,"y":9.2294264339,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":51.1470185388}]},{"x":1558932840000,"y":16,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":53.0818601917}]},{"x":1558933740000,"y":"-","data":{}},{"x":1558934640000,"y":1,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":51.3073059685}]},{"x":1558935000000,"y":18.0604395604,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":51.3061323297}]},{"x":1558935240000,"y":13.7744510978,"data":[{"key":"sgw_","xname":"","type":"sgw","value":"-"}]},{"x":1558935600000,"y":18.5426356589,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.4357819168}]},{"x":1558935840000,"y":15.0924464487,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":52.0578815329}]},{"x":1558936200000,"y":24.75897596,"data":[{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":51.2791484876}]},{"x":1558936440000,"y":287.4672364672,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":49.5305513755},{"key":"sgw_1685336369","xname":"NJSAEGW14BHW","type":"sgw","value":49.5365068385}]},{"x":1558936800000,"y":35.055314895,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":51.2524215443}]},{"x":1558937040000,"y":19.61067401,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":52.9419584335}]},{"x":1558937940000,"y":"-","data":{}},{"x":1558940340000,"y":"-","data":{}},{"x":1558941240000,"y":1,"data":[{"key":"sgw_","xname":"","type":"sgw","value":"-"}]},{"x":1558942140000,"y":"-","data":{}},{"x":1558943040000,"y":26.4582745802,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":53.4321089852}]},{"x":1558943400000,"y":20.5353535354,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":53.0002942849}]},{"x":1558943640000,"y":20.0247801759,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":52.7097226209}]},{"x":1558944000000,"y":38,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":52.5351346805}]},{"x":1558944240000,"y":1,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":51.7932814772}]},{"x":1558945140000,"y":"-","data":{}},{"x":1558945440000,"y":50.459526073,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":49.2905423088}]},{"x":1558945800000,"y":12.8699690402,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":49.5117143716}]},{"x":1558946040000,"y":11.5155793768,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":51.4090950186}]},{"x":1558946400000,"y":618.7126917713,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":52.9924251755}]},{"x":1558946640000,"y":272.6628234691,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":52.4261604237}]},{"x":1558947000000,"y":180.1535867922,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":51.9284879048}]},{"x":1558947240000,"y":2703.3427866831,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":53.5429217584}]},{"x":1558947600000,"y":5811.2649006623,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":57.1026489981}]},{"x":1558947840000,"y":229.0973094893,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":53.2009464245}]},{"x":1558948200000,"y":111.0683654444,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":51.5641302337}]},{"x":1558948440000,"y":170.4249649369,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":53.1799170939}]},{"x":1558948800000,"y":3903.657807309,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":53.7268526932}]},{"x":1558949040000,"y":1,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":53.0548451542}]},{"x":1558949400000,"y":1,"data":[{"key":"sgw_","xname":"","type":"sgw","value":"-"}]},{"x":1558950000000,"y":17.2896721024,"data":[{"key":"sgw_1685336338","xname":"NJSAEGW17BHW","type":"sgw","value":53.4875264694}]},{"x":1558950240000,"y":57.062992126,"data":""}],"code":0};
+            var performance_d2 = {"threshold":0.7,"data":[{"x":1558864200000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9934116096},{"key":"user_9632922","xname":"朗诗玲珑宇四期LD-1","type":"user","value":1},{"key":"user_84104971","xname":"1号线南延线百家湖小龙湾09042M五期LD(100/280)-1","type":"user","value":1},{"key":"user_84104991","xname":"","type":"user","value":1},{"key":"user_230700548","xname":"景山福联贸易公司M五期LD-1","type":"user","value":1},{"key":"user_230700549","xname":"景山福联贸易公司M五期LD-2","type":"user","value":1},{"key":"9632922","xname":"朗诗玲珑宇四期LD-1","type":"cell","value":1},{"key":"84104971","xname":"1号线南延线百家湖小龙湾09042M五期LD(100/280)-1","type":"cell","value":0.8},{"key":"84104991","xname":"","type":"cell","value":0.01},{"key":"230700548","xname":"景山福联贸易公司M五期LD-1","type":"cell","value":1},{"key":"230700549","xname":"景山福联贸易公司M五期LD-2","type":"cell","value":1}]},{"x":1558864440000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9941807529},{"key":"user_230700549","xname":"景山福联贸易公司M五期LD-2","type":"user","value":1},{"key":"230700549","xname":"景山福联贸易公司M五期LD-2","type":"cell","value":1}]},{"x":1558864800000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9922543317},{"key":"user_9318557","xname":"","type":"user","value":1},{"key":"9318557","xname":"","type":"cell","value":1}]},{"x":1558865040000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9935892493},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":1}]},{"x":1558865400000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9920186695},{"key":"user_9908637","xname":"瑶家泵站北五期LF-1","type":"user","value":1},{"key":"user_84847363","xname":"天元中路一期LF-3","type":"user","value":1},{"key":"9908637","xname":"瑶家泵站北五期LF-1","type":"cell","value":0.8},{"key":"84847363","xname":"天元中路一期LF-3","type":"cell","value":1}]},{"x":1558865640000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9937086468},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"user_9908637","xname":"瑶家泵站北五期LF-1","type":"user","value":1},{"key":"user_83994658","xname":"金域蓝湾北五期FG-1","type":"user","value":1},{"key":"user_84847363","xname":"天元中路一期LF-3","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":1},{"key":"9908637","xname":"瑶家泵站北五期LF-1","type":"cell","value":1},{"key":"83994658","xname":"金域蓝湾北五期FG-1","type":"cell","value":1},{"key":"84847363","xname":"天元中路一期LF-3","type":"cell","value":0.6666666667}]},{"x":1558866000000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9936029988},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":0.6}]},{"x":1558866600000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9942472992},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"user_83994658","xname":"金域蓝湾北五期FG-1","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":1},{"key":"83994658","xname":"金域蓝湾北五期FG-1","type":"cell","value":1}]},{"x":1558867200000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9937441883},{"key":"user_9908639","xname":"瑶家泵站北五期LF-3","type":"user","value":1},{"key":"user_230714369","xname":"金域蓝湾北三期LF-1","type":"user","value":1},{"key":"9908639","xname":"瑶家泵站北五期LF-3","type":"cell","value":0.5},{"key":"230714369","xname":"金域蓝湾北三期LF-1","type":"cell","value":0.5}]},{"x":1558867440000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.993503111},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"user_9908639","xname":"瑶家泵站北五期LF-3","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":0.6666666667},{"key":"9908639","xname":"瑶家泵站北五期LF-3","type":"cell","value":0.5}]},{"x":1558867800000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9926955089},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"user_9908639","xname":"瑶家泵站北五期LF-3","type":"user","value":1},{"key":"user_84749325","xname":"省中医药研究院下试扩L(W)-3","type":"user","value":1},{"key":"user_230714369","xname":"金域蓝湾北三期LF-1","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":1},{"key":"9908639","xname":"瑶家泵站北五期LF-3","type":"cell","value":0.4285714286},{"key":"84749325","xname":"省中医药研究院下试扩L(W)-3","type":"cell","value":1},{"key":"230714369","xname":"金域蓝湾北三期LF-1","type":"cell","value":1}]},{"x":1558868040000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9942059018},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":1}]},{"x":1558868400000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.994367244},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"user_83994658","xname":"金域蓝湾北五期FG-1","type":"user","value":1},{"key":"user_83994665","xname":"金域蓝湾北试扩FD-1","type":"user","value":1},{"key":"user_84080427","xname":"科建路六期FD-3","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":0.8333333333},{"key":"83994658","xname":"金域蓝湾北五期FG-1","type":"cell","value":1},{"key":"83994665","xname":"金域蓝湾北试扩FD-1","type":"cell","value":1},{"key":"84080427","xname":"科建路六期FD-3","type":"cell","value":0.9444444444}]},{"x":1558868640000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9937687336},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":1}]},{"x":1558869000000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9935418957},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"user_83994658","xname":"金域蓝湾北五期FG-1","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":0.9166666667},{"key":"83994658","xname":"金域蓝湾北五期FG-1","type":"cell","value":1}]},{"x":1558869240000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9924894805},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":1}]},{"x":1558869840000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9940260888},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":1}]},{"x":1558870200000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9919632251},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":1}]},{"x":1558870440000,"y":1,"data":[{"key":"mme_1682243247","xname":"NJMME11BHW","type":"mme","value":0.9932500671},{"key":"user_9318553","xname":"9318553","type":"user","value":1},{"key":"user_9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"user","value":1},{"key":"user_84847107","xname":"小龙湾一期LF-3","type":"user","value":1},{"key":"user_84847363","xname":"天元中路一期LF-3","type":"user","value":1},{"key":"user_230693634","xname":"230693634","type":"user","value":1},{"key":"9318553","xname":"9318553","type":"cell","value":1},{"key":"9318554","xname":"高层外打朗诗玲珑屿11栋五期LF(W)-4","type":"cell","value":1},{"key":"84847107","xname":"小龙湾一期LF-3","type":"cell","value":1},{"key":"84847363","xname":"天元中路一期LF-3","type":"cell","value":1},{"key":"230693634","xname":"230693634","type":"cell","value":0.01}]},{"x":1558870800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9958816383},{"key":"user_9318553","xname":"9318553","type":"user","value":1},{"key":"9318553","xname":"9318553","type":"cell","value":1}]},{"x":1558871040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9958821263},{"key":"user_9318553","xname":"9318553","type":"user","value":1},{"key":"user_83977988","xname":"1号线南延线小龙湾竹山路10071M五期LD-4","type":"user","value":1},{"key":"user_84055042","xname":"小龙湾试扩L-2","type":"user","value":1},{"key":"user_84055043","xname":"小龙湾试扩L-3","type":"user","value":1},{"key":"user_84055081","xname":"小龙湾试扩FD-1","type":"user","value":1},{"key":"user_84055082","xname":"小龙湾试扩FD-2","type":"user","value":1},{"key":"user_84062723","xname":"兴宁路试扩L-3","type":"user","value":1},{"key":"user_84104981","xname":"","type":"user","value":1},{"key":"user_84113706","xname":"江宁池田试扩FD-2","type":"user","value":1},{"key":"user_84846851","xname":"兴宁路一期LF-3","type":"user","value":1},{"key":"user_84847106","xname":"小龙湾一期LF-2","type":"user","value":1},{"key":"user_84847107","xname":"小龙湾一期LF-3","type":"user","value":1},{"key":"user_84847363","xname":"天元中路一期LF-3","type":"user","value":1},{"key":"user_230700549","xname":"景山福联贸易公司M五期LD-2","type":"user","value":1},{"key":"user_230888961","xname":"江宁池田三期LF-1","type":"user","value":1},{"key":"9318553","xname":"9318553","type":"cell","value":0.01},{"key":"83977988","xname":"1号线南延线小龙湾竹山路10071M五期LD-4","type":"cell","value":1},{"key":"84055042","xname":"小龙湾试扩L-2","type":"cell","value":1},{"key":"84055043","xname":"小龙湾试扩L-3","type":"cell","value":1},{"key":"84055081","xname":"小龙湾试扩FD-1","type":"cell","value":1},{"key":"84055082","xname":"小龙湾试扩FD-2","type":"cell","value":1},{"key":"84062723","xname":"兴宁路试扩L-3","type":"cell","value":1},{"key":"84104981","xname":"","type":"cell","value":1},{"key":"84113706","xname":"江宁池田试扩FD-2","type":"cell","value":1},{"key":"84846851","xname":"兴宁路一期LF-3","type":"cell","value":1},{"key":"84847106","xname":"小龙湾一期LF-2","type":"cell","value":1},{"key":"84847107","xname":"小龙湾一期LF-3","type":"cell","value":1},{"key":"84847363","xname":"天元中路一期LF-3","type":"cell","value":1},{"key":"230700549","xname":"景山福联贸易公司M五期LD-2","type":"cell","value":1},{"key":"230888961","xname":"江宁池田三期LF-1","type":"cell","value":0.5}]},{"x":1558871400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9962965924},{"key":"user_9325979","xname":"双龙大道同曦假日酒店站M四期LD-5","type":"user","value":1},{"key":"user_9629339","xname":"西门子路四期LD-2","type":"user","value":1},{"key":"user_9629340","xname":"西门子路四期LD-3","type":"user","value":1},{"key":"user_9737627","xname":"南方花园西五期LD-2","type":"user","value":1},{"key":"user_9791639","xname":"水岸明珠四期LF-1","type":"user","value":1},{"key":"user_9975721","xname":"胜利路双龙大道监控杆站M五期LD-92_iSON","type":"user","value":1},{"key":"user_84113667","xname":"江宁池田试扩L-3","type":"user","value":1},{"key":"user_84137473","xname":"百家湖试扩L-1","type":"user","value":1},{"key":"user_84137474","xname":"百家湖试扩L-2","type":"user","value":1},{"key":"user_84137475","xname":"百家湖试扩L-3","type":"user","value":1},{"key":"user_84847617","xname":"百家湖一期LF-1","type":"user","value":1},{"key":"user_161201047","xname":"江宁国土资源局五期LF-1","type":"user","value":1},{"key":"user_161201051","xname":"江宁国土资源局五期LD-2","type":"user","value":1},{"key":"user_161201060","xname":"江宁国土资源局五期LD-12","type":"user","value":1},{"key":"user_161326753","xname":"161326753","type":"user","value":1},{"key":"user_231050501","xname":"水月秦淮三期LF-2","type":"user","value":1},{"key":"9325979","xname":"双龙大道同曦假日酒店站M四期LD-5","type":"cell","value":0.01},{"key":"9629339","xname":"西门子路四期LD-2","type":"cell","value":1},{"key":"9629340","xname":"西门子路四期LD-3","type":"cell","value":1},{"key":"9737627","xname":"南方花园西五期LD-2","type":"cell","value":0.6153846154},{"key":"9791639","xname":"水岸明珠四期LF-1","type":"cell","value":1},{"key":"9975721","xname":"胜利路双龙大道监控杆站M五期LD-92_iSON","type":"cell","value":1},{"key":"84113667","xname":"江宁池田试扩L-3","type":"cell","value":1},{"key":"84137473","xname":"百家湖试扩L-1","type":"cell","value":1},{"key":"84137474","xname":"百家湖试扩L-2","type":"cell","value":1},{"key":"84137475","xname":"百家湖试扩L-3","type":"cell","value":1},{"key":"84847617","xname":"百家湖一期LF-1","type":"cell","value":1},{"key":"161201047","xname":"江宁国土资源局五期LF-1","type":"cell","value":0.3333333333},{"key":"161201051","xname":"江宁国土资源局五期LD-2","type":"cell","value":1},{"key":"161201060","xname":"江宁国土资源局五期LD-12","type":"cell","value":1},{"key":"161326753","xname":"161326753","type":"cell","value":1},{"key":"231050501","xname":"水月秦淮三期LF-2","type":"cell","value":0.5}]},{"x":1558871640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9961639675},{"key":"user_9685157","xname":"经纬城市花园四期LD-22","type":"user","value":1},{"key":"user_9737627","xname":"南方花园西五期LD-2","type":"user","value":1},{"key":"user_9737631","xname":"南方花园西五期LF-6","type":"user","value":1},{"key":"user_9882263","xname":"岔路口南3DMIMO六期LD-1","type":"user","value":1},{"key":"user_9882265","xname":"岔路口南3DMIMO六期LD-3","type":"user","value":1},{"key":"user_9882283","xname":"9882283","type":"user","value":1},{"key":"user_84460290","xname":"河定桥南方花园三期LD-2","type":"user","value":1},{"key":"user_84460291","xname":"河定桥南方花园三期LD-3","type":"user","value":1},{"key":"user_87408897","xname":"双龙街二T一期LD-1","type":"user","value":1},{"key":"user_87408898","xname":"双龙街二T一期LD-2","type":"user","value":1},{"key":"user_161346968","xname":"明城大道北三期LD-2","type":"user","value":1},{"key":"user_220693762","xname":"绕城立交搬迁三期LF-2","type":"user","value":1},{"key":"user_220768002","xname":"双龙街搬迁一期LD-2","type":"user","value":1},{"key":"user_220768013","xname":"双龙街搬迁一期LD-32","type":"user","value":1},{"key":"user_230380044","xname":"绕城立交搬迁三期LD-22","type":"user","value":1},{"key":"user_230444303","xname":"益来医院四期LD-22","type":"user","value":1},{"key":"user_230737666","xname":"双龙街搬迁三期LF-2","type":"user","value":1},{"key":"user_230737667","xname":"双龙街搬迁三期LF-3","type":"user","value":1},{"key":"user_231005189","xname":"红星美凯龙四期LD-2","type":"user","value":1},{"key":"9685157","xname":"经纬城市花园四期LD-22","type":"cell","value":1},{"key":"9737627","xname":"南方花园西五期LD-2","type":"cell","value":0.7272727273},{"key":"9737631","xname":"南方花园西五期LF-6","type":"cell","value":0.8333333333},{"key":"9882263","xname":"岔路口南3DMIMO六期LD-1","type":"cell","value":1},{"key":"9882265","xname":"岔路口南3DMIMO六期LD-3","type":"cell","value":1},{"key":"9882283","xname":"9882283","type":"cell","value":1},{"key":"84460290","xname":"河定桥南方花园三期LD-2","type":"cell","value":1},{"key":"84460291","xname":"河定桥南方花园三期LD-3","type":"cell","value":0.01},{"key":"87408897","xname":"双龙街二T一期LD-1","type":"cell","value":1},{"key":"87408898","xname":"双龙街二T一期LD-2","type":"cell","value":0.01},{"key":"161346968","xname":"明城大道北三期LD-2","type":"cell","value":1},{"key":"220693762","xname":"绕城立交搬迁三期LF-2","type":"cell","value":0.0033333333},{"key":"220768002","xname":"双龙街搬迁一期LD-2","type":"cell","value":1},{"key":"220768013","xname":"双龙街搬迁一期LD-32","type":"cell","value":1},{"key":"230380044","xname":"绕城立交搬迁三期LD-22","type":"cell","value":1},{"key":"230444303","xname":"益来医院四期LD-22","type":"cell","value":1},{"key":"230737666","xname":"双龙街搬迁三期LF-2","type":"cell","value":0.6},{"key":"230737667","xname":"双龙街搬迁三期LF-3","type":"cell","value":1},{"key":"231005189","xname":"红星美凯龙四期LD-2","type":"cell","value":0.5}]},{"x":1558872000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9958692661},{"key":"user_160993945","xname":"雨花区政府路灯站M三期LD-1","type":"user","value":1},{"key":"user_230875909","xname":"雨花新村四期LD-2","type":"user","value":1},{"key":"user_230888708","xname":"玉兰路北四期LD-1","type":"user","value":1},{"key":"user_230888710","xname":"玉兰路北四期LD-3","type":"user","value":1},{"key":"user_230983685","xname":"山水时尚酒店四期LD-2","type":"user","value":1},{"key":"user_231013126","xname":"雨花新村二四期LD-3","type":"user","value":1},{"key":"user_231014149","xname":"雨花台南门四期LD-2","type":"user","value":1},{"key":"160993945","xname":"雨花区政府路灯站M三期LD-1","type":"cell","value":1},{"key":"230875909","xname":"雨花新村四期LD-2","type":"cell","value":1},{"key":"230888708","xname":"玉兰路北四期LD-1","type":"cell","value":1},{"key":"230888710","xname":"玉兰路北四期LD-3","type":"cell","value":1},{"key":"230983685","xname":"山水时尚酒店四期LD-2","type":"cell","value":0.01},{"key":"231013126","xname":"雨花新村二四期LD-3","type":"cell","value":0.5},{"key":"231014149","xname":"雨花台南门四期LD-2","type":"cell","value":0.8}]},{"x":1558872240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9961902881},{"key":"user_9634970","xname":"龙福花园西高架路灯站M三期LF（100/240/330)-4","type":"user","value":1},{"key":"user_230694402","xname":"玻纤院三三期LF-2","type":"user","value":1},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"user_230694406","xname":"玻纤院三四期LD-3","type":"user","value":1},{"key":"user_230694414","xname":"玻纤院三四期LD-12","type":"user","value":1},{"key":"9634970","xname":"龙福花园西高架路灯站M三期LF（100/240/330)-4","type":"cell","value":0.6666666667},{"key":"230694402","xname":"玻纤院三三期LF-2","type":"cell","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.6666666667},{"key":"230694406","xname":"玻纤院三四期LD-3","type":"cell","value":1},{"key":"230694414","xname":"玻纤院三四期LD-12","type":"cell","value":1}]},{"x":1558872600000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9961102402},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.8333333333}]},{"x":1558872840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9959476234},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.8}]},{"x":1558873440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9959558484},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.6666666667}]},{"x":1558873800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.996016744},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"user_230694406","xname":"玻纤院三四期LD-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1},{"key":"230694406","xname":"玻纤院三四期LD-3","type":"cell","value":0.5}]},{"x":1558874040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9961801515},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"user_230694405","xname":"玻纤院三四期LD-2","type":"user","value":1},{"key":"user_230694406","xname":"玻纤院三四期LD-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1},{"key":"230694405","xname":"玻纤院三四期LD-2","type":"cell","value":0.005},{"key":"230694406","xname":"玻纤院三四期LD-3","type":"cell","value":1}]},{"x":1558874400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9957537184},{"key":"user_9373601","xname":"9373601","type":"user","value":1},{"key":"user_84001289","xname":"安德门北五期LD-3","type":"user","value":1},{"key":"user_84900356","xname":"梦都大街东四期LD-1","type":"user","value":1},{"key":"user_230983940","xname":"警官学院本部三期LD-1","type":"user","value":1},{"key":"9373601","xname":"9373601","type":"cell","value":1},{"key":"84001289","xname":"安德门北五期LD-3","type":"cell","value":1},{"key":"84900356","xname":"梦都大街东四期LD-1","type":"cell","value":1},{"key":"230983940","xname":"警官学院本部三期LD-1","type":"cell","value":1}]},{"x":1558874640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9959526522},{"key":"user_9634970","xname":"龙福花园西高架路灯站M三期LF（100/240/330)-4","type":"user","value":1},{"key":"user_9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"user","value":1},{"key":"user_9944992","xname":"省建筑院五期LF-1","type":"user","value":1},{"key":"user_84900354","xname":"梦都大街东二期LF-2","type":"user","value":1},{"key":"user_84900357","xname":"梦都大街东四期LD-2","type":"user","value":1},{"key":"user_230983937","xname":"警官学院本部三期LF-1","type":"user","value":1},{"key":"user_230983939","xname":"230983939","type":"user","value":1},{"key":"9634970","xname":"龙福花园西高架路灯站M三期LF（100/240/330)-4","type":"cell","value":0.5},{"key":"9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"cell","value":1},{"key":"9944992","xname":"省建筑院五期LF-1","type":"cell","value":0.5},{"key":"84900354","xname":"梦都大街东二期LF-2","type":"cell","value":0.3333333333},{"key":"84900357","xname":"梦都大街东四期LD-2","type":"cell","value":0.5},{"key":"230983937","xname":"警官学院本部三期LF-1","type":"cell","value":0.6666666667},{"key":"230983939","xname":"230983939","type":"cell","value":1}]},{"x":1558875000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9957187713},{"key":"user_9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"user","value":1},{"key":"user_230983937","xname":"警官学院本部三期LF-1","type":"user","value":1},{"key":"user_230983940","xname":"警官学院本部三期LD-1","type":"user","value":1},{"key":"user_230983942","xname":"230983942","type":"user","value":1},{"key":"user_231048196","xname":"小行路16号四期LD-1","type":"user","value":1},{"key":"9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"cell","value":1},{"key":"230983937","xname":"警官学院本部三期LF-1","type":"cell","value":0.7333333333},{"key":"230983940","xname":"警官学院本部三期LD-1","type":"cell","value":0.6666666667},{"key":"230983942","xname":"230983942","type":"cell","value":1},{"key":"231048196","xname":"小行路16号四期LD-1","type":"cell","value":1}]},{"x":1558875240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9954742931},{"key":"user_9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"user","value":1},{"key":"user_230983940","xname":"警官学院本部三期LD-1","type":"user","value":1},{"key":"user_230983942","xname":"230983942","type":"user","value":1},{"key":"9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"cell","value":1},{"key":"230983940","xname":"警官学院本部三期LD-1","type":"cell","value":0.6666666667},{"key":"230983942","xname":"230983942","type":"cell","value":1}]},{"x":1558875600000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9954552493},{"key":"user_9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"user","value":1},{"key":"user_230983940","xname":"警官学院本部三期LD-1","type":"user","value":1},{"key":"user_230983942","xname":"230983942","type":"user","value":1},{"key":"user_231048196","xname":"小行路16号四期LD-1","type":"user","value":1},{"key":"9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"cell","value":1},{"key":"230983940","xname":"警官学院本部三期LD-1","type":"cell","value":0.8333333333},{"key":"230983942","xname":"230983942","type":"cell","value":1},{"key":"231048196","xname":"小行路16号四期LD-1","type":"cell","value":1}]},{"x":1558875840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.995637191},{"key":"user_230983940","xname":"警官学院本部三期LD-1","type":"user","value":1},{"key":"230983940","xname":"警官学院本部三期LD-1","type":"cell","value":0.6}]},{"x":1558876200000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9957480291},{"key":"user_9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"user","value":1},{"key":"user_230983940","xname":"警官学院本部三期LD-1","type":"user","value":1},{"key":"user_230983942","xname":"230983942","type":"user","value":1},{"key":"9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"cell","value":0.5},{"key":"230983940","xname":"警官学院本部三期LD-1","type":"cell","value":0.8},{"key":"230983942","xname":"230983942","type":"cell","value":1}]},{"x":1558876440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9957927891},{"key":"user_9634970","xname":"龙福花园西高架路灯站M三期LF（100/240/330)-4","type":"user","value":1},{"key":"user_9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"user","value":1},{"key":"user_84900354","xname":"梦都大街东二期LF-2","type":"user","value":1},{"key":"user_230983940","xname":"警官学院本部三期LD-1","type":"user","value":1},{"key":"user_230983942","xname":"230983942","type":"user","value":1},{"key":"9634970","xname":"龙福花园西高架路灯站M三期LF（100/240/330)-4","type":"cell","value":1},{"key":"9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"cell","value":0.01},{"key":"84900354","xname":"梦都大街东二期LF-2","type":"cell","value":1},{"key":"230983940","xname":"警官学院本部三期LD-1","type":"cell","value":1},{"key":"230983942","xname":"230983942","type":"cell","value":1}]},{"x":1558876800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.995751683},{"key":"user_9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"user","value":1},{"key":"user_230983940","xname":"警官学院本部三期LD-1","type":"user","value":1},{"key":"user_230983942","xname":"230983942","type":"user","value":1},{"key":"9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"cell","value":0.01},{"key":"230983940","xname":"警官学院本部三期LD-1","type":"cell","value":0.8333333333},{"key":"230983942","xname":"230983942","type":"cell","value":1}]},{"x":1558877040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9955126156},{"key":"user_9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"user","value":1},{"key":"user_84900354","xname":"梦都大街东二期LF-2","type":"user","value":1},{"key":"user_230983942","xname":"230983942","type":"user","value":1},{"key":"user_231101700","xname":"小行里四期LD-1","type":"user","value":1},{"key":"9634971","xname":"龙福花园西高架路灯站M四期LD-4","type":"cell","value":1},{"key":"84900354","xname":"梦都大街东二期LF-2","type":"cell","value":0.002},{"key":"230983942","xname":"230983942","type":"cell","value":1},{"key":"231101700","xname":"小行里四期LD-1","type":"cell","value":0.2}]},{"x":1558877400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9956279321},{"key":"user_84900354","xname":"梦都大街东二期LF-2","type":"user","value":1},{"key":"user_230983939","xname":"230983939","type":"user","value":1},{"key":"user_230983942","xname":"230983942","type":"user","value":1},{"key":"84900354","xname":"梦都大街东二期LF-2","type":"cell","value":0.5},{"key":"230983939","xname":"230983939","type":"cell","value":1},{"key":"230983942","xname":"230983942","type":"cell","value":1}]},{"x":1558877640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9953470583},{"key":"user_9373601","xname":"9373601","type":"user","value":1},{"key":"user_230983937","xname":"警官学院本部三期LF-1","type":"user","value":1},{"key":"user_230983940","xname":"警官学院本部三期LD-1","type":"user","value":1},{"key":"9373601","xname":"9373601","type":"cell","value":1},{"key":"230983937","xname":"警官学院本部三期LF-1","type":"cell","value":0.875},{"key":"230983940","xname":"警官学院本部三期LD-1","type":"cell","value":1}]},{"x":1558878000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9954006762},{"key":"user_84001286","xname":"84001286","type":"user","value":1},{"key":"user_84001289","xname":"安德门北五期LD-3","type":"user","value":1},{"key":"user_230983937","xname":"警官学院本部三期LF-1","type":"user","value":1},{"key":"user_231042817","xname":"231042817","type":"user","value":1},{"key":"user_231042821","xname":"安德门四期LD-2","type":"user","value":1},{"key":"84001286","xname":"84001286","type":"cell","value":0.6666666667},{"key":"84001289","xname":"安德门北五期LD-3","type":"cell","value":0.75},{"key":"230983937","xname":"警官学院本部三期LF-1","type":"cell","value":1},{"key":"231042817","xname":"231042817","type":"cell","value":0.5},{"key":"231042821","xname":"安德门四期LD-2","type":"cell","value":1}]},{"x":1558878240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9953590609},{"key":"user_84001285","xname":"安德门北五期LF-2","type":"user","value":1},{"key":"user_161154456","xname":"雨虹宾馆三期LD-2","type":"user","value":1},{"key":"user_161154466","xname":"雨虹宾馆三期LD-22","type":"user","value":1},{"key":"user_161154478","xname":"雨虹宾馆三期LD-23","type":"user","value":1},{"key":"user_231042821","xname":"安德门四期LD-2","type":"user","value":1},{"key":"user_231042831","xname":"安德门四期LD-22","type":"user","value":1},{"key":"user_231042842","xname":"安德门四期LD-24","type":"user","value":1},{"key":"84001285","xname":"安德门北五期LF-2","type":"cell","value":1},{"key":"161154456","xname":"雨虹宾馆三期LD-2","type":"cell","value":1},{"key":"161154466","xname":"雨虹宾馆三期LD-22","type":"cell","value":1},{"key":"161154478","xname":"雨虹宾馆三期LD-23","type":"cell","value":0.0033333333},{"key":"231042821","xname":"安德门四期LD-2","type":"cell","value":1},{"key":"231042831","xname":"安德门四期LD-22","type":"cell","value":0.0033333333},{"key":"231042842","xname":"安德门四期LD-24","type":"cell","value":1}]},{"x":1558878600000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.995598994},{"key":"user_84001289","xname":"安德门北五期LD-3","type":"user","value":1},{"key":"user_230870031","xname":"世纪名门四期LD-22","type":"user","value":1},{"key":"user_231042831","xname":"安德门四期LD-22","type":"user","value":1},{"key":"user_231042832","xname":"安德门四期LD-12","type":"user","value":1},{"key":"84001289","xname":"安德门北五期LD-3","type":"cell","value":1},{"key":"230870031","xname":"世纪名门四期LD-22","type":"cell","value":1},{"key":"231042831","xname":"安德门四期LD-22","type":"cell","value":0.0025},{"key":"231042832","xname":"安德门四期LD-12","type":"cell","value":0.00125}]},{"x":1558878840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9954974646},{"key":"user_84900356","xname":"梦都大街东四期LD-1","type":"user","value":1},{"key":"user_230694405","xname":"玻纤院三四期LD-2","type":"user","value":1},{"key":"user_230983940","xname":"警官学院本部三期LD-1","type":"user","value":1},{"key":"84900356","xname":"梦都大街东四期LD-1","type":"cell","value":0.6666666667},{"key":"230694405","xname":"玻纤院三四期LD-2","type":"cell","value":1},{"key":"230983940","xname":"警官学院本部三期LD-1","type":"cell","value":1}]},{"x":1558879200000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9950995286},{"key":"user_230694406","xname":"玻纤院三四期LD-3","type":"user","value":1},{"key":"230694406","xname":"玻纤院三四期LD-3","type":"cell","value":0.7142857143}]},{"x":1558879440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9953760174},{"key":"user_230694406","xname":"玻纤院三四期LD-3","type":"user","value":1},{"key":"230694406","xname":"玻纤院三四期LD-3","type":"cell","value":1}]},{"x":1558879800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9951850744},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"user_230694406","xname":"玻纤院三四期LD-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1},{"key":"230694406","xname":"玻纤院三四期LD-3","type":"cell","value":0.8333333333}]},{"x":1558880040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9949703429},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.8571428571}]},{"x":1558880940000,"y":"-","data":{}},{"x":1558881240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.994967055},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558881840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9945707447},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.8}]},{"x":1558882200000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9948579343},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.8888888889}]},{"x":1558882800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9939428239},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558883400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9941380656},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558884300000,"y":"-","data":{}},{"x":1558885500000,"y":"-","data":{}},{"x":1558886700000,"y":"-","data":{}},{"x":1558887240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9934890125},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.875}]},{"x":1558888140000,"y":"-","data":{}},{"x":1558888800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9931168473},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558889040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9930642137},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.875}]},{"x":1558889400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9930513202},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558890000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9913137858},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558890600000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9917608837},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558891440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9919536359},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.875}]},{"x":1558891800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.992038946},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558892640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9921395883},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.9}]},{"x":1558893000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9917963625},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.8571428571}]},{"x":1558893240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9916254982},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558893840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9906900157},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558894200000,"y":1,"data":[{"key":"mme_","xname":"","type":"mme","value":"-"},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558894800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9907744003},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.75}]},{"x":1558895040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9910103871},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.8888888889}]},{"x":1558895400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9911358202},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558896000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9911191207},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.8571428571}]},{"x":1558896240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9913249626},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558896600000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9910880093},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558897440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9898634416},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558897800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9898687862},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558898040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9904318487},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558898400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9905490956},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558898640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9901175585},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.9}]},{"x":1558899000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9908625702},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558899840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9907920026},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.8823529412}]},{"x":1558900440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9903987903},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558900800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.988975981},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.8571428571}]},{"x":1558901040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9893841615},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.9285714286}]},{"x":1558901940000,"y":"-","data":{}},{"x":1558903140000,"y":"-","data":{}},{"x":1558904040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9906858053},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558904640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9901584097},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558905000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.990618792},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.8888888889}]},{"x":1558905240000,"y":1,"data":[{"key":"mme_","xname":"","type":"mme","value":"-"},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558905840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9916036084},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.9230769231}]},{"x":1558906200000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9917770358},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558906440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9922609217},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558907040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9923053942},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558907400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9926539691},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558908300000,"y":"-","data":{}},{"x":1558909440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9941873967},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.9}]},{"x":1558909800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9945189095},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":1}]},{"x":1558910040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.994758362},{"key":"user_230694403","xname":"玻纤院三三期LF-3","type":"user","value":1},{"key":"user_230694406","xname":"玻纤院三四期LD-3","type":"user","value":1},{"key":"230694403","xname":"玻纤院三三期LF-3","type":"cell","value":0.9},{"key":"230694406","xname":"玻纤院三四期LD-3","type":"cell","value":1}]},{"x":1558910400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9946891153},{"key":"user_84680974","xname":"高层外打禹州吉庆里六期LE(W)-3","type":"user","value":1},{"key":"user_84680975","xname":"高层外打禹州吉庆里六期LE(W)-4","type":"user","value":1},{"key":"user_84900356","xname":"梦都大街东四期LD-1","type":"user","value":1},{"key":"user_230637830","xname":"虹悦城西四期LD-3","type":"user","value":1},{"key":"84680974","xname":"高层外打禹州吉庆里六期LE(W)-3","type":"cell","value":1},{"key":"84680975","xname":"高层外打禹州吉庆里六期LE(W)-4","type":"cell","value":1},{"key":"84900356","xname":"梦都大街东四期LD-1","type":"cell","value":0.4},{"key":"230637830","xname":"虹悦城西四期LD-3","type":"cell","value":1}]},{"x":1558910640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9945542556},{"key":"user_9784747","xname":"9784747","type":"user","value":1},{"key":"user_9947814","xname":"弘学路西四期LD-12","type":"user","value":1},{"key":"user_161277095","xname":"应天东街四路灯站M五期LD-2","type":"user","value":1},{"key":"user_161277098","xname":"应天东街国际路路灯站M六期LD-3","type":"user","value":1},{"key":"user_230781968","xname":"晨光集团四期LD-32","type":"user","value":1},{"key":"user_230881288","xname":"光卡路五期LD-32","type":"user","value":1},{"key":"9784747","xname":"9784747","type":"cell","value":0.2},{"key":"9947814","xname":"弘学路西四期LD-12","type":"cell","value":0.4545454545},{"key":"161277095","xname":"应天东街四路灯站M五期LD-2","type":"cell","value":0.0014285714},{"key":"161277098","xname":"应天东街国际路路灯站M六期LD-3","type":"cell","value":0.8333333333},{"key":"230781968","xname":"晨光集团四期LD-32","type":"cell","value":1},{"key":"230881288","xname":"光卡路五期LD-32","type":"cell","value":1}]},{"x":1558911000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9951796929},{"key":"user_9486747","xname":"前潘村东四期LD-2","type":"user","value":1},{"key":"user_9931418","xname":"南圩村北四期LD-1","type":"user","value":1},{"key":"user_84353542","xname":"顾家村三期LD-3","type":"user","value":1},{"key":"user_219089419","xname":"远洋绿地云峰公馆7栋高层外打五期LE(W)-1","type":"user","value":1},{"key":"9486747","xname":"前潘村东四期LD-2","type":"cell","value":0.6666666667},{"key":"9931418","xname":"南圩村北四期LD-1","type":"cell","value":1},{"key":"84353542","xname":"顾家村三期LD-3","type":"cell","value":1},{"key":"219089419","xname":"远洋绿地云峰公馆7栋高层外打五期LE(W)-1","type":"cell","value":0.125}]},{"x":1558911240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9947858063},{"key":"user_9754524","xname":"上坊医院四期LD-3","type":"user","value":1},{"key":"user_231048964","xname":"泥东村五期LD-1","type":"user","value":1},{"key":"9754524","xname":"上坊医院四期LD-3","type":"cell","value":0.8333333333},{"key":"231048964","xname":"泥东村五期LD-1","type":"cell","value":1}]},{"x":1558911600000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9950432006},{"key":"user_9406619","xname":"江宁金建大厦东四期LD-2","type":"user","value":1},{"key":"user_230400004","xname":"方天电力四期LD-1","type":"user","value":1},{"key":"9406619","xname":"江宁金建大厦东四期LD-2","type":"cell","value":0.4},{"key":"230400004","xname":"方天电力四期LD-1","type":"cell","value":1}]},{"x":1558911840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9950830916},{"key":"user_220480270","xname":"220480270","type":"user","value":1},{"key":"user_230400004","xname":"方天电力四期LD-1","type":"user","value":1},{"key":"220480270","xname":"220480270","type":"cell","value":1},{"key":"230400004","xname":"方天电力四期LD-1","type":"cell","value":1}]},{"x":1558912200000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9952714212},{"key":"user_9387163","xname":"帕威尔南四期LD-2","type":"user","value":1},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"user_9541787","xname":"宝鼎路五期LD-3","type":"user","value":1},{"key":"user_220480260","xname":"220480260","type":"user","value":1},{"key":"user_220480270","xname":"220480270","type":"user","value":1},{"key":"user_230825734","xname":"帕威尔五期LD-3","type":"user","value":1},{"key":"9387163","xname":"帕威尔南四期LD-2","type":"cell","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1},{"key":"9541787","xname":"宝鼎路五期LD-3","type":"cell","value":1},{"key":"220480260","xname":"220480260","type":"cell","value":1},{"key":"220480270","xname":"220480270","type":"cell","value":1},{"key":"230825734","xname":"帕威尔五期LD-3","type":"cell","value":1}]},{"x":1558912440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9955879013},{"key":"user_9541784","xname":"宝鼎路四期LF-2","type":"user","value":1},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541784","xname":"宝鼎路四期LF-2","type":"cell","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558912800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9956665021},{"key":"user_9541784","xname":"宝鼎路四期LF-2","type":"user","value":1},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541784","xname":"宝鼎路四期LF-2","type":"cell","value":0.01},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558913040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9960076216},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558913400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9960803074},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558913640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9962708866},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558914000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9959694568},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558914240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9964983018},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558915140000,"y":"-","data":{}},{"x":1558915440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9967145676},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558915800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9964839698},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558916040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9961063203},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558916400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9965866929},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558916640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9961608646},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558917000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9964579634},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558917240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966195535},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558917840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9967225153},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":0.6666666667}]},{"x":1558918200000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9968604041},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558918440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.996551604},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558918800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9963580355},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558919040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9960408119},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558919400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9971267253},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558919640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9968545074},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558920000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9963532227},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558920240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9965090442},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558920840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9968422441},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558921200000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.996856644},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558921800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966443122},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558922040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9965113782},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558922400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966058425},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558923000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.996615296},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558923240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9964383115},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558923600000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9969098947},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558923840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.997073831},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558924200000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9969487902},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558924440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9969811371},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558924800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.997114692},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558925040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9965641195},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"user_9541794","xname":"宝鼎路四期LF-22","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1},{"key":"9541794","xname":"宝鼎路四期LF-22","type":"cell","value":1}]},{"x":1558925400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9968607832},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558925640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9964714899},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558926240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9970237337},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558926840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.996977434},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558927200000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9965374402},{"key":"user_9541784","xname":"宝鼎路四期LF-2","type":"user","value":1},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541784","xname":"宝鼎路四期LF-2","type":"cell","value":0.01},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558927440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9964952192},{"key":"user_9541784","xname":"宝鼎路四期LF-2","type":"user","value":1},{"key":"9541784","xname":"宝鼎路四期LF-2","type":"cell","value":1}]},{"x":1558927800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9964038029},{"key":"user_9541784","xname":"宝鼎路四期LF-2","type":"user","value":1},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"user_9541794","xname":"宝鼎路四期LF-22","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"9541784","xname":"宝鼎路四期LF-2","type":"cell","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1},{"key":"9541794","xname":"宝鼎路四期LF-22","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.5}]},{"x":1558928040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966152022},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558928940000,"y":"-","data":{}},{"x":1558931640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9965675208},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558932000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9968497853},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558932240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9965505298},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558932600000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9961987754},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558932840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966074932},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558933200000,"y":1,"data":[{"key":"mme_","xname":"","type":"mme","value":"-"},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558933800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966753989},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":0.5}]},{"x":1558934040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966045081},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558934640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9963335176},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558935000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966812336},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558935240000,"y":1,"data":[{"key":"mme_","xname":"","type":"mme","value":"-"},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558935600000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9968393678},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1}]},{"x":1558935840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966624291},{"key":"user_9541786","xname":"宝鼎路五期LD-2","type":"user","value":1},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"9541786","xname":"宝鼎路五期LD-2","type":"cell","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.7142857143},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":0.6666666667},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.5},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1}]},{"x":1558936200000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9964796288},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.9090909091},{"key":"219026724","xname":"219026724","type":"cell","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.5},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.625}]},{"x":1558936440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9962812303},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_220323073","xname":"江宁苏博特二期LF-1","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":1},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":0.6},{"key":"220323073","xname":"江宁苏博特二期LF-1","type":"cell","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.3333333333},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558936800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9961804488},{"key":"user_220323113","xname":"江宁苏博特六期FD-1","type":"user","value":1},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"220323113","xname":"江宁苏博特六期FD-1","type":"cell","value":1},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558937040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9960389144},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023620","xname":"黄龙山三期LD-1","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_220323113","xname":"江宁苏博特六期FD-1","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219023620","xname":"黄龙山三期LD-1","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.3333333333},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":0.8},{"key":"219026724","xname":"219026724","type":"cell","value":0.5},{"key":"220323113","xname":"江宁苏博特六期FD-1","type":"cell","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.3333333333},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.6666666667},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":0.01}]},{"x":1558937400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9962766863},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558938000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9965554173},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":1},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558938240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966476183},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.5},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1}]},{"x":1558938600000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9967480471},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_220323073","xname":"江宁苏博特二期LF-1","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":1},{"key":"220323073","xname":"江宁苏博特二期LF-1","type":"cell","value":0.8},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":1},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.8333333333}]},{"x":1558938840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9963998637},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.005},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1}]},{"x":1558939200000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966301968},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":0.75},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":1},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":0.75},{"key":"219026724","xname":"219026724","type":"cell","value":0.01},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.3333333333},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.8333333333}]},{"x":1558939440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.996468752},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.6666666667},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":1}]},{"x":1558939800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9964703133},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.5},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.01},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1}]},{"x":1558940040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9963888918},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.6666666667},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.005},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.3333333333}]},{"x":1558940400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9962493516},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":0.8333333333},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.005}]},{"x":1558940640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9965629049},{"key":"user_219023620","xname":"黄龙山三期LD-1","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_220323073","xname":"江宁苏博特二期LF-1","type":"user","value":1},{"key":"user_220323113","xname":"江宁苏博特六期FD-1","type":"user","value":1},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"219023620","xname":"黄龙山三期LD-1","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":1},{"key":"220323073","xname":"江宁苏博特二期LF-1","type":"cell","value":1},{"key":"220323113","xname":"江宁苏博特六期FD-1","type":"cell","value":0.5},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558941000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9965149363},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558941240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966238986},{"key":"user_219023620","xname":"黄龙山三期LD-1","type":"user","value":1},{"key":"user_220323113","xname":"江宁苏博特六期FD-1","type":"user","value":1},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"219023620","xname":"黄龙山三期LD-1","type":"cell","value":1},{"key":"220323113","xname":"江宁苏博特六期FD-1","type":"cell","value":0.01},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558941840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9967284783},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558942200000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9963470119},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":1},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1}]},{"x":1558942440000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966934442},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.8}]},{"x":1558942800000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9969240675},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.6666666667},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.8888888889}]},{"x":1558943040000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966734214},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":0.6363636364},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.6666666667}]},{"x":1558943400000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9964973402},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1}]},{"x":1558943640000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.996434466},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_220323080","xname":"220323080","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.8},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":1},{"key":"220323080","xname":"220323080","type":"cell","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.5},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.5714285714}]},{"x":1558944000000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.996878198},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.01},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1}]},{"x":1558944240000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9966023215},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_220323073","xname":"江宁苏博特二期LF-1","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.75},{"key":"220323073","xname":"江宁苏博特二期LF-1","type":"cell","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":1},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.9090909091}]},{"x":1558944600000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9967635828},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_220323080","xname":"220323080","type":"user","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.8571428571},{"key":"220323080","xname":"220323080","type":"cell","value":1}]},{"x":1558944840000,"y":1,"data":[{"key":"mme_1682242329","xname":"NJMME09BHW","type":"mme","value":0.9965291985},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_220323073","xname":"江宁苏博特二期LF-1","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":0.875},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.75},{"key":"219026724","xname":"219026724","type":"cell","value":1},{"key":"220323073","xname":"江宁苏博特二期LF-1","type":"cell","value":0.7272727273},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.005},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.7142857143}]},{"x":1558945200000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9975755192},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":0.8333333333},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.75},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":0.8},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.5},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.6666666667}]},{"x":1558945440000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9974409159},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":0.75},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.875},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558945800000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9974810083},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558946040000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.997543064},{"key":"user_219023620","xname":"黄龙山三期LD-1","type":"user","value":1},{"key":"user_220323113","xname":"江宁苏博特六期FD-1","type":"user","value":1},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"219023620","xname":"黄龙山三期LD-1","type":"cell","value":1},{"key":"220323113","xname":"江宁苏博特六期FD-1","type":"cell","value":1},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558946400000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9974177219},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_220323113","xname":"江宁苏博特六期FD-1","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":1},{"key":"219026724","xname":"219026724","type":"cell","value":1},{"key":"220323113","xname":"江宁苏博特六期FD-1","type":"cell","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":1},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558946640000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9974056036},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":1},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":0.8888888889},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":1},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.7142857143}]},{"x":1558947000000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9974339311},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_220426276","xname":"220426276","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":1},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":0.8},{"key":"219026724","xname":"219026724","type":"cell","value":1},{"key":"220426276","xname":"220426276","type":"cell","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.5},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":0.6}]},{"x":1558947240000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9975138921},{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_220323073","xname":"江宁苏博特二期LF-1","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":1},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":1},{"key":"219026724","xname":"219026724","type":"cell","value":1},{"key":"220323073","xname":"江宁苏博特二期LF-1","type":"cell","value":0.875},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":1},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1}]},{"x":1558947600000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9973701502},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":1},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":0.6666666667},{"key":"219026724","xname":"219026724","type":"cell","value":1},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":0.25},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558947840000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9973034613},{"key":"user_218963971","xname":"218963971","type":"user","value":1},{"key":"user_218963981","xname":"218963981","type":"user","value":1},{"key":"user_219026690","xname":"219026690","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_230520612","xname":"230520612","type":"user","value":1},{"key":"218963971","xname":"218963971","type":"cell","value":0.4},{"key":"218963981","xname":"218963981","type":"cell","value":0.01},{"key":"219026690","xname":"219026690","type":"cell","value":1},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":1},{"key":"219026724","xname":"219026724","type":"cell","value":1},{"key":"230520612","xname":"230520612","type":"cell","value":1}]},{"x":1558948200000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9974715508},{"key":"user_218963971","xname":"218963971","type":"user","value":1},{"key":"user_218963981","xname":"218963981","type":"user","value":1},{"key":"user_218964002","xname":"218964002","type":"user","value":1},{"key":"user_219026690","xname":"219026690","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_230520612","xname":"230520612","type":"user","value":1},{"key":"218963971","xname":"218963971","type":"cell","value":0.3333333333},{"key":"218963981","xname":"218963981","type":"cell","value":0.01},{"key":"218964002","xname":"218964002","type":"cell","value":1},{"key":"219026690","xname":"219026690","type":"cell","value":1},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":0.75},{"key":"219026724","xname":"219026724","type":"cell","value":0.5},{"key":"230520612","xname":"230520612","type":"cell","value":1}]},{"x":1558948440000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9973715268},{"key":"user_218963971","xname":"218963971","type":"user","value":1},{"key":"user_218963981","xname":"218963981","type":"user","value":1},{"key":"user_218964002","xname":"218964002","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_219026723","xname":"219026723","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_230520612","xname":"230520612","type":"user","value":1},{"key":"218963971","xname":"218963971","type":"cell","value":0.625},{"key":"218963981","xname":"218963981","type":"cell","value":0.5},{"key":"218964002","xname":"218964002","type":"cell","value":1},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":0.6666666667},{"key":"219026723","xname":"219026723","type":"cell","value":1},{"key":"219026724","xname":"219026724","type":"cell","value":1},{"key":"230520612","xname":"230520612","type":"cell","value":1}]},{"x":1558948800000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9973945177},{"key":"user_219026723","xname":"219026723","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_230520612","xname":"230520612","type":"user","value":1},{"key":"219026723","xname":"219026723","type":"cell","value":1},{"key":"219026724","xname":"219026724","type":"cell","value":1},{"key":"230520612","xname":"230520612","type":"cell","value":1}]},{"x":1558949040000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9972242988},{"key":"user_218963971","xname":"218963971","type":"user","value":1},{"key":"218963971","xname":"218963971","type":"cell","value":0.5}]},{"x":1558949400000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9973426348},{"key":"user_219023620","xname":"黄龙山三期LD-1","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"219023620","xname":"黄龙山三期LD-1","type":"cell","value":1},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1}]},{"x":1558950000000,"y":1,"data":[{"key":"mme_1682243201","xname":"NJMME07BHW","type":"mme","value":0.9974877461},{"key":"user_83981317","xname":"帕威尔西四期LD-2","type":"user","value":1},{"key":"user_220323113","xname":"江宁苏博特六期FD-1","type":"user","value":1},{"key":"user_230520581","xname":"天云阁五期LD-2","type":"user","value":1},{"key":"83981317","xname":"帕威尔西四期LD-2","type":"cell","value":1},{"key":"220323113","xname":"江宁苏博特六期FD-1","type":"cell","value":1},{"key":"230520581","xname":"天云阁五期LD-2","type":"cell","value":1}]},{"x":1558950240000,"y":1,"data":[{"key":"user_218963970","xname":"上坊佘村二期LF-2","type":"user","value":1},{"key":"user_219023650","xname":"黄龙山五期FG-1","type":"user","value":1},{"key":"user_219026691","xname":"佘村北二期LF-3","type":"user","value":1},{"key":"user_219026724","xname":"219026724","type":"user","value":1},{"key":"user_220323073","xname":"江宁苏博特二期LF-1","type":"user","value":1},{"key":"user_220499203","xname":"窑岗村搬迁二期LF-3","type":"user","value":1},{"key":"user_230520578","xname":"天云阁三期LF-2","type":"user","value":1},{"key":"218963970","xname":"上坊佘村二期LF-2","type":"cell","value":1},{"key":"219023650","xname":"黄龙山五期FG-1","type":"cell","value":1},{"key":"219026691","xname":"佘村北二期LF-3","type":"cell","value":1},{"key":"219026724","xname":"219026724","type":"cell","value":1},{"key":"220323073","xname":"江宁苏博特二期LF-1","type":"cell","value":0.6666666667},{"key":"220499203","xname":"窑岗村搬迁二期LF-3","type":"cell","value":1},{"key":"230520578","xname":"天云阁三期LF-2","type":"cell","value":1}]}],"code":0}
+
+
+            //返回
+            $('.start button').click(function() {
+                localStorage.removeItem('basis_url_back');
+                localStorage.removeItem('basis_two_name');
+                localStorage.setItem('basis', hrefIndex());
+                localStorage.setItem('fiel_number',window.fiel_number);
+                window.location.href = window.basis_url_back;
+            })
+            //初始化显示第几项
+            if (localStorage.getItem('basis')) {
+                var index = localStorage.getItem('basis');
+                $('.bTab > div').eq(index).addClass('active');
+                $('.bDiv').eq(index).show();
+                if (index == 0) {
+                    basis_one = 1;
+                    business(); //业务状态接口请求方法
+                } else if (index == 1) {
+                    basis_two = 1;
+                    wireless(); //无线异常定界接口请求方法
+                    wirelessAbnomal();//无线异常定界-异常时间段-接口请求方法
+                    if (localStorage.getItem('basis_two_name')){
+                        var tHtml = localStorage.getItem('basis_two_name'); //页面初次加载时折线图处于的tab内容
+                        $('.bDiv').eq(1).find('.userTab2').find('span').each(function(){
+                            var txt = $(this).text();
+                            if(txt == tHtml){
+                                $(this).addClass('active').siblings().removeClass('active');
+                            }
+                        })
+                    }else{
+                        var tHtml = $('.bDiv').eq(1).find('.userTab2').find('span.active').text();
+                    }
+                    wirelessCharts(basis_two_name[tHtml],tHtml)//无线异常定界-MR数据表格展示-接口请求方法
+                } else if (index == 2) {
+                    basis_three = 1;
+                    // 性能指标定界，初始化调用
+                    var tHtml, basis_id;
+                        //用户面-start
+                    if (localStorage.getItem('basis_two_name')) {
+                        //有值
+                        tHtml = localStorage.getItem('basis_two_name');
+                        basis_id = basis_two_name[tHtml];
+                        $('.bDiv').eq(2).find('.userTab').eq(1).find('span').each(function() {
+                            var txt = $(this).text();
+                            if(txt == tHtml){
+                                $(this).addClass('active').siblings().removeClass('active');
+                            }
+                        })
+                    }
+                    tHtml = $('.bDiv').eq(2).find('.userTab').eq(1).find('span.active').text();
+                    basis_id = basis_two_name[tHtml];
+                    if (tHtml == 'TCP一二次握手时延' || tHtml == 'TCP二三次握手时延' || tHtml == 'HTTP500KB以上大包下载速率' || tHtml == 'HTTP响应时延') {
+                        performance('/dash/return_basis_power/', 'userFace', basis_id, tHtml, '#5E9DD6', 'red',performance_d1);
+                    } else {
+                        performance('/dash/return_basis_power/', 'userFace', basis_id, tHtml, 'red', '#5E9DD6',performance_d1);
+                    }
+                        //用户面-end
+                        //控制面-start
+                    if (localStorage.getItem('basis_two_name')) {
+                        tHtml = localStorage.getItem('basis_two_name');
+                        basis_id = basis_two_name[tHtml];
+                        $('.bDiv').eq(2).find('.userTab').eq(2).find('span').each(function() {
+                            if ($(this).text() == tHtml) {
+                                $(this).addClass('active').siblings().removeClass('active');
+                            }
+                        })
+                    }
+                    tHtml = $('.bDiv').eq(2).find('.userTab').eq(2).find('.active').text();
+                    basis_id = basis_two_name[tHtml];
+                    performance('/dash/return_basis_ctrl/', 'controlFace', basis_id, tHtml, 'red', '#5E9DD6',performance_d2);
+                        //控制面-end
+                    //异常时间段
+                    performanceAbnomal();
+                } else if (index == 3) {
+                    basis_four = 1;
+                    userDataDelimit();
+                    userDataForm('1','mme'); //S1-MME原始表
+                    userDataForm('1','http'); //S1-HTTP原始表
+                }
+            } else {
+                $('.bTab > div').eq(0).addClass('active');
+                $('.bDiv').eq(0).show();
+                business();
+                basis_one = 1;
+            }
+            //MR数据展示tab切换
+            $('.bDiv').eq(1).find('.userTab2').find('span').each(function(){
+                $(this).click(function(){
+                    if(localStorage.getItem('per_echarts') == 1){
+                        alert('数据解析中，请稍后...');
+                        return false
+                    };
+                    $(this).addClass('active').siblings().removeClass('active');
+                    var tHtml = $(this).text();
+                    wirelessCharts(basis_two_name[tHtml],tHtml)
+                })
+            })
+            //性能-用户面tab切换
+            $('.bDiv').eq(2).find('.userTab').eq(1).find('span').each(function() {
+                $(this).click(function() {
+                    if(localStorage.getItem('per_echarts') == 1){
+                        alert('数据解析中，请稍后...');
+                        return false
+                    };
+                    $(this).addClass('active').siblings().removeClass('active');
+                    var tHtml = $(this).text();
+                    if (tHtml == 'TCP一二次握手时延' || tHtml == 'TCP二三次握手时延' || tHtml == 'TCP重传率' || tHtml == 'HTTP响应时延') {
+                        performance('/dash/return_basis_power/', 'userFace', basis_two_name[tHtml], tHtml, '#5E9DD6', 'red',performance_d1);
+                    } else {
+                        performance('/dash/return_basis_power/', 'userFace', basis_two_name[tHtml], tHtml, 'red', '#5E9DD6',performance_d1);
+                    }
+                })
+            })
+            //性能-控制面tab切换
+            $('.bDiv').eq(2).find('.userTab').eq(2).find('span').each(function() {
+                $(this).click(function() {
+                    if(localStorage.getItem('per_echarts') == 1){
+                        alert('数据解析中，请稍后...');
+                        return false
+                    };
+                    $(this).addClass('active').siblings().removeClass('active');
+                    var tHtml = $(this).text();
+                    performance('/dash/return_basis_ctrl/', 'controlFace', basis_two_name[tHtml], tHtml, 'red', '#5E9DD6',performance_d2);
+                })
+            })
+            //定界依据页面tab切换
+            var bTab = document.querySelector('.bTab');
+            var bSpan = bTab.querySelectorAll('div');
+            var bDiv = document.querySelectorAll('.bDiv');
+            var process_success = localStorage.getItem('process_success');
+            for (var i = 0; i < bSpan.length; i++) {
+                (function() {
+                    var index = i;
+                    bSpan[index].onclick = function() {
+                        for (var j = 0; j < bSpan.length; j++) {
+                            if(bSpan[j].className != 'disabled'){
+                                bSpan[j].className = '';
+                            }
+                            bDiv[j].style.display = 'none'
+                        }
+                        this.className = 'active';
+                        bDiv[index].style.display = 'block';
+                        localStorage.setItem('basis',index)
+                        var thsText = this.getElementsByTagName('span')[0].innerHTML;
+                        if (thsText == '业务状态定界') {
+                            if (basis_one == 0) {
+                                business();
+                                basis_one = 1;
+                            }
+                        }
+                        if (thsText == '无线异常定界') {
+                            if (basis_two == 0) {
+                                wireless();
+                                wirelessAbnomal();
+                                var tHtml = $('.bDiv').eq(1).find('.userTab2').find('span.active').text();
+                                wirelessCharts(basis_two_name[tHtml],tHtml);
+                                basis_two = 1;
+                            }
+                        }
+                        if (thsText == '性能指标定界') {
+                            var tHtml;
+                            if (basis_three == 0) {
+                                //用户面
+                                tHtml = $('.bDiv').eq(2).find('.userTab').eq(1).find('.active').text();
+                                if (tHtml == 'TCP一二次握手时延' || tHtml == 'TCP二三次握手时延' || tHtml == 'TCP重传率' || tHtml == 'HTTP响应时延') {
+                                    performance('/dash/return_basis_power/', 'userFace', basis_two_name[tHtml], tHtml, '#5E9DD6', 'red',performance_d1);
+                                } else {
+                                    performance('/dash/return_basis_power/', 'userFace', basis_two_name[tHtml], tHtml, 'red', '#5E9DD6',performance_d1);
+                                };
+                                //控制面
+                                var tHtml = $('.bDiv').eq(2).find('.userTab').eq(2).find('.active').text();
+                                performance('/dash/return_basis_ctrl/', 'controlFace', basis_two_name[tHtml], tHtml, 'red', '#5E9DD6',performance_d2);
+                                //异常时间段
+                                performanceAbnomal();
+                                basis_three = 1;
+                            }
+                        }
+                        if (thsText.indexOf('用户数据定界') != -1) {
+                            if(basis_four == 0){
+                                userDataDelimit();
+                                userDataForm('1','mme'); //S1-MME原始表
+                                userDataForm('1','http'); //S1-HTTP原始表
+                                basis_four = 1
+                            }
+                        }
+                    }
+                })()
+                if (bSpan[i].innerText == process_success) {
+                    for(var j = i+1;j < bSpan.length; j++){
+                        bSpan[j].className = 'disabled'
+                    }
+                    break;
+                }
+            };
+            //用户数据定界 - 切换
+            var userBarMark = 0;
+            $('.userData .module').eq(0).find('> .u_Tab span').on('click',function(){
+                $(this).addClass('active').siblings().removeClass('active');
+                if($(this).text() == '控制面'){
+                    $('.userData .module').eq(0).find('.controlNood').show();
+                    $('.userData .module').eq(0).find('.userNood').hide();
+                    $('.userData .module').eq(1).show();
+                    $('.userData .module').eq(2).hide();
+                }else{
+                    $('.userData .module').eq(0).find('.controlNood').hide();
+                    $('.userData .module').eq(0).find('.userNood').show();
+                    $('.userData .module').eq(1).hide();
+                    $('.userData .module').eq(2).show();
+                    if(userBarMark == 0){
+                        var uDate = window.codeTimeBar;
+                        if(uDate.code_list == ''){
+                            $('.userData').find('.module').eq(0).find('.userNood>div:first-child').find('.no-chart-pie').show();
+                            $('.userData').find('.module').eq(0).find('.userNood>div:first-child').find('.markSH').hide();
+                        }else{
+                            var xVal = [],
+                                yName = [],
+                                pieVal = [];
+                            for(var i=0;i<uDate.code_list.length;i++){
+                                xVal.push(uDate.code_list[i].value[0]);
+                                yName.push(uDate.code_list[i].title);
+                                pieVal.push(uDate.code_list[i].msg)
+                            }
+                            barChartHoriz('yhm',yName,xVal,pieVal)
+                        }
+                        if(uDate.time_list == ''){
+                            $('.userData').find('.module').eq(0).find('.userNood>div:last-child').find('.no-chart-pie').show();
+                            $('.userData').find('.module').eq(0).find('.userNood>div:last-child').find('.markSH').hide();
+                        }else{
+                            var xVal1 = [],
+                                yName1 = [];
+                            for(var i=0;i<uDate.time_list.length;i++){
+                                xVal1.push(uDate.time_list[i].value[0]);
+                                yName1.push(uDate.time_list[i].title);
+                            }
+                            barChartHoriz('yhs',yName1,xVal1)
+                        }
+                        //拖动
+                        var _move = false; //鼠标抬起阻止
+                        var _total; //当前可移动范围总长度
+                        var _x; //可移动区域距离左侧距离
+                        var _xElem; //点击位置到元素左侧距离
+                        $('.scrollBar').each(function(){
+                            var oId = $(this).prev().attr('id');
+                            if(Boolean(oId)){ // 响应时长
+                                if(yName1.length <= 6){
+                                    $(this).hide();
+                                    return false
+                                }
+                            }else{ // 响应码
+                                if(yName.length <= 6){
+                                    $(this).hide();
+                                    return false
+                                }
+                            }
+                            $(this).find('span').on('mousedown',function(e){
+                                var evt = e||window.event;
+                                var elem = evt.target;
+                                console.log(evt.pageX, evt.pageY);
+                                _move = true;
+                                _total = $(elem).parent().width() - $(elem).width();
+                                _x = evt.pageX - parseFloat($(elem).css("left"));
+                                _xElem = evt.pageX - parseFloat($(elem).css("left")) - _x;
+                                evt.preventDefault();//防止浏览器默认行为(W3C) 
+                            })
+                            $(this).find('span').on('mousemove',function(e){
+                                if(_move){
+                                    var evt = e||window.event;
+                                    var elem = evt.target;
+                                    var x = evt.pageX - _x - _xElem;
+                                    var zoom, //缩放大小根据移动距离和总距离的比例计算
+                                        move; //移动位置根据可移动距离和总距离的比例计算
+                                    if(x <=0){
+                                        x = 0
+                                    };
+                                    if(x >= _total){
+                                        x = _total
+                                    }
+                                    $(elem).css("left",x + 'px');
+                                    move = x / _total;
+                                    var oId = $(this).parents('.scrollBar').prev().attr('id');
+                                    if(Boolean(oId)){ // 响应时长
+                                        barChartHoriz('yhs',yName1,xVal1,move)
+                                    }else{ // 响应码
+                                        barChartHoriz('yhm',yName,xVal,pieVal,move)
+                                    }
+                                    evt.preventDefault();//防止浏览器默认行为(W3C) 
+                                }
+                            })
+                            $(document).on('mouseup',function(){
+                                _move = false;
+                            })
+                        });
+                        if(yName1.length <= 8){
+                            $('#yhs').parent().find('.scrollBar').hide;
+                            $('#yhs').parent().find('.scrollBar span').unbind();
+                        }
+                        if(yName.length <= 8){
+                            $('#yhm').parent().find('.scrollBar').hide;
+                            $('#yhm').parent().find('.scrollBar span').unbind();
+                        }
+                    }
+                }
+            })
+            //用户数据定界 - 表格翻页
+            $('.userData .page .pre').on('click',function(){
+                var pageNum;
+                var page = Number($(this).parent().find('.p_now i').text()); //当前页码
+                var pageAll = $(this).parent().find('.p_now').text().trim(); //总页数
+                var type = $(this).parents('.module').find('.title span').text(); //表格类型
+                pageAll = Number(pageAll.split('/')[1]);
+                if(type == 'S1-MME原始表'){
+                    type = 'mme'
+                }else{
+                    type = 'http'
+                };
+                if(page == 1){
+                    return false;
+                }else{
+                    pageNum = page - 1
+                }
+                userDataForm(pageNum,type);
+            })
+            $('.userData .page .next').on('click',function(){
+                var pageNum;
+                var page = Number($(this).parent().find('.p_now i').text()); //当前页码
+                var pageAll = $(this).parent().find('.p_now').text().trim(); //总页数
+                var type = $(this).parents('.module').find('.title span').text(); //表格类型
+                pageAll = Number(pageAll.split('/')[1]);
+                if(type == 'S1-MME原始表'){
+                    type = 'mme'
+                }else{
+                    type = 'http'
+                };
+                if(page == pageAll){
+                    return false
+                }else{
+                    pageNum = page + 1;
+                }
+                userDataForm(pageNum,type);
+            })
+            $('.userData .page input').on('input',function(){
+                var pageAll = $(this).parent().parent().find('.p_now').text().trim(); //总页数
+                pageAll = Number(pageAll.split('/')[1]);
+                $(this).val($(this).val().replace(/[^\d]/g,''));
+                if($(this).val() < 1){
+                    //$(this).val('1')
+                }else if($(this).val() > pageAll){
+                    $(this).val(pageAll)
+                }
+            })
+            //用户数据定界 - 表格跳页
+            $('.userData .page .jump').on('click',function(){
+                var pageNum = Number($(this).parent().find('input').val()); //输入页码
+                var page = Number($(this).parent().find('.p_now i').text()); //当前页码
+                var pageAll = $(this).parent().find('.p_now').text().trim(); //总页数
+                var type = $(this).parents('.module').find('.title span').text(); //表格类型
+                pageAll = Number(pageAll.split('/')[1]);
+                if(type == 'S1-MME原始表'){
+                    type = 'mme'
+                }else{
+                    type = 'http'
+                };
+                if(pageNum == page){
+                    return false;
+                }
+                userDataForm(pageNum,type);
+            })
+            $('.userData .page input').on('keydown',function(e){
+                var evt = e || window.event;
+                if(evt.keyCode == 13){
+                    var pageNum = Number($(this).parent().find('input').val()); //输入页码
+                    var page = Number($(this).parent().find('.p_now i').text()); //当前页码
+                    var pageAll = $(this).parent().find('.p_now').text().trim(); //总页数
+                    var type = $(this).parents('.module').find('.title span').text(); //表格类型
+                    pageAll = Number(pageAll.split('/')[1]);
+                    if(type == 'S1-MME原始表'){
+                        type = 'mme'
+                    }else{
+                        type = 'http'
+                    };
+                    if(pageNum == page){
+                        return false;
+                    }
+                    userDataForm(pageNum,type);
+                }
+            })
+            //无线异常定界-异常时间段tab切换
+            $('.wireless').find('.cont.abnomal .userTab span').click(function() {
+                $(this).addClass('active').siblings().removeClass('active');
+                var num = $(this).index();
+                $(this).parents('.abnomal').find('.tables').eq(num).addClass('table-active').siblings().removeClass('table-active')
+            });
+            //性能指标定界-异常时间段tab切换
+            $('.performance').find('.cont.abnomal .userTab span').click(function() {
+                $(this).addClass('active').siblings().removeClass('active');
+                var num = $(this).index();
+                $(this).parents('.abnomal').find('.tables').eq(num).addClass('table-active').siblings().removeClass('table-active')
+            });
+            //表单下载
+            $('.downLoad').on('click',function () {
+                var url = "/dash/download_xlsx/";
+                var form_number = window.fiel_number;
+                var form = $("<form></form>").attr("action", url).attr("method", "post");
+                form.append($("<input></input>").attr("type", "hidden").attr("name", "form_number").attr("value", form_number));
+                form.appendTo('body').submit().remove();
+            })
+        })
+    </script>
+</body>
+
+</html>

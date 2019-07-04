@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./static/css/comm.css">
+	<link rel="stylesheet" type="text/css" href="./static/css/total.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/specil.css">
+	<script type="text/javascript" src="./static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="./static/js/show.js"></script>
+    <script type="text/javascript" src="./static/js/comm.js"></script>
+</head>
+<body>
+    <!--start 头部-->
+	<div class="top">
+		<div class="title"><img src="./static/images/logo.png" alt=""></div>
+		<ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+		</ul>
+	</div>
+    <!--end 头部-->
+	<div class="content">
+        <!--start 测导航-->
+		<div class="nav">
+			<p>我的导航</p>
+			<ul>
+				<li onclick="window.location.href = 'index.html'">
+					<i class="nav_home"></i>
+					<span>首页</span>
+				</li>
+                <li class="active" onclick="window.location.href = 'import-idx.html'">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li onclick="window.location.href = 'enter-idx.html';">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+				<li onclick="window.location.href = 'analysis.html'">
+					<i class="nav_static"></i>
+					<span>统计分析</span>
+				</li>
+				<li onclick="window.location.href = 'params.html';">
+					<i class="nav_manage"></i>
+					<span>系统管理</span>
+				</li>
+			</ul>
+		</div>
+        <!--end 测导航-->
+		<div class="siled" id="siled">
+			<div class="path">EMOS工单 / 工单</div>
+			<div class="subtitle">
+				<span>工单 js-00-0000-01</span>
+				<div class="chul">待处理</div>
+			</div>
+			<div class="module">
+				<div class="title">
+					<span>基本信息</span>
+					<i></i>
+				</div>
+				<div class="cont">
+					<p class="P_L">
+						<strong>工单推送时间：</strong>
+						<span></span>
+					</p>
+					<p class="P_L">
+						<strong>定界开始时间：</strong>
+						<span></span>
+					</p>
+					<p class="P_L M_B0">
+						<strong>定界结束时间：</strong>
+						<span></span>
+					</p>
+					<p class="P_L M_B0">
+						<strong>结果确认时间：</strong>
+						<span></span>
+					</p>
+				</div>
+			</div>
+			<div class="module">
+				<div class="title">
+					<span>生成工单信息</span>
+					<i class="show"></i>
+				</div>
+				<div class="cont" style="display: block;">
+					<p>
+						<strong>投诉时间：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉地点：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>数据时间：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉类别：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>业务类别：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>业务名称：</strong>
+						<span></span>
+					</p>
+					<button>修改</button>
+				</div>
+			</div>
+			<div class="module">
+				<div class="title">
+					<span>原始工单信息</span>
+					<i class="show"></i>
+				</div>
+				<div class="cont" style="display: block;">
+					<p>
+						<strong>客服受理时间：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉电话：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>所在地市：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉类型：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉描述：</strong>
+						<span></span>
+					</p>
+				</div>
+			</div>
+			<div class="start">
+				<button style="float:right">开始定界</button>
+			</div>
+		</div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+            window.fiel_number = 'JS-00-0000-01'//localStorage.getItem('fiel_number'); //工单编号变量
+			$('.siled .subtitle span').text('工单编号 '+window.fiel_number);//工单编号展示
+			//修改跳转
+			$('.module').eq(1).find('.cont > button').on('click',function(e){
+				localStorage.setItem('workList',window.workList);
+				localStorage.setItem('file_msg',window.file_msg);
+				localStorage.setItem('fiel_number',window.fiel_number);
+				window.location.href = 'chulEdit.html';
+				e.stopPropagation();
+			})
+			//开始定界
+			$('.start button').on('click',function(){
+				localStorage.setItem('fiel_number',window.fiel_number);
+				window.location.href = 'process.html'
+			})
+			var respone = {"list_id": "JS-059-190528-43", "result_msg": {"error_type": "", "error_session": "", "error_net": "", "error_village": "", "error_time": "", "other_msg": ""}, "base_msg": {"push_time": 1559038776000.0, "start_time": "2019-05-28 18:44:28.769681", "end_time": "2019-05-28 18:47:36.861375", "sure_time": ""}, "list_msg": {"file_msg": {"error_time": 1558951236000.0, "error_address": "苏州市昆山市圣美精密工业黄浦江厂-西门", "business_name": "", "data_time_first": 1558944036000.0, "data_time_end": 1558951236000.0, "complain_name": "区域信号弱", "type": ""}, "original_msg": {"occ_city": "苏州", "complain_cell": "18361922412", "complain_type": "移动业务->网络质量->手机上网（4G）->全局流转->功能使用->区域信号弱->全局流转", "error_discribe": "客户反映2019-05-27 18:00:36，在地点（苏州市昆山市圣美精密工业黄浦江厂-西门(121.015916,31.453018)），出现（没有网络）投诉现象，已持续（长期时间），历史使用情况（5月24日出现过这个情况），周围用户情况是否正常（是），用户使用网络：4G，是否同意进行测试：是，客户终端型号为：OPPOR9m（VOLTE终端），4G功能是否开通：是。", "accept_time": 1558951383000.0}}}
+			respone.base_msg.push_time = timeChange(respone.base_msg.push_time);
+			respone.base_msg.start_time = timeChange(respone.base_msg.start_time);
+			respone.base_msg.end_time = timeChange(respone.base_msg.end_time);
+			respone.base_msg.sure_time = timeChange(respone.base_msg.sure_time);
+			respone.list_msg.file_msg.error_time = timeChange(respone.list_msg.file_msg.error_time);
+			respone.list_msg.file_msg.data_time_first = timeChange(respone.list_msg.file_msg.data_time_first);
+			respone.list_msg.file_msg.data_time_end = timeChange(respone.list_msg.file_msg.data_time_end);
+			respone.list_msg.original_msg.accept_time = timeChange(respone.list_msg.original_msg.accept_time);
+			//基本信息
+			if(respone.base_msg.push_time){
+				$('.module').eq(0).find('.cont span').eq(0).text(respone.base_msg.push_time);
+			}
+			if(respone.base_msg.start_time){
+				$('.module').eq(0).find('.cont span').eq(1).text(respone.base_msg.start_time);
+			}
+			if(respone.base_msg.end_time){
+				$('.module').eq(0).find('.cont span').eq(2).text(respone.base_msg.end_time);
+			}
+			if(respone.base_msg.sure_time){
+				$('.module').eq(0).find('.cont span').eq(3).text(respone.base_msg.sure_time);
+			}
+			//生成工单信息
+			if(respone.list_msg.file_msg.error_time){
+				$('.module').eq(1).find('.cont span').eq(0).text(respone.list_msg.file_msg.error_time);
+			}
+			if(respone.list_msg.file_msg.error_address){
+				$('.module').eq(1).find('.cont span').eq(1).text(respone.list_msg.file_msg.error_address);
+			}
+			if(respone.list_msg.file_msg.data_time_first && respone.list_msg.file_msg.data_time_end){
+				$('.module').eq(1).find('.cont span').eq(2).text(respone.list_msg.file_msg.data_time_first+'至'+respone.list_msg.file_msg.data_time_end);
+			}
+			if(respone.list_msg.file_msg.complain_name){
+				$('.module').eq(1).find('.cont span').eq(3).text(respone.list_msg.file_msg.complain_name);
+			}
+			if(respone.list_msg.file_msg.type){
+				$('.module').eq(1).find('.cont span').eq(4).text(respone.list_msg.file_msg.type);
+			}
+			if(respone.list_msg.file_msg.business_name){
+				$('.module').eq(1).find('.cont span').eq(5).text(respone.list_msg.file_msg.business_name);
+			}
+			
+			//原始工单信息
+			if(respone.list_msg.original_msg.accept_time){
+				$('.module').eq(2).find('.cont span').eq(0).text(respone.list_msg.original_msg.accept_time);
+			}
+			if(respone.list_msg.original_msg.complain_cell){
+				$('.module').eq(2).find('.cont span').eq(1).text(respone.list_msg.original_msg.complain_cell);
+			}
+			if(respone.list_msg.original_msg.occ_city){
+				$('.module').eq(2).find('.cont span').eq(2).text(respone.list_msg.original_msg.occ_city);
+			}
+			if(respone.list_msg.original_msg.complain_type){
+				$('.module').eq(2).find('.cont span').eq(3).text(respone.list_msg.original_msg.complain_type);
+			}
+			if(respone.list_msg.original_msg.error_discribe){
+				$('.module').eq(2).find('.cont span').eq(4).text(respone.list_msg.original_msg.error_discribe);
+			}
+			//生成工单信息存储数据名：workList 
+			window.workList = JSON.stringify(respone.list_msg.file_msg);
+			//原始工单信息数据名：file_msg
+			window.file_msg = JSON.stringify(respone.list_msg.original_msg);
+		})
+	</script>
+</body>
+</html>

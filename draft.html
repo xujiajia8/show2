@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./static/css/comm.css">
+	<link rel="stylesheet" type="text/css" href="./static/css/total.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/specil.css">
+	<script type="text/javascript" src="./static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="./static/js/show.js"></script>
+    <script type="text/javascript" src="./static/js/comm.js"></script>
+	<style type="text/css">
+		.siled .module .cont > p > strong{
+			width: 84px;
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+    <!--start 头部-->
+	<div class="top">
+		<div class="title"><img src="./static/images/logo.png" alt=""></div>
+		<ul>
+            <li onclick="window.location.href='helpCenter.html'">
+                <i class="help"></i>
+                <p>帮助中心</p>
+            </li>
+            <li onclick="window.location.href='messageCenter.html'">
+                <i class="message"></i>
+                <span class="icon"><b>4</b></span>
+                <p>消息中心</p>
+            </li>
+            <li onclick="window.location.href='personalCenter.html'">
+                <i class="user"></i>
+                <p>个人中心</p>
+            </li>
+            <li onclick="window.location.href='login.html'">
+                <i class="icon_close"></i>
+                <p>登出</p>
+            </li>
+		</ul>
+	</div>
+    <!--end 头部-->
+	<div class="content">
+        <!--start 测导航-->
+		<div class="nav">
+			<p>我的导航</p>
+			<ul>
+				<li onclick="window.location.href = 'index.html'">
+					<i class="nav_home"></i>
+					<span>首页</span>
+				</li>
+                <li onclick="window.location.href = 'import-idx.html';">
+                    <i class="nav_import"></i>
+                    <span>EMOS工单</span>
+                </li>
+                <li class="active" onclick="window.location.href = 'enter-idx.html';">
+                    <i class="nav_input"></i>
+                    <span>录入型工单</span>
+                </li>
+				<li onclick="window.location.href = 'analysis.html'">
+					<i class="nav_static"></i>
+					<span>统计分析</span>
+				</li>
+				<li onclick="window.location.href = 'params.html';">
+					<i class="nav_manage"></i>
+					<span>系统管理</span>
+				</li>
+			</ul>
+		</div>
+        <!--end 测导航-->
+		<div class="siled" id="siled">
+			<div class="path">录入型工单 / 工单</div>
+			<div class="subtitle">
+				<span>工单 JS-00-00000-01</span>
+				<div class="caog">草稿</div>
+			</div>
+			<div class="module">
+				<div class="title">
+					<span>工单信息</span>
+					<i class="show"></i>
+				</div>
+				<div class="cont" style="display:block">
+					<p>
+						<strong>客服受理时间：</strong>
+						<span>2019-06-03 10:00:00</span>
+					</p>
+					<p>
+						<strong>投诉电话：</strong>
+						<span>13552819786</span>
+					</p>
+					<p>
+						<strong>投诉时间：</strong>
+						<span>2019-06-03 10:00:00</span>
+					</p>
+					<p>
+						<strong>数据时间：</strong>
+						<span>2019-06-03 10:00:00 - 2019-06-04 10:00:00</span>
+					</p>
+					<p>
+						<strong>投诉地市：</strong>
+						<span>苏州</span>
+					</p>
+					<p>
+						<strong>投诉地点：</strong>
+						<span>工业园</span>
+					</p>
+					<p>
+						<strong>投诉描述：</strong>
+						<span></span>
+					</p>
+					<p>
+						<strong>投诉类别：</strong>
+						<span>上网时出现断线</span>
+					</p>
+					<p>
+						<strong>业务类别：</strong>
+						<span>游览</span>
+					</p>
+					<p>
+						<strong>业务名称：</strong>
+						<span>微信</span>
+					</p>
+				</div>
+			</div>
+			<div class="start">
+				<button>编辑</button>
+				<button class="">开始定界</button>
+			</div>
+		</div>
+        <div class="footer">
+            <div>
+                <p>联系我们 | 帮助中心</p>
+                <p>京ICP备XXXXXXXXXXXXXX号 中国移动通信版权所有</p>
+            </div>
+        </div>
+        <div class="mask-pop"></div>
+	    <div class="delete-pop">
+	        <div>
+	            <img src="./static/images/draft.png" alt="">
+	            <p>是否将投诉描述作为鉴权描述发给直属审批人员？</p>
+	            <span>鉴权原因：不能上网</span>
+	        </div>
+	        <div>
+	            <button>取消</button>
+	            <button>确定</button>
+	        </div>
+	    </div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+            window.fiel_number = 'JSL-00-0000-01'; //工单编号变量
+			$('.siled .subtitle span').text('工单 '+window.fiel_number);//工单编号展示
+			$('.start button').eq(0).on('click',function(){
+				localStorage.setItem('workEdit_draft',JSON.stringify(window.wE));
+				window.location.href = 'workEdit.html'
+			})
+			//开始定界
+			$('.start button').eq(1).on('click',function(){
+				$('.delete-pop').show();
+			})
+			$('.delete-pop button').eq(0).on('click',function(){
+				$('.delete-pop').hide()
+			})
+			$('.delete-pop button').eq(1).on('click',function(){
+				localStorage.setItem('process_type','定界中');
+				localStorage.setItem('fiel_number',window.fiel_number);
+				window.location.href = 'process.html'
+			})
+			var respone = {"form_num":"JSL-056-190524-001","business_name":"","complaints_call":"13913608033","complaints_time":"2019-05-24 08:20:09","complaints_city":"苏州","data_time1":"2019-05-24 06:20:09","data_time2":"2019-05-24 08:20:09","complaints_place":"苏州市张家港市","complaints_category":"无4G信号或者信号弱","business_category":"","dis":"客户反映2019-05-24 08:20:09，在地点（苏州市张家港市南港橡胶工业公司(120.450297,31.955843)），出现（没有信号）投诉现象，已持续（突发时间），历史使用情况（好），周围用户情况是否正常（否），用户使用网络：4G，是否同意进行测试：是，客户终端型号为：苹果A1700（VOLTE终端），4G功能是否开通：是。","recv":"2019-05-24 22:18:57"}
+			window.wE = respone;
+			//客服受理时间
+			if(wE.recv){
+				$('.module .cont > p').eq(0).find('span').text(timeChange(wE.recv))
+			}
+			//投诉电话
+			if(wE.complaints_call){
+				$('.module .cont > p').eq(1).find('span').text(wE.complaints_call);
+			}
+			//投诉时间
+			if(wE.complaints_time){
+				$('.module .cont > p').eq(2).find('span').text(timeChange(wE.complaints_time));
+			}
+			//数据时间
+			if(Boolean(wE.data_time1) || Boolean(wE.data_time2)){
+				$('.module .cont > p').eq(3).find('span').text(timeChange(wE.data_time1)+' - '+timeChange(wE.data_time2));
+			}
+			//地市
+			if(wE.complaints_city){
+				$('.module .cont > p').eq(4).find('span').text(wE.complaints_city);
+			}
+			//投诉地点
+			if(wE.complaints_place){
+				$('.module .cont > p').eq(5).find('span').text(wE.complaints_place);
+			}
+			//投诉描述
+			if(wE.dis){
+				$('.module .cont > p').eq(6).find('span').text(wE.dis);
+				$('.delete-pop span').text('鉴权原因：'+wE.dis);
+			}
+			//投诉类别
+			if(wE.complaints_category){
+				$('.module .cont > p').eq(7).find('span').text(wE.complaints_category)
+			}
+			//业务类别
+			if(wE.business_category){
+				$('.module .cont > p').eq(8).find('span').text(wE.business_category)
+			}
+			//业务名称
+			if(wE.business_name){
+				$('.module .cont > p').eq(9).find('span').text(wE.business_name);
+			}
+			if(!Boolean(wE.complaints_call && wE.complaints_time && wE.data_time1 && wE.data_time2 && wE.complaints_city && wE.complaints_place && wE.dis && wE.complaints_category)){
+				$('.start button').eq(1).addClass('disabled')
+			}
+		})
+	</script>
+</body>
+</html>
